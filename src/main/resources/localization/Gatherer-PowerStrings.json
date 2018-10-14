@@ -1,0 +1,45 @@
+{
+  "SpareBottle": {
+    "NAME": "Spare Bottle",
+    "DESCRIPTIONS": [
+      "Whenever you use a #yPotion, gain #b",
+      " #yBlock and deal #b",
+      " damage to a random enemy."
+    ]
+  },
+  "DrawHalf": {
+    "NAME": "Draw Half",
+    "DESCRIPTIONS": [
+      "At the start of each turn, Draw 1 additional card with 50% probability."
+    ]
+  },
+  "NextNextTurnBlock": {
+    "NAME": "Final Tree Power",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yBlock 2 turns later."
+    ]
+  },
+  "PoisonMastery": {
+    "NAME": "Poison Mastery",
+    "DESCRIPTIONS": [
+      "Poison damage is increased by ",
+      "00%."
+    ]
+  },
+  "Pollute": {
+    "NAME": "Pollute",
+    "DESCRIPTIONS": [
+      "Next turn, Apply ",
+      " Poison, Weak and Vulnerable to ALL enemies."
+    ]
+  },
+  "RemoveRetainCard": {
+    "NAME": "",
+    "DESCRIPTIONS": [
+      "Retaining power only lasts for this turn."
+    ]
+  },
+
+  "Dummy": { }
+}

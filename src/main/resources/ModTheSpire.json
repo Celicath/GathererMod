@@ -1,0 +1,11 @@
+{
+  "modid": "gatherermod",
+  "name": "GathererMod",
+  "author_list": ["Celicath"],
+  "description": "Adds The Gatherer as a new playable character.",
+  "version": "0.1",
+  "sts_version": "10-11-2018",
+  "mts_version": "3.3.0",
+  "dependencies": ["basemod"],
+  "update_json": "https://api.github.com/repos/Celicath/GathererMod/releases/latest"
+}

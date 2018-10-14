@@ -1,0 +1,26 @@
+{
+  "CentralizeAction": {
+    "TEXT": [
+      "Choose a Card; upgrade & add to your hand.",
+      "Choose two Cards; upgrade & add to your hand."
+    ]
+  },
+  "PotionSack": {
+    "TEXT": [
+      "The Sack can hold 3 lesser potions. Potions here are only available during this combat.",
+      "Sack"
+    ]
+  },
+  "DiscardPileToDeckAction": {
+    "TEXT": [
+      "Choose ",
+      " cards to shuffle to your deck."
+    ]
+  },
+  "DiscardPileToTopOfDeckAction": {
+    "TEXT": [
+      "Choose a Card to Put on Top of Your Draw Pile."
+    ]
+  },
+  "Dummy": { }
+}

@@ -1,0 +1,193 @@
+{
+  "Strike_Gatherer": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "Defend_Gatherer": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "Centralize": {
+    "NAME": "Centralize",
+    "DESCRIPTION": "Choose !M! card from draw pile into your hand. NL Single: Upgrade it for the combat.",
+    "UPGRADE_DESCRIPTION": "Choose !M! cards from draw pile into your hand. NL Single: Upgrade them for the combat."
+  },
+  "SpareBottle": {
+    "NAME": "Spare Bottle",
+    "DESCRIPTION": "Whenever you use a Potion, gain !M! Block and deal !M! damage to a random enemy."
+  },
+  "FlowerWhip": {
+    "NAME": "Flower Whip",
+    "DESCRIPTION": "Deal !D! damage !M! times."
+  },
+  "FlowerGuard": {
+    "NAME": "Flower Guard",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "FlowerPower": {
+    "NAME": "Flower Power",
+    "DESCRIPTION": "Gain 1 Strength per Flower card in your deck.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Strength and Dexterity per Flower card in your deck.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Have !M! Flower cards)"
+    ]
+  },
+  "FlowerWind": {
+    "NAME": "Flower Wind",
+    "DESCRIPTION": "Gain !M! Weak, Frail, and Vulnerable. Draw !M! extra card at the start of your turn.",
+    "EXTENDED_DESCRIPTION": [
+      "Gain !M! Weak and Frail. Draw !M! extra card at the start of your turn.",
+      "Gain !M! Weak. Draw !M! extra card at the start of your turn.",
+      "Draw !M! extra card at the start of your turn."
+    ]
+  },
+  "FlowerBeam": {
+    "NAME": "Flower Beam",
+    "DESCRIPTION": "Deal !D! damage to all enemies."
+  },
+  "SacredSoil": {
+    "NAME": "Sacred Soil",
+    "DESCRIPTION": "Gain !B! Block. NL When obtained, permanently upgrade ALL your Flower cards."
+  },
+  "SolarBeam": {
+    "NAME": "Solar Beam",
+    "DESCRIPTION": "Upgrade ALL your Flower cards for the combat. Deal 5 damage for each of them. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. Upgrade ALL your Flower cards for the combat. Deal 5 damage for each of them. Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
+  "CollectorsShot": {
+    "NAME": "Collector's Shot",
+    "DESCRIPTION": "Deal !M! damage per unique cards in your deck.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
+  "CollectorsDrill": {
+    "NAME": "Collector's Drill",
+    "DESCRIPTION": "Can only be played if there are !M! unique cards in your discard pile. Deal !D! damage to ALL enemies.",
+    "EXTENDED_DESCRIPTION": [
+      "There are only ",
+      " unique cards in my discard pile."
+    ]
+  },
+  "FruitForce" : {
+    "NAME": "Fruit Force",
+    "DESCRIPTION": "Deal damage equal to !M! % max HP. When you pick this, gain 3 max HP.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
+  "MagicLamp" : {
+    "NAME": "Magic Lamp",
+    "DESCRIPTION": "Draw 1 card. When you add this to your deck, also add Light! and Shadow!",
+    "UPGRADE_DESCRIPTION": "Draw 1 or 2 cards randomly. When you add this to your deck, also add Light! and Shadow!."
+  },
+  "LightMagic" : {
+    "NAME": "Light!",
+    "DESCRIPTION": "Gain !B! Block. Draw 1 card with 50% chance.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. Draw 1 card."
+  },
+  "ShadowStrike" : {
+    "NAME": "Shadow!",
+    "DESCRIPTION": "Deal !D! damage. Draw 1 card with 50% chance.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Draw 1 card."
+  },
+  "CoupDeGrace" : {
+    "NAME": "Coup De Grace",
+    "DESCRIPTION": "Deal !D! damage. If target’s current HP is less than half of yours, attack twice."
+  },
+  "FirstAidPotion": {
+    "NAME": "First-Aid Potion",
+    "DESCRIPTION": "Heal !M! % of missing HP. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Heal ",
+      " HP.)"
+    ]
+  },
+  "TreeGrowth": {
+    "NAME": "Tree Growth",
+    "DESCRIPTION": "Next turn gain !B! Block.",
+    "EXTENDED_DESCRIPTION": [
+      " Gain ",
+      " Block 2 turns later."
+    ]
+  },
+  "TacticalStrike" : {
+    "NAME": "Tactical Strike",
+    "DESCRIPTION": "Deal !D! damage. Draw !M! cards."
+  },
+  "CarefulStrike" : {
+    "NAME": "Careful Strike",
+    "DESCRIPTION": "Deal !D! damage. You may put !M! card on top of your deck."
+  },
+  "TrickStyle" : {
+    "NAME": "Trick Style",
+    "DESCRIPTION": "Deal !D! damage. Retain. When Retained, it changes to Block-giving Skill.",
+    "EXTENDED_DESCRIPTION": [
+      "Gain !D! Block. Retain. When Retained, it reverts to Attack."
+    ]
+  },
+  "Snatch" : {
+    "NAME": "Snatch",
+    "DESCRIPTION": "Deal !D! Damage. NL Once: Obtain a random lesser potion to the Sack."
+  },
+  "QuickSynthesis" : {
+    "NAME": "Quick Synthesis",
+    "DESCRIPTION": "Obtain !M! lesser potion to the Sack. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Obtain !M! lesser potions to the Sack. NL Exhaust."
+  },
+  "FlamingBottle" : {
+    "NAME": "Flaming Bottle",
+    "DESCRIPTION": "Deal !D! damage. Obtain a Lesser Fire Potion to your Sack. NL Exhaust."
+  },
+  "PoisonMastery" : {
+    "NAME": "Poison Mastery",
+    "DESCRIPTION": "Obtain !M! Lesser Poison Potion to your Sack. Poison damage is increased by 100% this combat.",
+    "UPGRADE_DESCRIPTION": "Obtain !M! Lesser Poison Potions to your Sack. Poison damage is increased by 100% this combat."
+  },
+  "Pollute" : {
+    "NAME": "Pollute",
+    "DESCRIPTION": "Next turn, Apply !M! Poison, Weak and Vulnerable to ALL enemies."
+  },
+  "GatherMaterial" : {
+    "NAME": "Gather Material",
+    "DESCRIPTION": "Gain [G] for each card in your hand with 2 or more cost.",
+    "EXTENDED_DESCRIPTION" : [
+      " NL (Gain ",
+      " energy.)"
+    ]
+  },
+  "Convert" : {
+    "NAME": "Convert",
+    "DESCRIPTION": "Exhaust a card. If it is a Potion, gain !B! Block."
+  },
+  "SecretPlan" : {
+    "NAME": "Secret Plan",
+    "DESCRIPTION": "Draw !M! cards. Retain up to 1 card this turn.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. Retain up to 2 cards this turn."
+  },
+  "WoolGloves" : {
+    "NAME" : "Wool Gloves",
+    "DESCRIPTION": "Gain !B! Block. Once: Draw 3 cards, then discard 3 cards."
+  },
+  "Salvage" : {
+    "NAME": "Salvage",
+    "DESCRIPTION": "Choose up to !M! cards from your discard pile. Shuffle them into your draw pile."
+  },
+  "HarmonicSymbol" : {
+    "NAME": "Harmonic Symbol",
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage."
+  },
+  "LastResort" : {
+    "NAME": "Last Resort",
+    "DESCRIPTION": "Deal damage equal to half of your missing HP. Apply !M! Vulnerable.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to half of your missing HP +4. Apply !M! Vulnerable.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
+
+  "Dummy": {}
+}

@@ -1,0 +1,25 @@
+{
+  "AlchemyBag": {
+    "NAME": "Alchemy Bag",
+    "FLAVOR": "A mysterious bag with the power of recurring potions.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, obtain a lesser potion to the Sack."
+    ]
+  },
+  "MiracleBag": {
+    "NAME": "Miracle Bag",
+    "FLAVOR": "Created with forbidden technology.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, obtain a random potion.",
+      "Replaces #yAlchemy #yBag. At the start of each combat, obtain a rare potion."
+    ]
+  },
+  "ColorfulStone": {
+    "NAME": "Colorful Stone",
+    "FLAVOR": "It's so oddly colorful.",
+    "DESCRIPTIONS": [
+      "Upon pick up, #b3 of your Defends change their color. They count as #yunique and give #b1 more #yBlock."
+    ]
+  },
+  "Dummy" : { }
+}
