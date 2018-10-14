@@ -7,9 +7,11 @@ The primary focus of The Gatherer is the Potion. She has a potion sack which can
 
 ## Current State and Goal
 GathererMod is at an early development stage. Cards are not implemented fully, and they are going to change vastly.
-Implemented Cards: 33/75
-Implemented Relics: 3/7
-Implemented Events: 0
+
+- Implemented Cards: 33/75
+- Implemented Relics: 3/7
+- Implemented Events: 0
+
 All arts are not final, regardless of having BETA in its image or not. I'll try to make arts after finishing all the contents.
 
 As a goal, The Gatherer will have similar quality as official characters. The power level of cards is going to be similar, though I can accept if she is a little bit harder than other characters.
