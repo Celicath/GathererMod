@@ -1,7 +1,6 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
-import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,17 +10,19 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import the_gatherer.GathererMod;
 import the_gatherer.patches.AbstractCardEnum;
 
 import java.util.HashSet;
 import java.util.Iterator;
 
 public class CollectorsShot extends CustomCard {
-	public static final String ID = "CollectorsShot";
+	private static final String CardID = "CollectorsShot";
+	public static final String ID = GathererMod.makeID(CardID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
-	public static final String IMG = "img/cards/" + ID + ".png";
-	private static final int COST = 2;
+	public static final String IMG = "img/cards/" + CardID + ".png";
+	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final CardType TYPE = CardType.ATTACK;
@@ -29,7 +30,7 @@ public class CollectorsShot extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 2;
+	private static final int POWER = 3;
 	private static final int UPGRADE_BONUS = 1;
 
 	public CollectorsShot() {
@@ -40,12 +41,16 @@ public class CollectorsShot extends CustomCard {
 
 	public void applyPowers() {
 		Iterator it = AbstractDungeon.player.masterDeck.group.iterator();
-		HashSet<String> ids = new HashSet<>();
+		HashSet<String> ids1 = new HashSet<>();
+		HashSet<String> ids2 = new HashSet<>();
 		while (it.hasNext()) {
 			AbstractCard c = (AbstractCard) it.next();
-			ids.add(c.cardID);
+			if (ids1.contains(c.cardID))
+				ids2.add(c.cardID);
+			else ids1.add(c.cardID);
 		}
-		this.baseDamage = ids.size() * this.magicNumber;
+
+		this.baseDamage = ids2.size() * this.magicNumber;
 
 		super.applyPowers();
 		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];

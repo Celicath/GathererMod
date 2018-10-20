@@ -110,5 +110,25 @@
       " #yWeak."
     ]
   },
+  "FirstAidPotion": {
+    "NAME": "First-Aid Potion",
+    "DESCRIPTIONS": [
+      "Heal #b",
+      "% of missing health."
+    ]
+  },
+  "FirstAidPotionPlus": {
+    "NAME": "First-Aid Potion+",
+    "DESCRIPTIONS": [
+      "Heal #b",
+      "% of missing health."
+    ]
+  },
+  "PlaceHolderPotion": {
+    "NAME": "PlaceHolder",
+    "DESCRIPTIONS": [
+      "Just a placeholder for implementing potion-based things."
+    ]
+  },
   "Dummy" : { }
 }

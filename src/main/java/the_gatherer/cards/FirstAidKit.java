@@ -8,18 +8,23 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import the_gatherer.GathererMod;
 import the_gatherer.actions.FirstAidPotionAction;
+import the_gatherer.actions.ObtainLesserPotionAction;
 import the_gatherer.patches.AbstractCardEnum;
 import the_gatherer.patches.CustomTags;
+import the_gatherer.potions.FirstAidPotion;
+import the_gatherer.potions.FirstAidPotionPlus;
 
-public class FirstAidPotion extends CustomCard {
-	public static final String ID = "FirstAidPotion";
+public class FirstAidKit extends CustomCard {
+	private static final String CardID = "FirstAidKit";
+	public static final String ID = GathererMod.makeID(CardID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
-	public static final String IMG = "img/cards/" + ID + ".png";
+	public static final String IMG = "img/cards/" + CardID + ".png";
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final CardType TYPE = CardType.SKILL;
 	private static final CardColor COLOR = AbstractCardEnum.LIME;
 	private static final CardRarity RARITY = CardRarity.COMMON;
@@ -28,41 +33,31 @@ public class FirstAidPotion extends CustomCard {
 	private static final int POWER = 7;
 	private static final int UPGRADE_BONUS = 3;
 
-	public FirstAidPotion() {
+	public FirstAidKit() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+		this.tags.add(CardTags.HEALING);
+		this.exhaust = true;
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
-		this.tags.add(CardTags.HEALING);
-		this.tags.add(CustomTags.PotionCard);
-		this.exhaust = true;
-	}
-
-	public void applyPowers() {
-		super.applyPowers();
-
-		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + CalcAmount(AbstractDungeon.player, this.magicNumber) + EXTENDED_DESCRIPTION[1];
-		this.initializeDescription();
-	}
-
-	public static int CalcAmount(AbstractCreature p, int ratio) {
-		return ((p.maxHealth - p.currentHealth) * ratio - 1) / 100 + 1;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new FirstAidPotionAction(p, p, magicNumber));
-
-		this.rawDescription = DESCRIPTION;
-		this.initializeDescription();
+		if (this.upgraded)
+			AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new FirstAidPotionPlus()));
+		else
+			AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new FirstAidPotion()));
 	}
 
 	public AbstractCard makeCopy() {
-		return new FirstAidPotion();
+		return new FirstAidKit();
 	}
 
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
 			this.upgradeMagicNumber(UPGRADE_BONUS);
+			this.rawDescription = UPGRADE_DESCRIPTION;
+			this.initializeDescription();
 		}
 	}
 }

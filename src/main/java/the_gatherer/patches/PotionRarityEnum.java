@@ -6,4 +6,6 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 public class PotionRarityEnum {
 	@SpireEnum
 	public static AbstractPotion.PotionRarity LESSER;
+	@SpireEnum
+	public static AbstractPotion.PotionRarity SPECIAL;
 }

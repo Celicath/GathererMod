@@ -4,6 +4,7 @@ import basemod.BaseMod;
 import basemod.ModLabel;
 import basemod.ModPanel;
 import basemod.abstracts.CustomCard;
+import basemod.helpers.BaseModCardTags;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -11,28 +12,34 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.cards.blue.Defend_Blue;
+import com.megacrit.cardcrawl.cards.green.Defend_Green;
+import com.megacrit.cardcrawl.cards.red.Defend_Red;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.BloodPotion;
+import com.megacrit.cardcrawl.potions.GhostInAJar;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import the_gatherer.cards.*;
 import the_gatherer.character.TheGatherer;
-import the_gatherer.interfaces.*;
+import the_gatherer.interfaces.OnObtainEffect;
+import the_gatherer.interfaces.OnUsePotionEffect;
+import the_gatherer.interfaces.OnceEffect;
+import the_gatherer.interfaces.PostObtainCardSubscriber;
 import the_gatherer.modules.CaseMod;
 import the_gatherer.modules.PotionSack;
 import the_gatherer.patches.AbstractCardEnum;
 import the_gatherer.patches.AbstractPlayerEnum;
 import the_gatherer.potions.*;
 import the_gatherer.powers.SpareBottlePower;
-import the_gatherer.relics.AlchemyBag;
-import the_gatherer.relics.ColorfulStone;
-import the_gatherer.relics.MiracleBag;
+import the_gatherer.relics.*;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -46,7 +53,8 @@ public class GathererMod implements PostInitializeSubscriber,
 		EditStringsSubscriber, SetUnlocksSubscriber, EditKeywordsSubscriber,
 		OnStartBattleSubscriber, OnPowersModifiedSubscriber,
 		PostPotionUseSubscriber, PostObtainCardSubscriber,
-		PostBattleSubscriber, OnCardUseSubscriber, RenderSubscriber {
+		PostBattleSubscriber, OnCardUseSubscriber, RenderSubscriber,
+		PostEnergyRechargeSubscriber {
 
 	public static final Logger logger = LogManager.getLogger(GathererMod.class.getName());
 
@@ -63,7 +71,7 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static final String GATHERER_CORPSE = "img/character/gatherer/corpse.png";
 
 	public static PotionSack potionSack;
-	Set<Class<?>> usedOnceCards;
+	public static Set<Class<?>> playedCardsCombat = new HashSet();
 
 	public GathererMod() {
 		logger.info("Constructor started.");
@@ -109,7 +117,6 @@ public class GathererMod implements PostInitializeSubscriber,
 		logger.info("receiveEditCharacters started.");
 		BaseMod.addCharacter(
 				new TheGatherer(TheGatherer.CLASS_NAME, AbstractPlayerEnum.THE_GATHERER),
-				AbstractCardEnum.LIME,
 				GATHERER_BUTTON,
 				GATHERER_PORTRAIT,
 				AbstractPlayerEnum.THE_GATHERER);
@@ -129,7 +136,10 @@ public class GathererMod implements PostInitializeSubscriber,
 		BaseMod.addPotion(LesserStrengthPotion.class, new Color(0.62f, 0.62f, 0.62f, 0.75f), null, new Color(1.0f, 0.75f, 0.65f, 0.75f), LesserStrengthPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
 		BaseMod.addPotion(LesserSwiftPotion.class, new Color(0.52f, 0.63f, 0.8f, 0.75f), null, new Color(0.5f, 1.0f, 1.0f, 0.75f), LesserSwiftPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
 		BaseMod.addPotion(LesserWeakPotion.class, new Color(0.96f, 0.75f, 0.96f, 0.75f), new Color(0.84f, 0.59f, 0.68f, 0.75f), null, LesserWeakPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
+		BaseMod.addPotion(FirstAidPotion.class, new Color(1.0f, 1.0f, 1.0f, 0.75f), new Color(0.875f, 0.875f, 0.875f, 0.75f), null, FirstAidPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
+		BaseMod.addPotion(FirstAidPotionPlus.class, new Color(1.0f, 1.0f, 1.0f, 0.75f), new Color(0.875f, 0.875f, 0.875f, 0.75f), null, FirstAidPotionPlus.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
 		BaseMod.addPotion(BloodPotion.class, Color.WHITE.cpy(), Color.LIGHT_GRAY.cpy(), null, BloodPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
+		BaseMod.addPotion(GhostInAJar.class, Color.WHITE.cpy(), Color.LIGHT_GRAY.cpy(), null, BloodPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
 
 		logger.info("receiveEditCharacters finished.");
 	}
@@ -139,7 +149,8 @@ public class GathererMod implements PostInitializeSubscriber,
 		logger.info("receiveEditRelics started.");
 		BaseMod.addRelicToCustomPool(new AlchemyBag(), AbstractCardEnum.LIME);
 		BaseMod.addRelicToCustomPool(new MiracleBag(), AbstractCardEnum.LIME);
-		BaseMod.addRelicToCustomPool(new ColorfulStone(), AbstractCardEnum.LIME);
+		BaseMod.addRelicToCustomPool(new IronSlate(), AbstractCardEnum.LIME);
+		BaseMod.addRelicToCustomPool(new SilentSlate(), AbstractCardEnum.LIME);
 		logger.info("receiveEditRelics finished.");
 	}
 
@@ -149,38 +160,47 @@ public class GathererMod implements PostInitializeSubscriber,
 		List<CustomCard> cards = new ArrayList<>();
 		cards.add(new Strike_Gatherer());
 		cards.add(new Defend_Gatherer());
+		cards.add(new FlowerWhip());
 		cards.add(new Centralize());
 		cards.add(new SpareBottle());
-		cards.add(new FlowerWhip());
-		cards.add(new FlowerGuard());
-		cards.add(new FlowerWind());
-		cards.add(new FlowerBeam());
-		cards.add(new CollectorsShot());
-		cards.add(new CollectorsDrill());
-		cards.add(new FirstAidPotion());
-		cards.add(new FruitForce());
-		cards.add(new MagicLamp());
-		cards.add(new LightMagic());
-		cards.add(new ShadowStrike());
-		cards.add(new SolarBeam());
-		cards.add(new SacredSoil());
-		cards.add(new CoupDeGrace());
-		cards.add(new TreeGrowth());
-		cards.add(new TacticalStrike());
+
+		cards.add(new AcidicSpray());
+		cards.add(new BronzeBlade());
+		cards.add(new Bulldoze());
 		cards.add(new CarefulStrike());
-		cards.add(new TrickStyle());
-		cards.add(new Snatch());
-		cards.add(new QuickSynthesis());
+		cards.add(new CollectorsShot());
+		cards.add(new Convert());
+		cards.add(new CoupDeGrace());
+		cards.add(new FirstAidKit());
 		cards.add(new FlamingBottle());
+		cards.add(new FlowerBeam());
+		cards.add(new FlowerGuard());
+		cards.add(new FlowerPower());
+		cards.add(new FrenzyWhip());
+		cards.add(new FruitForce());
+		cards.add(new Fruitify());
+		cards.add(new GatherMaterial());
+		cards.add(new GlassHammer());
+		cards.add(new HarmonicSymbol());
+		cards.add(new Herbalism());
+		cards.add(new LastResort());
+		cards.add(new Light());
+		cards.add(new MagicLamp());
 		cards.add(new PoisonMastery());
 		cards.add(new Pollute());
-		cards.add(new GatherMaterial());
-		cards.add(new Convert());
-		cards.add(new SecretPlan());
-		cards.add(new WoolGloves());
+		cards.add(new QuickSynthesis());
+		cards.add(new SacredSoil());
 		cards.add(new Salvage());
-		cards.add(new HarmonicSymbol());
-		cards.add(new LastResort());
+		cards.add(new SalvePotion());
+		cards.add(new SecretPlan());
+		cards.add(new Shadow());
+		cards.add(new SimpleSwing());
+		cards.add(new Snatch());
+		cards.add(new SolarBeam());
+		cards.add(new TacticalStrike());
+		cards.add(new TreeGrowth());
+		cards.add(new TrickStyle());
+		cards.add(new WoolGloves());
 
 		for (CustomCard card : cards) {
 			BaseMod.addCard(card);
@@ -218,6 +238,10 @@ public class GathererMod implements PostInitializeSubscriber,
 		String uiStrings = Gdx.files.internal("localization/Gatherer-UIStrings.json").readString(
 				String.valueOf(StandardCharsets.UTF_8));
 		BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
+		// EventStrings
+		String eventStrings = Gdx.files.internal("localization/Gatherer-EventStrings.json").readString(
+				String.valueOf(StandardCharsets.UTF_8));
+		BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
 
 		logger.info("receiveEditStrings finished.");
 	}
@@ -226,7 +250,7 @@ public class GathererMod implements PostInitializeSubscriber,
 	public void receiveEditKeywords() {
 		logger.info("receiveEditKeywords started.");
 
-		BaseMod.addKeyword(new String[]{"unique", "Unique"}, "Differently named cards, except for upgrade differences, are unique.");
+		BaseMod.addKeyword(new String[]{"unique", "Unique"}, "Cards with different IDs are considered unique. Whatever that means.");
 		BaseMod.addKeyword(new String[]{"once", "Once"}, "Only activate once in combat, for each unique card.");
 		BaseMod.addKeyword(new String[]{"flower", "Flower"}, "Card containing \"Flower\" in its name. It can be upgraded 3 times.");
 
@@ -236,16 +260,27 @@ public class GathererMod implements PostInitializeSubscriber,
 	@Override
 	public void receiveOnBattleStart(AbstractRoom room) {
 		logger.info("receiveOnBattleStart started.");
-		usedOnceCards = new HashSet();
+		playedCardsCombat = new HashSet<>();
 		potionSack.removeAllPotions();
 		potionSack.show = false;
 		logger.info("receiveOnBattleStart finished.");
 	}
 
 	@Override
+	public void receivePostEnergyRecharge() {
+		logger.info("receivePostEnergyRecharge started.");
+		logger.info("receivePostEnergyRecharge finished.");
+	}
+
+	@Override
 	public void receivePowersModified() {
 		logger.info("receivePowersModified started.");
-		logger.info("Actually, receivePowersModified does nothing for now.");
+		for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
+			PoisonPower pp = (PoisonPower) monster.getPower(PoisonPower.POWER_ID);
+			if (pp != null) {
+				pp.updateDescription();
+			}
+		}
 		logger.info("receivePowersModified finished.");
 	}
 
@@ -264,13 +299,13 @@ public class GathererMod implements PostInitializeSubscriber,
 	public void receiveCardUsed(AbstractCard c) {
 		if (c instanceof OnceEffect) {
 			OnceEffect oe = (OnceEffect) c;
-			if (usedOnceCards.contains(c.getClass())) {
+			if (playedCardsCombat.contains(c.getClass())) {
 				oe.notSingleEffect();
 			} else {
 				oe.singleEffect();
-				usedOnceCards.add(c.getClass());
 			}
 		}
+		playedCardsCombat.add(c.getClass());
 	}
 
 	@Override
@@ -287,5 +322,13 @@ public class GathererMod implements PostInitializeSubscriber,
 	public void receivePostBattle(AbstractRoom room) {
 		potionSack.removeAllPotions();
 		potionSack.show = false;
+	}
+
+	public static String makeID(String text) {
+		return "Gatherer:" + text;
+	}
+
+	public static boolean isBasicDefend(AbstractCard c) {
+		return c.hasTag(BaseModCardTags.BASIC_DEFEND) || c.getClass() == Defend_Red.class || c.getClass() == Defend_Green.class || c.getClass() == Defend_Blue.class;
 	}
 }

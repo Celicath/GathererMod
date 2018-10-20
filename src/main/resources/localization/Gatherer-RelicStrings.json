@@ -1,12 +1,12 @@
 {
-  "AlchemyBag": {
+  "Gatherer:AlchemyBag": {
     "NAME": "Alchemy Bag",
     "FLAVOR": "A mysterious bag with the power of recurring potions.",
     "DESCRIPTIONS": [
-      "At the start of each combat, obtain a lesser potion to the Sack."
+      "At the start of each combat, obtain a lesser potion to your Sack."
     ]
   },
-  "MiracleBag": {
+  "Gatherer:MiracleBag": {
     "NAME": "Miracle Bag",
     "FLAVOR": "Created with forbidden technology.",
     "DESCRIPTIONS": [
@@ -14,12 +14,26 @@
       "Replaces #yAlchemy #yBag. At the start of each combat, obtain a rare potion."
     ]
   },
-  "ColorfulStone": {
-    "NAME": "Colorful Stone",
-    "FLAVOR": "It's so oddly colorful.",
+  "Gatherer:IronSlate": {
+    "NAME": "Iron Slate",
+    "FLAVOR": "A map to follow the Ironclad's path.",
     "DESCRIPTIONS": [
-      "Upon pick up, #b3 of your Defends change their color. They count as #yunique and give #b1 more #yBlock."
+      "Upon pick up, #b2 of your Strikes change color to Red and gain 1 damage."
     ]
   },
-  "Dummy" : { }
+  "Gatherer:SilentSlate": {
+    "NAME": "Silent Slate",
+    "FLAVOR": "A map to follow the Silent's path.",
+    "DESCRIPTIONS": [
+      "Upon pick up, #b2 of your Defends change color to Green and gain 1 damage."
+    ]
+  },
+  "Gatherer:FlyingFruit" : {
+    "NAME": "Flying Fruit",
+    "FLAVOR": "Fruit flies like a banana.",
+    "DESCRIPTIONS": [
+      "Whenever you play a new unique card while having this, raise your Max HP by #b1"
+    ]
+  },
+  "Gatherer:Dummy" : { }
 }

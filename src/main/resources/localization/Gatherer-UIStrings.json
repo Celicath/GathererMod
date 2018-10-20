@@ -7,8 +7,8 @@
   },
   "PotionSack": {
     "TEXT": [
-      "The Sack can hold 3 lesser potions. Potions here are only available during this combat.",
-      "Sack"
+      "Your Sack can hold 3 Gatherer's potions. Potions here are only available during this combat.",
+      "The Sack"
     ]
   },
   "DiscardPileToDeckAction": {
@@ -20,6 +20,11 @@
   "DiscardPileToTopOfDeckAction": {
     "TEXT": [
       "Choose a Card to Put on Top of Your Draw Pile."
+    ]
+  },
+  "BronzeBladeAction": {
+    "TEXT": [
+      "Play"
     ]
   },
   "Dummy": { }

@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -14,6 +16,7 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import the_gatherer.GathererMod;
 import the_gatherer.cards.*;
+import the_gatherer.patches.AbstractCardEnum;
 import the_gatherer.patches.AbstractPlayerEnum;
 import the_gatherer.relics.AlchemyBag;
 
@@ -95,8 +98,8 @@ public class TheGatherer extends CustomPlayer {
 		return CLASS_NAME;
 	}
 	@Override
-	public Color getCardColor() {
-		return Color.LIME;
+	public AbstractCard.CardColor getCardColor() {
+		return AbstractCardEnum.LIME;
 	}
 	@Override
 	public AbstractCard getStartCardForEvent() {
@@ -131,5 +134,30 @@ public class TheGatherer extends CustomPlayer {
 	@Override
 	public AbstractPlayer newInstance() {
 		return new TheGatherer(CLASS_NAME, AbstractPlayerEnum.THE_GATHERER);
+	}
+
+	@Override
+	public String getSpireHeartText() {
+		return CardCrawlGame.languagePack.getEventString("GathererSpireHeart").DESCRIPTIONS[0];
+	}
+
+	@Override
+	public Color getSlashAttackColor() {
+		return Color.LIME;
+	}
+
+	@Override
+	public String getVampireText() {
+		return CardCrawlGame.languagePack.getEventString("GathererVampires").DESCRIPTIONS[0];
+	}
+
+	@Override
+	public Color getCardRenderColor() {
+		return Color.LIME;
+	}
+
+	@Override
+	public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
+		return new AttackEffect[]{AttackEffect.SLASH_HEAVY, AttackEffect.POISON, AttackEffect.SLASH_DIAGONAL, AttackEffect.SLASH_HEAVY, AttackEffect.FIRE, AttackEffect.BLUNT_LIGHT};
 	}
 }

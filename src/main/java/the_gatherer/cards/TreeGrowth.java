@@ -9,14 +9,16 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
+import the_gatherer.GathererMod;
 import the_gatherer.patches.AbstractCardEnum;
 import the_gatherer.powers.NextNextTurnBlockPower;
 
 public class TreeGrowth extends CustomCard {
-	public static final String ID = "TreeGrowth";
+	private static final String CardID = "TreeGrowth";
+	public static final String ID = GathererMod.makeID(CardID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
-	public static final String IMG = "img/cards/" + ID + ".png";
+	public static final String IMG = "img/cards/" + CardID + ".png";
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
@@ -33,7 +35,7 @@ public class TreeGrowth extends CustomCard {
 		this.baseBlock = POWER;
 		this.block = POWER;
 
-		SetDescription();
+		ResetDescription();
 	}
 
 	void SetDescription() {
@@ -50,6 +52,11 @@ public class TreeGrowth extends CustomCard {
 		this.initializeDescription();
 	}
 
+	void ResetDescription() {
+		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + (this.baseBlock + this.baseBlock) + EXTENDED_DESCRIPTION[1];
+		this.initializeDescription();
+	}
+
 	public void applyPowers() {
 		super.applyPowers();
 		SetDescription();
@@ -58,7 +65,7 @@ public class TreeGrowth extends CustomCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, this.block), this.block));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextNextTurnBlockPower(p, this.block + this.baseBlock), this.block + this.baseBlock));
-		SetDescription();
+		ResetDescription();
 	}
 
 	public AbstractCard makeCopy() {

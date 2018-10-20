@@ -7,16 +7,18 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.PotionSlot;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import the_gatherer.GathererMod;
 
 import static the_gatherer.GathererMod.logger;
 
 public class MiracleBag extends CustomRelic {
-	public static final String ID = "MiracleBag";
+	private static final String RelicID = "MiracleBag";
+	public static final String ID = GathererMod.makeID(RelicID);
 
 	boolean upgraded = false;  // If this relic replaced Alchemy Bag, it is upgraded.
 
 	public MiracleBag() {
-		super(ID, new Texture("img/relics/" + ID + ".png"),
+		super(ID, new Texture("img/relics/" + RelicID + ".png"),
 				RelicTier.BOSS, LandingSound.FLAT);
 	}
 

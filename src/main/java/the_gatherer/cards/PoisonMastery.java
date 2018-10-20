@@ -8,16 +8,18 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import the_gatherer.GathererMod;
 import the_gatherer.actions.ObtainLesserPotionAction;
 import the_gatherer.patches.AbstractCardEnum;
 import the_gatherer.potions.LesserPoisonPotion;
 import the_gatherer.powers.PoisonMasteryPower;
 
 public class PoisonMastery extends CustomCard {
-	public static final String ID = "PoisonMastery";
+	private static final String CardID = "PoisonMastery";
+	public static final String ID = GathererMod.makeID(CardID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
-	public static final String IMG = "img/cards/" + ID + ".png";
+	public static final String IMG = "img/cards/" + CardID + ".png";
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;

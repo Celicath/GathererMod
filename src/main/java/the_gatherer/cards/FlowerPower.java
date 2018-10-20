@@ -1,82 +1,66 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
-import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.DrawPower;
+import com.megacrit.cardcrawl.powers.FrailPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
+import the_gatherer.GathererMod;
 import the_gatherer.cards.Helper.GathererCardHelper;
 import the_gatherer.patches.AbstractCardEnum;
 import the_gatherer.patches.CustomTags;
 
-import java.util.Iterator;
-
 public class FlowerPower extends CustomCard {
-	public static final String ID = "FlowerPower";
+	private static final String CardID = "FlowerPower";
+	public static final String ID = GathererMod.makeID(CardID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
-	public static final String IMG = "img/cards/" + ID + ".png";
-	private static final int COST = 1;
+	public static final String IMG = "img/cards/" + CardID + ".png";
+	private static final int COST = 2;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final CardType TYPE = CardType.POWER;
 	private static final CardColor COLOR = AbstractCardEnum.LIME;
-	private static final CardRarity RARITY = CardRarity.UNCOMMON;
+	private static final CardRarity RARITY = CardRarity.RARE;
 	private static final CardTarget TARGET = CardTarget.SELF;
+
+	private static final int MAGIC = 2;
 
 	public FlowerPower() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
+		this.tags.add(CustomTags.Flower);
+		this.baseMagicNumber = MAGIC;
+		this.magicNumber = MAGIC;
+
 		this.rawDescription = GetRawDescription();
 		this.initializeDescription();
 	}
 
-	private String GetRawDescription()
-	{
+	private String GetRawDescription() {
 		String str;
 		if (timesUpgraded == 0)
 			str = DESCRIPTION;
-		else if (timesUpgraded < 3)
-			str = "Heal " + (timesUpgraded * 3) + " HP. NL " + DESCRIPTION;
-		else str = "Heal " + (timesUpgraded * 3) + " HP. NL " + UPGRADE_DESCRIPTION;
+		else str = EXTENDED_DESCRIPTION[timesUpgraded - 1];
 		return str + GathererCardHelper.FlowerSuffix(this.timesUpgraded);
 	}
 
-	public void applyPowers() {
-		this.baseMagicNumber = 0;
-
-		Iterator it = AbstractDungeon.player.masterDeck.group.iterator();
-		while(it.hasNext()) {
-			AbstractCard c = (AbstractCard)it.next();
-			if (c.hasTag(CustomTags.Flower)) {
-				++this.baseMagicNumber;
-			}
-		}
-		this.magicNumber = this.baseMagicNumber;
-		super.applyPowers();
-
-		this.rawDescription = GetRawDescription() + EXTENDED_DESCRIPTION[0];
-		this.initializeDescription();
-	}
-
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (this.timesUpgraded > 0)
-			AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, this.timesUpgraded * 3));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber));
-		if (this.timesUpgraded == 3)
-			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
+		if (timesUpgraded <= 2)
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WeakPower(p, this.magicNumber, false), this.magicNumber));
+		if (timesUpgraded <= 1)
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FrailPower(p, this.magicNumber, false), this.magicNumber));
+		if (timesUpgraded <= 0)
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new VulnerablePower(p, this.magicNumber, false), this.magicNumber));
 
-		this.rawDescription = GetRawDescription();
-
-		this.initializeDescription();
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DrawPower(p, this.magicNumber), this.magicNumber));
 	}
 
 	public AbstractCard makeCopy() {
@@ -91,6 +75,8 @@ public class FlowerPower extends CustomCard {
 	public void upgrade() {
 		if (timesUpgraded < 3) {
 			++this.timesUpgraded;
+			if (timesUpgraded == 3)
+				this.updateCost(1);
 			this.upgraded = true;
 			this.name = NAME + "+" + this.timesUpgraded;
 			this.initializeTitle();

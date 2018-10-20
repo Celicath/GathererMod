@@ -7,15 +7,17 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import the_gatherer.GathererMod;
 import the_gatherer.actions.CentralizeAction;
 import the_gatherer.interfaces.OnceEffect;
 import the_gatherer.patches.AbstractCardEnum;
 
 public class Centralize extends CustomCard implements OnceEffect {
-	public static final String ID = "Centralize";
+	private static final String CardID = "Centralize";
+	public static final String ID = GathererMod.makeID(CardID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
-	public static final String IMG = "img/cards/" + ID + ".png";
+	public static final String IMG = "img/cards/" + CardID + ".png";
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
@@ -49,6 +51,7 @@ public class Centralize extends CustomCard implements OnceEffect {
 	public void notSingleEffect() {
 		AbstractDungeon.actionManager.addToBottom(new CentralizeAction(magicNumber, false));
 	}
+
 	public void singleEffect() {
 		AbstractDungeon.actionManager.addToBottom(new CentralizeAction(magicNumber, true));
 	}

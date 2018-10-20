@@ -4,7 +4,6 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -14,6 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
+import the_gatherer.GathererMod;
 import the_gatherer.actions.SolarBeamAction;
 import the_gatherer.patches.AbstractCardEnum;
 import the_gatherer.patches.CustomTags;
@@ -21,10 +21,11 @@ import the_gatherer.patches.CustomTags;
 import java.util.Iterator;
 
 public class SolarBeam extends CustomCard {
-	public static final String ID = "SolarBeam";
+	private static final String CardID = "SolarBeam";
+	public static final String ID = GathererMod.makeID(CardID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
-	public static final String IMG = "img/cards/" + ID + ".png";
+	public static final String IMG = "img/cards/" + CardID + ".png";
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
@@ -34,7 +35,7 @@ public class SolarBeam extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.RARE;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 5;
+	private static final int POWER = 4;
 
 	public SolarBeam() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -46,8 +47,8 @@ public class SolarBeam extends CustomCard {
 	public void applyPowers() {
 		int count = 0;
 		Iterator it = AbstractDungeon.player.masterDeck.group.iterator();
-		while(it.hasNext()) {
-			AbstractCard c = (AbstractCard)it.next();
+		while (it.hasNext()) {
+			AbstractCard c = (AbstractCard) it.next();
 			if (c.hasTag(CustomTags.Flower)) {
 				++count;
 			}

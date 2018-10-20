@@ -1,5 +1,6 @@
 package the_gatherer.potions;
 
+import basemod.abstracts.CustomPotion;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -17,7 +18,7 @@ import the_gatherer.patches.PotionRarityEnum;
 
 import java.util.Iterator;
 
-public class LesserExplosivePotion extends AbstractPotion {
+public class LesserExplosivePotion extends CustomPotion {
 	public static final String POTION_ID = "LesserExplosivePotion";
 	private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
 	public static final String NAME = potionStrings.NAME;

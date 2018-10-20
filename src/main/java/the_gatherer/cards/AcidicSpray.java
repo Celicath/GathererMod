@@ -2,77 +2,65 @@ package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.WeakPower;
+import the_gatherer.GathererMod;
+import the_gatherer.actions.BronzeBladeAction;
 import the_gatherer.patches.AbstractCardEnum;
 
-import java.util.HashSet;
-import java.util.Iterator;
+public class AcidicSpray extends CustomCard {
+	private static final String CardID = "AcidicSpray";
+	public static final String ID = GathererMod.makeID(CardID);
 
-public class CollectorsDrill extends CustomCard {
-	public static final String ID = "CollectorsDrill";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
-	public static final String IMG = "img/cards/" + ID + ".png";
+	public static final String IMG = "img/cards/" + CardID + ".png";
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final CardType TYPE = CardType.ATTACK;
 	private static final CardColor COLOR = AbstractCardEnum.LIME;
 	private static final CardRarity RARITY = CardRarity.COMMON;
-	private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
+	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 12;
-	private static final int UPGRADE_BONUS = 3;
-	private static final int MAGIC = 5;
-	private static final int MAGIC_BONUS = -1;
+	private static final int POWER = 4;
+	private static final int UPGRADE_BONUS = 2;
+	private static final int MAGIC = 1;
+	private static final int MAGIC_UPGRADE = 1;
 
-	public CollectorsDrill() {
+	public AcidicSpray() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+		this.baseDamage = POWER;
 		this.baseMagicNumber = MAGIC;
 		this.magicNumber = this.baseMagicNumber;
-		this.baseDamage = POWER;
-		this.isMultiDamage = true;
-	}
-
-	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-		if (!super.canUse(p, m)) {
-			return false;
-		} else {
-			Iterator it = AbstractDungeon.player.discardPile.group.iterator();
-			HashSet<String> ids = new HashSet<>();
-			while (it.hasNext()) {
-				AbstractCard c = (AbstractCard) it.next();
-				ids.add(c.cardID);
-			}
-			int count = ids.size();
-			if (count >= this.magicNumber)
-				return true;
-			else {
-				this.cantUseMessage = EXTENDED_DESCRIPTION[0] + count + EXTENDED_DESCRIPTION[1];
-				return false;
-			}
-		}
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+		for(AbstractPower pow : m.powers) {
+			if (pow.type == AbstractPower.PowerType.DEBUFF)
+				AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+		}
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
 	}
 
 	public AbstractCard makeCopy() {
-		return new CollectorsDrill();
+		return new AcidicSpray();
 	}
 
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
 			this.upgradeDamage(UPGRADE_BONUS);
-			this.upgradeMagicNumber(MAGIC_BONUS);
+			this.upgradeMagicNumber(MAGIC_UPGRADE);
 		}
 	}
 }

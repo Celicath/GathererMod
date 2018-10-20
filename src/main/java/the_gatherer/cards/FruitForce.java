@@ -10,14 +10,16 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import the_gatherer.GathererMod;
 import the_gatherer.interfaces.OnObtainEffect;
 import the_gatherer.patches.AbstractCardEnum;
 
 public class FruitForce extends CustomCard implements OnObtainEffect {
-	public static final String ID = "FruitForce";
+	private static final String CardID = "FruitForce";
+	public static final String ID = GathererMod.makeID(CardID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
-	public static final String IMG = "img/cards/" + ID + ".png";
+	public static final String IMG = "img/cards/" + CardID + ".png";
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
@@ -28,6 +30,7 @@ public class FruitForce extends CustomCard implements OnObtainEffect {
 
 	private static final int POWER = 10;
 	private static final int UPGRADE_BONUS = 5;
+	private static final int HP_GAIN = 4;
 
 	public FruitForce() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -63,6 +66,6 @@ public class FruitForce extends CustomCard implements OnObtainEffect {
 
 	@Override
 	public void onObtain() {
-		AbstractDungeon.player.increaseMaxHp(3, false);
+		AbstractDungeon.player.increaseMaxHp(HP_GAIN, false);
 	}
 }

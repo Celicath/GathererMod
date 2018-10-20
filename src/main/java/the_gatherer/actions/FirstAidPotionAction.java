@@ -2,7 +2,7 @@ package the_gatherer.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import the_gatherer.cards.FirstAidPotion;
+import the_gatherer.cards.FirstAidKit;
 
 public class FirstAidPotionAction extends AbstractGameAction {
 
@@ -11,9 +11,14 @@ public class FirstAidPotionAction extends AbstractGameAction {
 		this.actionType = ActionType.HEAL;
 	}
 
+	public static int CalcAmount(AbstractCreature p, int ratio) {
+		return ((p.maxHealth - p.currentHealth) * ratio - 1) / 100 + 1;
+	}
+
+
 	public void update() {
 		if (this.duration == 0.5F) {
-			this.target.heal(FirstAidPotion.CalcAmount(this.target, this.amount));
+			this.target.heal(CalcAmount(this.target, this.amount));
 		}
 
 		this.tickDuration();

@@ -1,5 +1,6 @@
 package the_gatherer.potions;
 
+import basemod.abstracts.CustomPotion;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -15,7 +16,7 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import the_gatherer.patches.PotionRarityEnum;
 
-public class LesserDexterityPotion extends AbstractPotion {
+public class LesserDexterityPotion extends CustomPotion {
 	public static final String POTION_ID = "LesserDexterityPotion";
 	private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
 	public static final String NAME = potionStrings.NAME;

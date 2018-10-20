@@ -37,12 +37,6 @@ public class SpareBottlePower extends AbstractPower implements OnUsePotionEffect
 		this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
 	}
 
-	@Override
-	public void onUseCard(AbstractCard card, UseCardAction action) {
-		if (CardTags.hasTag(card, CustomTags.PotionCard))
-			doAction();
-	}
-
 	public void doAction() {
 		this.flash();
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.amount));

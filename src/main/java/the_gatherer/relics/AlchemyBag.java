@@ -4,14 +4,16 @@ import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import the_gatherer.GathererMod;
 import the_gatherer.actions.ObtainLesserPotionAction;
 import the_gatherer.patches.PotionRarityEnum;
 
 public class AlchemyBag extends CustomRelic {
-	public static final String ID = "AlchemyBag";
+	private static final String RelicID = "AlchemyBag";
+	public static final String ID = GathererMod.makeID(RelicID);
 
 	public AlchemyBag() {
-		super(ID, new Texture("img/relics/" + ID + ".png"),
+		super(ID, new Texture("img/relics/" + RelicID + ".png"),
 				RelicTier.STARTER, LandingSound.FLAT);
 	}
 

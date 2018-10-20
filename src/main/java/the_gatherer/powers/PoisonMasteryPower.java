@@ -24,14 +24,6 @@ public class PoisonMasteryPower extends AbstractPower {
 		this.type = PowerType.BUFF;
 		this.isTurnBased = false;
 		this.img = new Texture("img/powers/" + ID + ".png");
-
-		for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
-			PoisonPower pp = (PoisonPower) monster.getPower(PoisonPower.POWER_ID);
-			if (pp != null) {
-				pp.updateDescription();
-				pp.description = PoisonPower.DESCRIPTIONS[2] + "[#7fff00]" + (pp.amount * (this.amount + 1)) + PoisonPower.DESCRIPTIONS[1];
-			}
-		}
 	}
 
 	public PoisonMasteryPower(AbstractCreature owner, int amount) {
@@ -40,11 +32,5 @@ public class PoisonMasteryPower extends AbstractPower {
 
 	public void updateDescription() {
 		this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
-		for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
-			PoisonPower pp = (PoisonPower) monster.getPower(PoisonPower.POWER_ID);
-			if (pp != null) {
-				pp.updateDescription();
-			}
-		}
 	}
 }

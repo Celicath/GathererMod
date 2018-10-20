@@ -1,5 +1,6 @@
 package the_gatherer.potions;
 
+import basemod.abstracts.CustomPotion;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -14,7 +15,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import the_gatherer.patches.PotionRarityEnum;
 
-public class LesserStrengthPotion extends AbstractPotion {
+public class LesserStrengthPotion extends CustomPotion {
 	public static final String POTION_ID = "LesserStrengthPotion";
 	private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
 	public static final String NAME = potionStrings.NAME;

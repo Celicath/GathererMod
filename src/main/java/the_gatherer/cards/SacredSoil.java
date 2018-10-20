@@ -12,15 +12,17 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
+import the_gatherer.GathererMod;
 import the_gatherer.interfaces.OnObtainEffect;
 import the_gatherer.patches.AbstractCardEnum;
 import the_gatherer.patches.CustomTags;
 
 public class SacredSoil extends CustomCard implements OnObtainEffect {
-	public static final String ID = "SacredSoil";
+	private static final String CardID = "SacredSoil";
+	public static final String ID = GathererMod.makeID(CardID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
-	public static final String IMG = "img/cards/" + ID + ".png";
+	public static final String IMG = "img/cards/" + CardID + ".png";
 	private static final int COST = 2;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;

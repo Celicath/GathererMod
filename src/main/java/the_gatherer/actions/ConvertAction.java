@@ -3,12 +3,12 @@ package the_gatherer.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import the_gatherer.patches.CustomTags;
 
 public class ConvertAction extends AbstractGameAction {
 	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("RecycleAction");
@@ -49,7 +49,7 @@ public class ConvertAction extends AbstractGameAction {
 	}
 
 	void doAction(AbstractCard c) {
-		if (c.hasTag(CustomTags.PotionCard)) {
+		if (c.rarity == CardRarity.UNCOMMON || c.rarity == CardRarity.RARE) {
 			AbstractDungeon.actionManager.addToTop(new GainBlockAction(p, p, this.amount));
 		}
 		this.p.hand.moveToExhaustPile(c);

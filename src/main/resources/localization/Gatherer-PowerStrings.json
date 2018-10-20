@@ -40,6 +40,18 @@
       "Retaining power only lasts for this turn."
     ]
   },
+  "LightPower": {
+    "NAME": "Power of Light",
+    "DESCRIPTIONS": [
+      "If you play Shadow! as the next card, draw 2 cards."
+    ]
+  },
+  "ShadowPower": {
+    "NAME": "Power of Shadow",
+    "DESCRIPTIONS": [
+      "If you play Light! as the next card, draw 2 cards."
+    ]
+  },
 
   "Dummy": { }
 }

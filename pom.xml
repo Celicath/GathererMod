@@ -54,7 +54,7 @@
                         <phase>package</phase>
                         <configuration>
                             <target>
-                                <copy file="target/GathererMod.jar" tofile="../lib/mods/GathererMod.jar"/>
+                                <copy file="target/GathererMod.jar" tofile="../bin/mods/GathererMod.jar"/>
                             </target>
                         </configuration>
                         <goals>

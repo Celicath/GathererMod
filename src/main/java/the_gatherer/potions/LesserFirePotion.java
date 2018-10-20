@@ -1,5 +1,6 @@
 package the_gatherer.potions;
 
+import basemod.abstracts.CustomPotion;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -11,7 +12,7 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import the_gatherer.patches.PotionRarityEnum;
 
-public class LesserFirePotion extends AbstractPotion {
+public class LesserFirePotion extends CustomPotion {
 	public static final String POTION_ID = "LesserFirePotion";
 	private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
 	public static final String NAME = potionStrings.NAME;
@@ -37,6 +38,6 @@ public class LesserFirePotion extends AbstractPotion {
 	}
 
 	public int getPotency(int ascensionLevel) {
-		return 12;
+		return 10;
 	}
 }
