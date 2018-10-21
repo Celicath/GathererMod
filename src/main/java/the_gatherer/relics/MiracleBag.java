@@ -23,14 +23,20 @@ public class MiracleBag extends CustomRelic {
 	}
 
 	@Override
-	public void onEquip() {
-		AbstractPlayer p = AbstractDungeon.player;
-		if (p.hasRelic(AlchemyBag.ID)) {
-			p.potions.add(new PotionSlot(p.potionSlots));
-			p.potionSlots++;
-			p.loseRelic(AlchemyBag.ID);
+	public void obtain() {
+		// Code from The-Mystic-Project.
+		if (AbstractDungeon.player.hasRelic(AlchemyBag.ID)) {
 			upgraded = true;
-		} else upgraded = false;
+			for (int i = 0; i < AbstractDungeon.player.relics.size(); ++i) {
+				if (AbstractDungeon.player.relics.get(i).relicId.equals(AlchemyBag.ID)) {
+					instantObtain(AbstractDungeon.player, i, true);
+					break;
+				}
+			}
+		} else {
+			upgraded = false;
+			super.obtain();
+		}
 	}
 
 	@Override

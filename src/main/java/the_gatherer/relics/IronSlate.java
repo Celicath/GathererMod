@@ -37,7 +37,7 @@ public class IronSlate extends CustomRelic {
 			AbstractCard newcard = new Strike_Red();
 			if (c.upgraded)
 				newcard.upgrade();
-			newcard.baseDamage = c.baseDamage + 1;
+			newcard.baseDamage = c.baseDamage + 2;
 			newGroup.addToBottom(newcard);
 		}
 		float dx = 0;

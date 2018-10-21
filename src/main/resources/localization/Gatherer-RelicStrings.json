@@ -18,14 +18,14 @@
     "NAME": "Iron Slate",
     "FLAVOR": "A map to follow the Ironclad's path.",
     "DESCRIPTIONS": [
-      "Upon pick up, #b2 of your Strikes change color to Red and gain 1 damage."
+      "Upon pick up, #b2 of your Strikes change color to red and gain #b2 damage."
     ]
   },
   "Gatherer:SilentSlate": {
     "NAME": "Silent Slate",
     "FLAVOR": "A map to follow the Silent's path.",
     "DESCRIPTIONS": [
-      "Upon pick up, #b2 of your Defends change color to Green and gain 1 damage."
+      "Upon pick up, #b2 of your Defends change color to green and gain #b2 #yBlock."
     ]
   },
   "Gatherer:FlyingFruit" : {

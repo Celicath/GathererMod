@@ -38,7 +38,7 @@ public class SilentSlate extends CustomRelic {
 			AbstractCard newcard = new Defend_Green();
 			if (c.upgraded)
 				newcard.upgrade();
-			newcard.baseBlock = c.baseBlock + 1;
+			newcard.baseBlock = c.baseBlock + 2;
 			newGroup.addToBottom(newcard);
 		}
 		float dx = 0;
