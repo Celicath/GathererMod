@@ -83,7 +83,7 @@ public class RustyPipe extends CustomCard {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 
 		AbstractPower pow;
-		switch (this.misc) {
+		switch (getDebuff()) {
 			case 0:
 				pow = new PoisonPower(m, p, this.magicNumber);
 				break;
@@ -92,9 +92,6 @@ public class RustyPipe extends CustomCard {
 				break;
 			case 2:
 				pow = new VulnerablePower(m, this.magicNumber, false);
-				break;
-			default:
-				pow = new LoseDexterityPower(m, this.magicNumber);
 				break;
 		}
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, this.magicNumber));
