@@ -51,7 +51,7 @@
   },
   "Gatherer:CollectorsShot": {
     "NAME": "Collector's Shot",
-    "DESCRIPTION": "Deal !M! damage times the number of unique cards with 2 or more copies in your deck.",
+    "DESCRIPTION": "Deal damage equal to !M! X number of unique cards with 2 or more copies in your deck.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -90,16 +90,12 @@
   },
   "Gatherer:FirstAidKit": {
     "NAME": "First-Aid Kit",
-    "DESCRIPTION": "Obtain a First-Aid Potion to the Sack. It heals !M! % of missing HP. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Obtain a First-Aid Potion+ to the Sack. It heals !M! % of missing HP. NL Exhaust."
+    "DESCRIPTION": "Obtain a First-Aid Potion to your Sack. It heals !M! % of missing HP. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Obtain a First-Aid Potion+ to your Sack. It heals !M! % of missing HP. NL Exhaust."
   },
   "Gatherer:TreeGrowth": {
     "NAME": "Tree Growth",
-    "DESCRIPTION": "Next turn, gain !B! Block.",
-    "EXTENDED_DESCRIPTION": [
-      " Gain ",
-      " Block 2 turns later."
-    ]
+    "DESCRIPTION": "Next turn, gain !B! Block. NL Gain !M! Block 2 turns later."
   },
   "Gatherer:TacticalStrike" : {
     "NAME": "Tactical Strike",
@@ -132,7 +128,7 @@
   "Gatherer:PoisonMastery" : {
     "NAME": "Poison Mastery",
     "DESCRIPTION": "Obtain !M! Lesser Poison Potion to your Sack. Poison damage is increased by 100% this combat.",
-    "UPGRADE_DESCRIPTION": "Obtain !M! Lesser Poison Potions to your Sack. Poison damage is increased by 100% this combat."
+    "UPGRADE_DESCRIPTION": "Innate. Obtain !M! Lesser Poison Potion to your Sack. Poison damage is increased by 100% this combat."
   },
   "Gatherer:Pollute" : {
     "NAME": "Pollute",
@@ -148,7 +144,7 @@
   },
   "Gatherer:GatherMaterial" : {
     "NAME": "Gather Material",
-    "DESCRIPTION": "Draw !M! Cards. Gain 3 block for each unique card drawn."
+    "DESCRIPTION": "Draw !M! Cards. Gain 3 Block for each unique card drawn."
   },
   "Gatherer:Convert" : {
     "NAME": "Convert",
@@ -157,7 +153,7 @@
   "Gatherer:SecretPlan" : {
     "NAME": "Secret Plan",
     "DESCRIPTION": "Gain !B! Block. Retain up to !M! card this turn.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. Retain up to !M! card this turn."
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. Retain up to !M! cards this turn."
   },
   "Gatherer:WoolGloves" : {
     "NAME" : "Wool Gloves",
@@ -173,8 +169,8 @@
   },
   "Gatherer:LastResort" : {
     "NAME": "Last Resort",
-    "DESCRIPTION": "Deal damage equal to half of your missing HP. Apply !M! Vulnerable.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to 4+ half of your missing HP. Apply !M! Vulnerable.",
+    "DESCRIPTION": "Deal damage equal to half of your missing HP. NL Apply !M! Vulnerable.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to 4+ half of your missing HP. NL Apply !M! Vulnerable.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -193,10 +189,7 @@
   },
   "Gatherer:GlassHammer" : {
     "NAME": "Glass Hammer",
-    "DESCRIPTION": "Deal !D! damage. Deal ",
-    "EXTENDED_DESCRIPTION": [
-      " damage to a random enemy other than the target."
-    ]
+    "DESCRIPTION": "Deal !D! damage. Deal !M! damage to a random enemy other than the target."
   },
   "Gatherer:SimpleSwing" : {
     "NAME": "Simple Swing",
@@ -209,6 +202,17 @@
   "Gatherer:FrenzyWhip" : {
     "NAME": "Frenzy Whip",
     "DESCRIPTION": "Deal !D! damage twice. Increase this card's damage by !M! this combat."
+  },
+  "Gatherer:RustyPipe" : {
+    "NAME": "Rusty Pipe",
+    "DESCRIPTION": "Deal ? damage. NL Apply ?. NL Effects are randomly determined for each card.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage.",
+      " NL Apply !M! Weak.",
+      " NL Apply !M! Vulnerable.",
+      " NL Apply !M! Poison.",
+      " NL Effects are randomly determined for each card."
+    ]
   },
 
   "Gatherer:Dummy": {}

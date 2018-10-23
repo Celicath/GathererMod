@@ -29,43 +29,32 @@ public class TreeGrowth extends CustomCard {
 
 	private static final int POWER = 4;
 	private static final int UPGRADE_BONUS = 2;
+	private static final int SECONDARY_POWER = 8;
+	private static final int SECONDARY_BONUS = 4;
 
 	public TreeGrowth() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseBlock = POWER;
-		this.block = POWER;
-
-		ResetDescription();
+		this.baseMagicNumber = SECONDARY_POWER;
+		this.magicNumber = this.baseMagicNumber;
 	}
 
-	void SetDescription() {
-		String color_tag = "";
-		if (this.isBlockModified) {
-			if (this.block >= this.baseBlock)
-				color_tag = "[#7fff00]";
-			else
-				color_tag = "[#ff6563]";
-			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + color_tag + (this.block + this.baseBlock) + "[]" + EXTENDED_DESCRIPTION[1];
-		} else {
-			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + (this.block + this.baseBlock) + EXTENDED_DESCRIPTION[1];
-		}
-		this.initializeDescription();
-	}
-
-	void ResetDescription() {
-		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + (this.baseBlock + this.baseBlock) + EXTENDED_DESCRIPTION[1];
-		this.initializeDescription();
-	}
-
+	@Override
 	public void applyPowers() {
+		final int current_block = this.baseBlock;
+		this.baseBlock = this.baseMagicNumber;
 		super.applyPowers();
-		SetDescription();
+
+		this.magicNumber = this.block;
+		this.isMagicNumberModified = this.magicNumber != this.baseMagicNumber;
+
+		this.baseBlock = current_block;
+		super.applyPowers();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, this.block), this.block));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextNextTurnBlockPower(p, this.block + this.baseBlock), this.block + this.baseBlock));
-		ResetDescription();
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextNextTurnBlockPower(p, this.magicNumber), this.magicNumber));
 	}
 
 	public AbstractCard makeCopy() {
@@ -76,8 +65,7 @@ public class TreeGrowth extends CustomCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeBlock(UPGRADE_BONUS);
-			this.block = this.baseBlock;
-			SetDescription();
+			upgradeMagicNumber(SECONDARY_BONUS);
 		}
 	}
 }

@@ -189,6 +189,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new PoisonMastery());
 		cards.add(new Pollute());
 		cards.add(new QuickSynthesis());
+		cards.add(new RustyPipe());
 		cards.add(new SacredSoil());
 		cards.add(new Salvage());
 		cards.add(new SalvePotion());
