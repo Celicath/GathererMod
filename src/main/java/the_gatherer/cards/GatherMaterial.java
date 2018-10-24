@@ -30,10 +30,11 @@ public class GatherMaterial extends CustomCard {
 
 	private static final int POWER = 2;
 	private static final int UPGRADE_BONUS = 1;
-	private static final int BLOCK_PER_UNIQUE = 3;
+	private static final int BLOCK = 3;
 
 	public GatherMaterial() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+		this.baseBlock = BLOCK;
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
 	}
@@ -41,7 +42,7 @@ public class GatherMaterial extends CustomCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new GatherMaterialAction(p, this.magicNumber));
 		AbstractDungeon.actionManager.addToBottom(new WaitAction(0.4F));
-		AbstractDungeon.actionManager.addToBottom(new GathererMaterialFollowUpAction(BLOCK_PER_UNIQUE));
+		AbstractDungeon.actionManager.addToBottom(new GathererMaterialFollowUpAction(this.block));
 
 		this.rawDescription = DESCRIPTION;
 		this.initializeDescription();

@@ -30,14 +30,10 @@ public class LastResort extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int UPGRADE_BONUS = 4;
-	private static final int MAGIC = 1;
-	private static final int MAGIC_UPGRADE = 1;
+	private static final int UPGRADE_BONUS = 6;
 
 	public LastResort() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-		this.baseMagicNumber = MAGIC;
-		this.magicNumber = this.baseMagicNumber;
 	}
 
 	public void applyPowers() {
@@ -52,7 +48,6 @@ public class LastResort extends CustomCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
 
 		this.rawDescription = DESCRIPTION;
 		this.initializeDescription();
@@ -65,8 +60,6 @@ public class LastResort extends CustomCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
-			this.upgradeDamage(UPGRADE_BONUS);
-			this.upgradeMagicNumber(MAGIC_UPGRADE);
 			this.rawDescription = UPGRADE_DESCRIPTION;
 			this.initializeDescription();
 		}

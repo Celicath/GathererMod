@@ -165,6 +165,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new SpareBottle());
 
 		cards.add(new AcidicSpray());
+		cards.add(new BalancedGrowth());
 		cards.add(new BronzeBlade());
 		cards.add(new Bulldoze());
 		cards.add(new CarefulStrike());
@@ -185,6 +186,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new Herbalism());
 		cards.add(new LastResort());
 		cards.add(new Light());
+		cards.add(new Liquidism());
 		cards.add(new MagicLamp());
 		cards.add(new PoisonMastery());
 		cards.add(new Pollute());
@@ -199,8 +201,11 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new Snatch());
 		cards.add(new SolarBeam());
 		cards.add(new TacticalStrike());
+		cards.add(new Transmute());
 		cards.add(new TreeGrowth());
 		cards.add(new TrickStyle());
+		cards.add(new VenomBarrier());
+		cards.add(new WitheringStrike());
 		cards.add(new WoolGloves());
 
 		for (CustomCard card : cards) {
@@ -287,11 +292,9 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	@Override
 	public void receivePostPotionUse(AbstractPotion p) {
-		if (AbstractDungeon.player.hasPower(SpareBottlePower.POWER_ID)) {
-			for (AbstractPower r : AbstractDungeon.player.powers) {
-				if (r instanceof OnUsePotionEffect) {
-					((OnUsePotionEffect) r).onUsePotion();
-				}
+		for (AbstractPower r : AbstractDungeon.player.powers) {
+			if (r instanceof OnUsePotionEffect) {
+				((OnUsePotionEffect) r).onUsePotion();
 			}
 		}
 	}

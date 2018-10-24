@@ -55,23 +55,11 @@ public class GlassHammer extends CustomCard {
 		this.baseDamage = current_damage;
 		super.applyPowers();
 	}
-	@Override
-	public void calculateCardDamage(final AbstractMonster mo) {
-		int CURRENT_DMG = this.baseDamage;
-		this.baseDamage = this.baseMagicNumber;
-		super.calculateCardDamage(mo);
-
-		this.magicNumber = this.damage;
-		this.isMagicNumberModified = this.magicNumber != this.baseMagicNumber;
-
-		this.baseDamage = CURRENT_DMG;
-		super.calculateCardDamage(mo);
-	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 		AbstractDungeon.actionManager.addToBottom(
-				new DamageRandomEnemyExceptTargetAction(m, new DamageInfo(p, this.magicNumber, this.damageTypeForTurn),
+				new DamageRandomEnemyExceptTargetAction(m, new DamageInfo(p, this.magicNumber),
 						AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 	}
 

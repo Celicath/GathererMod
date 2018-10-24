@@ -6,17 +6,19 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class GathererMaterialFollowUpAction extends AbstractGameAction {
-	private int block_per_unique;
-	public GathererMaterialFollowUpAction(int block_per_unique) {
+	private int block_per_attack;
+
+	public GathererMaterialFollowUpAction(int block_per_attack) {
 		this.duration = Settings.ACTION_DUR_FASTER;
-		this.block_per_unique = block_per_unique;
+		this.block_per_attack = block_per_attack;
 	}
 
 	public void update() {
 		if (this.duration == Settings.ACTION_DUR_FASTER) {
-			AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, GatherMaterialAction.uniqueCards.size() * block_per_unique));
+			for (int i = 0; i < GatherMaterialAction.drawnAttacks; i++)
+				AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block_per_attack));
 
-			GatherMaterialAction.uniqueCards.clear();
+			GatherMaterialAction.drawnAttacks = 0;
 		}
 
 		this.tickDuration();

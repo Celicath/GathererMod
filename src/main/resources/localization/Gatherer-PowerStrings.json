@@ -43,13 +43,34 @@
   "LightPower": {
     "NAME": "Power of Light",
     "DESCRIPTIONS": [
-      "If you play Shadow! as the next card, draw 2 cards."
+      "If you play Shadow! as the next card, it deals double damage."
     ]
   },
   "ShadowPower": {
     "NAME": "Power of Shadow",
     "DESCRIPTIONS": [
-      "If you play Light! as the next card, draw 2 cards."
+      "If you play Light! as the next card, it gains double Block."
+    ]
+  },
+  "VenomBarrier": {
+    "NAME": "Venom Barrier",
+    "DESCRIPTIONS": [
+      "When attacked, apply #b",
+      " poison to the attacker."
+    ]
+  },
+  "BalancedGrowth": {
+    "NAME": "Balanced Growth",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain up to #b",
+      " Strength or Dexterity until they are equal."
+    ]
+  },
+  "Liquidism": {
+    "NAME": "Liquidism",
+    "DESCRIPTIONS": [
+      "Whenever you use a Potion, gain #b",
+      " Strength or Dexterity randomly."
     ]
   },
 

@@ -15,6 +15,8 @@ import com.megacrit.cardcrawl.powers.*;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.AbstractCardEnum;
 
+import java.util.HashMap;
+
 public class RustyPipe extends CustomCard {
 	private static final String CardID = "RustyPipe";
 	public static final String ID = GathererMod.makeID(CardID);
@@ -37,19 +39,36 @@ public class RustyPipe extends CustomCard {
 
 	private boolean initialized = false;
 
+
+	public enum RustyPipeDebuffEnum {
+		Weak(0),
+		Vulnerable(1),
+		Poison(2);
+
+		private int value;
+
+		RustyPipeDebuffEnum(int value) {
+			this.value = value;
+		}
+
+		public int getValue() {
+			return value;
+		}
+	}
+
 	public RustyPipe() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
 		this.misc = -1;
 	}
 
-	private int getDebuff() {
+	private RustyPipeDebuffEnum getDebuff() {
 		if (this.misc % 7 < 2)
-			return 0;
+			return RustyPipeDebuffEnum.Weak;
 		else if (this.misc % 7 < 4)
-			return 1;
+			return RustyPipeDebuffEnum.Vulnerable;
 		else
-			return 2;
+			return RustyPipeDebuffEnum.Poison;
 	}
 
 	@Override
@@ -71,9 +90,9 @@ public class RustyPipe extends CustomCard {
 	public void updateDescription() {
 		if (this.misc >= 0 && !initialized) {
 			this.baseDamage = misc / 7 + MIN_POWER;
-			int debuff = getDebuff();
-			this.baseMagicNumber = MIN_MAGIC + (misc % 7 - debuff * 2);
-			this.rawDescription = EXTENDED_DESCRIPTION[0] + EXTENDED_DESCRIPTION[debuff + 1] + EXTENDED_DESCRIPTION[4];
+			RustyPipeDebuffEnum debuff = getDebuff();
+			this.baseMagicNumber = MIN_MAGIC + (misc % 7 - debuff.getValue() * 2);
+			this.rawDescription = EXTENDED_DESCRIPTION[0] + EXTENDED_DESCRIPTION[debuff.getValue() + 1] + EXTENDED_DESCRIPTION[4];
 			this.initializeDescription();
 			initialized = true;
 		}
@@ -84,15 +103,17 @@ public class RustyPipe extends CustomCard {
 
 		AbstractPower pow;
 		switch (getDebuff()) {
-			case 0:
+			case Weak:
 				pow = new PoisonPower(m, p, this.magicNumber);
 				break;
-			case 1:
+			case Vulnerable:
 				pow = new WeakPower(m, this.magicNumber, false);
 				break;
-			case 2:
+			case Poison:
 				pow = new VulnerablePower(m, this.magicNumber, false);
 				break;
+			default:
+				pow = new PoisonPower(m, p, this.magicNumber);
 		}
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, this.magicNumber));
 	}

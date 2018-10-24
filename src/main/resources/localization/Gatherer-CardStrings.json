@@ -78,15 +78,15 @@
   },
   "Gatherer:Light" : {
     "NAME": "Light!",
-    "DESCRIPTION": "Gain !B! Block. If you play Shadow! as the next card, draw 2 cards."
+    "DESCRIPTION": "Gain !B! Block. If you play Shadow! as the next card, it deals double damage."
   },
   "Gatherer:Shadow" : {
     "NAME": "Shadow!",
-    "DESCRIPTION": "Deal !D! damage. If you play Light! as the next card, draw 2 cards."
+    "DESCRIPTION": "Deal !D! damage. If you play Light! as the next card, it gains double Block."
   },
   "Gatherer:CoupDeGrace" : {
     "NAME": "Coup De Grace",
-    "DESCRIPTION": "Deal !D! damage. If target’s current HP is less than half of yours, attack twice."
+    "DESCRIPTION": "Deal !D! damage. If target’s current HP is less than yours, attack twice."
   },
   "Gatherer:FirstAidKit": {
     "NAME": "First-Aid Kit",
@@ -144,7 +144,7 @@
   },
   "Gatherer:GatherMaterial" : {
     "NAME": "Gather Material",
-    "DESCRIPTION": "Draw !M! Cards. Gain 3 Block for each unique card drawn."
+    "DESCRIPTION": "Draw !M! Cards. Gain !B! Block for each Attack card drawn."
   },
   "Gatherer:Convert" : {
     "NAME": "Convert",
@@ -157,7 +157,7 @@
   },
   "Gatherer:WoolGloves" : {
     "NAME" : "Wool Gloves",
-    "DESCRIPTION": "Gain !B! Block. Once: Draw 3 cards, then discard 3 cards."
+    "DESCRIPTION": "Gain !B! Block. Once: Draw 3 cards, then discard 2 cards."
   },
   "Gatherer:Salvage" : {
     "NAME": "Salvage",
@@ -169,8 +169,8 @@
   },
   "Gatherer:LastResort" : {
     "NAME": "Last Resort",
-    "DESCRIPTION": "Deal damage equal to half of your missing HP. NL Apply !M! Vulnerable.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to 4+ half of your missing HP. NL Apply !M! Vulnerable.",
+    "DESCRIPTION": "Deal damage equal to half of your missing HP.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to 6+ half of your missing HP.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -213,6 +213,27 @@
       " NL Apply !M! Poison.",
       " NL Effects are randomly determined for each card."
     ]
+  },
+  "Gatherer:WitheringStrike" : {
+    "NAME": "Withering Strike",
+    "DESCRIPTION": "Deal !D! damage. Enemy loses 1 Strength down to !M!."
+  },
+  "Gatherer:VenomBarrier" : {
+    "NAME": "Venom Barrier",
+    "DESCRIPTION": "Gain !B! Block. Whenever you are attacked this turn, apply !M! Poison to the attacker."
+  },
+  "Gatherer:Transmute" : {
+    "NAME": "Transmute",
+    "DESCRIPTION": "Transform a card from your hand. It costs 0 this turn."
+  },
+  "Gatherer:BalancedGrowth" : {
+    "NAME": "Balanced Growth",
+    "DESCRIPTION": "At the start of your turn, gain 1 Strength or Dexterity until they are equal."
+  },
+  "Gatherer:Liquidism" : {
+    "NAME": "Liquidism",
+    "DESCRIPTION": "Whenever you use a Potion, gain 1 Strength or Dexterity randomly.",
+    "UPGRADE_DESCRIPTION": "Innate NL Whenever you use a Potion, gain 1 Strength or Dexterity randomly."
   },
 
   "Gatherer:Dummy": {}

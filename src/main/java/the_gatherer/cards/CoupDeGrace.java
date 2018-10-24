@@ -36,7 +36,7 @@ public class CoupDeGrace extends CustomCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		int times = 1;
-		if (m.currentHealth * 2 < p.currentHealth)
+		if (m.currentHealth < p.currentHealth)
 			times = 2;
 		for (int i = 0; i < times; i++)
 			AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));

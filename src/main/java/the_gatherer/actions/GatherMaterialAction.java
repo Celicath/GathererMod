@@ -1,9 +1,11 @@
 package the_gatherer.actions;
 
+import basemod.BaseMod;
 import com.badlogic.gdx.Gdx;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.SoulGroup;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
@@ -16,7 +18,7 @@ import java.util.HashSet;
 public class GatherMaterialAction extends AbstractGameAction {
 	private boolean shuffleCheck;
 	private static final Logger logger = LogManager.getLogger(DrawCardAction.class.getName());
-	public static HashSet<Class<?>> uniqueCards = new HashSet();
+	public static int drawnAttacks = 0;
 
 	public GatherMaterialAction(AbstractCreature source, int draw) {
 		this.shuffleCheck = false;
@@ -47,7 +49,7 @@ public class GatherMaterialAction extends AbstractGameAction {
 			if (!SoulGroup.isActive()) {
 				if (deckSize + discardSize == 0) {
 					this.isDone = true;
-				} else if (AbstractDungeon.player.hand.size() == 10) {
+				} else if (AbstractDungeon.player.hand.size() == BaseMod.MAX_HAND_SIZE) {
 					AbstractDungeon.player.createHandIsFullDialog();
 					this.isDone = true;
 				} else {
@@ -77,7 +79,8 @@ public class GatherMaterialAction extends AbstractGameAction {
 
 						--this.amount;
 						if (!AbstractDungeon.player.drawPile.isEmpty()) {
-							uniqueCards.add(AbstractDungeon.player.drawPile.getTopCard().getClass());
+							if (AbstractDungeon.player.drawPile.getTopCard().type == AbstractCard.CardType.ATTACK)
+								drawnAttacks++;
 							AbstractDungeon.player.draw();
 							AbstractDungeon.player.hand.refreshHandLayout();
 						} else {

@@ -1,7 +1,6 @@
 package the_gatherer.powers;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -9,7 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import the_gatherer.cards.Shadow;
+import the_gatherer.cards.Light;
 
 public class LightPower extends AbstractPower {
 	public static final String POWER_ID = "LightPower";
@@ -30,8 +29,7 @@ public class LightPower extends AbstractPower {
 
 	@Override
 	public void onAfterCardPlayed(AbstractCard usedCard) {
-		if (usedCard instanceof Shadow)
-			AbstractDungeon.actionManager.addToTop(new DrawCardAction(this.owner, 2));
-		AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+		if (!(usedCard instanceof Light))
+			AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
 	}
 }
