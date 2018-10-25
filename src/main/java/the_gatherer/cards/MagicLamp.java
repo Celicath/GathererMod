@@ -28,14 +28,17 @@ public class MagicLamp extends CustomCard implements OnObtainEffect {
 	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
+	private static final int POWER = 1;
+	private static final int UPGRADE_BONUS = 1;
+
 	public MagicLamp() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+		this.baseMagicNumber = POWER;
+		this.magicNumber = this.baseMagicNumber;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 1));
-		if (upgraded)
-			AbstractDungeon.actionManager.addToBottom(new DrawHalfAction(p));
+		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
 	}
 
 	public AbstractCard makeCopy() {
@@ -45,6 +48,7 @@ public class MagicLamp extends CustomCard implements OnObtainEffect {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
+			upgradeMagicNumber(UPGRADE_BONUS);
 			this.rawDescription = UPGRADE_DESCRIPTION;
 			this.initializeDescription();
 		}

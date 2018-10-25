@@ -24,6 +24,8 @@ public class LesserExplosivePotion extends CustomPotion {
 	public static final String NAME = potionStrings.NAME;
 	public static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;
 
+	public static int upgrades = 0;
+
 	public LesserExplosivePotion() {
 		super(NAME, POTION_ID, PotionRarityEnum.LESSER, PotionSize.H, PotionColor.EXPLOSIVE);
 		this.potency = this.getPotency();
@@ -46,11 +48,18 @@ public class LesserExplosivePotion extends CustomPotion {
 		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.potency, true), DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
 	}
 
+	public void UpdateDescription() {
+		this.tips.clear();
+		this.potency = getPotency();
+		this.description = DESCRIPTIONS[0] + this.potency + DESCRIPTIONS[1];
+		this.tips.add(new PowerTip(this.name, this.description));
+	}
+
 	public AbstractPotion makeCopy() {
 		return new LesserExplosivePotion();
 	}
 
 	public int getPotency(int ascensionLevel) {
-		return 6;
+		return 6 + upgrades;
 	}
 }

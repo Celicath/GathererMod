@@ -168,6 +168,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new BalancedGrowth());
 		cards.add(new BronzeBlade());
 		cards.add(new Bulldoze());
+		cards.add(new BomberForm());
 		cards.add(new CarefulStrike());
 		cards.add(new CollectorsShot());
 		cards.add(new Convert());
@@ -200,6 +201,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new SimpleSwing());
 		cards.add(new Snatch());
 		cards.add(new SolarBeam());
+		cards.add(new SolidTechnique());
 		cards.add(new TacticalStrike());
 		cards.add(new Transmute());
 		cards.add(new TreeGrowth());
@@ -259,6 +261,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		BaseMod.addKeyword(new String[]{"unique", "Unique"}, "Cards with different IDs are considered unique. Whatever that means.");
 		BaseMod.addKeyword(new String[]{"once", "Once"}, "Only activate once in combat, for each unique card.");
 		BaseMod.addKeyword(new String[]{"flower", "Flower"}, "Card containing \"Flower\" in its name. It can be upgraded 3 times.");
+		BaseMod.addKeyword(new String[]{"lep", "LEP", "LEPs"}, "Stands for Lesser Explosive Potion. Became a keyword because the text was too long.");
 
 		logger.info("receiveEditKeywords finished.");
 	}
@@ -269,6 +272,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		playedCardsCombat = new HashSet<>();
 		potionSack.removeAllPotions();
 		potionSack.show = false;
+		LesserExplosivePotion.upgrades = 0;
 		logger.info("receiveOnBattleStart finished.");
 	}
 

@@ -34,14 +34,17 @@ public class Light extends CustomCard {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
 		this.baseBlock = POWER;
+		this.magicNumber = POWER;
 	}
 
 	@Override
 	public void applyPowers() {
-		super.applyPowers();
-
+		this.baseBlock = this.magicNumber;
 		if (AbstractDungeon.player.hasPower(ShadowPower.POWER_ID)) {
-			this.block *= 2;
+			this.baseBlock *= 2;
+		}
+		super.applyPowers();
+		if (AbstractDungeon.player.hasPower(ShadowPower.POWER_ID)) {
 			this.isBlockModified = true;
 		}
 	}
@@ -59,6 +62,7 @@ public class Light extends CustomCard {
 		if (!this.upgraded) {
 			this.upgradeName();
 			this.upgradeBlock(UPGRADE_BONUS);
+			this.upgradeMagicNumber(UPGRADE_BONUS);
 		}
 	}
 }

@@ -73,8 +73,8 @@
   },
   "Gatherer:MagicLamp" : {
     "NAME": "Magic Lamp",
-    "DESCRIPTION": "Draw 1 card. When obtained, add Light! and Shadow! to your deck.",
-    "UPGRADE_DESCRIPTION": "Draw 1 or 2 cards randomly. When obtained, add Light! and Shadow! to your deck."
+    "DESCRIPTION": "Draw !M! card. When obtained, add Light! and Shadow! to your deck.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. When obtained, add Light! and Shadow! to your deck."
   },
   "Gatherer:Light" : {
     "NAME": "Light!",
@@ -119,7 +119,7 @@
   "Gatherer:QuickSynthesis" : {
     "NAME": "Quick Synthesis",
     "DESCRIPTION": "Obtain !M! random lesser potion to your Sack. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Obtain !M! random lesser potions to your Sack. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Obtain !M! random lesser potion to your Sack. NL Exhaust."
   },
   "Gatherer:FlamingBottle" : {
     "NAME": "Flaming Bottle",
@@ -234,6 +234,14 @@
     "NAME": "Liquidism",
     "DESCRIPTION": "Whenever you use a Potion, gain 1 Strength or Dexterity randomly.",
     "UPGRADE_DESCRIPTION": "Innate NL Whenever you use a Potion, gain 1 Strength or Dexterity randomly."
+  },
+  "Gatherer:BomberForm" : {
+    "NAME": "Bomber Form",
+    "DESCRIPTION": "At the start of your turn, obtain a LEP. Any incoming lesser Potion becomes LEP, and increase LEPs' base power by !M!."
+  },
+  "Gatherer:SolidTechnique" : {
+    "NAME": "Solid Technique",
+    "DESCRIPTION": "Gain !B! Block. If you have !M! or more Block, gain 1 Artifact."
   },
 
   "Gatherer:Dummy": {}

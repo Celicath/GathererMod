@@ -92,6 +92,7 @@ public class RustyPipe extends CustomCard {
 			this.baseDamage = misc / 7 + MIN_POWER;
 			RustyPipeDebuffEnum debuff = getDebuff();
 			this.baseMagicNumber = MIN_MAGIC + (misc % 7 - debuff.getValue() * 2);
+			this.magicNumber = this.baseMagicNumber;
 			this.rawDescription = EXTENDED_DESCRIPTION[0] + EXTENDED_DESCRIPTION[debuff.getValue() + 1] + EXTENDED_DESCRIPTION[4];
 			this.initializeDescription();
 			initialized = true;
@@ -104,13 +105,13 @@ public class RustyPipe extends CustomCard {
 		AbstractPower pow;
 		switch (getDebuff()) {
 			case Weak:
-				pow = new PoisonPower(m, p, this.magicNumber);
-				break;
-			case Vulnerable:
 				pow = new WeakPower(m, this.magicNumber, false);
 				break;
-			case Poison:
+			case Vulnerable:
 				pow = new VulnerablePower(m, this.magicNumber, false);
+				break;
+			case Poison:
+				pow = new PoisonPower(m, p, this.magicNumber);
 				break;
 			default:
 				pow = new PoisonPower(m, p, this.magicNumber);

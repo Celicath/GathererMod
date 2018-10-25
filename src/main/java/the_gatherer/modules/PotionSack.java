@@ -25,7 +25,7 @@ public class PotionSack {
 	private static UIStrings uiStrings = null;
 	public static String[] TEXT = null;
 	public static Texture panel = null;
-	ArrayList<AbstractPotion> potions = null;
+	public ArrayList<AbstractPotion> potions = null;
 
 	public Hitbox hb;
 	float flashRedTimer = 0.0f;
@@ -115,7 +115,7 @@ public class PotionSack {
 		hb.render(sb);
 	}
 
-	public void addPotion(AbstractPotion potion) {
+	public boolean addPotion(AbstractPotion potion) {
 		show = true;
 		int index = 0;
 		for (AbstractPotion p : this.potions) {
@@ -129,10 +129,12 @@ public class PotionSack {
 			setPotionPosition(index, potion);
 			potion.flash();
 			AbstractPotion.playPotionSound();
+			return true;
 		} else {
+			flashRed();
 			logger.info("Potion Sack is full");
+			return false;
 		}
-		flashRed();
 	}
 
 	public void removePotion(int slot) {

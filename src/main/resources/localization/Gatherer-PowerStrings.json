@@ -73,6 +73,13 @@
       " Strength or Dexterity randomly."
     ]
   },
+  "BomberForm" : {
+    "NAME": "Bomber Form",
+    "DESCRIPTIONS": [
+      "At the start of your turn, Obtain a LEP. Whenever you obtain a lesser Potion, it becomes LEPs and increase all LEPs' base power by #b",
+      "."
+    ]
+  },
 
   "Dummy": { }
 }

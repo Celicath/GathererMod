@@ -36,14 +36,18 @@ public class Shadow extends CustomCard {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
 		this.baseDamage = POWER;
+		this.baseMagicNumber = POWER;
+		this.magicNumber = this.baseMagicNumber;
 	}
 
 	@Override
 	public void applyPowers() {
+		this.baseBlock = this.magicNumber;
+		if (AbstractDungeon.player.hasPower(ShadowPower.POWER_ID)) {
+			this.baseDamage *= 2;
+		}
 		super.applyPowers();
-
-		if (AbstractDungeon.player.hasPower(LightPower.POWER_ID)) {
-			this.damage *= 2;
+		if (AbstractDungeon.player.hasPower(ShadowPower.POWER_ID)) {
 			this.isDamageModified = true;
 		}
 	}
@@ -61,6 +65,7 @@ public class Shadow extends CustomCard {
 		if (!this.upgraded) {
 			this.upgradeName();
 			this.upgradeDamage(UPGRADE_BONUS);
+			this.upgradeMagicNumber(UPGRADE_BONUS);
 		}
 	}
 }

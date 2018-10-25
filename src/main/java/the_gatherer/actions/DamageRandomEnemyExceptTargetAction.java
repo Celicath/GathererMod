@@ -57,7 +57,7 @@ public class DamageRandomEnemyExceptTargetAction extends AbstractGameAction {
 					this.target.tint.color = Color.RED.cpy();
 					this.target.tint.changeColor(Color.WHITE.cpy());
 				}
-
+				this.info.applyPowers(this.info.owner, this.target);
 				this.target.damage(this.info);
 				if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
 					AbstractDungeon.actionManager.clearPostCombatActions();

@@ -6,7 +6,7 @@ The main focus of The Gatherer is the Potion. She has a potion Sack which can ho
 ## Current State and Goal
 GathererMod is at an early development stage. Cards are not implemented fully, and they are going to change vastly.
 
-- Implemented Cards: 46/75
+- Implemented Cards: 48/75
 - Implemented Relics: 4/8
 - Implemented Events: 0
 
