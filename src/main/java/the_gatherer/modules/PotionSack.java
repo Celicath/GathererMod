@@ -100,7 +100,7 @@ public class PotionSack {
 		} else {
 			sb.setColor(new Color(0.6F, 0.6F, 0.6F, 0.8F));
 		}
-		sb.draw(panel, hb.cX - hb.width, hb.cY - hb.height, width, height, width, height, Settings.scale, Settings.scale, 0.0F, 0, 0, width, height, false, false);
+		sb.draw(panel, hb.cX - hb.width * Settings.scale / 2.0F, hb.cY - hb.height * Settings.scale / 2.0F, width, height, width, height, Settings.scale, Settings.scale, 0.0F, 0, 0, width, height, false, false);
 
 		boolean potion_hovered = false;
 		for (AbstractPotion p : potions) {
@@ -148,7 +148,7 @@ public class PotionSack {
 				removePotion(i);
 	}
 
-	PotionSlot newPotionSlot(int slot) {
+	private PotionSlot newPotionSlot(int slot) {
 		PotionSlot ps = new PotionSlot(slot);
 		setPotionPosition(slot, ps);
 		return ps;

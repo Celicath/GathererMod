@@ -23,6 +23,7 @@ public class ScrollOfPurity extends CustomCard implements OnUsePotionEffect {
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
 	private static final int COST = -2;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
 	private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.RARE;
@@ -39,9 +40,11 @@ public class ScrollOfPurity extends CustomCard implements OnUsePotionEffect {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(m,
-				new DamageInfo(p, this.damage, this.damageTypeForTurn),
-				AbstractGameAction.AttackEffect.FIRE));
+	}
+
+	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+		this.cantUseMessage = EXTENDED_DESCRIPTION[0];
+		return false;
 	}
 
 	public AbstractCard makeCopy() {

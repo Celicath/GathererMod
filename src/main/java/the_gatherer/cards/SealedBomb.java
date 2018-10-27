@@ -57,6 +57,7 @@ public class SealedBomb extends CustomCard implements OnUsePotionEffect {
 
 	@Override
 	public void onUsePotion(AbstractPotion p) {
+		this.flash();
 		this.updateCost(-1);
 	}
 }

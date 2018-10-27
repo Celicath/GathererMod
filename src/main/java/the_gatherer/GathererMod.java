@@ -296,9 +296,11 @@ public class GathererMod implements PostInitializeSubscriber,
 			}
 		}
 
-		for (AbstractPotion p : GathererMod.potionSack.potions) {
-			if (p instanceof LesserExplosivePotion) {
-				((LesserExplosivePotion) p).updateDescription();
+		if (GathererMod.potionSack.potions != null) {
+			for (AbstractPotion p : GathererMod.potionSack.potions) {
+				if (p instanceof LesserExplosivePotion) {
+					((LesserExplosivePotion) p).updateDescription();
+				}
 			}
 		}
 		logger.debug("receivePowersModified finished.");

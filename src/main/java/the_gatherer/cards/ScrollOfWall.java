@@ -23,6 +23,7 @@ public class ScrollOfWall extends CustomCard implements OnUsePotionEffect {
 	private static final int COST = -2;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
 	private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
@@ -39,9 +40,17 @@ public class ScrollOfWall extends CustomCard implements OnUsePotionEffect {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(m,
-				new DamageInfo(p, this.damage, this.damageTypeForTurn),
-				AbstractGameAction.AttackEffect.FIRE));
+	}
+
+	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+		this.cantUseMessage = EXTENDED_DESCRIPTION[0];
+		return false;
+	}
+
+	@Override
+	public void atTurnStart() {
+		this.rawDescription = upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION;
+		initializeDescription();
 	}
 
 	public AbstractCard makeCopy() {
@@ -62,6 +71,8 @@ public class ScrollOfWall extends CustomCard implements OnUsePotionEffect {
 		if (!this.retain) {
 			this.flash();
 			this.retain = true;
+			this.rawDescription = upgraded ? EXTENDED_DESCRIPTION[0] : EXTENDED_DESCRIPTION[1];
+			initializeDescription();
 		}
 	}
 }

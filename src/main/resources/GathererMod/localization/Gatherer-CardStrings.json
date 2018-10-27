@@ -233,7 +233,7 @@
   "Gatherer:Liquidism" : {
     "NAME": "Liquidism",
     "DESCRIPTION": "Whenever you use a Potion, gain 1 Strength or Dexterity randomly.",
-    "UPGRADE_DESCRIPTION": "Innate NL Whenever you use a Potion, gain 1 Strength or Dexterity randomly."
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you use a Potion, gain 1 Strength or Dexterity randomly."
   },
   "Gatherer:BomberForm" : {
     "NAME": "Bomber Form",
@@ -251,11 +251,6 @@
     "NAME": "Sealed Bomb",
     "DESCRIPTION": "Deal !D! damage. While in your hand, using a Potion decreases it's cost by 1 this combat."
   },
-  "Gatherer:ScrollOfWall" : {
-    "NAME": "Scroll Of Wall",
-    "DESCRIPTION": "Unplayable. Use a Potion to Retain this turn. All incoming Statuses are Exhausted.",
-    "UPGRADE_DESCRIPTION": "Unplayable. Use a Potion to Retain this turn. All incoming Statuses are Exhausted and make you draw 1."
-  },
   "Gatherer:FeelingFine" : {
     "NAME": "Feeling Fine",
     "DESCRIPTION": "Whenever you use 3 Potions in a turn, remove all of your debuffs."
@@ -268,9 +263,22 @@
     "NAME": "Overflowing",
     "DESCRIPTION": "Gain !M! energy. Energy is conserved for the next turn. NL Exhaust."
   },
+  "Gatherer:ScrollOfWall" : {
+    "NAME": "Scroll Of Wall",
+    "DESCRIPTION": "Unplayable. Use a Potion to Retain this turn. All incoming Statuses are Exhausted.",
+    "UPGRADE_DESCRIPTION": "Unplayable. Use a Potion to Retain this turn. All incoming Statuses are Exhausted and make you draw 1.",
+    "EXTENDED_DESCRIPTION": [
+      "I can't play this card.",
+      "Unplayable. Retain this turn. All incoming Statuses are Exhausted.",
+      "Unplayable. Retain this turn. All incoming Statuses are Exhausted and make you draw 1."
+    ]
+  },
   "Gatherer:ScrollOfPurity" : {
     "NAME": "Scroll of Purity",
-    "DESCRIPTION": "Unplayable. Whenever you use a Potion, you may exhaust a card and draw !M! cards."
+    "DESCRIPTION": "Unplayable. Whenever you use a Potion, you may exhaust a card and draw !M! cards.",
+    "EXTENDED_DESCRIPTION": [
+      "I can't play this card."
+    ]
   },
   "Gatherer:Investigate" : {
     "NAME": "Investigate",

@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import the_gatherer.GathererMod;
 import the_gatherer.interfaces.OnUsePotionEffect;
 
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.cardRandomRng;
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.potionRng;
 
 public class LiquidismPower extends AbstractPower implements OnUsePotionEffect {
@@ -40,7 +41,7 @@ public class LiquidismPower extends AbstractPower implements OnUsePotionEffect {
 	@Override
 	public void onUsePotion(AbstractPotion p) {
 		this.flash();
-		if (potionRng.randomBoolean())
+		if (cardRandomRng.randomBoolean())
 			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount), amount));
 		else
 			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new DexterityPower(owner, amount), amount));
