@@ -8,10 +8,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import the_gatherer.GathererMod;
 import the_gatherer.patches.PotionRarityEnum;
 
 public class LesserSwiftPotion extends CustomPotion {
-	public static final String POTION_ID = "LesserSwiftPotion";
+	private static final String RAW_ID = "LesserSwiftPotion";
+	public static final String POTION_ID = GathererMod.makeID(RAW_ID);
 	private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
 	public static final String NAME = potionStrings.NAME;
 	public static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;

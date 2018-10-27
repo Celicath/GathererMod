@@ -65,15 +65,15 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static final String DESCRIPTION = "Adds The Gatherer as a new playable character.";
 
 
-	public static final String GATHERER_BADGE = "img/badge.png";
-	public static final String GATHERER_BUTTON = "img/character/gatherer/button.png";
-	public static final String GATHERER_PORTRAIT = "img/character/gatherer/PortraitBG.jpg";
-	public static final String GATHERER_SHOULDER_1 = "img/character/gatherer/shoulder.png";
-	public static final String GATHERER_SHOULDER_2 = "img/character/gatherer/shoulder2.png";
-	public static final String GATHERER_CORPSE = "img/character/gatherer/corpse.png";
+	public static final String GATHERER_BADGE = "GathererMod/img/badge.png";
+	public static final String GATHERER_BUTTON = "GathererMod/img/character/gatherer/button.png";
+	public static final String GATHERER_PORTRAIT = "GathererMod/img/character/gatherer/PortraitBG.jpg";
+	public static final String GATHERER_SHOULDER_1 = "GathererMod/img/character/gatherer/shoulder.png";
+	public static final String GATHERER_SHOULDER_2 = "GathererMod/img/character/gatherer/shoulder2.png";
+	public static final String GATHERER_CORPSE = "GathererMod/img/character/gatherer/corpse.png";
 
 	public static PotionSack potionSack;
-	public static Set<Class<?>> playedCardsCombat = new HashSet();
+	public static Set<Class<?>> playedCardsCombat = new HashSet<>();
 
 	public GathererMod() {
 		logger.debug("Constructor started.");
@@ -82,15 +82,15 @@ public class GathererMod implements PostInitializeSubscriber,
 
 		BaseMod.addColor(CardColorEnum.LIME,
 				Color.LIME, Color.LIME, Color.LIME, Color.LIME, Color.LIME, Color.LIME, Color.LIME,
-				"img/cardui/512/bg_attack_lime.png",
-				"img/cardui/512/bg_skill_lime.png",
-				"img/cardui/512/bg_power_lime.png",
-				"img/cardui/512/card_lime_orb.png",
-				"img/cardui/1024/bg_attack_lime.png",
-				"img/cardui/1024/bg_skill_lime.png",
-				"img/cardui/1024/bg_power_lime.png",
-				"img/cardui/1024/card_lime_orb.png",
-				"img/cardui/512/card_lime_small_orb.png");
+				"GathererMod/img/cardui/512/bg_attack_lime.png",
+				"GathererMod/img/cardui/512/bg_skill_lime.png",
+				"GathererMod/img/cardui/512/bg_power_lime.png",
+				"GathererMod/img/cardui/512/card_lime_orb.png",
+				"GathererMod/img/cardui/1024/bg_attack_lime.png",
+				"GathererMod/img/cardui/1024/bg_skill_lime.png",
+				"GathererMod/img/cardui/1024/bg_power_lime.png",
+				"GathererMod/img/cardui/1024/card_lime_orb.png",
+				"GathererMod/img/cardui/512/card_lime_small_orb.png");
 
 		logger.debug("Constructor finished.");
 	}
@@ -360,6 +360,8 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static String GetPowerPath(String id) {
 		return "GathererMod/img/powers/" + id + ".png";
 	}
+
+	public static String GetRelicPath(String id) { return "GathererMod/img/relics/" + id + ".png"; }
 
 	private static String GetLocString(String name) {
 		return Gdx.files.internal("GathererMod/localization/" + name + ".json").readString(

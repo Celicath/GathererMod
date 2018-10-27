@@ -17,7 +17,7 @@ public class SilentSlate extends CustomRelic {
 	public static final String ID = GathererMod.makeID(RelicID);
 
 	public SilentSlate() {
-		super(ID, new Texture("img/relics/" + RelicID + ".png"),
+		super(ID, new Texture(GathererMod.GetRelicPath(RelicID)),
 				RelicTier.COMMON, LandingSound.SOLID);
 	}
 

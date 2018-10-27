@@ -14,13 +14,15 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.vfx.combat.ExplosionSmallEffect;
+import the_gatherer.GathererMod;
 import the_gatherer.patches.PotionRarityEnum;
 import the_gatherer.powers.ExplodingPower;
 
 import java.util.Iterator;
 
 public class LesserExplosivePotion extends CustomPotion {
-	public static final String POTION_ID = "LesserExplosivePotion";
+	private static final String RAW_ID = "LesserExplosivePotion";
+	public static final String POTION_ID = GathererMod.makeID(RAW_ID);
 	private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
 	public static final String NAME = potionStrings.NAME;
 	public static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;

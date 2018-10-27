@@ -11,10 +11,12 @@ import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.PoisonPower;
+import the_gatherer.GathererMod;
 import the_gatherer.patches.PotionRarityEnum;
 
 public class LesserPoisonPotion extends CustomPotion {
-	public static final String POTION_ID = "LesserPoisonPotion";
+	private static final String RAW_ID = "LesserPoisonPotion";
+	public static final String POTION_ID = GathererMod.makeID(RAW_ID);
 	private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
 	public static final String NAME = potionStrings.NAME;
 	public static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;

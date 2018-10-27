@@ -29,17 +29,17 @@ public class TheGatherer extends CustomPlayer {
 	public static final String CLASS_NAME = "The Gatherer";
 
 	public static final String[] orbTextures = {
-			"img/character/gatherer/orb/layer1.png",
-			"img/character/gatherer/orb/layer2.png",
-			"img/character/gatherer/orb/layer3.png",
-			"img/character/gatherer/orb/layer4.png",
-			"img/character/gatherer/orb/layer5.png",
-			"img/character/gatherer/orb/layer6.png",
-			"img/character/gatherer/orb/layer1d.png",
-			"img/character/gatherer/orb/layer2d.png",
-			"img/character/gatherer/orb/layer3d.png",
-			"img/character/gatherer/orb/layer4d.png",
-			"img/character/gatherer/orb/layer5d.png",
+			"GathererMod/img/character/gatherer/orb/layer1.png",
+			"GathererMod/img/character/gatherer/orb/layer2.png",
+			"GathererMod/img/character/gatherer/orb/layer3.png",
+			"GathererMod/img/character/gatherer/orb/layer4.png",
+			"GathererMod/img/character/gatherer/orb/layer5.png",
+			"GathererMod/img/character/gatherer/orb/layer6.png",
+			"GathererMod/img/character/gatherer/orb/layer1d.png",
+			"GathererMod/img/character/gatherer/orb/layer2d.png",
+			"GathererMod/img/character/gatherer/orb/layer3d.png",
+			"GathererMod/img/character/gatherer/orb/layer4d.png",
+			"GathererMod/img/character/gatherer/orb/layer5d.png",
 	};
 
 	public TheGatherer(String name, PlayerClass setClass) {

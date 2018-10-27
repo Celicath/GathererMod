@@ -13,10 +13,12 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
+import the_gatherer.GathererMod;
 import the_gatherer.patches.PotionRarityEnum;
 
 public class LesserDexterityPotion extends CustomPotion {
-	public static final String POTION_ID = "LesserDexterityPotion";
+	private static final String RAW_ID = "LesserDexterityPotion";
+	public static final String POTION_ID = GathererMod.makeID(RAW_ID);
 	private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
 	public static final String NAME = potionStrings.NAME;
 	public static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;

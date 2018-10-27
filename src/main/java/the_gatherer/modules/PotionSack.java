@@ -47,7 +47,7 @@ public class PotionSack {
 
 	public static void loadImage() {
 		if (panel == null)
-			panel = new Texture("img/PotionSack.png");
+			panel = new Texture("GathererMod/img/PotionSack.png");
 	}
 
 	public void update() {
