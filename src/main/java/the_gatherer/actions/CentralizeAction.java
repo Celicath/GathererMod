@@ -8,14 +8,13 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import the_gatherer.cards.Centralize;
 
 import java.util.Iterator;
 
 public class CentralizeAction extends AbstractGameAction {
 	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("AnyCardFromDeckToHandAction");
 	public static final String[] TEXT = uiStrings.TEXT;
-	private static final UIStrings uiStrings2 = CardCrawlGame.languagePack.getUIString("CentralizeAction");
+	private static final UIStrings uiStrings2 = CardCrawlGame.languagePack.getUIString("Gatherer:CentralizeAction");
 	public static final String[] TEXT2 = uiStrings2.TEXT;
 	private AbstractPlayer p;
 

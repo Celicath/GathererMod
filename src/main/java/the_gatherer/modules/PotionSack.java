@@ -49,6 +49,7 @@ public class PotionSack {
 		if (panel == null)
 			panel = new Texture("img/PotionSack.png");
 	}
+
 	public void update() {
 		if (!init) {
 			hb.move(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY + above * Settings.scale);

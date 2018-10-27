@@ -1,80 +1,80 @@
 {
-  "LesserAttackPotion": {
+  "Gatherer:LesserAttackPotion": {
     "NAME": "Lesser Attack Potion",
     "DESCRIPTIONS": [
       "Add a random #yAttack cards to add to your hand, it costs #b0 this turn."
     ]
   },
-  "LesserBlockPotion": {
+  "Gatherer:LesserBlockPotion": {
     "NAME": "Lesser Block Potion",
     "DESCRIPTIONS": [
       "Gain #b",
       " #yBlock."
     ]
   },
-  "LesserDexterityPotion": {
+  "Gatherer:LesserDexterityPotion": {
     "NAME": "Lesser Dexterity Potion",
     "DESCRIPTIONS": [
       "Gain #b",
       " #yDexterity."
     ]
   },
-  "LesserEnergyPotion": {
+  "Gatherer:LesserEnergyPotion": {
     "NAME": "Lesser Energy Potion",
     "DESCRIPTIONS": [
       "Gain #b",
       " Energy."
     ]
   },
-  "LesserEssenceOfSteel": {
+  "Gatherer:LesserEssenceOfSteel": {
     "NAME": "Lesser Essence of Steel",
     "DESCRIPTIONS": [
       "Gain #b",
       " #yPlated #yArmor."
     ]
   },
-  "LesserExplosivePotion": {
+  "Gatherer:LesserExplosivePotion": {
     "NAME": "Lesser Explosive Potion",
     "DESCRIPTIONS": [
       "Deal #b",
       " damage to ALL enemies."
     ]
   },
-  "LesserFearPotion": {
+  "Gatherer:LesserFearPotion": {
     "NAME": "Lesser Fear Potion",
     "DESCRIPTIONS": [
       "Apply #b",
       " #yVulnerable."
     ]
   },
-  "LesserFirePotion": {
+  "Gatherer:LesserFirePotion": {
     "NAME": "Lesser Fire Potion",
     "DESCRIPTIONS": [
       "Deal #b",
       " damage."
     ]
   },
-  "LesserLiquidBronze": {
+  "Gatherer:LesserLiquidBronze": {
     "NAME": "Lesser Liquid Bronze",
     "DESCRIPTIONS": [
       "Gain #b",
       " #yThorns."
     ]
   },
-  "LesserPoisonPotion": {
+  "Gatherer:LesserPoisonPotion": {
     "NAME": "Lesser Poison Potion",
     "DESCRIPTIONS": [
       "Apply #b",
       " #yPoison."
     ]
   },
-  "LesserPowerPotion": {
+  "Gatherer:LesserPowerPotion": {
     "NAME": "Lesser Power Potion",
     "DESCRIPTIONS": [
       "Add a random #yPower cards to add to your hand, it costs #b0 this turn."
     ]
   },
-  "LesserRegenPotion": {
+  "Gatherer:LesserRegenPotion": {
     "NAME": "Lesser Regen Potion",
     "DESCRIPTIONS": [
       "Gain #b",
@@ -82,20 +82,20 @@
       ""
     ]
   },
-  "LesserSkillPotion": {
+  "Gatherer:LesserSkillPotion": {
     "NAME": "Lesser Skill Potion",
     "DESCRIPTIONS": [
       "Add a random #ySkill cards to add to your hand, it costs #b0 this turn."
     ]
   },
-  "LesserStrengthPotion": {
+  "Gatherer:LesserStrengthPotion": {
     "NAME": "Lesser Strength Potion",
     "DESCRIPTIONS": [
       "Gain #b",
       " #yStrength."
     ]
   },
-  "LesserSwiftPotion": {
+  "Gatherer:LesserSwiftPotion": {
     "NAME": "Lesser Swift Potion",
     "DESCRIPTIONS": [
       "",
@@ -103,32 +103,31 @@
       " cards."
     ]
   },
-  "LesserWeakPotion": {
+  "Gatherer:LesserWeakPotion": {
     "NAME": "Lesser Weak Potion",
     "DESCRIPTIONS": [
       "Apply #b",
       " #yWeak."
     ]
   },
-  "FirstAidPotion": {
+  "Gatherer:FirstAidPotion": {
     "NAME": "First-Aid Potion",
     "DESCRIPTIONS": [
       "Heal #b",
       "% of missing health."
     ]
   },
-  "FirstAidPotionPlus": {
+  "Gatherer:FirstAidPotionPlus": {
     "NAME": "First-Aid Potion+",
     "DESCRIPTIONS": [
       "Heal #b",
       "% of missing health."
     ]
   },
-  "PlaceHolderPotion": {
+  "Gatherer:PlaceHolderPotion": {
     "NAME": "PlaceHolder",
     "DESCRIPTIONS": [
       "Just a placeholder for implementing potion-based things."
     ]
-  },
-  "Dummy" : { }
+  }
 }

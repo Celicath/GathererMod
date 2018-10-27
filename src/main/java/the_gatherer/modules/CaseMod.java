@@ -19,8 +19,8 @@ public class CaseMod {
 		logger.info("publish on post obtain card");
 		Iterator var1 = postObtainCardSubscribers.iterator();
 
-		while(var1.hasNext()) {
-			PostObtainCardSubscriber sub = (PostObtainCardSubscriber)var1.next();
+		while (var1.hasNext()) {
+			PostObtainCardSubscriber sub = (PostObtainCardSubscriber) var1.next();
 			sub.receivePostObtainCard(c);
 		}
 	}

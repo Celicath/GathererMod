@@ -35,4 +35,4 @@ public class LesserSwiftPotion extends CustomPotion {
 	public int getPotency(int ascensionLevel) {
 		return 2;
 	}
-	}
+}

@@ -1,7 +1,6 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,20 +11,19 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ModifyMagicNumberAction;
 import the_gatherer.actions.PotionUsedAction;
-import the_gatherer.patches.AbstractCardEnum;
-import the_gatherer.patches.CustomTags;
+import the_gatherer.patches.CardColorEnum;
 
 public class SalvePotion extends CustomCard {
-	private static final String CardID = "SalvePotion";
-	public static final String ID = GathererMod.makeID(CardID);
+	private static final String RAW_ID = "SalvePotion";
+	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
-	public static final String IMG = "img/cards/" + CardID + ".png";
+	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
 	private static final int COST = 0;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final CardType TYPE = CardType.SKILL;
-	private static final CardColor COLOR = AbstractCardEnum.LIME;
+	private static final CardColor COLOR = CardColorEnum.LIME;
 	private static final CardRarity RARITY = CardRarity.RARE;
 	private static final CardTarget TARGET = CardTarget.SELF;
 

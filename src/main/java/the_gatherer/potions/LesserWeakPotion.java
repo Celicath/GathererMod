@@ -20,7 +20,7 @@ public class LesserWeakPotion extends CustomPotion {
 	public static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;
 
 	public LesserWeakPotion() {
-		super(NAME, POTION_ID, PotionRarityEnum.LESSER,PotionSize.H, PotionColor.WEAK);
+		super(NAME, POTION_ID, PotionRarityEnum.LESSER, PotionSize.H, PotionColor.WEAK);
 		this.potency = this.getPotency();
 		this.description = DESCRIPTIONS[0] + this.potency + DESCRIPTIONS[1];
 		this.isThrown = true;

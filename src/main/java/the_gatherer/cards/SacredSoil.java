@@ -14,19 +14,19 @@ import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import the_gatherer.GathererMod;
 import the_gatherer.interfaces.OnObtainEffect;
-import the_gatherer.patches.AbstractCardEnum;
+import the_gatherer.patches.CardColorEnum;
 import the_gatherer.patches.CustomTags;
 
 public class SacredSoil extends CustomCard implements OnObtainEffect {
-	private static final String CardID = "SacredSoil";
-	public static final String ID = GathererMod.makeID(CardID);
+	private static final String RAW_ID = "SacredSoil";
+	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
-	public static final String IMG = "img/cards/" + CardID + ".png";
+	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
 	private static final int COST = 2;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
-	private static final AbstractCard.CardColor COLOR = AbstractCardEnum.LIME;
+	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 

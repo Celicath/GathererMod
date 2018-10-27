@@ -19,8 +19,8 @@ public class ModifyMagicNumberAction extends AbstractGameAction {
 	public void update() {
 		Iterator var1 = GetAllInBattleInstances.get(this.uuid).iterator();
 
-		while(var1.hasNext()) {
-			AbstractCard c = (AbstractCard)var1.next();
+		while (var1.hasNext()) {
+			AbstractCard c = (AbstractCard) var1.next();
 			c.baseMagicNumber += this.amount;
 			if (c.baseMagicNumber < 0) {
 				c.baseMagicNumber = 0;

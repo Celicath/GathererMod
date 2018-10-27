@@ -15,6 +15,7 @@ public class PostObtainCardHook {
 			CaseMod.publishPostObtainCard(card);
 		}
 	}
+
 	@SpirePatch(clz = ShowCardAndObtainEffect.class, method = "update")
 	public static class ShowCardAndObtainEffectPatch {
 		@SpireInsertPatch(rloc = 9, localvars = {"card"})

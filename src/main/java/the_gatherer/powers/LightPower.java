@@ -8,10 +8,12 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import the_gatherer.GathererMod;
 import the_gatherer.cards.Light;
 
 public class LightPower extends AbstractPower {
-	public static final String POWER_ID = "LightPower";
+	private static final String RAW_ID = "LightPower";
+	public static final String POWER_ID = GathererMod.makeID(RAW_ID);
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -24,7 +26,7 @@ public class LightPower extends AbstractPower {
 		this.description = DESCRIPTIONS[0];
 		this.type = PowerType.BUFF;
 		this.isTurnBased = false;
-		this.img = new Texture("img/powers/" + ID + ".png");
+		this.img = new Texture(GathererMod.GetPowerPath(RAW_ID));
 	}
 
 	@Override

@@ -25,7 +25,6 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.FruitJuice;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.ui.panels.PotionPopUp;
-import com.megacrit.cardcrawl.ui.panels.TopPanel;
 import the_gatherer.GathererMod;
 
 import java.util.ArrayList;

@@ -12,7 +12,7 @@ import the_gatherer.powers.PoisonMasteryPower;
 public class PoisonDamagePatch {
 	@SpirePatch(clz = PoisonLoseHpAction.class, method = "update")
 	public static class LostHPUpdate {
-		@SpireInsertPatch(locator= Locator.class, localvars = {"amount"})
+		@SpireInsertPatch(locator = Locator.class, localvars = {"amount"})
 		public static void Insert(PoisonLoseHpAction __instance, @ByRef int[] amount) {
 			PoisonMasteryPower pmp = (PoisonMasteryPower) AbstractDungeon.player.getPower(PoisonMasteryPower.POWER_ID);
 			if (pmp != null) {
@@ -20,11 +20,10 @@ public class PoisonDamagePatch {
 			}
 		}
 	}
-	private static class Locator extends SpireInsertLocator
-	{
+
+	private static class Locator extends SpireInsertLocator {
 		@Override
-		public int[] Locate(CtBehavior ctMethodToPatch) throws Exception
-		{
+		public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
 			Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractCreature.class, "damage");
 			return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
 		}
