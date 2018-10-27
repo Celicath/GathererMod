@@ -268,7 +268,7 @@
     "NAME": "Overflowing",
     "DESCRIPTION": "Gain !M! energy. Energy is conserved for the next turn. NL Exhaust."
   },
-  "Gatherer:Scroll of Purity" : {
+  "Gatherer:ScrollOfPurity" : {
     "NAME": "Scroll of Purity",
     "DESCRIPTION": "Unplayable. Whenever you use a Potion, you may exhaust a card and draw !M! cards."
   },

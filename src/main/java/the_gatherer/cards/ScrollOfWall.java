@@ -23,7 +23,7 @@ public class ScrollOfWall extends CustomCard implements OnUsePotionEffect {
 	private static final int COST = -2;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
+	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
 	private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.NONE;

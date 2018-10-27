@@ -40,7 +40,7 @@ public class PotionSack {
 	public PotionSack() {
 		this.potionUi = new PotionSackPopUp();
 		hb = new Hitbox(width * Settings.scale, height * Settings.scale);
-		uiStrings = CardCrawlGame.languagePack.getUIString("PotionSack");
+		uiStrings = CardCrawlGame.languagePack.getUIString("Gatherer:PotionSack");
 		TEXT = uiStrings.TEXT;
 		loadImage();
 	}

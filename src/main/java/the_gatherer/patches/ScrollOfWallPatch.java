@@ -48,7 +48,7 @@ public class ScrollOfWallPatch {
 	@SpirePatch(clz = ShowCardAndAddToDiscardEffect.class, method = "update")
 	public static class AddToDiscardUpdate {
 		@SpireInsertPatch(locator = AddToDiscardLocator.class, localvars = {"card"})
-		public static SpireReturn Insert(AbstractPlayer __instance, AbstractCard card) {
+		public static SpireReturn Insert(ShowCardAndAddToDiscardEffect __instance, AbstractCard card) {
 			if(card.type == AbstractCard.CardType.STATUS && AbstractDungeon.player.hasPower(ScrollOfWallPower.POWER_ID)) {
 				CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 				group.addToTop(card);
@@ -110,7 +110,7 @@ public class ScrollOfWallPatch {
 	@SpirePatch(clz = ShowCardAndAddToDrawPileEffect.class, method = "update")
 	public static class AddToDrawPileUpdate {
 		@SpireInsertPatch(locator = AddToDrawPileLocator.class, localvars = {"card"})
-		public static SpireReturn Insert(AbstractPlayer __instance, AbstractCard card) {
+		public static SpireReturn Insert(ShowCardAndAddToDrawPileEffect __instance, AbstractCard card) {
 			if (card.type == AbstractCard.CardType.STATUS && AbstractDungeon.player.hasPower(ScrollOfWallPower.POWER_ID)) {
 				CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 				group.addToTop(card);
