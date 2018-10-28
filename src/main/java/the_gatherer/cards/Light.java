@@ -34,7 +34,8 @@ public class Light extends CustomCard {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
 		this.baseBlock = POWER;
-		this.magicNumber = POWER;
+		this.baseMagicNumber = POWER;
+		this.magicNumber = this.baseMagicNumber;
 	}
 
 	@Override
