@@ -237,7 +237,7 @@
   },
   "Gatherer:BomberForm" : {
     "NAME": "Bomber Form",
-    "DESCRIPTION": "At the start of your turn, obtain a LEP. Any incoming lesser Potion becomes LEP, and increase damage of all LEPs' by !M!."
+    "DESCRIPTION": "At the start of your turn, obtain a LEP. Any incoming lesser Potion becomes LEP, and increase damage of all LEPs by !M!."
   },
   "Gatherer:SolidTechnique" : {
     "NAME": "Solid Technique",

@@ -60,6 +60,10 @@ public class CentralizeAction extends AbstractGameAction {
 					AbstractDungeon.player.hand.refreshHandLayout();
 					AbstractDungeon.player.hand.applyPowers();
 				}
+				if (upgrade) {
+					card.upgrade();
+					card.superFlash();
+				}
 
 				this.isDone = true;
 			} else if (tmp.size() <= this.amount) {

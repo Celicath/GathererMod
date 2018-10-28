@@ -68,7 +68,7 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	public static final String GATHERER_BADGE = "GathererMod/img/badge.png";
 	public static final String GATHERER_BUTTON = "GathererMod/img/character/gatherer/button.png";
-	public static final String GATHERER_PORTRAIT = "GathererMod/img/character/gatherer/PortraitBG.jpg";
+	public static final String GATHERER_PORTRAIT = "GathererMod/img/character/gatherer/PortraitBG.png";
 	public static final String GATHERER_SHOULDER_1 = "GathererMod/img/character/gatherer/shoulder.png";
 	public static final String GATHERER_SHOULDER_2 = "GathererMod/img/character/gatherer/shoulder2.png";
 	public static final String GATHERER_CORPSE = "GathererMod/img/character/gatherer/corpse.png";
