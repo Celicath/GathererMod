@@ -27,6 +27,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import the_gatherer.actions.ScrollOfPurityAction;
 import the_gatherer.cards.*;
 import the_gatherer.character.TheGatherer;
 import the_gatherer.interfaces.OnObtainEffect;
@@ -35,8 +36,8 @@ import the_gatherer.interfaces.OnceEffect;
 import the_gatherer.interfaces.PostObtainCardSubscriber;
 import the_gatherer.modules.CaseMod;
 import the_gatherer.modules.PotionSack;
-import the_gatherer.patches.CardColorEnum;
 import the_gatherer.patches.AbstractPlayerEnum;
+import the_gatherer.patches.CardColorEnum;
 import the_gatherer.potions.*;
 import the_gatherer.relics.AlchemyBag;
 import the_gatherer.relics.IronSlate;
@@ -266,7 +267,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		BaseMod.addKeyword(new String[]{"unique", "Unique"}, "Cards with different IDs are considered unique. Whatever that means.");
 		BaseMod.addKeyword(new String[]{"once", "Once"}, "Only activates when you play this unique card first time in the combat.");
 		BaseMod.addKeyword(new String[]{"flower", "Flower"}, "Card containing \"Flower\" in its name. It can be upgraded 3 times.");
-		BaseMod.addKeyword(new String[]{"lep", "LEP", "LEPs"}, "Stands for Lesser Explosive Potion. Became a keyword because the text was too long.");
+		BaseMod.addKeyword(new String[]{"lep", "LEP", "LEPs"}, "Stands for Lesser Explosive Potion. Became a keyword because the text is too long.");
 
 		logger.debug("receiveEditKeywords finished.");
 	}
@@ -313,12 +314,17 @@ public class GathererMod implements PostInitializeSubscriber,
 				((OnUsePotionEffect) r).onUsePotion(p);
 			}
 		}
+
+		ScrollOfPurity.drawCount = 0;
 		if (AbstractDungeon.player.hand != null) {
 			for (AbstractCard c : AbstractDungeon.player.hand.group) {
 				if (c instanceof OnUsePotionEffect) {
 					((OnUsePotionEffect) c).onUsePotion(p);
 				}
 			}
+		}
+		if(ScrollOfPurity.drawCount > 0) {
+			AbstractDungeon.actionManager.addToBottom(new ScrollOfPurityAction(ScrollOfPurity.drawCount));
 		}
 	}
 
@@ -363,7 +369,9 @@ public class GathererMod implements PostInitializeSubscriber,
 		return "GathererMod/img/powers/" + id + ".png";
 	}
 
-	public static String GetRelicPath(String id) { return "GathererMod/img/relics/" + id + ".png"; }
+	public static String GetRelicPath(String id) {
+		return "GathererMod/img/relics/" + id + ".png";
+	}
 
 	private static String GetLocString(String name) {
 		return Gdx.files.internal("GathererMod/localization/" + name + ".json").readString(

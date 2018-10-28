@@ -28,7 +28,7 @@ public class UpliftPower extends AbstractPower implements OnUsePotionEffect {
 		this.ID = POWER_ID;
 		this.owner = owner;
 		this.amount = amount;
-		this.description = DESCRIPTIONS[0];
+		updateDescription();
 		this.type = PowerType.BUFF;
 		this.isTurnBased = false;
 		this.img = new Texture(GathererMod.GetPowerPath(RAW_ID));
@@ -36,19 +36,8 @@ public class UpliftPower extends AbstractPower implements OnUsePotionEffect {
 	}
 
 	@Override
-	public void stackPower(int stackAmount) {
-		if (stackAmount > this.amount) {
-			this.fontScale = 8.0F;
-			this.amount = stackAmount;
-			this.updateDescription();
-		}
-	}
-
-	@Override
 	public void updateDescription() {
-		if (this.amount == 1) {
-			this.description = DESCRIPTIONS[this.amount - 1];
-		}
+		this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
 	}
 
 	@Override
@@ -57,26 +46,17 @@ public class UpliftPower extends AbstractPower implements OnUsePotionEffect {
 
 		for (AbstractCard c : this.p.hand.group) {
 			if (c.costForTurn > 1) {
-				group.addToRandomSpot(c);
+				group.addToTop(c);
 			}
 		}
 
 		if (group.size() > 0) {
 			this.flash();
-
-			AbstractCard c = group.getTopCard();
-			c.costForTurn = 1;
+			AbstractCard c = group.getRandomCard(AbstractDungeon.cardRandomRng);
+			c.costForTurn = Math.max(c.costForTurn - this.amount, 1);
 			c.isCostModifiedForTurn = true;
-			if (this.amount == 2) {
-				c.cost = 1;
-				c.isCostModified = true;
-			}
+			c.cost = Math.max(c.cost - this.amount, 1);
+			c.isCostModified = true;
 		}
-	}
-
-	@Override
-	public void onAfterCardPlayed(AbstractCard usedCard) {
-		if (!(usedCard instanceof Light))
-			AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
 	}
 }

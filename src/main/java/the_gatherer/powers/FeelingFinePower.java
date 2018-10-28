@@ -27,7 +27,7 @@ public class FeelingFinePower extends AbstractPower implements OnUsePotionEffect
 		this.ID = POWER_ID;
 		this.owner = owner;
 		this.amount = POTION_AMT;
-		this.description = DESCRIPTIONS[0];
+		updateDescription();
 		this.type = PowerType.BUFF;
 		this.isTurnBased = false;
 		this.img = new Texture(GathererMod.GetPowerPath(RAW_ID));
@@ -45,6 +45,10 @@ public class FeelingFinePower extends AbstractPower implements OnUsePotionEffect
 		this.updateDescription();
 	}
 
+	public void stackPower(int stackAmount) {
+		// Does not stack
+	}
+
 	@Override
 	public void updateDescription() {
 		if (this.amount == 1) {
@@ -58,11 +62,5 @@ public class FeelingFinePower extends AbstractPower implements OnUsePotionEffect
 	public void atStartOfTurn() {
 		this.amount = POTION_AMT;
 		this.updateDescription();
-	}
-
-	@Override
-	public void onAfterCardPlayed(AbstractCard usedCard) {
-		if (!(usedCard instanceof Light))
-			AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
 	}
 }

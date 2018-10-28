@@ -30,12 +30,10 @@ public class Investigate extends CustomCard {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
-		this.exhaust = true;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new InvestigateAction(this.magicNumber));
-
 	}
 
 	public AbstractCard makeCopy() {

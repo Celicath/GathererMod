@@ -73,8 +73,8 @@
   },
   "Gatherer:MagicLamp" : {
     "NAME": "Magic Lamp",
-    "DESCRIPTION": "Draw !M! card. When obtained, add Light! and Shadow! to your deck.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. When obtained, add Light! and Shadow! to your deck."
+    "DESCRIPTION": "Draw !M! card. When obtained, add a Light! and a Shadow! to your deck.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. When obtained, add a Light! and a Shadow! to your deck."
   },
   "Gatherer:Light" : {
     "NAME": "Light!",
@@ -90,8 +90,8 @@
   },
   "Gatherer:FirstAidKit": {
     "NAME": "First-Aid Kit",
-    "DESCRIPTION": "Obtain a First-Aid Potion to your Sack. It heals !M! % of missing HP. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Obtain a First-Aid Potion+ to your Sack. It heals !M! % of missing HP. NL Exhaust."
+    "DESCRIPTION": "Obtain a First-Aid Potion to your Sack. It heals !M! % of your missing HP. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Obtain a First-Aid Potion+ to your Sack. It heals !M! % of your missing HP. NL Exhaust."
   },
   "Gatherer:TreeGrowth": {
     "NAME": "Tree Growth",
@@ -275,7 +275,8 @@
   },
   "Gatherer:ScrollOfPurity" : {
     "NAME": "Scroll of Purity",
-    "DESCRIPTION": "Unplayable. Whenever you use a Potion, you may exhaust a card and draw !M! cards.",
+    "DESCRIPTION": "Unplayable. Whenever you use a Potion, you may exhaust a card and draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Unplayable. Whenever you use a Potion, you may exhaust a card and draw !M! cards.",
     "EXTENDED_DESCRIPTION": [
       "I can't play this card."
     ]
@@ -286,8 +287,7 @@
   },
   "Gatherer:Uplift" : {
     "NAME": "Uplift",
-    "DESCRIPTION": "Whenever you use a potion, reduce a random card's cost in your hand to 1 this turn.",
-    "UPGRADE_DESCRIPTION": "Whenever you use a potion, reduce a random card's cost in your hand to 1 this combat."
+    "DESCRIPTION": "Whenever you use a potion, reduce a random card's cost by !M! (minimum 1) this combat."
   },
 
   "Gatherer:Dummy": {}

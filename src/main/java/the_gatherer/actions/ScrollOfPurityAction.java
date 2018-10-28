@@ -27,7 +27,7 @@ public class ScrollOfPurityAction extends AbstractGameAction {
 			if (this.p.hand.isEmpty()) {
 				this.isDone = true;
 			} else {
-				AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, true, false, false, true);
+				AbstractDungeon.handCardSelectScreen.open(this.amount == 0 ? TEXT[0] : TEXT[1] + this.amount, 1, false, true, false, false, true);
 				this.tickDuration();
 			}
 		} else {

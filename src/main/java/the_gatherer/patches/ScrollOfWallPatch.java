@@ -3,7 +3,6 @@ package the_gatherer.patches;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -11,10 +10,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ExhaustCardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect;
 import javassist.CtBehavior;
-import the_gatherer.GathererMod;
 import the_gatherer.cards.ScrollOfWall;
-
-import java.util.Iterator;
 
 public class ScrollOfWallPatch {
 	public static class ScrollOfWallUtil {
@@ -33,6 +29,7 @@ public class ScrollOfWallPatch {
 			}
 			return hasOne ? result : -1;
 		}
+
 		public static void exhaustIncomingCard(AbstractCard c) {
 			for (AbstractCard hc : AbstractDungeon.player.hand.group) {
 				if (hc instanceof ScrollOfWall) {
@@ -40,11 +37,11 @@ public class ScrollOfWallPatch {
 				}
 			}
 
-			for (AbstractRelic r : AbstractDungeon.player.relics){
+			for (AbstractRelic r : AbstractDungeon.player.relics) {
 				r.onExhaust(c);
 			}
 
-			for (AbstractPower p : AbstractDungeon.player.powers){
+			for (AbstractPower p : AbstractDungeon.player.powers) {
 				p.onExhaust(c);
 			}
 

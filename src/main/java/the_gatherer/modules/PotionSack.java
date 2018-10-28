@@ -53,6 +53,8 @@ public class PotionSack {
 	public void update() {
 		if (!init) {
 			hb.move(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY + above * Settings.scale);
+			logger.info(Settings.scale);
+			logger.info(hb.cX + " " + hb.cY + " " + hb.width + " " + hb.height);
 
 			potions = new ArrayList();
 			for (int i = 0; i < 3; i++) {
@@ -95,12 +97,17 @@ public class PotionSack {
 
 	public void render(SpriteBatch sb) {
 		if (!init || !show || potions == null) return;
-		if (this.hb.hovered) {
-			sb.setColor(new Color(1.0F, 1.0F, 1.0F, 1.0F));
-		} else {
-			sb.setColor(new Color(0.6F, 0.6F, 0.6F, 0.8F));
+		float r = 0.0f;
+		if (this.flashRedTimer != 0.0F) {
+			r -= this.flashRedTimer / 2.0f;
 		}
-		sb.draw(panel, hb.cX - hb.width * Settings.scale / 2.0F, hb.cY - hb.height * Settings.scale / 2.0F, width, height, width, height, Settings.scale, Settings.scale, 0.0F, 0, 0, width, height, false, false);
+		if (this.hb.hovered) {
+			sb.setColor(new Color(1.0F, 1.0F * (1 - 0.4F * r), 1.0F * (1 - 0.4F * r), 1.0F));
+		} else {
+			sb.setColor(new Color(0.6F + 0.4f * r, 0.6F, 0.6F, 0.8F + 0.2F * r));
+		}
+
+		sb.draw(panel, hb.x, hb.y, hb.width, hb.height);
 
 		boolean potion_hovered = false;
 		for (AbstractPotion p : potions) {

@@ -16,8 +16,8 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import the_gatherer.GathererMod;
 import the_gatherer.cards.*;
-import the_gatherer.patches.CardColorEnum;
 import the_gatherer.patches.AbstractPlayerEnum;
+import the_gatherer.patches.CardColorEnum;
 import the_gatherer.relics.AlchemyBag;
 
 import java.util.ArrayList;

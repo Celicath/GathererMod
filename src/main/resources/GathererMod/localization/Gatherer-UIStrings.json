@@ -36,5 +36,11 @@
     "TEXT": [
       "Play"
     ]
+  },
+  "Gatherer:ScrollOfPurityAction": {
+    "TEXT": [
+      "Exhaust",
+      "Exhaust and Draw ",
+    ]
   }
 }

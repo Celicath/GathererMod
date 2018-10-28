@@ -23,7 +23,7 @@ public class VenomBarrier extends CustomCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
-	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
+	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
 	private static final int POWER = 10;

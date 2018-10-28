@@ -21,7 +21,7 @@ import the_gatherer.interfaces.OnceEffect;
 import the_gatherer.patches.CardColorEnum;
 
 public class CursedBlade extends CustomCard implements OnObtainEffect, OnceEffect {
-	private static final String RAW_ID = "FruitForce";
+	private static final String RAW_ID = "CursedBlade";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
@@ -48,14 +48,6 @@ public class CursedBlade extends CustomCard implements OnObtainEffect, OnceEffec
 		this.magicNumber = this.baseMagicNumber;
 	}
 
-	public void applyPowers() {
-		this.baseDamage = (AbstractDungeon.player.maxHealth * this.magicNumber) / 100;
-		super.applyPowers();
-
-		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
-		this.initializeDescription();
-	}
-
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 		if (first) {
@@ -70,7 +62,7 @@ public class CursedBlade extends CustomCard implements OnObtainEffect, OnceEffec
 	}
 
 	public AbstractCard makeCopy() {
-		return new FruitForce();
+		return new CursedBlade();
 	}
 
 	public void upgrade() {

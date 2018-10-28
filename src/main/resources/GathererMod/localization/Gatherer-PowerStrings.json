@@ -98,8 +98,8 @@
   "Gatherer:Uplift" : {
     "NAME": "Uplift",
     "DESCRIPTIONS": [
-      "Whenever you use a potion, reduce a random card's cost in your hand to #b1 this turn.",
-      "Whenever you use a potion, reduce a random card's cost in your hand to #b1 this combat."
+      "Whenever you use a potion, reduce a random card's cost in your hand by #b",
+      " (minimum 1) this turn."
     ]
   },
   "Gatherer:ScrollOfWall" : {

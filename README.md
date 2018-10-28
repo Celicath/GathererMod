@@ -3,10 +3,13 @@ GathererMod adds a new character for Slay The Spire, The Gatherer. Contains 75 c
 
 The main focus of The Gatherer is the Potion. She has a potion Sack which can hold 3 "lesser" potions. The contents of the sack are gone at the end of each combat, so it's better to use them all. Especially when there are powers that care about using potions. There are other mechanics as well, like cards which care about unique cards, or cards with on-gain effects.
 
-## Current State and Goal
-GathererMod is at an early development stage. Cards are not implemented fully, and they are going to change vastly.
+## Gameplay
+will add here
 
-- Implemented Cards: 48/75
+## Current State and Goal
+GathererMod is currently at alpha. Any feedback is welcomed.
+
+- Implemented Cards: 57/75
 - Implemented Relics: 4/8
 - Implemented Events: 0
 
