@@ -94,6 +94,9 @@ public class RustyPipe extends CustomCard {
 			RustyPipeDebuffEnum debuff = getDebuff();
 			this.baseMagicNumber = MIN_MAGIC + (misc % 7 - debuff.getValue() * 2);
 			this.magicNumber = this.baseMagicNumber;
+			if (upgraded) {
+				upgradeEffect();
+			}
 			this.rawDescription = EXTENDED_DESCRIPTION[0] + EXTENDED_DESCRIPTION[debuff.getValue() + 1] + EXTENDED_DESCRIPTION[4];
 			this.initializeDescription();
 			initialized = true;
@@ -127,8 +130,12 @@ public class RustyPipe extends CustomCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
-			this.upgradeDamage(UPGRADE_BONUS);
-			this.upgradeMagicNumber(MAGIC_BONUS);
+			upgradeEffect();
 		}
+	}
+
+	void upgradeEffect() {
+		this.upgradeDamage(UPGRADE_BONUS);
+		this.upgradeMagicNumber(MAGIC_BONUS);
 	}
 }

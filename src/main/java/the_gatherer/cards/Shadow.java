@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.CardColorEnum;
+import the_gatherer.powers.LightPower;
 import the_gatherer.powers.ShadowPower;
 
 public class Shadow extends CustomCard {
@@ -42,11 +43,11 @@ public class Shadow extends CustomCard {
 	@Override
 	public void applyPowers() {
 		this.baseDamage = this.magicNumber;
-		if (AbstractDungeon.player.hasPower(ShadowPower.POWER_ID)) {
+		if (AbstractDungeon.player.hasPower(LightPower.POWER_ID)) {
 			this.baseDamage *= 2;
 		}
 		super.applyPowers();
-		if (AbstractDungeon.player.hasPower(ShadowPower.POWER_ID)) {
+		if (AbstractDungeon.player.hasPower(LightPower.POWER_ID)) {
 			this.isDamageModified = true;
 		}
 	}

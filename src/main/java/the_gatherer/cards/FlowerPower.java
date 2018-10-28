@@ -76,7 +76,7 @@ public class FlowerPower extends CustomCard {
 		if (timesUpgraded < 3) {
 			++this.timesUpgraded;
 			if (timesUpgraded == 3)
-				this.updateCost(1);
+				this.upgradeBaseCost(1);
 			this.upgraded = true;
 			this.name = NAME + "+" + this.timesUpgraded;
 			this.initializeTitle();
