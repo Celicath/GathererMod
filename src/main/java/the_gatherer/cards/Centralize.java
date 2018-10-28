@@ -10,18 +10,19 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.CentralizeAction;
 import the_gatherer.interfaces.OnceEffect;
-import the_gatherer.patches.AbstractCardEnum;
+import the_gatherer.patches.CardColorEnum;
 
 public class Centralize extends CustomCard implements OnceEffect {
-	private static final String CardID = "Centralize";
-	public static final String ID = GathererMod.makeID(CardID);
+	private static final String RAW_ID = "Centralize";
+	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
-	public static final String IMG = "img/cards/" + CardID + ".png";
+	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
-	private static final AbstractCard.CardColor COLOR = AbstractCardEnum.LIME;
+	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
 	private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.BASIC;
 	private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
@@ -45,14 +46,16 @@ public class Centralize extends CustomCard implements OnceEffect {
 		if (!upgraded) {
 			upgradeName();
 			this.upgradeMagicNumber(UPGRADE_BONUS);
+			this.rawDescription = UPGRADE_DESCRIPTION;
+			this.initializeDescription();
 		}
 	}
 
-	public void notSingleEffect() {
+	public void notFirstTimeEffect() {
 		AbstractDungeon.actionManager.addToBottom(new CentralizeAction(magicNumber, false));
 	}
 
-	public void singleEffect() {
+	public void firstTimeEffect() {
 		AbstractDungeon.actionManager.addToBottom(new CentralizeAction(magicNumber, true));
 	}
 }

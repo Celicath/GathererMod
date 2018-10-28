@@ -1,8 +1,9 @@
 package the_gatherer.interfaces;
 
 public interface OnceEffect {
-	// Called when you already played it at least once
-	void notSingleEffect();
-	// Called when you first use this unique card
-	void singleEffect();
+	// Called when this it not the first time you use this unique card.
+	void notFirstTimeEffect();
+
+	// Called when this is the first time you use this unique card.
+	void firstTimeEffect();
 }

@@ -13,7 +13,7 @@ public class AlchemyBag extends CustomRelic {
 	public static final String ID = GathererMod.makeID(RelicID);
 
 	public AlchemyBag() {
-		super(ID, new Texture("img/relics/" + RelicID + ".png"),
+		super(ID, new Texture(GathererMod.GetRelicPath(RelicID)),
 				RelicTier.STARTER, LandingSound.FLAT);
 	}
 

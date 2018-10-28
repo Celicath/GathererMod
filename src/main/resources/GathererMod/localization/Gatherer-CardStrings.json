@@ -73,8 +73,8 @@
   },
   "Gatherer:MagicLamp" : {
     "NAME": "Magic Lamp",
-    "DESCRIPTION": "Draw !M! card. When obtained, add Light! and Shadow! to your deck.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. When obtained, add Light! and Shadow! to your deck."
+    "DESCRIPTION": "Draw !M! card. When obtained, add a Light! and a Shadow! to your deck.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. When obtained, add a Light! and a Shadow! to your deck."
   },
   "Gatherer:Light" : {
     "NAME": "Light!",
@@ -86,12 +86,12 @@
   },
   "Gatherer:CoupDeGrace" : {
     "NAME": "Coup De Grace",
-    "DESCRIPTION": "Deal !D! damage. If target’s current HP is less than yours, attack twice."
+    "DESCRIPTION": "Deal !D! damage. If target’s current HP was less than yours, hit twice instead."
   },
   "Gatherer:FirstAidKit": {
     "NAME": "First-Aid Kit",
-    "DESCRIPTION": "Obtain a First-Aid Potion to your Sack. It heals !M! % of missing HP. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Obtain a First-Aid Potion+ to your Sack. It heals !M! % of missing HP. NL Exhaust."
+    "DESCRIPTION": "Obtain a First-Aid Potion to your Sack. It heals !M! % of your missing HP. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Obtain a First-Aid Potion+ to your Sack. It heals !M! % of your missing HP. NL Exhaust."
   },
   "Gatherer:TreeGrowth": {
     "NAME": "Tree Growth",
@@ -233,15 +233,61 @@
   "Gatherer:Liquidism" : {
     "NAME": "Liquidism",
     "DESCRIPTION": "Whenever you use a Potion, gain 1 Strength or Dexterity randomly.",
-    "UPGRADE_DESCRIPTION": "Innate NL Whenever you use a Potion, gain 1 Strength or Dexterity randomly."
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you use a Potion, gain 1 Strength or Dexterity randomly."
   },
   "Gatherer:BomberForm" : {
     "NAME": "Bomber Form",
-    "DESCRIPTION": "At the start of your turn, obtain a LEP. Any incoming lesser Potion becomes LEP, and increase LEPs' base power by !M!."
+    "DESCRIPTION": "At the start of your turn, obtain a LEP. Any incoming lesser Potion becomes LEP, and increase damage of all LEPs by !M!."
   },
   "Gatherer:SolidTechnique" : {
     "NAME": "Solid Technique",
     "DESCRIPTION": "Gain !B! Block. If you have !M! or more Block, gain 1 Artifact."
+  },
+  "Gatherer:ChargingShot" : {
+    "NAME": "Charging Shot",
+    "DESCRIPTION": "Deal !D! damage. While in your hand, using a Potion increases it's damage by !M! this combat."
+  },
+  "Gatherer:SealedBomb" : {
+    "NAME": "Sealed Bomb",
+    "DESCRIPTION": "Deal !D! damage. While in your hand, using a Potion decreases it's cost by 1 this combat."
+  },
+  "Gatherer:FeelingFine" : {
+    "NAME": "Feeling Fine",
+    "DESCRIPTION": "Whenever you use 3 Potions in a turn, remove all of your debuffs."
+  },
+  "Gatherer:CursedBlade" : {
+    "NAME": "Cursed Blade",
+    "DESCRIPTION": "Deal !D! damage. Once: Enemy loses !M! Strength this turn. When Obtained, add a Curse-Normality to your deck."
+  },
+  "Gatherer:Overflowing" : {
+    "NAME": "Overflowing",
+    "DESCRIPTION": "Gain !M! energy. Energy is conserved for the next turn. NL Exhaust."
+  },
+  "Gatherer:ScrollOfWall" : {
+    "NAME": "Scroll Of Wall",
+    "DESCRIPTION": "Unplayable. Use a Potion to Retain this turn. All incoming Statuses are Exhausted.",
+    "UPGRADE_DESCRIPTION": "Unplayable. Use a Potion to Retain this turn. All incoming Statuses are Exhausted and make you draw 1.",
+    "EXTENDED_DESCRIPTION": [
+      "I can't play this card.",
+      "Unplayable. Retain this turn. All incoming Statuses are Exhausted.",
+      "Unplayable. Retain this turn. All incoming Statuses are Exhausted and make you draw 1."
+    ]
+  },
+  "Gatherer:ScrollOfPurity" : {
+    "NAME": "Scroll of Purity",
+    "DESCRIPTION": "Unplayable. Whenever you use a Potion, you may exhaust a card and draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Unplayable. Whenever you use a Potion, you may exhaust a card and draw !M! cards.",
+    "EXTENDED_DESCRIPTION": [
+      "I can't play this card."
+    ]
+  },
+  "Gatherer:Investigate" : {
+    "NAME": "Investigate",
+    "DESCRIPTION": "Look at the top 3 cards of your draw pile. Play one, and discard others."
+  },
+  "Gatherer:Uplift" : {
+    "NAME": "Uplift",
+    "DESCRIPTION": "Whenever you use a potion, reduce a random card's cost by !M! (minimum 1) this combat."
   },
 
   "Gatherer:Dummy": {}

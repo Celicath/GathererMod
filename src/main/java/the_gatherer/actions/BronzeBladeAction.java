@@ -1,8 +1,6 @@
 package the_gatherer.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
@@ -12,14 +10,13 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class BronzeBladeAction extends AbstractGameAction {
-	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("BronzeBladeAction");
+	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("Gatherer:BronzeBladeAction");
 	public static final String[] TEXT = uiStrings.TEXT;
 	AbstractPlayer p;
 	private ArrayList<AbstractCard> notBasicDefends = new ArrayList<>();
@@ -50,12 +47,11 @@ public class BronzeBladeAction extends AbstractGameAction {
 			if (this.notBasicDefends.size() == this.p.hand.group.size()) {
 				this.isDone = true;
 				return;
-			}
-			else if (this.p.hand.group.size() - this.notBasicDefends.size() == 1) {
+			} else if (this.p.hand.group.size() - this.notBasicDefends.size() == 1) {
 				var1 = this.p.hand.group.iterator();
 
-				while(var1.hasNext()) {
-					c = (AbstractCard)var1.next();
+				while (var1.hasNext()) {
+					c = (AbstractCard) var1.next();
 					if (!notBasicDefends.contains(c)) {
 						playCard(c);
 						this.isDone = true;
@@ -74,8 +70,8 @@ public class BronzeBladeAction extends AbstractGameAction {
 		if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
 			var1 = AbstractDungeon.handCardSelectScreen.selectedCards.group.iterator();
 
-			while(var1.hasNext()) {
-				c = (AbstractCard)var1.next();
+			while (var1.hasNext()) {
+				c = (AbstractCard) var1.next();
 				playCard(c);
 			}
 
@@ -113,8 +109,8 @@ public class BronzeBladeAction extends AbstractGameAction {
 	private void returnCards() {
 		Iterator var1 = this.notBasicDefends.iterator();
 
-		while(var1.hasNext()) {
-			AbstractCard c = (AbstractCard)var1.next();
+		while (var1.hasNext()) {
+			AbstractCard c = (AbstractCard) var1.next();
 			this.p.hand.addToTop(c);
 		}
 

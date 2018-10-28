@@ -1,14 +1,14 @@
 {
-  "GathererSpireHeart": {
-    "NAME": "Gatherer Spire Heart",
+  "Gatherer:SpireHeart": {
+    "NAME": "Spire Heart",
     "DESCRIPTIONS": [
-      "NL You gather the power of Potions..."
+      "NL You concentrate on the scent of Potions..."
     ],
     "OPTIONS": [
     ]
   },
-  "GathererVampires": {
-    "NAME": "Gatherer Vampires(?)",
+  "Gatherer:Vampires": {
+    "NAME": "Vampires(?)",
     "DESCRIPTIONS": [
       "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~wanderer,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
     ],

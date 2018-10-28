@@ -1,12 +1,6 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
-package com.megacrit.cardcrawl.actions.unique;
+package the_gatherer.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -14,10 +8,11 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+
 import java.util.Iterator;
 
 public class DiscardPileToDeckAction extends AbstractGameAction {
-	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("DiscardPileToDeckAction");
+	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("Gatherer:DiscardPileToDeckAction");
 	public static final String[] TEXT = uiStrings.TEXT;
 	private AbstractPlayer p;
 
@@ -43,7 +38,7 @@ public class DiscardPileToDeckAction extends AbstractGameAction {
 				Iterator var3 = AbstractDungeon.gridSelectScreen.selectedCards.iterator();
 
 				while (var3.hasNext()) {
-					AbstractCard c = (AbstractCard)var3.next();
+					AbstractCard c = (AbstractCard) var3.next();
 					this.p.discardPile.removeCard(c);
 					this.p.hand.moveToDeck(c, true);
 				}

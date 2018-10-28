@@ -1,36 +1,46 @@
 {
-  "CentralizeAction": {
+  "Gatherer:CentralizeAction": {
     "TEXT": [
       "Choose a Card; upgrade & add to your hand.",
       "Choose two Cards; upgrade & add to your hand."
     ]
   },
-  "PotionSack": {
+  "Gatherer:PotionSack": {
     "TEXT": [
       "Your Sack can hold 3 Gatherer's potions. Potions here are only available during this combat.",
       "The Sack"
     ]
   },
-  "DiscardPileToDeckAction": {
+  "Gatherer:DiscardPileToDeckAction": {
     "TEXT": [
       "Choose ",
       " cards to shuffle to your deck."
     ]
   },
-  "DiscardPileToTopOfDeckAction": {
+  "Gatherer:DiscardPileToTopOfDeckAction": {
     "TEXT": [
       "Choose a Card to Put on Top of Your Draw Pile."
     ]
   },
-  "BronzeBladeAction": {
+  "Gatherer:BronzeBladeAction": {
     "TEXT": [
       "Play"
     ]
   },
-  "TransmuteAction": {
+  "Gatherer:TransmuteAction": {
     "TEXT": [
       "Transform"
     ]
   },
-  "Dummy": { }
+  "Gatherer:InvestigateAction": {
+    "TEXT": [
+      "Play"
+    ]
+  },
+  "Gatherer:ScrollOfPurityAction": {
+    "TEXT": [
+      "Exhaust",
+      "Exhaust and Draw ",
+    ]
+  }
 }

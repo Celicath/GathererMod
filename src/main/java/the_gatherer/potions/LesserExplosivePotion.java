@@ -14,17 +14,18 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.vfx.combat.ExplosionSmallEffect;
+import the_gatherer.GathererMod;
 import the_gatherer.patches.PotionRarityEnum;
+import the_gatherer.powers.ExplodingPower;
 
 import java.util.Iterator;
 
 public class LesserExplosivePotion extends CustomPotion {
-	public static final String POTION_ID = "LesserExplosivePotion";
+	private static final String RAW_ID = "LesserExplosivePotion";
+	public static final String POTION_ID = GathererMod.makeID(RAW_ID);
 	private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
 	public static final String NAME = potionStrings.NAME;
 	public static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;
-
-	public static int upgrades = 0;
 
 	public LesserExplosivePotion() {
 		super(NAME, POTION_ID, PotionRarityEnum.LESSER, PotionSize.H, PotionColor.EXPLOSIVE);
@@ -37,8 +38,8 @@ public class LesserExplosivePotion extends CustomPotion {
 	public void use(AbstractCreature target) {
 		Iterator var2 = AbstractDungeon.getMonsters().monsters.iterator();
 
-		while(var2.hasNext()) {
-			AbstractMonster m = (AbstractMonster)var2.next();
+		while (var2.hasNext()) {
+			AbstractMonster m = (AbstractMonster) var2.next();
 			if (!m.isDeadOrEscaped()) {
 				AbstractDungeon.actionManager.addToBottom(new VFXAction(new ExplosionSmallEffect(m.hb.cX, m.hb.cY), 0.1F));
 			}
@@ -48,7 +49,7 @@ public class LesserExplosivePotion extends CustomPotion {
 		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.potency, true), DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
 	}
 
-	public void UpdateDescription() {
+	public void updateDescription() {
 		this.tips.clear();
 		this.potency = getPotency();
 		this.description = DESCRIPTIONS[0] + this.potency + DESCRIPTIONS[1];
@@ -60,6 +61,10 @@ public class LesserExplosivePotion extends CustomPotion {
 	}
 
 	public int getPotency(int ascensionLevel) {
-		return 6 + upgrades;
+		if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower(ExplodingPower.POWER_ID)) {
+			return 6 + AbstractDungeon.player.getPower(ExplodingPower.POWER_ID).amount;
+		} else {
+			return 6;
+		}
 	}
 }

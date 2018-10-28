@@ -2,10 +2,8 @@ package the_gatherer.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
-import com.megacrit.cardcrawl.potions.PotionSlot;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import the_gatherer.GathererMod;
 
@@ -16,7 +14,7 @@ public class MiracleBag extends CustomRelic {
 	public static final String ID = GathererMod.makeID(RelicID);
 
 	public MiracleBag() {
-		super(ID, new Texture("img/relics/" + RelicID + ".png"),
+		super(ID, new Texture(GathererMod.GetRelicPath(RelicID)),
 				RelicTier.BOSS, LandingSound.FLAT);
 		this.counter = 0;
 	}

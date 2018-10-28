@@ -1,10 +1,8 @@
 package the_gatherer.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
 import com.megacrit.cardcrawl.cards.curses.AscendersBane;
 import com.megacrit.cardcrawl.cards.curses.Necronomicurse;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,10 +12,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class TransmuteAction extends AbstractGameAction {
-	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("TransmuteAction");
+	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("Gatherer:TransmuteAction");
 	public static final String[] TEXT = uiStrings.TEXT;
 	private AbstractPlayer p;
 	private ArrayList<AbstractCard> notTransformable = new ArrayList<>();
@@ -43,8 +40,7 @@ public class TransmuteAction extends AbstractGameAction {
 			if (this.notTransformable.size() == this.p.hand.group.size()) {
 				this.isDone = true;
 				return;
-			}
-			else if (this.p.hand.group.size() - this.notTransformable.size() == 1) {
+			} else if (this.p.hand.group.size() - this.notTransformable.size() == 1) {
 				for (AbstractCard c : this.p.hand.group) {
 					if (!notTransformable.contains(c)) {
 						doAction(c);
@@ -87,7 +83,7 @@ public class TransmuteAction extends AbstractGameAction {
 	}
 
 	private void returnCards() {
-		for(AbstractCard c : this.notTransformable) {
+		for (AbstractCard c : this.notTransformable) {
 			this.p.hand.addToTop(c);
 		}
 

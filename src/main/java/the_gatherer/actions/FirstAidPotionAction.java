@@ -2,7 +2,6 @@ package the_gatherer.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import the_gatherer.cards.FirstAidKit;
 
 public class FirstAidPotionAction extends AbstractGameAction {
 

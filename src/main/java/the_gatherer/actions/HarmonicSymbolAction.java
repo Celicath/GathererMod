@@ -1,8 +1,6 @@
 package the_gatherer.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -46,10 +44,10 @@ public class HarmonicSymbolAction extends AbstractGameAction {
 		}
 
 		if (effect > 0) {
-			for(int i = 0; i < effect; ++i) {
+			for (int i = 0; i < effect; ++i) {
 				AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this.p, this.p, this.block));
 			}
-			for(int i = 0; i < effect; ++i) {
+			for (int i = 0; i < effect; ++i) {
 				AbstractDungeon.actionManager.addToBottom(new DamageAction(this.m, new DamageInfo(this.p, this.damage, this.damageTypeForTurn), AttackEffect.BLUNT_LIGHT));
 			}
 			if (!this.freeToPlayOnce) {

@@ -1,5 +1,5 @@
 {
-  "SpareBottle": {
+  "Gatherer:SpareBottle": {
     "NAME": "Spare Bottle",
     "DESCRIPTIONS": [
       "Whenever you use a #yPotion, gain #b",
@@ -7,79 +7,109 @@
       " damage to a random enemy."
     ]
   },
-  "DrawHalf": {
+  "Gatherer:DrawHalf": {
     "NAME": "Draw Half",
     "DESCRIPTIONS": [
       "At the start of each turn, Draw 1 additional card with 50% probability."
     ]
   },
-  "NextNextTurnBlock": {
+  "Gatherer:NextNextTurnBlock": {
     "NAME": "Final Tree Power",
     "DESCRIPTIONS": [
       "Gain #b",
       " #yBlock 2 turns later."
     ]
   },
-  "PoisonMastery": {
+  "Gatherer:PoisonMastery": {
     "NAME": "Poison Mastery",
     "DESCRIPTIONS": [
       "Poison damage is increased by ",
       "00%."
     ]
   },
-  "Pollute": {
+  "Gatherer:Pollute": {
     "NAME": "Pollute",
     "DESCRIPTIONS": [
       "Next turn, Apply ",
       " Poison, Weak and Vulnerable to ALL enemies."
     ]
   },
-  "RemoveRetainCard": {
+  "Gatherer:RemoveRetainCard": {
     "NAME": "",
     "DESCRIPTIONS": [
       "Retaining power only lasts for this turn."
     ]
   },
-  "LightPower": {
+  "Gatherer:LightPower": {
     "NAME": "Power of Light",
     "DESCRIPTIONS": [
       "If you play Shadow! as the next card, it deals double damage."
     ]
   },
-  "ShadowPower": {
+  "Gatherer:ShadowPower": {
     "NAME": "Power of Shadow",
     "DESCRIPTIONS": [
       "If you play Light! as the next card, it gains double Block."
     ]
   },
-  "VenomBarrier": {
+  "Gatherer:VenomBarrier": {
     "NAME": "Venom Barrier",
     "DESCRIPTIONS": [
       "When attacked, apply #b",
       " poison to the attacker."
     ]
   },
-  "BalancedGrowth": {
+  "Gatherer:BalancedGrowth": {
     "NAME": "Balanced Growth",
     "DESCRIPTIONS": [
       "At the start of your turn, gain up to #b",
       " Strength or Dexterity until they are equal."
     ]
   },
-  "Liquidism": {
+  "Gatherer:Liquidism": {
     "NAME": "Liquidism",
     "DESCRIPTIONS": [
       "Whenever you use a Potion, gain #b",
       " Strength or Dexterity randomly."
     ]
   },
-  "BomberForm" : {
+  "Gatherer:BomberForm" : {
     "NAME": "Bomber Form",
     "DESCRIPTIONS": [
       "At the start of your turn, Obtain a LEP. Whenever you obtain a lesser Potion, it becomes LEPs and increase all LEPs' base power by #b",
       "."
     ]
   },
+  "Gatherer:Exploding" : {
+    "NAME": "Exploding",
+    "DESCRIPTIONS": [
+      "All Lesser Explosive Potions deal #b",
+      " more damage."
+    ]
+  },
+  "Gatherer:FeelingFine" : {
+    "NAME": "FeelingFine",
+    "DESCRIPTIONS": [
+      "If you use #b",
+      " more Potion this turn, remove all of your debuffs.",
+      " more Potions this turn, remove all of your debuffs."
+    ]
+  },
+  "Gatherer:Uplift" : {
+    "NAME": "Uplift",
+    "DESCRIPTIONS": [
+      "Whenever you use a potion, reduce a random card's cost in your hand by #b",
+      " (minimum 1) this turn."
+    ]
+  },
+  "Gatherer:ScrollOfWall" : {
+    "NAME": "ScrollOfWall",
+    "DESCRIPTIONS": [
+      "All Status cards that are added to your deck or discard pile are Exhausted.",
+      "All Status cards that are added to your deck or discard pile are Exhausted, and make you draw #b",
+      "."
+    ]
+  },
 
-  "Dummy": { }
+  "Gatherer:Dummy": { }
 }
