@@ -7,7 +7,7 @@
   },
   "Gatherer:PotionSack": {
     "TEXT": [
-      "Your Sack can hold 3 Gatherer's potions. Potions here are only available during this combat.",
+      "Your Sack can hold 3 Lesser potions. Potions here are only available during this combat.",
       "The Sack"
     ]
   },
@@ -40,7 +40,7 @@
   "Gatherer:ScrollOfPurityAction": {
     "TEXT": [
       "Exhaust",
-      "Exhaust and Draw ",
+      "Exhaust and Draw "
     ]
   }
 }

@@ -33,7 +33,7 @@ public class RustyPipe extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int MIN_POWER = 4;
+	private static final int MIN_POWER = 5;
 	private static final int UPGRADE_BONUS = 3;
 	private static final int MIN_MAGIC = 1;
 	private static final int MAGIC_BONUS = 1;

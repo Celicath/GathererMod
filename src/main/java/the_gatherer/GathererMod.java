@@ -267,7 +267,8 @@ public class GathererMod implements PostInitializeSubscriber,
 		BaseMod.addKeyword(new String[]{"unique", "Unique"}, "Cards with different IDs are considered unique. Whatever that means.");
 		BaseMod.addKeyword(new String[]{"once", "Once"}, "Only activates when you play this unique card first time in the combat.");
 		BaseMod.addKeyword(new String[]{"flower", "Flower"}, "Card containing \"Flower\" in its name. It can be upgraded 3 times.");
-		BaseMod.addKeyword(new String[]{"lep", "LEP", "LEPs"}, "Stands for Lesser Explosive Potion. Became a keyword because the text is too long.");
+		BaseMod.addKeyword(new String[]{"LEP", "lep", "LEPs"}, "Stands for Lesser Explosive Potion, which normally deals 6 damage to all enemies.");
+		BaseMod.addKeyword(new String[]{"Lesser Fire Potion", "Lesser Fire Potion"}, "A Potion which deals 10 damage to an enemy.");
 
 		logger.debug("receiveEditKeywords finished.");
 	}

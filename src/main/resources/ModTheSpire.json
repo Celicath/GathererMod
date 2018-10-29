@@ -1,9 +1,9 @@
 {
   "modid": "gatherermod",
-  "name": "GathererMod",
+  "name": "The Gatherer",
   "author_list": ["Celicath"],
-  "description": "Adds The Gatherer as a new playable character.",
-  "version": "0.1.2",
+  "description": "Adds The Gatherer as a new playable character.\n\nv0.1.0\n- First release with 57 cards, 4 relics\n\nv0.1.1\n- Fixed Light! having incorrect Block value during combat.\n\nv0.1.2\n- Fixed Rusty Pipe not upgrading.\n- Fixed Shadow! not dealing double damage after using Light!.\n- Fixed Flower Power going up to 3 cost when fully upgraded. It now costs 1.\n\nv0.1.3\n- Buffed Rusty Pipe's damage by 1.\n- Tooltips were added to Magic Lamp and Flaming Bottle.\n- Changed some texts slightly.",
+  "version": "0.1.3",
   "sts_version": "10-25-2018",
   "mts_version": "3.5.0",
   "dependencies": ["basemod"],

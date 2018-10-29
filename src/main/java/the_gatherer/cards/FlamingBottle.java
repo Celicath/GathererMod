@@ -52,4 +52,10 @@ public class FlamingBottle extends CustomCard {
 			this.upgradeDamage(UPGRADE_BONUS);
 		}
 	}
+
+	@Override
+	public void initializeDescription() {
+		super.initializeDescription();
+		keywords.add("Lesser Fire Potion");
+	}
 }
