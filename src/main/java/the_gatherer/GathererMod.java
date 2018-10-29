@@ -124,21 +124,21 @@ public class GathererMod implements PostInitializeSubscriber,
 				GATHERER_PORTRAIT,
 				AbstractPlayerEnum.THE_GATHERER);
 
-		BaseMod.addPotion(LesserAttackPotion.class, new Color(1.0f, 0.5f, 0.5f, 0.75f), new Color(1.0f, 0.82f, 0.5f, 0.75f), null, LesserAttackPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(LesserBlockPotion.class, new Color(0.76f, 0.90f, 0.96f, 0.75f), null, null, LesserBlockPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(LesserDexterityPotion.class, new Color(0.75f, 1.0f, 0.5f, 0.75f), null, null, LesserDexterityPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(LesserEnergyPotion.class, new Color(1.0f, 0.92f, 0.5f, 0.75f), null, null, LesserEnergyPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(LesserEssenceOfSteel.class, new Color(0.76f, 0.90f, 0.96f, 0.75f), null, null, LesserEssenceOfSteel.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(LesserExplosivePotion.class, new Color(1.0f, 0.82f, 0.5f, 0.75f), null, null, LesserExplosivePotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(LesserFearPotion.class, new Color(0.5f, 0.5f, 0.5f, 0.75f), new Color(1.0f, 0.6f, 0.55f, 0.75f), null, LesserFearPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(LesserFirePotion.class, new Color(1.0f, 0.5f, 0.5f, 0.75f), new Color(1.0f, 0.82f, 0.5f, 0.75f), null, LesserFirePotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(LesserLiquidBronze.class, new Color(1.0f, 0.92f, 0.5f, 0.75f), new Color(0.5f, 1.0f, 1.0f, 0.75f), null, LesserLiquidBronze.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(LesserPoisonPotion.class, new Color(0.6f, 0.9f, 0.6f, 0.75f), null, new Color(0.56f, 0.77f, 0.56f, 0.75f), LesserPoisonPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(LesserPowerPotion.class, new Color(0.76f, 0.9f, 0.96f, 0.75f), null, null, LesserPowerPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(LesserSkillPotion.class, new Color(0.75f, 1.0f, 0.5f, 0.75f), null, null, LesserSkillPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(LesserStrengthPotion.class, new Color(0.62f, 0.62f, 0.62f, 0.75f), null, new Color(1.0f, 0.75f, 0.65f, 0.75f), LesserStrengthPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(LesserSwiftPotion.class, new Color(0.52f, 0.63f, 0.8f, 0.75f), null, new Color(0.5f, 1.0f, 1.0f, 0.75f), LesserSwiftPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(LesserWeakPotion.class, new Color(0.96f, 0.75f, 0.96f, 0.75f), new Color(0.84f, 0.59f, 0.68f, 0.75f), null, LesserWeakPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
+		BaseMod.addPotion(LesserAttackPotion.class, new Color(1.0f, 0.5f, 0.5f, 0.75f), new Color(1.0f, 0.82f, 0.5f, 0.75f), null, LesserAttackPotion.POTION_ID);
+		BaseMod.addPotion(LesserBlockPotion.class, new Color(0.76f, 0.90f, 0.96f, 0.75f), null, null, LesserBlockPotion.POTION_ID);
+		BaseMod.addPotion(LesserDexterityPotion.class, new Color(0.75f, 1.0f, 0.5f, 0.75f), null, null, LesserDexterityPotion.POTION_ID);
+		BaseMod.addPotion(LesserEnergyPotion.class, new Color(1.0f, 0.92f, 0.5f, 0.75f), null, null, LesserEnergyPotion.POTION_ID);
+		BaseMod.addPotion(LesserEssenceOfSteel.class, new Color(0.76f, 0.90f, 0.96f, 0.75f), null, null, LesserEssenceOfSteel.POTION_ID);
+		BaseMod.addPotion(LesserExplosivePotion.class, new Color(1.0f, 0.82f, 0.5f, 0.75f), null, null, LesserExplosivePotion.POTION_ID);
+		BaseMod.addPotion(LesserFearPotion.class, new Color(0.5f, 0.5f, 0.5f, 0.75f), new Color(1.0f, 0.6f, 0.55f, 0.75f), null, LesserFearPotion.POTION_ID);
+		BaseMod.addPotion(LesserFirePotion.class, new Color(1.0f, 0.5f, 0.5f, 0.75f), new Color(1.0f, 0.82f, 0.5f, 0.75f), null, LesserFirePotion.POTION_ID);
+		BaseMod.addPotion(LesserLiquidBronze.class, new Color(1.0f, 0.92f, 0.5f, 0.75f), new Color(0.5f, 1.0f, 1.0f, 0.75f), null, LesserLiquidBronze.POTION_ID);
+		BaseMod.addPotion(LesserPoisonPotion.class, new Color(0.6f, 0.9f, 0.6f, 0.75f), null, new Color(0.56f, 0.77f, 0.56f, 0.75f), LesserPoisonPotion.POTION_ID);
+		BaseMod.addPotion(LesserPowerPotion.class, new Color(0.76f, 0.9f, 0.96f, 0.75f), null, null, LesserPowerPotion.POTION_ID);
+		BaseMod.addPotion(LesserSkillPotion.class, new Color(0.75f, 1.0f, 0.5f, 0.75f), null, null, LesserSkillPotion.POTION_ID);
+		BaseMod.addPotion(LesserStrengthPotion.class, new Color(0.62f, 0.62f, 0.62f, 0.75f), null, new Color(1.0f, 0.75f, 0.65f, 0.75f), LesserStrengthPotion.POTION_ID);
+		BaseMod.addPotion(LesserSwiftPotion.class, new Color(0.52f, 0.63f, 0.8f, 0.75f), null, new Color(0.5f, 1.0f, 1.0f, 0.75f), LesserSwiftPotion.POTION_ID);
+		BaseMod.addPotion(LesserWeakPotion.class, new Color(0.96f, 0.75f, 0.96f, 0.75f), new Color(0.84f, 0.59f, 0.68f, 0.75f), null, LesserWeakPotion.POTION_ID);
 		BaseMod.addPotion(FirstAidPotion.class, new Color(1.0f, 1.0f, 1.0f, 0.75f), new Color(0.875f, 0.875f, 0.875f, 0.75f), null, FirstAidPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
 		BaseMod.addPotion(FirstAidPotionPlus.class, new Color(1.0f, 1.0f, 1.0f, 0.75f), new Color(0.875f, 0.875f, 0.875f, 0.75f), null, FirstAidPotionPlus.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
 		BaseMod.addPotion(BloodPotion.class, Color.WHITE.cpy(), Color.LIGHT_GRAY.cpy(), null, BloodPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
