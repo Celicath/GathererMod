@@ -205,13 +205,13 @@
   },
   "Gatherer:RustyPipe" : {
     "NAME": "Rusty Pipe",
-    "DESCRIPTION": "Deal ? damage. NL Apply ?. NL Effects are randomly determined for each card.",
+    "DESCRIPTION": "Deal ? damage. NL Apply ?. NL (Each Rusty Pipe's damage and effect are randomly determined.)",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage.",
       " NL Apply !M! Weak.",
       " NL Apply !M! Vulnerable.",
       " NL Apply !M! Poison.",
-      " NL Effects are randomly determined for each card."
+      " NL (Each Rusty Pipe's damage and effect are randomly determined.)"
     ]
   },
   "Gatherer:WitheringStrike" : {

@@ -42,11 +42,11 @@ public class PoisonDamagePatch {
 
 	@SpirePatch(clz = PoisonPower.class, method = "updateDescription")
 	public static class PoisonDescription {
-		@SpireInsertPatch(rloc = 5, localvars = {"description", "amount"})
-		public static void Insert(PoisonPower __instance, @ByRef String[] description, int amount) {
+		@SpirePostfixPatch
+		public static void PostFix(PoisonPower __instance) {
 			PoisonMasteryPower pmp = (PoisonMasteryPower) AbstractDungeon.player.getPower(PoisonMasteryPower.POWER_ID);
 			if (pmp != null) {
-				description[0] = PoisonPower.DESCRIPTIONS[2] + "[#7fff00]" + (amount * (pmp.amount + 1)) + PoisonPower.DESCRIPTIONS[1];
+				__instance.description = PoisonPower.DESCRIPTIONS[2] + "[#7fff00]" + (__instance.amount * (pmp.amount + 1)) + PoisonPower.DESCRIPTIONS[1];
 			}
 		}
 	}
