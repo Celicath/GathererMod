@@ -21,6 +21,7 @@ public class Centralize extends CustomCard implements OnceEffect {
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
 	private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.BASIC;
@@ -35,7 +36,31 @@ public class Centralize extends CustomCard implements OnceEffect {
 		this.magicNumber = this.baseMagicNumber;
 	}
 
+	@Override
+	public void applyPowers() {
+		updateOnceText();
+	}
+
+	public void updateOnceText() {
+		if (GathererMod.playedCardsCombat.contains(Centralize.class)) {
+			if (upgraded) {
+				this.rawDescription = EXTENDED_DESCRIPTION[1];
+			} else {
+				this.rawDescription = EXTENDED_DESCRIPTION[0];
+			}
+		} else {
+			if (upgraded) {
+				this.rawDescription = UPGRADE_DESCRIPTION;
+			} else {
+				this.rawDescription = DESCRIPTION;
+			}
+		}
+		this.initializeDescription();
+	}
+
 	public void use(AbstractPlayer p, AbstractMonster m) {
+		updateOnceText();
+		GathererMod.updateAllOnceText(Centralize.class);
 	}
 
 	public AbstractCard makeCopy() {

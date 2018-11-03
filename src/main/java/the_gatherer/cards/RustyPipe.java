@@ -61,6 +61,8 @@ public class RustyPipe extends CustomCard {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
 		this.misc = -1;
+		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[4];
+		this.initializeDescription();
 	}
 
 	private RustyPipeDebuffEnum getDebuff() {
@@ -134,7 +136,7 @@ public class RustyPipe extends CustomCard {
 		}
 	}
 
-	void upgradeEffect() {
+	private void upgradeEffect() {
 		this.upgradeDamage(UPGRADE_BONUS);
 		this.upgradeMagicNumber(MAGIC_BONUS);
 	}

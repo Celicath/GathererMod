@@ -26,10 +26,10 @@ public class VenomBarrier extends CustomCard {
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 10;
-	private static final int UPGRADE_BONUS = 3;
+	private static final int POWER = 9;
+	private static final int UPGRADE_BONUS = 4;
 	private static final int MAGIC = 3;
-	private static final int MAGIC_BONUS = 2;
+	private static final int MAGIC_BONUS = 1;
 
 	public VenomBarrier() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

@@ -22,6 +22,7 @@ public class WoolGloves extends CustomCard implements OnceEffect {
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final CardType TYPE = CardType.SKILL;
 	private static final CardColor COLOR = CardColorEnum.LIME;
 	private static final CardRarity RARITY = CardRarity.COMMON;
@@ -36,8 +37,25 @@ public class WoolGloves extends CustomCard implements OnceEffect {
 		this.baseBlock = POWER;
 	}
 
+	@Override
+	public void applyPowers() {
+		updateOnceText();
+	}
+
+	public void updateOnceText() {
+		if (GathererMod.playedCardsCombat.contains(WoolGloves.class)) {
+			this.rawDescription = EXTENDED_DESCRIPTION[0];
+		} else {
+			this.rawDescription = DESCRIPTION;
+		}
+		this.initializeDescription();
+	}
+
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
+
+		updateOnceText();
+		GathererMod.updateAllOnceText(WoolGloves.class);
 	}
 
 	public AbstractCard makeCopy() {

@@ -25,6 +25,7 @@ public class Investigate extends CustomCard {
 	private static final CardTarget TARGET = CardTarget.SELF;
 
 	private static final int POWER = 3;
+	private static final int UPGRADE_BONUS = 2;
 
 	public Investigate() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -43,7 +44,7 @@ public class Investigate extends CustomCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeBaseCost(0);
+			upgradeMagicNumber(UPGRADE_BONUS);
 		}
 	}
 }

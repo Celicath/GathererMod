@@ -10,8 +10,12 @@
   "Gatherer:Centralize": {
     "NAME": "Centralize",
     "DESCRIPTION": "Choose !M! card from draw pile and place it into your hand. NL Once: Upgrade it for the combat.",
-    "UPGRADE_DESCRIPTION": "Choose !M! cards from draw pile and place them into your hand. NL Once: Upgrade them for the combat."
-  },
+    "UPGRADE_DESCRIPTION": "Choose !M! cards from draw pile and place them into your hand. NL Once: Upgrade them for the combat.",
+    "EXTENDED_DESCRIPTION": [
+      "Choose !M! card from draw pile and place it into your hand. NL Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up.",
+      "Choose !M! cards from draw pile and place them into your hand. NL Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
+    ]
+},
   "Gatherer:SpareBottle": {
     "NAME": "Spare Bottle",
     "DESCRIPTION": "Whenever you use a Potion, gain !M! Block and deal !M! damage to a random enemy."
@@ -86,7 +90,7 @@
   },
   "Gatherer:CoupDeGrace" : {
     "NAME": "Coup De Grace",
-    "DESCRIPTION": "Deal !D! damage. If target’s current HP was less than yours, hit twice instead."
+    "DESCRIPTION": "Deal !D! damage. If the enemy’s current HP was less than yours, hit twice instead."
   },
   "Gatherer:FirstAidKit": {
     "NAME": "First-Aid Kit",
@@ -114,7 +118,10 @@
   },
   "Gatherer:Snatch" : {
     "NAME": "Snatch",
-    "DESCRIPTION": "Deal !D! Damage. NL Once: Obtain a random lesser potion to your Sack."
+    "DESCRIPTION": "Deal !D! Damage. NL Once: Obtain a random lesser potion to your Sack.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! Damage. NL Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
+    ]
   },
   "Gatherer:QuickSynthesis" : {
     "NAME": "Quick Synthesis",
@@ -123,7 +130,7 @@
   },
   "Gatherer:FlamingBottle" : {
     "NAME": "Flaming Bottle",
-    "DESCRIPTION": "Deal !D! damage. Obtain a Lesser Fire Potion to your Sack."
+    "DESCRIPTION": "Deal !D! damage. Obtain a Lesser_Fire_Potion to your Sack."
   },
   "Gatherer:PoisonMastery" : {
     "NAME": "Poison Mastery",
@@ -157,7 +164,10 @@
   },
   "Gatherer:WoolGloves" : {
     "NAME" : "Wool Gloves",
-    "DESCRIPTION": "Gain !B! Block. Once: Draw 3 cards, then discard 2 cards."
+    "DESCRIPTION": "Gain !B! Block. NL Once: Draw 3 cards, then discard 2 cards.",
+    "EXTENDED_DESCRIPTION": [
+      "Gain !B! Block. NL Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
+    ]
   },
   "Gatherer:Salvage" : {
     "NAME": "Salvage",
@@ -197,7 +207,7 @@
   },
   "Gatherer:AcidicSpray" : {
     "NAME": "Acidic Spray",
-    "DESCRIPTION": "Deal !D! damage for each debuff on the target. Apply !M! Weak."
+    "DESCRIPTION": "Deal !D! damage for each debuff on the enemy. Apply !M! Weak."
   },
   "Gatherer:FrenzyWhip" : {
     "NAME": "Frenzy Whip",
@@ -205,13 +215,13 @@
   },
   "Gatherer:RustyPipe" : {
     "NAME": "Rusty Pipe",
-    "DESCRIPTION": "Deal ? damage. NL Apply ?. NL (Each Rusty Pipe's damage and effect are randomly determined.)",
+    "DESCRIPTION": "Deal ? damage. NL Apply ?.",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage.",
       " NL Apply !M! Weak.",
       " NL Apply !M! Vulnerable.",
       " NL Apply !M! Poison.",
-      " NL (Each Rusty Pipe's damage and effect are randomly determined.)"
+      " NL [#C0B0C0](Each [#D0C8D0]Rusty [#D0C8D0]Pipe [#D0C8D0]has [#D0C8D0]randomly [#D0C8D0]chosen [#D0C8D0]damage [#D0C8D0]and [#D0C8D0]debuff.)"
     ]
   },
   "Gatherer:WitheringStrike" : {
@@ -224,7 +234,8 @@
   },
   "Gatherer:Transmute" : {
     "NAME": "Transmute",
-    "DESCRIPTION": "Transform a card from your hand. It costs 0 this turn."
+    "DESCRIPTION": "Transform a card from your hand. It costs 0 this turn.",
+    "UPGRADE_DESCRIPTION": "Transform a card from your hand. It is upgraded and costs 0 this turn."
   },
   "Gatherer:BalancedGrowth" : {
     "NAME": "Balanced Growth",
@@ -237,7 +248,7 @@
   },
   "Gatherer:BomberForm" : {
     "NAME": "Bomber Form",
-    "DESCRIPTION": "At the start of your turn, obtain a LEP. Any incoming lesser Potion becomes LEP, and increase damage of all LEPs by !M!."
+    "DESCRIPTION": "At the start of your turn, obtain a LEP. Any incoming lesser Potion becomes LEP, and increases damage of all LEPs by !M!."
   },
   "Gatherer:SolidTechnique" : {
     "NAME": "Solid Technique",
@@ -257,7 +268,10 @@
   },
   "Gatherer:CursedBlade" : {
     "NAME": "Cursed Blade",
-    "DESCRIPTION": "Deal !D! damage. Once: Enemy loses !M! Strength this turn. When obtained, add a Curse-Normality to your deck."
+    "DESCRIPTION": "Deal !D! damage. NL Once: Enemy loses !M! Strength this turn. When Obtained, become [#FF6563]Cursed [#FF6563]- [#FF6563]Normality.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage. Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up. When Obtained, become [#FF6563]Cursed [#FF6563]- [#FF6563]Normality."
+    ]
   },
   "Gatherer:Overflowing" : {
     "NAME": "Overflowing",

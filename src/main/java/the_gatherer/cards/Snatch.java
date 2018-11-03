@@ -23,6 +23,7 @@ public class Snatch extends CustomCard implements OnceEffect {
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
@@ -36,10 +37,29 @@ public class Snatch extends CustomCard implements OnceEffect {
 		this.baseDamage = POWER;
 	}
 
+	@Override
+	public void applyPowers() {
+		updateOnceText();
+	}
+
+	public void updateOnceText() {
+		if (GathererMod.playedCardsCombat.contains(Snatch.class)) {
+			this.rawDescription = EXTENDED_DESCRIPTION[0];
+		} else {
+			this.rawDescription = DESCRIPTION;
+		}
+
+		this.initializeDescription();
+		GathererMod.updateAllOnceText(Snatch.class);
+	}
+
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(m,
 				new DamageInfo(p, this.damage, this.damageTypeForTurn),
 				AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+
+		updateOnceText();
+		GathererMod.updateAllOnceText(Snatch.class);
 	}
 
 	public AbstractCard makeCopy() {

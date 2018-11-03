@@ -56,6 +56,6 @@ public class FlamingBottle extends CustomCard {
 	@Override
 	public void initializeDescription() {
 		super.initializeDescription();
-		keywords.add("Lesser Fire Potion");
+		//keywords.add("Lesser Fire Potion");
 	}
 }

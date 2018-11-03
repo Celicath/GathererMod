@@ -11,7 +11,7 @@
     "FLAVOR": "Created with forbidden technology.",
     "DESCRIPTIONS": [
       "At the start of each combat, obtain a random potion.",
-      "Replaces #yAlchemy #yBag. At the start of each combat, obtain a rare potion."
+      "Replaces #yAlchemy #yBag. At the start of each combat, obtain a rare potion (to your regular potion slot)."
     ]
   },
   "Gatherer:IronSlate": {

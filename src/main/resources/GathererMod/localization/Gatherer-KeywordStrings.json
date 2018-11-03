@@ -1,0 +1,44 @@
+[
+  {
+    "NAMES": [
+      "unique"
+    ],
+    "DESCRIPTION": "Cards with different IDs are considered unique. Whatever that means."
+  },
+  {
+    "NAMES": [
+      "once"
+    ],
+    "DESCRIPTION": "Only activates when you play this #yUnique card first time in the combat."
+  },
+  {
+    "NAMES": [
+      "flower"
+    ],
+    "DESCRIPTION": "Card containing #yFlower in its name. It can be upgraded 3 times."
+  },
+  {
+    "PROPER_NAME": "LEP",
+    "NAMES": [
+      "lep",
+      "leps"
+    ],
+    "DESCRIPTION": "Stands for Lesser Explosive Potion, which normally deals 6 damage to all enemies."
+  },
+  {
+    "PROPER_NAME": "Lesser Fire Potion",
+    "NAMES": [
+      "lesser fire potion",
+      "lesser_fire_potion"
+    ],
+    "DESCRIPTION": "A Potion which deals 10 damage to an enemy."
+  },
+  {
+    "PROPER_NAME": "Lesser Poison Potion",
+    "NAMES": [
+      "lesser poison potion",
+      "lesser_poison_potion"
+    ],
+    "DESCRIPTION": "A Potion which applies 4 #yPoison to an enemy."
+  }
+]

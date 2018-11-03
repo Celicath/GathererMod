@@ -48,6 +48,20 @@ public class CursedBlade extends CustomCard implements OnObtainEffect, OnceEffec
 		this.magicNumber = this.baseMagicNumber;
 	}
 
+	@Override
+	public void applyPowers() {
+		updateOnceText();
+	}
+
+	public void updateOnceText() {
+		if (GathererMod.playedCardsCombat.contains(CursedBlade.class)) {
+			this.rawDescription = EXTENDED_DESCRIPTION[0];
+		} else {
+			this.rawDescription = DESCRIPTION;
+		}
+		this.initializeDescription();
+	}
+
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 		if (first) {
@@ -57,8 +71,8 @@ public class CursedBlade extends CustomCard implements OnObtainEffect, OnceEffec
 			}
 		}
 
-		this.rawDescription = DESCRIPTION;
-		this.initializeDescription();
+		updateOnceText();
+		GathererMod.updateAllOnceText(CursedBlade.class);
 	}
 
 	public AbstractCard makeCopy() {

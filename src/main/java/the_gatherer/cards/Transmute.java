@@ -19,6 +19,7 @@ public class Transmute extends CustomCard {
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
@@ -29,7 +30,7 @@ public class Transmute extends CustomCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new TransmuteAction());
+		AbstractDungeon.actionManager.addToBottom(new TransmuteAction(upgraded));
 	}
 
 	public AbstractCard makeCopy() {
@@ -39,7 +40,8 @@ public class Transmute extends CustomCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
-			this.upgradeBaseCost(0);
+			this.rawDescription = UPGRADE_DESCRIPTION;
+			this.initializeDescription();
 		}
 	}
 }

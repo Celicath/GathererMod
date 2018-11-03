@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.blue.Defend_Blue;
 import com.megacrit.cardcrawl.cards.green.Defend_Green;
@@ -261,15 +262,18 @@ public class GathererMod implements PostInitializeSubscriber,
 	}
 
 	@Override
-	public void receiveEditKeywords() {
+	public void receiveEditKeywords()
+	{
 		logger.debug("receiveEditKeywords started.");
+		Gson gson = new Gson();
+		String json = GetLocString("Gatherer-KeywordStrings");
+		the_gatherer.modules.Keyword[] keywords = gson.fromJson(json, the_gatherer.modules.Keyword[].class);
 
-		BaseMod.addKeyword(new String[]{"unique", "Unique"}, "Cards with different IDs are considered unique. Whatever that means.");
-		BaseMod.addKeyword(new String[]{"once", "Once"}, "Only activates when you play this unique card first time in the combat.");
-		BaseMod.addKeyword(new String[]{"flower", "Flower"}, "Card containing \"Flower\" in its name. It can be upgraded 3 times.");
-		BaseMod.addKeyword(new String[]{"LEP", "lep", "LEPs"}, "Stands for Lesser Explosive Potion, which normally deals 6 damage to all enemies.");
-		BaseMod.addKeyword(new String[]{"Lesser Fire Potion", "Lesser Fire Potion"}, "A Potion which deals 10 damage to an enemy.");
-
+		if (keywords != null) {
+			for (the_gatherer.modules.Keyword keyword : keywords) {
+				BaseMod.addKeyword(keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+			}
+		}
 		logger.debug("receiveEditKeywords finished.");
 	}
 
@@ -381,5 +385,23 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	public static boolean isBasicDefend(AbstractCard c) {
 		return c.hasTag(BaseModCardTags.BASIC_DEFEND) || c.getClass() == Defend_Red.class || c.getClass() == Defend_Green.class || c.getClass() == Defend_Blue.class;
+	}
+
+	public static void updateAllOnceText(Class<?> cls) {
+		for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
+			if (c.getClass() == cls) {
+				((OnceEffect) c).updateOnceText();
+			}
+		}
+		for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
+			if (c.getClass() == cls) {
+				((OnceEffect) c).updateOnceText();
+			}
+		}
+		for (AbstractCard c : AbstractDungeon.player.hand.group) {
+			if (c.getClass() == cls) {
+				((OnceEffect) c).updateOnceText();
+			}
+		}
 	}
 }

@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
-import the_gatherer.patches.CardColorEnum;
 import the_gatherer.powers.LightPower;
 import the_gatherer.powers.ShadowPower;
 
@@ -25,12 +24,12 @@ public class Shadow extends CustomCard {
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final CardType TYPE = CardType.ATTACK;
-	private static final CardColor COLOR = CardColorEnum.LIME;
+	private static final CardColor COLOR = CardColor.COLORLESS;
 	private static final CardRarity RARITY = CardRarity.SPECIAL;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
 	private static final int POWER = 9;
-	private static final int UPGRADE_BONUS = 4;
+	private static final int UPGRADE_BONUS = 3;
 
 	public Shadow() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

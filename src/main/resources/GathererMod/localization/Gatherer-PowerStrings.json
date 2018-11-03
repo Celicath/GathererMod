@@ -76,7 +76,7 @@
   "Gatherer:BomberForm" : {
     "NAME": "Bomber Form",
     "DESCRIPTIONS": [
-      "At the start of your turn, Obtain a LEP. Whenever you obtain a lesser Potion, it becomes LEPs and increase all LEPs' base power by #b",
+      "At the start of your turn, Obtain a LEP. Whenever you obtain a lesser Potion, it becomes LEP and increase damage of all LEPs by #b",
       "."
     ]
   },

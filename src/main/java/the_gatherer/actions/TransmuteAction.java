@@ -18,11 +18,13 @@ public class TransmuteAction extends AbstractGameAction {
 	public static final String[] TEXT = uiStrings.TEXT;
 	private AbstractPlayer p;
 	private ArrayList<AbstractCard> notTransformable = new ArrayList<>();
+	private boolean upgraded;
 
-	public TransmuteAction() {
+	public TransmuteAction(boolean upgraded) {
 		this.actionType = ActionType.CARD_MANIPULATION;
 		this.p = AbstractDungeon.player;
 		this.duration = Settings.ACTION_DUR_FAST;
+		this.upgraded = upgraded;
 	}
 
 	public void update() {
@@ -78,6 +80,8 @@ public class TransmuteAction extends AbstractGameAction {
 		AbstractDungeon.player.hand.removeCard(c);
 		AbstractDungeon.transformCard(c, false, AbstractDungeon.cardRandomRng);
 		AbstractCard card = AbstractDungeon.getTransformedCard();
+		if (upgraded)
+			card.upgrade();
 		card.setCostForTurn(0);
 		AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(card));
 	}
