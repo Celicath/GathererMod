@@ -3,7 +3,7 @@
     "NAME": "Alchemy Bag",
     "FLAVOR": "A mysterious bag with the power of recurring potions.",
     "DESCRIPTIONS": [
-      "At the start of each combat, obtain a lesser potion to your Sack."
+      "At the start of each combat, add a lesser potion to your Sack."
     ]
   },
   "Gatherer:MiracleBag": {
