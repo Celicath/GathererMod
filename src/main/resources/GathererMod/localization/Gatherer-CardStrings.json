@@ -9,8 +9,8 @@
   },
   "Gatherer:Centralize": {
     "NAME": "Centralize",
-    "DESCRIPTION": "Choose !M! card from draw pile and place it into your hand. NL Once: Upgrade it for the combat.",
-    "UPGRADE_DESCRIPTION": "Choose !M! cards from draw pile and place them into your hand. NL Once: Upgrade them for the combat."
+    "DESCRIPTION": "Fetch !M! card from your draw pile. NL Once: Upgrade it for the rest of combat.",
+    "UPGRADE_DESCRIPTION": "Fetch !M! cards from your draw pile. NL Once: Upgrade them for the rest of combat."
   },
   "Gatherer:SpareBottle": {
     "NAME": "Spare Bottle",
