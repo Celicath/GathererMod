@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.blue.Defend_Blue;
 import com.megacrit.cardcrawl.cards.green.Defend_Green;
 import com.megacrit.cardcrawl.cards.red.Defend_Red;
@@ -30,10 +31,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import the_gatherer.actions.ScrollOfPurityAction;
 import the_gatherer.cards.*;
+import the_gatherer.cards.Helper.AbstractNumberedCard;
 import the_gatherer.character.TheGatherer;
 import the_gatherer.interfaces.OnObtainEffect;
 import the_gatherer.interfaces.OnUsePotionEffect;
-import the_gatherer.interfaces.OnceEffect;
 import the_gatherer.interfaces.PostObtainCardSubscriber;
 import the_gatherer.modules.CaseMod;
 import the_gatherer.modules.PotionSack;
@@ -46,10 +47,7 @@ import the_gatherer.relics.MiracleBag;
 import the_gatherer.relics.SilentSlate;
 
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @SpireInitializer
 public class GathererMod implements PostInitializeSubscriber,
@@ -76,6 +74,8 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	public static PotionSack potionSack;
 	public static Set<Class<?>> playedCardsCombat = new HashSet<>();
+
+	public static ArrayList<Class<? extends AbstractPotion>> lesserPotionPool = new ArrayList<>();
 
 	public GathererMod() {
 		logger.debug("Constructor started.");
@@ -125,23 +125,22 @@ public class GathererMod implements PostInitializeSubscriber,
 				GATHERER_PORTRAIT,
 				AbstractPlayerEnum.THE_GATHERER);
 
-		BaseMod.addPotion(LesserAttackPotion.class, new Color(1.0f, 0.5f, 0.5f, 0.75f), new Color(1.0f, 0.82f, 0.5f, 0.75f), null, LesserAttackPotion.POTION_ID);
-		BaseMod.addPotion(LesserBlockPotion.class, new Color(0.76f, 0.90f, 0.96f, 0.75f), null, null, LesserBlockPotion.POTION_ID);
-		BaseMod.addPotion(LesserDexterityPotion.class, new Color(0.75f, 1.0f, 0.5f, 0.75f), null, null, LesserDexterityPotion.POTION_ID);
-		BaseMod.addPotion(LesserEnergyPotion.class, new Color(1.0f, 0.92f, 0.5f, 0.75f), null, null, LesserEnergyPotion.POTION_ID);
-		BaseMod.addPotion(LesserEssenceOfSteel.class, new Color(0.76f, 0.90f, 0.96f, 0.75f), null, null, LesserEssenceOfSteel.POTION_ID);
-		BaseMod.addPotion(LesserExplosivePotion.class, new Color(1.0f, 0.82f, 0.5f, 0.75f), null, null, LesserExplosivePotion.POTION_ID);
-		BaseMod.addPotion(LesserFearPotion.class, new Color(0.5f, 0.5f, 0.5f, 0.75f), new Color(1.0f, 0.6f, 0.55f, 0.75f), null, LesserFearPotion.POTION_ID);
-		BaseMod.addPotion(LesserFirePotion.class, new Color(1.0f, 0.5f, 0.5f, 0.75f), new Color(1.0f, 0.82f, 0.5f, 0.75f), null, LesserFirePotion.POTION_ID);
-		BaseMod.addPotion(LesserLiquidBronze.class, new Color(1.0f, 0.92f, 0.5f, 0.75f), new Color(0.5f, 1.0f, 1.0f, 0.75f), null, LesserLiquidBronze.POTION_ID);
-		BaseMod.addPotion(LesserPoisonPotion.class, new Color(0.6f, 0.9f, 0.6f, 0.75f), null, new Color(0.56f, 0.77f, 0.56f, 0.75f), LesserPoisonPotion.POTION_ID);
-		BaseMod.addPotion(LesserPowerPotion.class, new Color(0.76f, 0.9f, 0.96f, 0.75f), null, null, LesserPowerPotion.POTION_ID);
-		BaseMod.addPotion(LesserSkillPotion.class, new Color(0.75f, 1.0f, 0.5f, 0.75f), null, null, LesserSkillPotion.POTION_ID);
-		BaseMod.addPotion(LesserStrengthPotion.class, new Color(0.62f, 0.62f, 0.62f, 0.75f), null, new Color(1.0f, 0.75f, 0.65f, 0.75f), LesserStrengthPotion.POTION_ID);
-		BaseMod.addPotion(LesserSwiftPotion.class, new Color(0.52f, 0.63f, 0.8f, 0.75f), null, new Color(0.5f, 1.0f, 1.0f, 0.75f), LesserSwiftPotion.POTION_ID);
-		BaseMod.addPotion(LesserWeakPotion.class, new Color(0.96f, 0.75f, 0.96f, 0.75f), new Color(0.84f, 0.59f, 0.68f, 0.75f), null, LesserWeakPotion.POTION_ID);
-		BaseMod.addPotion(FirstAidPotion.class, new Color(1.0f, 1.0f, 1.0f, 0.75f), new Color(0.875f, 0.875f, 0.875f, 0.75f), null, FirstAidPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(FirstAidPotionPlus.class, new Color(1.0f, 1.0f, 1.0f, 0.75f), new Color(0.875f, 0.875f, 0.875f, 0.75f), null, FirstAidPotionPlus.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
+		lesserPotionPool.add(LesserAttackPotion.class);
+		lesserPotionPool.add(LesserBlockPotion.class);
+		lesserPotionPool.add(LesserDexterityPotion.class);
+		lesserPotionPool.add(LesserEnergyPotion.class);
+		lesserPotionPool.add(LesserEssenceOfSteel.class);
+		lesserPotionPool.add(LesserExplosivePotion.class);
+		lesserPotionPool.add(LesserFearPotion.class);
+		lesserPotionPool.add(LesserFirePotion.class);
+		lesserPotionPool.add(LesserLiquidBronze.class);
+		lesserPotionPool.add(LesserPoisonPotion.class);
+		lesserPotionPool.add(LesserPowerPotion.class);
+		lesserPotionPool.add(LesserSkillPotion.class);
+		lesserPotionPool.add(LesserStrengthPotion.class);
+		lesserPotionPool.add(LesserSwiftPotion.class);
+		lesserPotionPool.add(LesserWeakPotion.class);
+
 		BaseMod.addPotion(BloodPotion.class, Color.WHITE.cpy(), Color.LIGHT_GRAY.cpy(), null, BloodPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
 		BaseMod.addPotion(GhostInAJar.class, Color.WHITE.cpy(), Color.LIGHT_GRAY.cpy(), null, BloodPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
 
@@ -185,10 +184,10 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new FlowerBeam());
 		cards.add(new FlowerGuard());
 		cards.add(new FlowerPower());
-		cards.add(new FrenzyWhip());
+		cards.add(new FranticMove());
 		cards.add(new FruitForce());
 		cards.add(new Fruitify());
-		cards.add(new GatherMaterial());
+		cards.add(new BigHands());
 		cards.add(new GlassHammer());
 		cards.add(new HarmonicSymbol());
 		cards.add(new Herbalism());
@@ -262,8 +261,7 @@ public class GathererMod implements PostInitializeSubscriber,
 	}
 
 	@Override
-	public void receiveEditKeywords()
-	{
+	public void receiveEditKeywords() {
 		logger.debug("receiveEditKeywords started.");
 		Gson gson = new Gson();
 		String json = GetLocString("Gatherer-KeywordStrings");
@@ -283,6 +281,22 @@ public class GathererMod implements PostInitializeSubscriber,
 		playedCardsCombat = new HashSet<>();
 		potionSack.removeAllPotions();
 		potionSack.show = false;
+
+		for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
+			if (c instanceof AbstractNumberedCard) {
+				((AbstractNumberedCard) c).initializeNumberedCard();
+			}
+		}
+		for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
+			if (c instanceof AbstractNumberedCard) {
+				((AbstractNumberedCard) c).initializeNumberedCard();
+			}
+		}
+		for (AbstractCard c : AbstractDungeon.player.hand.group) {
+			if (c instanceof AbstractNumberedCard) {
+				((AbstractNumberedCard) c).initializeNumberedCard();
+			}
+		}
 		logger.debug("receiveOnBattleStart finished.");
 	}
 
@@ -328,22 +342,14 @@ public class GathererMod implements PostInitializeSubscriber,
 				}
 			}
 		}
-		if(ScrollOfPurity.drawCount > 0) {
+		if (ScrollOfPurity.drawCount > 0) {
 			AbstractDungeon.actionManager.addToBottom(new ScrollOfPurityAction(ScrollOfPurity.drawCount));
 		}
 	}
 
 	@Override
 	public void receiveCardUsed(AbstractCard c) {
-		if (c instanceof OnceEffect) {
-			OnceEffect oe = (OnceEffect) c;
-			if (playedCardsCombat.contains(c.getClass())) {
-				oe.notFirstTimeEffect();
-			} else {
-				oe.firstTimeEffect();
-			}
-		}
-		playedCardsCombat.add(c.getClass());
+		playedCardsCombat.add(c.getClass()); // might be obsoleted?
 	}
 
 	@Override
@@ -387,21 +393,40 @@ public class GathererMod implements PostInitializeSubscriber,
 		return c.hasTag(BaseModCardTags.BASIC_DEFEND) || c.getClass() == Defend_Red.class || c.getClass() == Defend_Green.class || c.getClass() == Defend_Blue.class;
 	}
 
-	public static void updateAllOnceText(Class<?> cls) {
-		for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
-			if (c.getClass() == cls) {
-				((OnceEffect) c).updateOnceText();
-			}
+	public static AbstractPotion returnRandomLesserPotion() {
+		Class<? extends AbstractPotion> cls = lesserPotionPool.get(AbstractDungeon.potionRng.random.nextInt(lesserPotionPool.size()));
+		try {
+			return cls.newInstance();
+		} catch (Exception e) {
+			logger.warn(e.getMessage());
+			return new LesserFirePotion();
 		}
-		for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
-			if (c.getClass() == cls) {
-				((OnceEffect) c).updateOnceText();
-			}
+	}
+
+	public static void setLesserPotionColors(Color liquidColor, Color hybridColor, Color spotsColor) {
+		liquidColor.r = (liquidColor.r + 1) / 2;
+		liquidColor.g = (liquidColor.g + 1) / 2;
+		liquidColor.b = (liquidColor.b + 1) / 2;
+		liquidColor.a = 0.75f;
+		if (hybridColor != null) {
+			hybridColor.r = (liquidColor.r + 1) / 2;
+			hybridColor.g = (liquidColor.g + 1) / 2;
+			hybridColor.b = (liquidColor.b + 1) / 2;
+			hybridColor.a = 0.75f;
 		}
-		for (AbstractCard c : AbstractDungeon.player.hand.group) {
-			if (c.getClass() == cls) {
-				((OnceEffect) c).updateOnceText();
-			}
+		if (spotsColor != null) {
+			spotsColor.r = (liquidColor.r + 1) / 2;
+			spotsColor.g = (liquidColor.g + 1) / 2;
+			spotsColor.b = (liquidColor.b + 1) / 2;
+			spotsColor.a = 0.75f;
 		}
+	}
+
+	public static int countUnique(CardGroup group) {
+		HashSet<String> ids = new HashSet<>();
+		for (AbstractCard c : group.group) {
+			ids.add(c.cardID);
+		}
+		return ids.size();
 	}
 }

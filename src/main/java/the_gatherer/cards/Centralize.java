@@ -1,6 +1,5 @@
 package the_gatherer.cards;
 
-import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -9,10 +8,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.CentralizeAction;
-import the_gatherer.interfaces.OnceEffect;
+import the_gatherer.cards.Helper.AbstractNumberedCard;
 import the_gatherer.patches.CardColorEnum;
 
-public class Centralize extends CustomCard implements OnceEffect {
+public class Centralize extends AbstractNumberedCard {
 	private static final String RAW_ID = "Centralize";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -34,33 +33,32 @@ public class Centralize extends CustomCard implements OnceEffect {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
+		updateDescription();
 	}
 
-	@Override
-	public void applyPowers() {
-		updateOnceText();
-	}
-
-	public void updateOnceText() {
-		if (GathererMod.playedCardsCombat.contains(Centralize.class)) {
-			if (upgraded) {
-				this.rawDescription = EXTENDED_DESCRIPTION[1];
+	public void updateDescription() {
+		if (upgraded) {
+			if (playCount == 0) {
+				this.rawDescription = UPGRADE_DESCRIPTION + EXTENDED_DESCRIPTION[0];
+			} else if (playCount == 1) {
+				this.rawDescription = UPGRADE_DESCRIPTION + EXTENDED_DESCRIPTION[1];
 			} else {
-				this.rawDescription = EXTENDED_DESCRIPTION[0];
+				this.rawDescription = UPGRADE_DESCRIPTION + EXTENDED_DESCRIPTION[3];
 			}
 		} else {
-			if (upgraded) {
-				this.rawDescription = UPGRADE_DESCRIPTION;
+			if (playCount == 0) {
+				this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[2];
 			} else {
-				this.rawDescription = DESCRIPTION;
+				this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[3];
 			}
 		}
+
 		this.initializeDescription();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		updateOnceText();
-		GathererMod.updateAllOnceText(Centralize.class);
+		AbstractDungeon.actionManager.addToBottom(new CentralizeAction(magicNumber, playCount == 0 || upgraded && playCount == 1));
+		addPlayCount();
 	}
 
 	public AbstractCard makeCopy() {
@@ -71,16 +69,7 @@ public class Centralize extends CustomCard implements OnceEffect {
 		if (!upgraded) {
 			upgradeName();
 			this.upgradeMagicNumber(UPGRADE_BONUS);
-			this.rawDescription = UPGRADE_DESCRIPTION;
-			this.initializeDescription();
+			updateDescription();
 		}
-	}
-
-	public void notFirstTimeEffect() {
-		AbstractDungeon.actionManager.addToBottom(new CentralizeAction(magicNumber, false));
-	}
-
-	public void firstTimeEffect() {
-		AbstractDungeon.actionManager.addToBottom(new CentralizeAction(magicNumber, true));
 	}
 }

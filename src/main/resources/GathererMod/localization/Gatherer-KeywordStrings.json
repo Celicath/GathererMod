@@ -3,13 +3,19 @@
     "NAMES": [
       "unique"
     ],
-    "DESCRIPTION": "Cards with different IDs are considered unique. Whatever that means."
+    "DESCRIPTION": "Cards with different name or color are considered unique."
   },
   {
     "NAMES": [
       "once"
     ],
-    "DESCRIPTION": "Only activates when you play this #yUnique card first time in the combat."
+    "DESCRIPTION": "Only activates when you play this card first time in the combat. Displays used up after one use."
+  },
+  {
+    "NAMES": [
+      "twice"
+    ],
+    "DESCRIPTION": "Only activates for the first two times you play this card in combat. Displays as Once after one use."
   },
   {
     "NAMES": [
@@ -40,5 +46,29 @@
       "lesser_poison_potion"
     ],
     "DESCRIPTION": "A Potion which applies 4 #yPoison to an enemy."
+  },
+  {
+    "PROPER_NAME": "Lesser Block Potion",
+    "NAMES": [
+      "lesser block potion",
+      "lesser_block_potion"
+    ],
+    "DESCRIPTION": "A Potion which gains 8 Block when used."
+  },
+  {
+    "PROPER_NAME": "Lesser Weak Potion",
+    "NAMES": [
+      "lesser weak potion",
+      "lesser_weak_potion"
+    ],
+    "DESCRIPTION": "A Potion which applies 2 Weak to an enemy."
+  },
+  {
+    "PROPER_NAME": "Lesser Fear Potion",
+    "NAMES": [
+      "lesser fear potion",
+      "lesser_fear_potion"
+    ],
+    "DESCRIPTION": "A Potion which applies 2 Vulnerable to an enemy."
   }
 ]

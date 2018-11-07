@@ -1,21 +1,23 @@
 package the_gatherer.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.cardManip.ExhaustCardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect;
 import javassist.CtBehavior;
+import the_gatherer.actions.GainPlatedArmorThresholdAction;
 import the_gatherer.cards.ScrollOfWall;
 
 public class ScrollOfWallPatch {
 	public static class ScrollOfWallUtil {
 		// -1 = No Exhaust
-		// 0~ = Exhaust and draw N cards
+		// 0~ = Exhaust and gain N plated armor
 		public static int needToExhaust(AbstractCard card) {
 			boolean hasOne = false;
 			int result = 0;
@@ -70,6 +72,7 @@ public class ScrollOfWallPatch {
 		public static void Postfix(ShowCardAndAddToDiscardEffect __instance, AbstractCard srcCard, float x, float y) {
 			if (ScrollOfWallUtil.needToExhaust(srcCard) >= 0) {
 				AbstractDungeon.player.discardPile.removeCard(srcCard);
+				__instance.duration *= 0.5f;
 			}
 		}
 	}
@@ -86,6 +89,7 @@ public class ScrollOfWallPatch {
 		public static void Postfix(ShowCardAndAddToDiscardEffect __instance, AbstractCard srcCard) {
 			if (ScrollOfWallUtil.needToExhaust(srcCard) >= 0) {
 				AbstractDungeon.player.discardPile.removeCard(srcCard);
+				__instance.duration *= 0.5f;
 			}
 		}
 	}
@@ -97,7 +101,7 @@ public class ScrollOfWallPatch {
 			int num = ScrollOfWallUtil.needToExhaust(card);
 			if (num >= 0) {
 				ScrollOfWallUtil.exhaustIncomingCard(card);
-				AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, num));
+				AbstractDungeon.actionManager.addToTop(new GainPlatedArmorThresholdAction(num, 5));
 				return SpireReturn.Return(null);
 			}
 			return SpireReturn.Continue();
@@ -129,6 +133,7 @@ public class ScrollOfWallPatch {
 		public static void Postfix(ShowCardAndAddToDrawPileEffect __instance, AbstractCard srcCard, float x, float y, boolean randomSpot, boolean cardOffset, boolean toBottom) {
 			if (ScrollOfWallUtil.needToExhaust(srcCard) >= 0) {
 				AbstractDungeon.player.drawPile.removeCard(srcCard);
+				__instance.duration *= 0.5f;
 			}
 		}
 	}
@@ -147,6 +152,7 @@ public class ScrollOfWallPatch {
 		public static void Postfix(ShowCardAndAddToDrawPileEffect __instance, AbstractCard srcCard, boolean randomSpot, boolean toBottom) {
 			if (ScrollOfWallUtil.needToExhaust(srcCard) >= 0) {
 				AbstractDungeon.player.drawPile.removeCard(srcCard);
+				__instance.duration *= 0.5f;
 			}
 		}
 	}
@@ -158,7 +164,7 @@ public class ScrollOfWallPatch {
 			int num = ScrollOfWallUtil.needToExhaust(card);
 			if (num >= 0) {
 				ScrollOfWallUtil.exhaustIncomingCard(card);
-				AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, num));
+				AbstractDungeon.actionManager.addToTop(new GainPlatedArmorThresholdAction(num, 5));
 				return SpireReturn.Return(null);
 			}
 			return SpireReturn.Continue();

@@ -20,7 +20,7 @@ public class AlchemyBag extends CustomRelic {
 	@Override
 	public void atBattleStart() {
 		this.flash();
-		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(AbstractDungeon.returnRandomPotion(PotionRarityEnum.LESSER, true)));
+		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(GathererMod.returnRandomLesserPotion()));
 	}
 
 	@Override

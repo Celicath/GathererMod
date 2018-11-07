@@ -29,7 +29,7 @@ public class Shadow extends CustomCard {
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
 	private static final int POWER = 9;
-	private static final int UPGRADE_BONUS = 3;
+	private static final int UPGRADE_BONUS = 4;
 
 	public Shadow() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

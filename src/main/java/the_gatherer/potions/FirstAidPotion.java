@@ -1,6 +1,7 @@
 package the_gatherer.potions;
 
 import basemod.abstracts.CustomPotion;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -24,6 +25,8 @@ public class FirstAidPotion extends CustomPotion {
 		this.description = DESCRIPTIONS[0] + this.potency + DESCRIPTIONS[1];
 		this.isThrown = false;
 		this.tips.add(new PowerTip(this.name, this.description));
+
+		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
 	public void use(AbstractCreature target) {
@@ -35,6 +38,6 @@ public class FirstAidPotion extends CustomPotion {
 	}
 
 	public int getPotency(int ascensionLevel) {
-		return 7;
+		return 10;
 	}
 }

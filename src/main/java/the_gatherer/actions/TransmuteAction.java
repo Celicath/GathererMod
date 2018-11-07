@@ -53,11 +53,9 @@ public class TransmuteAction extends AbstractGameAction {
 			}
 
 			this.p.hand.group.removeAll(this.notTransformable);
-			if (this.p.hand.group.size() > 1) {
-				AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false, false, false);
-				this.tickDuration();
-				return;
-			}
+			AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false, false, false);
+			this.tickDuration();
+			return;
 		}
 		if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
 

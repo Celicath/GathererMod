@@ -10,7 +10,7 @@
     "NAME": "Miracle Bag",
     "FLAVOR": "Created with forbidden technology.",
     "DESCRIPTIONS": [
-      "At the start of each combat, obtain a random potion.",
+      "Not replaced #yAlchemy #yBag. At the start of each combat, obtain a random potion (to your regular potion slot).",
       "Replaces #yAlchemy #yBag. At the start of each combat, obtain a rare potion (to your regular potion slot)."
     ]
   },

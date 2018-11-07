@@ -34,10 +34,15 @@
       " Poison, Weak and Vulnerable to ALL enemies."
     ]
   },
-  "Gatherer:RemoveRetainCard": {
-    "NAME": "",
+  "Gatherer:SecretPlan": {
+    "NAME": "Secret Plan",
     "DESCRIPTIONS": [
-      "Retaining power only lasts for this turn."
+      "At the start of your hand, return ",
+      " to your hand from draw or discard pile.",
+      " and ",
+      " other cards to your hand from draw or discard pile.",
+      " NL It is discounted.",
+      " NL They are discounted."
     ]
   },
   "Gatherer:LightPower": {

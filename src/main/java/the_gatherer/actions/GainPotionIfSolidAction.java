@@ -1,17 +1,17 @@
 package the_gatherer.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.LoseBlockAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.ArtifactPower;
+import the_gatherer.potions.LesserBlockPotion;
 
-public class GainArtifactIfSolidAction extends AbstractGameAction {
+public class GainPotionIfSolidAction extends AbstractGameAction {
 	private int threshold;
 	private AbstractCreature owner;
 
-	public GainArtifactIfSolidAction(AbstractCreature owner, int threshold) {
+	public GainPotionIfSolidAction(AbstractCreature owner, int threshold) {
 		this.duration = Settings.ACTION_DUR_FASTER;
 		this.owner = owner;
 		this.threshold = threshold;
@@ -19,10 +19,10 @@ public class GainArtifactIfSolidAction extends AbstractGameAction {
 
 	public void update() {
 		if (this.duration == Settings.ACTION_DUR_FASTER) {
-			if (owner.currentBlock >= threshold)
-				AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(owner, owner, new ArtifactPower(owner, 1), 1));
-
-			GatherMaterialAction.drawnAttacks = 0;
+			if (owner.currentBlock >= threshold) {
+				AbstractDungeon.actionManager.addToTop(new LoseBlockAction(owner, owner, 5));
+				AbstractDungeon.actionManager.addToTop(new ObtainLesserPotionAction(new LesserBlockPotion()));
+			}
 		}
 
 		this.tickDuration();

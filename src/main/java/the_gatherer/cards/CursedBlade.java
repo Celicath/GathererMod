@@ -16,11 +16,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import the_gatherer.GathererMod;
+import the_gatherer.cards.Helper.AbstractNumberedCard;
 import the_gatherer.interfaces.OnObtainEffect;
-import the_gatherer.interfaces.OnceEffect;
 import the_gatherer.patches.CardColorEnum;
 
-public class CursedBlade extends CustomCard implements OnObtainEffect, OnceEffect {
+public class CursedBlade extends AbstractNumberedCard implements OnObtainEffect {
 	private static final String RAW_ID = "CursedBlade";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -35,44 +35,41 @@ public class CursedBlade extends CustomCard implements OnObtainEffect, OnceEffec
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
 	private static final int POWER = 30;
-	private static final int UPGRADE_BONUS = 10;
+	private static final int UPGRADE_BONUS = 5;
 	private static final int MAGIC = 30;
-	private static final int MAGIC_BONUS = 10;
-
-	private boolean first;
+	private static final int MAGIC_BONUS = 5;
 
 	public CursedBlade() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseDamage = POWER;
 		this.baseMagicNumber = MAGIC;
 		this.magicNumber = this.baseMagicNumber;
+		updateDescription();
 	}
 
 	@Override
-	public void applyPowers() {
-		updateOnceText();
-	}
-
-	public void updateOnceText() {
-		if (GathererMod.playedCardsCombat.contains(CursedBlade.class)) {
-			this.rawDescription = EXTENDED_DESCRIPTION[0];
+	public void updateDescription() {
+		if (upgraded && playCount == 0) {
+			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
+		} else if(upgraded && playCount == 1 || playCount == 0) {
+			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
 		} else {
-			this.rawDescription = DESCRIPTION;
+			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[2];
 		}
+
 		this.initializeDescription();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-		if (first) {
+		if (playCount == 0 || upgraded && playCount == 1) {
 			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber));
 			if (m != null && !m.hasPower("Artifact")) {
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new GainStrengthPower(m, this.magicNumber), this.magicNumber));
 			}
 		}
 
-		updateOnceText();
-		GathererMod.updateAllOnceText(CursedBlade.class);
+		addPlayCount();
 	}
 
 	public AbstractCard makeCopy() {
@@ -84,19 +81,12 @@ public class CursedBlade extends CustomCard implements OnObtainEffect, OnceEffec
 			this.upgradeName();
 			this.upgradeDamage(UPGRADE_BONUS);
 			this.upgradeMagicNumber(MAGIC_BONUS);
+			updateDescription();
 		}
 	}
 
 	@Override
 	public void onObtain() {
 		AbstractDungeon.topLevelEffectsQueue.add(new com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect(new Normality(), Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F, false));
-	}
-
-	public void notFirstTimeEffect() {
-		first = false;
-	}
-
-	public void firstTimeEffect() {
-		first = true;
 	}
 }

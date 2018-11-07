@@ -1,6 +1,7 @@
 package the_gatherer.potions;
 
 import basemod.abstracts.CustomPotion;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -27,6 +28,8 @@ public class LesserFirePotion extends CustomPotion {
 		this.isThrown = true;
 		this.targetRequired = true;
 		this.tips.add(new PowerTip(this.name, this.description));
+
+		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
 	public void use(AbstractCreature target) {

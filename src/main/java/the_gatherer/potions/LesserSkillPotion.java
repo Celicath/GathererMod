@@ -1,6 +1,7 @@
 package the_gatherer.potions;
 
 import basemod.abstracts.CustomPotion;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -25,6 +26,8 @@ public class LesserSkillPotion extends CustomPotion {
 		this.description = DESCRIPTIONS[0];
 		this.isThrown = false;
 		this.tips.add(new PowerTip(this.name, this.description));
+
+		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
 	public void use(AbstractCreature target) {

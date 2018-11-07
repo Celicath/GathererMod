@@ -30,7 +30,7 @@ public class CollectorsShot extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 3;
+	private static final int POWER = 2;
 	private static final int UPGRADE_BONUS = 1;
 
 	public CollectorsShot() {
@@ -40,17 +40,7 @@ public class CollectorsShot extends CustomCard {
 	}
 
 	public void applyPowers() {
-		Iterator it = AbstractDungeon.player.masterDeck.group.iterator();
-		HashSet<String> ids1 = new HashSet<>();
-		HashSet<String> ids2 = new HashSet<>();
-		while (it.hasNext()) {
-			AbstractCard c = (AbstractCard) it.next();
-			if (ids1.contains(c.cardID))
-				ids2.add(c.cardID);
-			else ids1.add(c.cardID);
-		}
-
-		this.baseDamage = ids2.size() * this.magicNumber;
+		this.baseDamage = GathererMod.countUnique(AbstractDungeon.player.masterDeck) * this.magicNumber;
 
 		super.applyPowers();
 		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
@@ -59,9 +49,6 @@ public class CollectorsShot extends CustomCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
-
-		this.rawDescription = DESCRIPTION;
-		this.initializeDescription();
 	}
 
 	public AbstractCard makeCopy() {

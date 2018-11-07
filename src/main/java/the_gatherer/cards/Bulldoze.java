@@ -46,13 +46,7 @@ public class Bulldoze extends CustomCard {
 		if (!super.canUse(p, m)) {
 			return false;
 		} else {
-			Iterator it = AbstractDungeon.player.discardPile.group.iterator();
-			HashSet<String> ids = new HashSet<>();
-			while (it.hasNext()) {
-				AbstractCard c = (AbstractCard) it.next();
-				ids.add(c.cardID);
-			}
-			int count = ids.size();
+			int count = GathererMod.countUnique(AbstractDungeon.player.discardPile);
 			if (count >= this.magicNumber)
 				return true;
 			else {

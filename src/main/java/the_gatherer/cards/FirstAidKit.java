@@ -24,11 +24,11 @@ public class FirstAidKit extends CustomCard {
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final CardType TYPE = CardType.SKILL;
 	private static final CardColor COLOR = CardColorEnum.LIME;
-	private static final CardRarity RARITY = CardRarity.COMMON;
+	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 7;
-	private static final int UPGRADE_BONUS = 3;
+	private static final int POWER = 10;
+	private static final int UPGRADE_BONUS = 5;
 
 	public FirstAidKit() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

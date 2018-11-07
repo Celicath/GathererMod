@@ -68,7 +68,7 @@ public class ScrollOfWall extends CustomCard implements OnUsePotionEffect {
 		if (!this.retain) {
 			this.flash();
 			this.retain = true;
-			this.rawDescription = upgraded ? EXTENDED_DESCRIPTION[0] : EXTENDED_DESCRIPTION[1];
+			this.rawDescription = upgraded ? EXTENDED_DESCRIPTION[2] : EXTENDED_DESCRIPTION[1];
 			initializeDescription();
 		}
 	}

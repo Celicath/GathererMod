@@ -1,6 +1,7 @@
 package the_gatherer.potions;
 
 import basemod.abstracts.CustomPotion;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -26,6 +27,8 @@ public class LesserEssenceOfSteel extends CustomPotion {
 		this.description = DESCRIPTIONS[0] + this.potency + DESCRIPTIONS[1];
 		this.isThrown = false;
 		this.tips.add(new PowerTip(this.name, this.description));
+
+		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
 	public void use(AbstractCreature target) {

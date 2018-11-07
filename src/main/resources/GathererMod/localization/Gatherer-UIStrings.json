@@ -42,5 +42,10 @@
       "Exhaust",
       "Exhaust and Draw "
     ]
+  },
+  "Gatherer:SecretPlanAction": {
+    "TEXT": [
+      "Put to Your Hand Next Turn"
+    ]
   }
 }

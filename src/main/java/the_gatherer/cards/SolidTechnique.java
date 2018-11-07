@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
-import the_gatherer.actions.GainArtifactIfSolidAction;
+import the_gatherer.actions.GainPotionIfSolidAction;
 import the_gatherer.patches.CardColorEnum;
 
 public class SolidTechnique extends CustomCard {
@@ -39,7 +39,7 @@ public class SolidTechnique extends CustomCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-		AbstractDungeon.actionManager.addToBottom(new GainArtifactIfSolidAction(p, this.magicNumber));
+		AbstractDungeon.actionManager.addToBottom(new GainPotionIfSolidAction(p, this.magicNumber));
 	}
 
 	public AbstractCard makeCopy() {
