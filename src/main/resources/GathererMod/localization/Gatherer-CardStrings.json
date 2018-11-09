@@ -127,16 +127,16 @@
   },
   "Gatherer:PoisonMastery" : {
     "NAME": "Poison Mastery",
-    "DESCRIPTION": "Obtain !M! Lesser Poison Potion to your Sack. Poison damage is increased by 100% this combat.",
-    "UPGRADE_DESCRIPTION": "Innate. Obtain !M! Lesser Poison Potion to your Sack. Poison damage is increased by 100% this combat."
+    "DESCRIPTION": "Add !M! Lesser Poison Potion to your Sack. Poison damage is increased by 100% this combat.",
+    "UPGRADE_DESCRIPTION": "Innate. Add !M! Lesser Poison Potion to your Sack. Poison damage is increased by 100% this combat."
   },
   "Gatherer:Pollute" : {
     "NAME": "Pollute",
-    "DESCRIPTION": "Next turn, Apply !M! Poison, Weak and Vulnerable to ALL enemies."
+    "DESCRIPTION": "Next turn, apply !M! Poison, Weak and Vulnerable to ALL enemies."
   },
   "Gatherer:Herbalism" : {
     "NAME": "Herbalism",
-    "DESCRIPTION": "Gain [E] for each card in your hand with 2 or more cost.",
+    "DESCRIPTION": "Gain [E] for each card in your hand that costs 2 or more.",
     "EXTENDED_DESCRIPTION" : [
       " NL (Gain ",
       " energy.)"
@@ -144,11 +144,11 @@
   },
   "Gatherer:GatherMaterial" : {
     "NAME": "Gather Material",
-    "DESCRIPTION": "Draw !M! Cards. Gain !B! Block for each Attack card drawn."
+    "DESCRIPTION": "Draw !M! Cards. Gain !B! Block for each Attack drawn this way."
   },
   "Gatherer:Convert" : {
     "NAME": "Convert",
-    "DESCRIPTION": "Exhaust a card. If it is an uncommon or rare card, gain !B! Block."
+    "DESCRIPTION": "Exhaust a card. If it is an Uncommon or Rare card, gain !B! Block."
   },
   "Gatherer:SecretPlan" : {
     "NAME": "Secret Plan",
@@ -245,11 +245,11 @@
   },
   "Gatherer:ChargingShot" : {
     "NAME": "Charging Shot",
-    "DESCRIPTION": "Deal !D! damage. While in your hand, using a Potion increases it's damage by !M! this combat."
+    "DESCRIPTION": "Deal !D! damage. While in your hand, using a Potion increases its damage by !M! this combat."
   },
   "Gatherer:SealedBomb" : {
     "NAME": "Sealed Bomb",
-    "DESCRIPTION": "Deal !D! damage. While in your hand, using a Potion decreases it's cost by 1 this combat."
+    "DESCRIPTION": "Deal !D! damage. While in your hand, using a Potion decreases its cost by 1 this combat."
   },
   "Gatherer:FeelingFine" : {
     "NAME": "Feeling Fine",
@@ -257,7 +257,7 @@
   },
   "Gatherer:CursedBlade" : {
     "NAME": "Cursed Blade",
-    "DESCRIPTION": "Deal !D! damage. Once: Enemy loses !M! Strength this turn. When Obtained, add a Curse-Normality to your deck."
+    "DESCRIPTION": "Deal !D! damage. Once: Enemy loses !M! Strength this turn. When obtained, add a Curse-Normality to your deck."
   },
   "Gatherer:Overflowing" : {
     "NAME": "Overflowing",
