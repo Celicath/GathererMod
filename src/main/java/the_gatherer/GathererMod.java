@@ -2,14 +2,19 @@ package the_gatherer;
 
 import basemod.BaseMod;
 import basemod.ModLabel;
+import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.BaseModCardTags;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputAdapter;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -17,7 +22,9 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.blue.Defend_Blue;
 import com.megacrit.cardcrawl.cards.green.Defend_Green;
 import com.megacrit.cardcrawl.cards.red.Defend_Red;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
@@ -37,6 +44,7 @@ import the_gatherer.interfaces.OnObtainEffect;
 import the_gatherer.interfaces.OnUsePotionEffect;
 import the_gatherer.interfaces.PostObtainCardSubscriber;
 import the_gatherer.modules.CaseMod;
+import the_gatherer.modules.ModLabeledButton;
 import the_gatherer.modules.PotionSack;
 import the_gatherer.patches.AbstractPlayerEnum;
 import the_gatherer.patches.CardColorEnum;
@@ -48,6 +56,8 @@ import the_gatherer.relics.SilentSlate;
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+
+import static org.lwjgl.input.Keyboard.*;
 
 @SpireInitializer
 public class GathererMod implements PostInitializeSubscriber,
@@ -77,6 +87,10 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	public static ArrayList<Class<? extends AbstractPotion>> lesserPotionPool = new ArrayList<>();
 
+	public static Properties gathererDefaults = new Properties();
+	public static int[] potionSackKeys = new int[]{KEY_I, KEY_O, KEY_P};
+	public static boolean potionSackPopupFlipped = false;
+
 	public GathererMod() {
 		logger.debug("Constructor started.");
 		BaseMod.subscribe(this);
@@ -94,7 +108,48 @@ public class GathererMod implements PostInitializeSubscriber,
 				"GathererMod/img/cardui/1024/card_lime_orb.png",
 				"GathererMod/img/cardui/512/card_lime_small_orb.png");
 
+		gathererDefaults.setProperty("phoenixStart", "FALSE");
+		gathererDefaults.setProperty("contentSharing", "TRUE");
+		gathererDefaults.setProperty("contentSharing_potions", "TRUE");
+		gathererDefaults.setProperty("overheatedBETA", "FALSE");
+		loadConfig();
+
 		logger.debug("Constructor finished.");
+	}
+
+	public static void loadConfig() {
+		logger.debug("loadConfig started.");
+		try {
+			SpireConfig config = new SpireConfig("GathererMod", "GathererSaveData", gathererDefaults);
+			config.load();
+			potionSackKeys[0] = config.getInt("potionSackKey0");
+			potionSackKeys[1] = config.getInt("potionSackKey1");
+			potionSackKeys[2] = config.getInt("potionSackKey2");
+			potionSackPopupFlipped = config.getBool("potionSackPopupFlipped");
+		} catch (Exception e) {
+			e.printStackTrace();
+			clearConfig();
+		}
+		logger.debug("loadConfig finished.");
+	}
+
+	public static void saveConfig() {
+		logger.debug("saveConfig started.");
+		try {
+			SpireConfig config = new SpireConfig("GathererMod", "GathererSaveData", gathererDefaults);
+			config.setInt("potionSackKey0", potionSackKeys[0]);
+			config.setInt("potionSackKey1", potionSackKeys[1]);
+			config.setInt("potionSackKey2", potionSackKeys[2]);
+			config.setBool("potionSackPopupFlipped", potionSackPopupFlipped);
+			config.save();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		logger.debug("saveConfig finished.");
+	}
+
+	public static void clearConfig() {
+		saveConfig();
 	}
 
 	public static void initialize() {
@@ -103,13 +158,62 @@ public class GathererMod implements PostInitializeSubscriber,
 		logger.debug("initialize finished.");
 	}
 
+
+	private InputProcessor oldInputProcessor;
+	private int keyToConfig = -1;
+
 	@Override
 	public void receivePostInitialize() {
 		logger.debug("receivePostInitialize started.");
 		Texture badgeTexture = new Texture(GATHERER_BADGE);
+
 		ModPanel settingsPanel = new ModPanel();
-		settingsPanel.addUIElement(new ModLabel("This mod does not have any settings.", 400.0f, 700.0f, settingsPanel, (me) -> {
-		}));
+
+		ModLabeledToggleButton flipButton = new ModLabeledToggleButton("Flip Potion Sack popup orientation",
+				400.0f, 720.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+				potionSackPopupFlipped, settingsPanel, (label) -> {
+		}, (button) -> {
+			potionSackPopupFlipped = button.enabled;
+			saveConfig();
+		});
+
+		ModLabeledButton[] potionSackKeysButton = new ModLabeledButton[3];
+		for (int i = 0; i < potionSackKeysButton.length; i++) {
+			int k = i;
+			potionSackKeysButton[i] = new ModLabeledButton("Key shortcut potion sack slot #" + (k + 1) + " : " + Input.Keys.toString(potionSackKeys[k]),
+					380.0f, 600.0f - i * 60, Settings.CREAM_COLOR, FontHelper.charDescFont,
+					settingsPanel, (label) -> {
+				if (keyToConfig == k) {
+					label.text = "Press key for slot #" + (k + 1);
+				} else {
+					label.text = "Key shortcut potion sack slot #" + (k + 1) + " : " + Input.Keys.toString(potionSackKeys[k]);
+				}
+			}, (me) -> {
+				me.wrapHitboxToText(potionSackKeysButton[k].text.text, 1000.0f, 0.0f, potionSackKeysButton[k].text.font);
+				if (keyToConfig == k) {
+					keyToConfig = -1;
+				} else {
+					keyToConfig = k;
+				}
+				oldInputProcessor = Gdx.input.getInputProcessor();
+				Gdx.input.setInputProcessor(new InputAdapter() {
+					@Override
+					public boolean keyUp(int keycode) {
+						potionSackKeys[k] = keycode;
+						saveConfig();
+						keyToConfig = -1;
+						Gdx.input.setInputProcessor(oldInputProcessor);
+						return true;
+					}
+				});
+			});
+		}
+
+		settingsPanel.addUIElement(flipButton);
+		for (int i = 0; i < potionSackKeysButton.length; i++) {
+			settingsPanel.addUIElement(potionSackKeysButton[i]);
+		}
+
 		BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
 		potionSack = new PotionSack();
@@ -281,6 +385,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		playedCardsCombat = new HashSet<>();
 		potionSack.removeAllPotions();
 		potionSack.show = false;
+		potionSack.loadKeySettings();
 
 		for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
 			if (c instanceof AbstractNumberedCard) {
@@ -403,22 +508,20 @@ public class GathererMod implements PostInitializeSubscriber,
 		}
 	}
 
+	private static void setLesserPotionColor(Color color) {
+		color.r = (color.r * 3 + 2) / 5;
+		color.g = (color.g * 3 + 2) / 5;
+		color.b = (color.b * 3 + 2) / 5;
+		color.a = 0.8f;
+	}
+
 	public static void setLesserPotionColors(Color liquidColor, Color hybridColor, Color spotsColor) {
-		liquidColor.r = (liquidColor.r + 1) / 2;
-		liquidColor.g = (liquidColor.g + 1) / 2;
-		liquidColor.b = (liquidColor.b + 1) / 2;
-		liquidColor.a = 0.75f;
+		setLesserPotionColor(liquidColor);
 		if (hybridColor != null) {
-			hybridColor.r = (liquidColor.r + 1) / 2;
-			hybridColor.g = (liquidColor.g + 1) / 2;
-			hybridColor.b = (liquidColor.b + 1) / 2;
-			hybridColor.a = 0.75f;
+			setLesserPotionColor(hybridColor);
 		}
 		if (spotsColor != null) {
-			spotsColor.r = (liquidColor.r + 1) / 2;
-			spotsColor.g = (liquidColor.g + 1) / 2;
-			spotsColor.b = (liquidColor.b + 1) / 2;
-			spotsColor.a = 0.75f;
+			setLesserPotionColor(spotsColor);
 		}
 	}
 

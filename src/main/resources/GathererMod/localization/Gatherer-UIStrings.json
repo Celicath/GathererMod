@@ -7,7 +7,7 @@
   },
   "Gatherer:PotionSack": {
     "TEXT": [
-      "Your Sack can hold 3 Lesser potions. Potions here are only available during this combat.",
+      "Your Sack holds 3 Lesser potions, which are only available during this combat. NL #bDrag: Move position NL #bRight-click: Flip popup",
       "The Sack"
     ]
   },
