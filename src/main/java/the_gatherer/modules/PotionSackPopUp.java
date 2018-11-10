@@ -255,7 +255,7 @@ public class PotionSackPopUp {
 	}
 
 	private void updateInput() {
-		if (this.hbTop.justHovered) {
+		if (this.hbTop.hovered || this.hbBot.hovered) {
 			this.highlightTop = false;
 		}
 

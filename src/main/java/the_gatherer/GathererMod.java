@@ -1,7 +1,6 @@
 package the_gatherer;
 
 import basemod.BaseMod;
-import basemod.ModLabel;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.abstracts.CustomCard;
@@ -188,24 +187,25 @@ public class GathererMod implements PostInitializeSubscriber,
 				} else {
 					label.text = "Key shortcut potion sack slot #" + (k + 1) + " : " + Input.Keys.toString(potionSackKeys[k]);
 				}
-			}, (me) -> {
-				me.wrapHitboxToText(potionSackKeysButton[k].text.text, 1000.0f, 0.0f, potionSackKeysButton[k].text.font);
+				potionSackKeysButton[k].toggle.wrapHitboxToText(label.text, 1000.0f, 0.0f, label.font);
+			}, (button) -> {
 				if (keyToConfig == k) {
 					keyToConfig = -1;
+					Gdx.input.setInputProcessor(oldInputProcessor);
 				} else {
 					keyToConfig = k;
+					oldInputProcessor = Gdx.input.getInputProcessor();
+					Gdx.input.setInputProcessor(new InputAdapter() {
+						@Override
+						public boolean keyUp(int keycode) {
+							potionSackKeys[k] = keycode;
+							saveConfig();
+							keyToConfig = -1;
+							Gdx.input.setInputProcessor(oldInputProcessor);
+							return true;
+						}
+					});
 				}
-				oldInputProcessor = Gdx.input.getInputProcessor();
-				Gdx.input.setInputProcessor(new InputAdapter() {
-					@Override
-					public boolean keyUp(int keycode) {
-						potionSackKeys[k] = keycode;
-						saveConfig();
-						keyToConfig = -1;
-						Gdx.input.setInputProcessor(oldInputProcessor);
-						return true;
-					}
-				});
 			});
 		}
 
@@ -288,7 +288,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new FlowerBeam());
 		cards.add(new FlowerGuard());
 		cards.add(new FlowerPower());
-		cards.add(new FranticMove());
+		cards.add(new Frenzy());
 		cards.add(new FruitForce());
 		cards.add(new Fruitify());
 		cards.add(new BigHands());
