@@ -1,7 +1,6 @@
 package the_gatherer.potions;
 
 import basemod.abstracts.CustomPotion;
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;

@@ -12,9 +12,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.CardColorEnum;
 
-import java.util.HashSet;
-import java.util.Iterator;
-
 public class Bulldoze extends CustomCard {
 	private static final String RAW_ID = "Bulldoze";
 	public static final String ID = GathererMod.makeID(RAW_ID);

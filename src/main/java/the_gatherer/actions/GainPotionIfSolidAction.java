@@ -5,6 +5,9 @@ import com.megacrit.cardcrawl.actions.utility.LoseBlockAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.potions.PotionSlot;
+import the_gatherer.GathererMod;
 import the_gatherer.potions.LesserBlockPotion;
 
 public class GainPotionIfSolidAction extends AbstractGameAction {
@@ -20,8 +23,17 @@ public class GainPotionIfSolidAction extends AbstractGameAction {
 	public void update() {
 		if (this.duration == Settings.ACTION_DUR_FASTER) {
 			if (owner.currentBlock >= threshold) {
-				AbstractDungeon.actionManager.addToTop(new LoseBlockAction(owner, owner, 5));
-				AbstractDungeon.actionManager.addToTop(new ObtainLesserPotionAction(new LesserBlockPotion()));
+				boolean full = true;
+				for (AbstractPotion p : GathererMod.potionSack.potions) {
+					if (p instanceof PotionSlot) {
+						full = false;
+						break;
+					}
+				}
+				if (!full) {
+					AbstractDungeon.actionManager.addToTop(new LoseBlockAction(owner, owner, 5));
+					AbstractDungeon.actionManager.addToTop(new ObtainLesserPotionAction(new LesserBlockPotion()));
+				}
 			}
 		}
 

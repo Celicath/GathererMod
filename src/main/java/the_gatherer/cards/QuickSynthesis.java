@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ObtainLesserPotionAction;
 import the_gatherer.patches.CardColorEnum;
-import the_gatherer.patches.PotionRarityEnum;
 
 public class QuickSynthesis extends CustomCard {
 	private static final String RAW_ID = "QuickSynthesis";

@@ -40,16 +40,14 @@ public class Centralize extends AbstractNumberedCard {
 		if (upgraded) {
 			if (playCount == 0) {
 				this.rawDescription = UPGRADE_DESCRIPTION + EXTENDED_DESCRIPTION[0];
-			} else if (playCount == 1) {
-				this.rawDescription = UPGRADE_DESCRIPTION + EXTENDED_DESCRIPTION[1];
 			} else {
-				this.rawDescription = UPGRADE_DESCRIPTION + EXTENDED_DESCRIPTION[3];
+				this.rawDescription = UPGRADE_DESCRIPTION + EXTENDED_DESCRIPTION[2];
 			}
 		} else {
 			if (playCount == 0) {
-				this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[2];
+				this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
 			} else {
-				this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[3];
+				this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[2];
 			}
 		}
 
@@ -57,7 +55,7 @@ public class Centralize extends AbstractNumberedCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new CentralizeAction(magicNumber, playCount == 0 || upgraded && playCount == 1));
+		AbstractDungeon.actionManager.addToBottom(new CentralizeAction(magicNumber, playCount == 0));
 		addPlayCount();
 	}
 

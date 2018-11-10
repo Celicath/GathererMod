@@ -3,7 +3,6 @@ package the_gatherer.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
@@ -21,7 +20,7 @@ public class BigHandsAction extends AbstractGameAction {
 				int cost = c.costForTurn;
 				if (cost > 0) {
 					sum += cost;
-				} else if(cost == -1) {
+				} else if (cost == -1) {
 					sum += EnergyPanel.getCurrentEnergy();
 				}
 			}

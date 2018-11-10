@@ -22,20 +22,15 @@ public class Uplift extends CustomCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.POWER;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
-	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
+	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
-
-	private static final int POWER = 1;
-	private static final int UPGRADE_BONUS = 1;
 
 	public Uplift() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-		this.baseMagicNumber = POWER;
-		this.magicNumber = this.baseMagicNumber;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new UpliftPower(p, this.magicNumber), this.magicNumber));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new UpliftPower(p, 1), 1));
 	}
 
 	public AbstractCard makeCopy() {
@@ -45,7 +40,7 @@ public class Uplift extends CustomCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			this.upgradeMagicNumber(UPGRADE_BONUS);
+			this.upgradeBaseCost(0);
 			this.initializeDescription();
 		}
 	}

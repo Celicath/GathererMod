@@ -39,7 +39,7 @@ public class Snatch extends AbstractNumberedCard {
 	public void updateDescription() {
 		if (upgraded && playCount == 0) {
 			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
-		} else if(upgraded && playCount == 1 || playCount == 0) {
+		} else if (upgraded && playCount == 1 || playCount == 0) {
 			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
 		} else {
 			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[2];

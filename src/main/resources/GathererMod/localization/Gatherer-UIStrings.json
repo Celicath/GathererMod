@@ -47,5 +47,10 @@
     "TEXT": [
       "Put to Your Hand Next Turn"
     ]
+  },
+  "Gatherer:EnchantAction": {
+    "TEXT": [
+      "Enchant"
+    ]
   }
 }

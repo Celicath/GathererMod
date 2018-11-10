@@ -15,6 +15,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.CardColorEnum;
 
+import java.util.HashSet;
+
 public class Polymorphism extends CustomCard {
 	private static final String RAW_ID = "Polymorphism";
 	public static final String ID = GathererMod.makeID(RAW_ID);
@@ -23,6 +25,8 @@ public class Polymorphism extends CustomCard {
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
@@ -36,8 +40,32 @@ public class Polymorphism extends CustomCard {
 		this.baseDamage = POWER;
 	}
 
+	@Override
+	public void applyPowers() {
+		int count = 0;
+		for (AbstractCard c : AbstractDungeon.player.hand.group) {
+			if (c != this)
+				count++;
+		}
+		this.baseDamage = count;
+		if (upgraded) this.baseDamage += 3;
+		super.applyPowers();
+
+		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
+		this.initializeDescription();
+	}
+
 	private boolean isActivated() {
-		return GathererMod.countUnique(AbstractDungeon.player.hand) == AbstractDungeon.player.hand.size();
+		int count = 0;
+		HashSet<String> ids = new HashSet<>();
+		for (AbstractCard c : AbstractDungeon.player.hand.group) {
+			if (c != this) {
+				count++;
+				ids.add(c.cardID);
+			}
+		}
+
+		return count == ids.size();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -48,6 +76,9 @@ public class Polymorphism extends CustomCard {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m,
 				new DamageInfo(p, this.damage, this.damageTypeForTurn),
 				AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+
+		this.rawDescription = DESCRIPTION;
+		this.initializeDescription();
 	}
 
 	public AbstractCard makeCopy() {
@@ -58,6 +89,8 @@ public class Polymorphism extends CustomCard {
 		if (!upgraded) {
 			upgradeName();
 			this.upgradeDamage(UPGRADE_BONUS);
+			this.rawDescription = UPGRADE_DESCRIPTION;
+			this.initializeDescription();
 		}
 	}
 }

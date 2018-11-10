@@ -35,18 +35,22 @@ public class Shadow extends CustomCard {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
 		this.baseDamage = POWER;
-		this.baseMagicNumber = POWER;
-		this.magicNumber = this.baseMagicNumber;
 	}
 
 	@Override
 	public void applyPowers() {
-		this.baseDamage = this.magicNumber;
-		if (AbstractDungeon.player.hasPower(LightPower.POWER_ID)) {
-			this.baseDamage *= 2;
-		}
 		super.applyPowers();
 		if (AbstractDungeon.player.hasPower(LightPower.POWER_ID)) {
+			this.damage *= 2;
+			this.isDamageModified = true;
+		}
+	}
+
+	@Override
+	public void calculateCardDamage(final AbstractMonster mo) {
+		super.calculateCardDamage(mo);
+		if (AbstractDungeon.player.hasPower(LightPower.POWER_ID)) {
+			this.damage *= 2;
 			this.isDamageModified = true;
 		}
 	}
@@ -65,7 +69,6 @@ public class Shadow extends CustomCard {
 		if (!this.upgraded) {
 			this.upgradeName();
 			this.upgradeDamage(UPGRADE_BONUS);
-			this.upgradeMagicNumber(UPGRADE_BONUS);
 		}
 	}
 }

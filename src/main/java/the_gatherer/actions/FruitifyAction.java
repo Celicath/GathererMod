@@ -25,7 +25,13 @@ public class FruitifyAction extends AbstractGameAction {
 			AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.SLASH_VERTICAL));
 			this.target.damage(this.info);
 			if ((((AbstractMonster) this.target).isDying || this.target.currentHealth <= 0) && !this.target.halfDead && !this.target.hasPower("Minion")) {
-				AbstractDungeon.player.increaseMaxHp(this.increaseHpAmount, false);
+				AbstractMonster.EnemyType type = ((AbstractMonster) this.target).type;
+
+				int multiplier = 1;
+				if (type == AbstractMonster.EnemyType.ELITE || type == AbstractMonster.EnemyType.BOSS) {
+					multiplier = 2;
+				}
+				AbstractDungeon.player.increaseMaxHp(this.increaseHpAmount * multiplier, false);
 			}
 			if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
 				AbstractDungeon.actionManager.clearPostCombatActions();

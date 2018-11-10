@@ -1,7 +1,6 @@
 package the_gatherer.potions;
 
 import basemod.abstracts.CustomPotion;
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;

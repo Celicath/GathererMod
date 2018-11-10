@@ -12,12 +12,11 @@
     "DESCRIPTION": "Choose !M! card from draw pile and place it into your hand.",
     "UPGRADE_DESCRIPTION": "Choose !M! cards from draw pile and place them into your hand.",
     "EXTENDED_DESCRIPTION": [
-      " NL Twice: Upgrade them for the combat.",
       " NL Once: Upgrade them for the combat.",
       " NL Once: Upgrade it for the combat.",
       " NL Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
     ]
-},
+  },
   "Gatherer:SpareBottle": {
     "NAME": "Spare Bottle",
     "DESCRIPTION": "Whenever you use a Potion, gain !M! Block and deal !M! damage to a random enemy."
@@ -70,55 +69,55 @@
       " unique cards in my discard pile."
     ]
   },
-  "Gatherer:FruitForce" : {
+  "Gatherer:FruitForce": {
     "NAME": "Fruit Force",
     "DESCRIPTION": "Deal damage equal to !M! % of Max HP. When obtained, raise your Max HP by 4.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
   },
-  "Gatherer:MagicLamp" : {
+  "Gatherer:MagicLamp": {
     "NAME": "Magic Lamp",
     "DESCRIPTION": "Draw !M! card. When obtained, add a Light! and a Shadow! to your deck.",
     "UPGRADE_DESCRIPTION": "Draw !M! cards. When obtained, add a Light! and a Shadow! to your deck."
   },
-  "Gatherer:Light" : {
+  "Gatherer:Light": {
     "NAME": "Light!",
     "DESCRIPTION": "Gain !B! Block. If you play Shadow! as the next card, it deals double damage."
   },
-  "Gatherer:Shadow" : {
+  "Gatherer:Shadow": {
     "NAME": "Shadow!",
     "DESCRIPTION": "Deal !D! damage. If you play Light! as the next card, it gains double Block."
   },
-  "Gatherer:CoupDeGrace" : {
+  "Gatherer:CoupDeGrace": {
     "NAME": "Coup De Grace",
     "DESCRIPTION": "Deal !D! damage. If the enemy’s current HP was less than yours, hit twice instead."
   },
   "Gatherer:FirstAidKit": {
     "NAME": "First-Aid Kit",
-    "DESCRIPTION": "Add a First-Aid Potion to your Sack. It heals !M! % of your missing HP. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Add a First-Aid Potion+ to your Sack. It heals !M! % of your missing HP. NL Exhaust."
+    "DESCRIPTION": "Add a First-Aid Potion to your Sack. NL It heals !M! % of your missing HP. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add a First-Aid Potion+ to your Sack. NL It heals !M! % of your missing HP. NL Exhaust."
   },
   "Gatherer:TreeGrowth": {
     "NAME": "Tree Growth",
     "DESCRIPTION": "Next turn, gain !B! Block. NL Gain !M! Block 2 turns later."
   },
-  "Gatherer:TacticalStrike" : {
+  "Gatherer:TacticalStrike": {
     "NAME": "Tactical Strike",
     "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards."
   },
-  "Gatherer:CarefulStrike" : {
+  "Gatherer:CarefulStrike": {
     "NAME": "Careful Strike",
     "DESCRIPTION": "Deal !D! damage. You may put !M! card on top of your deck."
   },
-  "Gatherer:TrickStyle" : {
+  "Gatherer:TrickStyle": {
     "NAME": "Trick Style",
     "DESCRIPTION": "Deal !D! damage. Retain. When Retained, it switches between Attack and Skill.",
     "EXTENDED_DESCRIPTION": [
       "Gain !B! Block. Retain. When Retained, it switches between Attack and Skill."
     ]
   },
-  "Gatherer:Snatch" : {
+  "Gatherer:Snatch": {
     "NAME": "Snatch",
     "DESCRIPTION": "Deal !D! Damage.",
     "EXTENDED_DESCRIPTION": [
@@ -127,47 +126,47 @@
       " NL Once: [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
     ]
   },
-  "Gatherer:QuickSynthesis" : {
+  "Gatherer:QuickSynthesis": {
     "NAME": "Quick Synthesis",
     "DESCRIPTION": "Add !M! random lesser potion to your Sack. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Draw 1 card. NL Add !M! random lesser potion to your Sack. NL Exhaust."
   },
-  "Gatherer:FlamingBottle" : {
+  "Gatherer:FlamingBottle": {
     "NAME": "Flaming Bottle",
     "DESCRIPTION": "Deal !D! damage. Add a Lesser_Fire_Potion to your Sack."
   },
-  "Gatherer:PoisonMastery" : {
+  "Gatherer:PoisonMastery": {
     "NAME": "Poison Mastery",
     "DESCRIPTION": "Add !M! Lesser_Poison_Potion to your Sack. Poison damage is increased by 100% this combat.",
     "UPGRADE_DESCRIPTION": "Innate. Add !M! Lesser_Poison_Potion to your Sack. Poison damage is increased by 100% this combat."
   },
-  "Gatherer:Pollute" : {
+  "Gatherer:Pollute": {
     "NAME": "Pollute",
     "DESCRIPTION": "Next turn, apply !M! Poison, Weak and Vulnerable to ALL enemies."
   },
-  "Gatherer:Herbalism" : {
+  "Gatherer:Herbalism": {
     "NAME": "Herbalism",
     "DESCRIPTION": "Gain [E] for each card in your hand that costs 2 or more.",
-    "EXTENDED_DESCRIPTION" : [
+    "EXTENDED_DESCRIPTION": [
       " NL (Gain ",
       " energy.)"
     ]
   },
-  "Gatherer:BigHands" : {
+  "Gatherer:BigHands": {
     "NAME": "Big Hands",
-    "DESCRIPTION": "Draw !M! Cards. Gain Block equal to total cost of your cards in hand."
+    "DESCRIPTION": "Draw !M! Cards. Gain Block equal to total cost of your cards in hand. (Not affected by powers)"
   },
-  "Gatherer:Convert" : {
+  "Gatherer:Convert": {
     "NAME": "Convert",
     "DESCRIPTION": "Exhaust a card. If it is an Uncommon or Rare card, gain !B! Block."
   },
-  "Gatherer:SecretPlan" : {
+  "Gatherer:SecretPlan": {
     "NAME": "Secret Plan",
-    "DESCRIPTION": "Choose a card. Next turn, it costs 1 less, and return to your hand from draw or discard pile.",
-    "UPGRADE_DESCRIPTION": "Choose a card. Next turn, it costs 0, and return to your hand from draw or discard pile."
+    "DESCRIPTION": "Draw a card. Choose up to !M! card, which are returned to your hand from draw or discard pile next turn.",
+    "UPGRADE_DESCRIPTION": "Draw a card. Choose up to !M! cards, which are returned to your hand from draw or discard pile next turn."
   },
-  "Gatherer:WoolGloves" : {
-    "NAME" : "Wool Gloves",
+  "Gatherer:WoolGloves": {
+    "NAME": "Wool Gloves",
     "DESCRIPTION": "Gain !B! Block.",
     "EXTENDED_DESCRIPTION": [
       " NL Twice: Draw 2 cards, then discard 2 cards.",
@@ -175,15 +174,15 @@
       " NL Once: [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
     ]
   },
-  "Gatherer:Salvage" : {
+  "Gatherer:Salvage": {
     "NAME": "Salvage",
     "DESCRIPTION": "Choose up to !M! cards from your discard pile. Shuffle them into your draw pile."
   },
-  "Gatherer:HarmonicSymbol" : {
+  "Gatherer:HarmonicSymbol": {
     "NAME": "Harmonic Symbol",
     "DESCRIPTION": "Gain !B! Block X times. Deal !D! Damage X times."
   },
-  "Gatherer:LastResort" : {
+  "Gatherer:LastResort": {
     "NAME": "Last Resort",
     "DESCRIPTION": "Deal damage equal to half of your missing HP.",
     "UPGRADE_DESCRIPTION": "Deal damage equal to 6+ half of your missing HP.",
@@ -191,35 +190,35 @@
       " NL (Deals !D! damage.)"
     ]
   },
-  "Gatherer:Fruitify" : {
+  "Gatherer:Fruitify": {
     "NAME": "Fruitify",
-    "DESCRIPTION": "Deal !D! damage. NL If this kills a non-minion enemy, raise your Max HP by !M!. Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL If this kills a non-minion enemy, raise your Max HP by !M!; doubled for Elites & Bosses. Exhaust."
   },
-  "Gatherer:SalvePotion" : {
+  "Gatherer:SalvePotion": {
     "NAME": "Salve Potion",
     "DESCRIPTION": "Considered as using a Potion. Heal !M! HP. Decrease this card's healing by 1 this combat."
   },
-  "Gatherer:BronzeBlade" : {
+  "Gatherer:BronzeBlade": {
     "NAME": "Bronze Blade",
     "DESCRIPTION": "Deal !D! damage. Play a basic Defend from your hand with no cost."
   },
-  "Gatherer:GlassHammer" : {
+  "Gatherer:GlassHammer": {
     "NAME": "Glass Hammer",
     "DESCRIPTION": "Deal !D! damage. Deal !M! damage to a random enemy other than the target."
   },
-  "Gatherer:SimpleSwing" : {
+  "Gatherer:SimpleSwing": {
     "NAME": "Simple Swing",
     "DESCRIPTION": "Deal !D! damage. NL Gain [E]."
   },
-  "Gatherer:AcidicSpray" : {
+  "Gatherer:AcidicSpray": {
     "NAME": "Acidic Spray",
     "DESCRIPTION": "Deal !D! damage for each debuff on the enemy. Apply !M! Weak."
   },
-  "Gatherer:FranticMove" : {
-    "NAME": "Frantic Move",
+  "Gatherer:Frenzy": {
+    "NAME": "Frenzy",
     "DESCRIPTION": "Deal !D! damage. Apply !M! Vulnerable. Add 2 Dazed to your discard pile."
   },
-  "Gatherer:RustyPipe" : {
+  "Gatherer:RustyPipe": {
     "NAME": "Rusty Pipe",
     "DESCRIPTION": "Deal ? damage. NL Apply ?.",
     "EXTENDED_DESCRIPTION": [
@@ -230,49 +229,49 @@
       " NL [#C0B0C0](Each [#D0C8D0]Rusty [#D0C8D0]Pipe [#D0C8D0]has [#D0C8D0]randomly [#D0C8D0]chosen [#D0C8D0]damage [#D0C8D0]and [#D0C8D0]debuff.)"
     ]
   },
-  "Gatherer:WitheringStrike" : {
+  "Gatherer:WitheringStrike": {
     "NAME": "Withering Strike",
     "DESCRIPTION": "Deal !D! damage. Enemy loses 1 Strength down to !M!."
   },
-  "Gatherer:VenomBarrier" : {
+  "Gatherer:VenomBarrier": {
     "NAME": "Venom Barrier",
     "DESCRIPTION": "Gain !B! Block. Whenever you are attacked this turn, apply !M! Poison to the attacker."
   },
-  "Gatherer:Transmute" : {
+  "Gatherer:Transmute": {
     "NAME": "Transmute",
     "DESCRIPTION": "Transform a card from your hand. It costs 0 this turn.",
     "UPGRADE_DESCRIPTION": "Transform a card from your hand. It is upgraded and costs 0 this turn."
   },
-  "Gatherer:BalancedGrowth" : {
+  "Gatherer:BalancedGrowth": {
     "NAME": "Balanced Growth",
     "DESCRIPTION": "At the start of your turn, gain 1 Strength or Dexterity until they are equal."
   },
-  "Gatherer:Liquidism" : {
+  "Gatherer:Liquidism": {
     "NAME": "Liquidism",
     "DESCRIPTION": "Whenever you use a Potion, gain 1 Strength or Dexterity randomly.",
     "UPGRADE_DESCRIPTION": "Innate. NL Whenever you use a Potion, gain 1 Strength or Dexterity randomly."
   },
-  "Gatherer:BomberForm" : {
+  "Gatherer:BomberForm": {
     "NAME": "Bomber Form",
     "DESCRIPTION": "At the start of your turn, gain a LEP. Any incoming lesser Potion becomes LEP, and increases damage of all LEPs by !M!."
   },
-  "Gatherer:SolidTechnique" : {
+  "Gatherer:SolidTechnique": {
     "NAME": "Solid Technique",
-    "DESCRIPTION": "Gain !B! Block. If you have !M! or more Block, reduce it by 5 and add a Lesser_Block_Potion to your Sack."
+    "DESCRIPTION": "Gain !B! Block. If you have !M! or more Block, reduce it by 5 and add Lesser_Block_Potion to your Sack."
   },
-  "Gatherer:ChargingShot" : {
+  "Gatherer:ChargingShot": {
     "NAME": "Charging Shot",
     "DESCRIPTION": "Deal !D! damage. While in your hand, using a Potion increases its damage by !M! this combat."
   },
-  "Gatherer:SealedBomb" : {
+  "Gatherer:SealedBomb": {
     "NAME": "Sealed Bomb",
     "DESCRIPTION": "Deal !D! damage. While in your hand, using a Potion decreases its cost by 1 this combat."
   },
-  "Gatherer:FeelingFine" : {
+  "Gatherer:FeelingFine": {
     "NAME": "Feeling Fine",
-    "DESCRIPTION": "Whenever you use 3 Potions in a turn, remove all of your debuffs."
+    "DESCRIPTION": "Whenever you use 4 Potions in a turn, remove all of your debuffs."
   },
-  "Gatherer:CursedBlade" : {
+  "Gatherer:CursedBlade": {
     "NAME": "Cursed Blade",
     "DESCRIPTION": "Deal !D! damage.",
     "EXTENDED_DESCRIPTION": [
@@ -281,22 +280,22 @@
       " NL Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up. When Obtained, become [#FF6563]Cursed [#FF6563]- [#FF6563]Normality."
     ]
   },
-  "Gatherer:Overflowing" : {
+  "Gatherer:Overflowing": {
     "NAME": "Overflowing",
     "DESCRIPTION": "Gain [E] [E] [E]. NL Energy is conserved for the next turn. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain [E] [E] [E] [E]. NL Energy is conserved for the next turn. NL Exhaust."
   },
-  "Gatherer:ScrollOfWall" : {
+  "Gatherer:ScrollOfWall": {
     "NAME": "Scroll Of Wall",
     "DESCRIPTION": "Unplayable. Use a Potion to Retain this turn. All incoming Statuses are Exhausted.",
-    "UPGRADE_DESCRIPTION": "Unplayable. Use a Potion to Retain this turn. All incoming Statuses are Exhausted and give 1 plated armor up to 5.",
+    "UPGRADE_DESCRIPTION": "Unplayable. Use a Potion to Retain this turn. All incoming Statuses are Exhausted and give 1 Plated Armor up to 5.",
     "EXTENDED_DESCRIPTION": [
       "I can't play this card.",
       "Unplayable. Retain this turn. All incoming Statuses are Exhausted.",
-      "Unplayable. Retain this turn. All incoming Statuses are Exhausted and give 1 plated armor up to 5."
+      "Unplayable. Retain this turn. All incoming Statuses are Exhausted and give 1 Plated Armor up to 5."
     ]
   },
-  "Gatherer:ScrollOfPurity" : {
+  "Gatherer:ScrollOfPurity": {
     "NAME": "Scroll of Purity",
     "DESCRIPTION": "Unplayable. Whenever you use a Potion, you may exhaust a card and draw !M! card.",
     "UPGRADE_DESCRIPTION": "Unplayable. Whenever you use a Potion, you may exhaust a card and draw !M! cards.",
@@ -304,27 +303,64 @@
       "I can't play this card."
     ]
   },
-  "Gatherer:Investigate" : {
+  "Gatherer:Investigate": {
     "NAME": "Investigate",
-    "DESCRIPTION": "Look at the top 3 cards of your draw pile. Play one, and discard others."
+    "DESCRIPTION": "Look at the top !M! cards of your draw pile. Play one, and discard others."
   },
-  "Gatherer:Uplift" : {
+  "Gatherer:Uplift": {
     "NAME": "Uplift",
-    "DESCRIPTION": "Whenever you use a potion, reduce a random card's cost by !M! (minimum 1) this combat."
+    "DESCRIPTION": "The first card played each turn that costs 2 or more gives you [E] ."
   },
-  "Gatherer:Flexibility" : {
-    "NAME": "Flexibility",
-    "DESCRIPTION": "If the enemy intends to attack, gain Block equal to half of damage. Next turn, draw 2 cards.",
-    "UPGRADE_DESCRIPTION": "If the enemy intends to attack, gain Block equal to 2/3 of damage. Next turn, draw 2 cards.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Gains !B! Block.)"
-    ]
+  "Gatherer:SmartManeuver": {
+    "NAME": "Smart Maneuver",
+    "DESCRIPTION": "Enemy deals half damage this turn. Next turn, draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Enemy deals half damage this turn. Next turn, draw !M! cards. NL Retain."
   },
-  "Gatherer:Misfortune" : {
+  "Gatherer:Misfortune": {
     "NAME": "Misfortune",
     "DESCRIPTION": "Deal !D! damage. If it is Weakened, add a Lesser_Weak_Potion to your sack.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. If it is Weakened or Vulnerable, add a Lesser_Weak_Potion or Lesser_Fear_Potion to your sack, respectively."
   },
-
+  "Gatherer:TheCone": {
+    "NAME": "The Cone",
+    "DESCRIPTION": "Add !M! Lesser_Energy_Potion to your Sack. NL Retain. NL Exhaust."
+  },
+  "Gatherer:Polymorphism": {
+    "NAME": "Polymorphism",
+    "DESCRIPTION": "Deal damage equal to number of other cards in your hand. If they are all unique, gain [E] and draw a card.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to number of other cards in your hand +3. If they are all unique, gain [E] and draw a card.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! Damage.)"
+    ]
+  },
+  "Gatherer:Enchant": {
+    "NAME": "Enchant",
+    "DESCRIPTION": "Choose a \"Strike\" card from your hand. It costs 1 more and deals !M! more damage for the rest of the combat."
+  },
+  "Gatherer:HandcraftedFence": {
+    "NAME": "Handcrafted Fence",
+    "DESCRIPTION": "Whenever your Block expires, add 1 Repair to your hand. NL (Does not stack.)",
+    "UPGRADE_DESCRIPTION": "Whenever your Block expires, add 1 upgraded Repair to your hand. NL (Does not stack.)"
+  },
+  "Gatherer:Repair": {
+    "NAME": "Repair",
+    "DESCRIPTION": "Ethereal. Gain Block equal to amount expired this turn. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. Gain Block equal to amount expired this turn +3. Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gains !B! Block.)"
+    ]
+  },
+  "Gatherer:RainbowPower": {
+    "NAME": "Rainbow Power",
+    "DESCRIPTION": "At the end of your turn, gain !M! Block per unique card you played this turn."
+  },
+  "Gatherer:MiningStrike": {
+    "NAME": "Mining Strike",
+    "DESCRIPTION": "Deal !D! damage. For every !M! unblocked damage, gain 1 Plated Armor."
+  },
+  "Gatherer:GatherMaterial": {
+    "NAME": "Gather Material",
+    "DESCRIPTION": "Put !M! random unique cards from your draw pile into your hand."
+  },
   "Gatherer:Dummy": {}
 }

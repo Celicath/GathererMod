@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ObtainLesserPotionAction;
-import the_gatherer.patches.PotionRarityEnum;
 
 public class AlchemyBag extends CustomRelic {
 	private static final String RelicID = "AlchemyBag";

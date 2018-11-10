@@ -30,7 +30,7 @@ public class Misfortune extends CustomCard {
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final CardType TYPE = CardType.ATTACK;
 	private static final CardColor COLOR = CardColorEnum.LIME;
-	private static final CardRarity RARITY = CardRarity.COMMON;
+	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
 	private static final int POWER = 3;
@@ -60,6 +60,7 @@ public class Misfortune extends CustomCard {
 			this.upgradeName();
 			this.upgradeDamage(UPGRADE_BONUS);
 			this.rawDescription = UPGRADE_DESCRIPTION;
+			this.initializeDescription();
 		}
 	}
 }

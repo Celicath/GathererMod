@@ -60,7 +60,7 @@ public class CentralizeAction extends AbstractGameAction {
 					AbstractDungeon.player.hand.refreshHandLayout();
 					AbstractDungeon.player.hand.applyPowers();
 				}
-				if (upgrade) {
+				if (upgrade && (card.type != AbstractCard.CardType.STATUS && card.type != AbstractCard.CardType.CURSE)) {
 					card.upgrade();
 					card.superFlash();
 				}
@@ -123,7 +123,7 @@ public class CentralizeAction extends AbstractGameAction {
 					this.p.hand.refreshHandLayout();
 					this.p.hand.applyPowers();
 
-					if (upgrade) {
+					if (upgrade && (card.type != AbstractCard.CardType.STATUS && card.type != AbstractCard.CardType.CURSE)) {
 						card.upgrade();
 						card.superFlash();
 					}

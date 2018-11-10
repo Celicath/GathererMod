@@ -46,8 +46,7 @@ public class ScrollOfWall extends CustomCard implements OnUsePotionEffect {
 
 	@Override
 	public void atTurnStart() {
-		this.rawDescription = upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION;
-		initializeDescription();
+		updateDescription(true);
 	}
 
 	public AbstractCard makeCopy() {
@@ -58,9 +57,17 @@ public class ScrollOfWall extends CustomCard implements OnUsePotionEffect {
 		if (!this.upgraded) {
 			this.upgradeName();
 			this.upgradeMagicNumber(UPGRADE_BONUS);
-			this.rawDescription = UPGRADE_DESCRIPTION;
-			this.initializeDescription();
+			updateDescription(false);
 		}
+	}
+
+	void updateDescription(boolean alwaysFalse) {
+		if (this.retain && !alwaysFalse) {
+			this.rawDescription = upgraded ? EXTENDED_DESCRIPTION[2] : EXTENDED_DESCRIPTION[1];
+		} else {
+			this.rawDescription = upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION;
+		}
+		initializeDescription();
 	}
 
 	@Override
@@ -68,8 +75,7 @@ public class ScrollOfWall extends CustomCard implements OnUsePotionEffect {
 		if (!this.retain) {
 			this.flash();
 			this.retain = true;
-			this.rawDescription = upgraded ? EXTENDED_DESCRIPTION[2] : EXTENDED_DESCRIPTION[1];
-			initializeDescription();
+			updateDescription(false);
 		}
 	}
 }

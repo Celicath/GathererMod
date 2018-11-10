@@ -27,8 +27,7 @@ public class ChargingShot extends CustomCard implements OnUsePotionEffect {
 	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 6;
-	private static final int UPGRADE_BONUS = 2;
+	private static final int POWER = 5;
 	private static final int MAGIC = 2;
 	private static final int MAGIC_BONUS = 1;
 
@@ -54,7 +53,6 @@ public class ChargingShot extends CustomCard implements OnUsePotionEffect {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
-			this.upgradeDamage(UPGRADE_BONUS);
 			this.upgradeMagicNumber(MAGIC_BONUS);
 		}
 	}

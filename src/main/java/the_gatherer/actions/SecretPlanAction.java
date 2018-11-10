@@ -17,47 +17,51 @@ public class SecretPlanAction extends AbstractGameAction {
 	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("Gatherer:SecretPlanAction");
 	public static final String[] TEXT = uiStrings.TEXT;
 	private AbstractPlayer p;
-	private boolean upgraded;
 	private ArrayList<AbstractCard> alreadyPlanned = new ArrayList<>();
 
-	public SecretPlanAction(boolean upgraded) {
+	public SecretPlanAction(int amount) {
 		this.actionType = ActionType.CARD_MANIPULATION;
 		this.p = AbstractDungeon.player;
 		this.duration = Settings.ACTION_DUR_FAST;
-		this.upgraded = upgraded;
+		this.amount = amount;
 	}
 
 	public void update() {
 		if (this.duration == Settings.ACTION_DUR_FAST) {
 
 			for (AbstractCard c : this.p.hand.group) {
-				if ( SecretPlanPower.discount0.contains(c) ||  SecretPlanPower.discount1.contains(c)) {
+				if (SecretPlanPower.cardList.contains(c)) {
 					alreadyPlanned.add(c);
 				}
 			}
 			if (this.alreadyPlanned.size() == this.p.hand.group.size()) {
 				this.isDone = true;
 				return;
-			} else if (this.p.hand.group.size() - this.alreadyPlanned.size() == 1) {
-				for (AbstractCard c : this.p.hand.group) {
-					if (!alreadyPlanned.contains(c)) {
-						doAction(c);
-						this.isDone = true;
-						return;
-					}
-				}
 			}
 
 			this.p.hand.group.removeAll(this.alreadyPlanned);
-			AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false);
+			AbstractDungeon.handCardSelectScreen.open(TEXT[0], this.amount, false, true, false, false, true);
 			this.tickDuration();
 
 		} else {
 			if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
-				for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
-					doAction(c);
-				}
+				AbstractPower pow = p.getPower(SecretPlanPower.POWER_ID);
+				ArrayList<AbstractCard> cards = new ArrayList<>();
 
+				for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
+					cards.add(c);
+					if (pow instanceof SecretPlanPower) {
+						((SecretPlanPower) pow).addCard(c);
+					} else {
+						cards.add(c);
+					}
+					this.p.hand.addToTop(c);
+					this.p.hand.refreshHandLayout();
+					this.p.hand.applyPowers();
+				}
+				if (!(pow instanceof SecretPlanPower)) {
+					AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new SecretPlanPower(cards)));
+				}
 				this.returnCards();
 				AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
 				AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
@@ -65,18 +69,6 @@ public class SecretPlanAction extends AbstractGameAction {
 
 			this.tickDuration();
 		}
-	}
-
-	private void doAction(AbstractCard c) {
-		AbstractPower pow = p.getPower(SecretPlanPower.POWER_ID);
-		if (pow instanceof SecretPlanPower) {
-			((SecretPlanPower) pow).addCard(c, upgraded);
-		} else {
-			AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new SecretPlanPower(c, this.upgraded)));
-		}
-		this.p.hand.addToTop(c);
-		this.p.hand.refreshHandLayout();
-		this.p.hand.applyPowers();
 	}
 
 	private void returnCards() {

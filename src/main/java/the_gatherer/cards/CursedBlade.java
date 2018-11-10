@@ -1,6 +1,5 @@
 package the_gatherer.cards;
 
-import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -51,7 +50,7 @@ public class CursedBlade extends AbstractNumberedCard implements OnObtainEffect 
 	public void updateDescription() {
 		if (upgraded && playCount == 0) {
 			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
-		} else if(upgraded && playCount == 1 || playCount == 0) {
+		} else if (upgraded && playCount == 1 || playCount == 0) {
 			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
 		} else {
 			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[2];

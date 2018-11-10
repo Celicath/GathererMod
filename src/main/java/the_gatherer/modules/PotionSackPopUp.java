@@ -312,6 +312,7 @@ public class PotionSackPopUp {
 		GameCursor.hidden = true;
 		this.autoTargetFirst = true;
 	}
+
 	private void finishTargeting() {
 		this.targetMode = false;
 		GameCursor.hidden = false;

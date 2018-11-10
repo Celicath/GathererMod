@@ -2,7 +2,9 @@ package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.Dazed;
@@ -15,8 +17,8 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.CardColorEnum;
 
-public class FranticMove extends CustomCard {
-	private static final String RAW_ID = "FranticMove";
+public class Frenzy extends CustomCard {
+	private static final String RAW_ID = "Frenzy";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -35,7 +37,7 @@ public class FranticMove extends CustomCard {
 	private static final int MAGIC = 2;
 	private static final int MAGIC_BONUS = 1;
 
-	public FranticMove() {
+	public Frenzy() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseDamage = POWER;
 		this.baseMagicNumber = MAGIC;
@@ -49,7 +51,7 @@ public class FranticMove extends CustomCard {
 	}
 
 	public AbstractCard makeCopy() {
-		return new FranticMove();
+		return new Frenzy();
 	}
 
 	public void upgrade() {

@@ -48,6 +48,7 @@ import the_gatherer.modules.PotionSack;
 import the_gatherer.patches.AbstractPlayerEnum;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.potions.*;
+import the_gatherer.powers.HandcraftedFencePower;
 import the_gatherer.relics.AlchemyBag;
 import the_gatherer.relics.IronSlate;
 import the_gatherer.relics.MiracleBag;
@@ -82,7 +83,8 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static final String GATHERER_CORPSE = "GathererMod/img/character/gatherer/corpse.png";
 
 	public static PotionSack potionSack;
-	public static Set<Class<?>> playedCardsCombat = new HashSet<>();
+	public static Set<Class<? extends AbstractCard>> playedCardsCombat = new HashSet<>();
+	public static int blockExpired = 0;
 
 	public static ArrayList<Class<? extends AbstractPotion>> lesserPotionPool = new ArrayList<>();
 
@@ -273,15 +275,17 @@ public class GathererMod implements PostInitializeSubscriber,
 
 		cards.add(new AcidicSpray());
 		cards.add(new BalancedGrowth());
+		cards.add(new BigHands());
+		cards.add(new BomberForm());
 		cards.add(new BronzeBlade());
 		cards.add(new Bulldoze());
-		cards.add(new BomberForm());
 		cards.add(new CarefulStrike());
 		cards.add(new ChargingShot());
 		cards.add(new CollectorsShot());
 		cards.add(new Convert());
 		cards.add(new CoupDeGrace());
 		cards.add(new CursedBlade());
+		cards.add(new Enchant());
 		cards.add(new FeelingFine());
 		cards.add(new FirstAidKit());
 		cards.add(new FlamingBottle());
@@ -291,8 +295,9 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new Frenzy());
 		cards.add(new FruitForce());
 		cards.add(new Fruitify());
-		cards.add(new BigHands());
+		cards.add(new GatherMaterial());
 		cards.add(new GlassHammer());
+		cards.add(new HandcraftedFence());
 		cards.add(new HarmonicSymbol());
 		cards.add(new Herbalism());
 		cards.add(new Investigate());
@@ -300,10 +305,15 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new Light());
 		cards.add(new Liquidism());
 		cards.add(new MagicLamp());
+		cards.add(new MiningStrike());
+		cards.add(new Misfortune());
 		cards.add(new Overflowing());
 		cards.add(new PoisonMastery());
 		cards.add(new Pollute());
+		cards.add(new Polymorphism());
 		cards.add(new QuickSynthesis());
+		cards.add(new RainbowPower());
+		cards.add(new Repair());
 		cards.add(new RustyPipe());
 		cards.add(new SacredSoil());
 		cards.add(new Salvage());
@@ -314,10 +324,12 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new SecretPlan());
 		cards.add(new Shadow());
 		cards.add(new SimpleSwing());
+		cards.add(new SmartManeuver());
 		cards.add(new Snatch());
 		cards.add(new SolarBeam());
 		cards.add(new SolidTechnique());
 		cards.add(new TacticalStrike());
+		cards.add(new TheCone());
 		cards.add(new Transmute());
 		cards.add(new TreeGrowth());
 		cards.add(new TrickStyle());
@@ -531,5 +543,15 @@ public class GathererMod implements PostInitializeSubscriber,
 			ids.add(c.cardID);
 		}
 		return ids.size();
+	}
+
+	public static void onBlockExpired() {
+		if (GathererMod.blockExpired > 0 && AbstractDungeon.player != null) {
+			AbstractPower p = AbstractDungeon.player.getPower(HandcraftedFencePower.POWER_ID);
+			if (p instanceof HandcraftedFencePower) {
+				((HandcraftedFencePower) p).onBlockExpired(GathererMod.blockExpired);
+				GathererMod.blockExpired = 0;
+			}
+		}
 	}
 }

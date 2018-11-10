@@ -37,12 +37,10 @@
   "Gatherer:SecretPlan": {
     "NAME": "Secret Plan",
     "DESCRIPTIONS": [
-      "At the start of your hand, return ",
+      "At the start of your next turn, return ",
       " to your hand from draw or discard pile.",
       " and ",
       " other cards to your hand from draw or discard pile.",
-      " NL It is discounted.",
-      " NL They are discounted."
     ]
   },
   "Gatherer:LightPower": {
@@ -103,16 +101,30 @@
   "Gatherer:Uplift" : {
     "NAME": "Uplift",
     "DESCRIPTIONS": [
-      "Whenever you use a potion, reduce a random card's cost in your hand by #b",
-      " (minimum 1) this turn."
+      "The first card played each turn that costs 2 or more gives you #b",
+      " energy."
     ]
   },
-  "Gatherer:ScrollOfWall" : {
-    "NAME": "ScrollOfWall",
+  "Gatherer:DamageHalf" : {
+    "NAME": "Half Damage",
     "DESCRIPTIONS": [
-      "All Status cards that are added to your deck or discard pile are Exhausted.",
-      "All Status cards that are added to your deck or discard pile are Exhausted, and make you draw #b",
-      "."
+      "Damage from #yAttacks is divided by #b",
+      " this turn.",
+      "Damage from #yAttacks becomes almost 0 this turn."
+    ]
+  },
+  "Gatherer:HandcraftedFence" : {
+    "NAME": "Handcrafted Fence",
+    "DESCRIPTIONS": [
+      "Whenever your Block expires, add 1 Repair to your hand.",
+      "Whenever your Block expires, add 1 upgraded Repair to your hand."
+    ]
+  },
+  "Gatherer:RainbowPower" : {
+    "NAME": "Rainbow Power",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain #b",
+      " Block."
     ]
   },
 

@@ -2,11 +2,7 @@ package the_gatherer.cards.Helper;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import java.util.Iterator;
 
 public abstract class AbstractNumberedCard extends CustomCard {
 	public int playCount;
@@ -33,8 +29,8 @@ public abstract class AbstractNumberedCard extends CustomCard {
 	@Override
 	public AbstractCard makeStatEquivalentCopy() {
 		AbstractCard c = super.makeStatEquivalentCopy();
-		((AbstractNumberedCard)c).playCount = playCount;
-		((AbstractNumberedCard)c).updateDescription();
+		((AbstractNumberedCard) c).playCount = playCount;
+		((AbstractNumberedCard) c).updateDescription();
 		return c;
 	}
 }

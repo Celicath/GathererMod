@@ -70,5 +70,13 @@
       "lesser_fear_potion"
     ],
     "DESCRIPTION": "A Potion which applies 2 Vulnerable to an enemy."
+  },
+  {
+    "PROPER_NAME": "Lesser Energy Potion",
+    "NAMES": [
+      "lesser energy potion",
+      "lesser_energy_potion"
+    ],
+    "DESCRIPTION": "A Potion which gives you 1 energy when used."
   }
 ]

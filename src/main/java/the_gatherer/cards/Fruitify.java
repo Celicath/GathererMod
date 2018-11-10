@@ -26,10 +26,10 @@ public class Fruitify extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.RARE;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 16;
-	private static final int UPGRADE_BONUS = 4;
+	private static final int POWER = 18;
+	private static final int UPGRADE_BONUS = 6;
 	private static final int HP_GAIN = 4;
-	private static final int HP_BONUS = 2;
+	private static final int HP_BONUS = 1;
 
 	public Fruitify() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

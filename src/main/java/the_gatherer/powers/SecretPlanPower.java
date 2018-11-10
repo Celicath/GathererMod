@@ -26,13 +26,11 @@ public class SecretPlanPower extends AbstractPower {
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-	private ArrayList<AbstractCard> cards;
 
-	public static HashSet<AbstractCard> discount1 = new HashSet<>();
-	public static HashSet<AbstractCard> discount0 = new HashSet<>();
+	public static HashSet<AbstractCard> cardList = new HashSet<>();
+	public String firstCard;
 
-	public SecretPlanPower(AbstractCard card, boolean upgraded) {
-		cards = new ArrayList<>();
+	public SecretPlanPower(ArrayList<AbstractCard> cards) {
 		this.name = NAME;
 		this.ID = POWER_ID;
 		this.type = PowerType.BUFF;
@@ -40,33 +38,35 @@ public class SecretPlanPower extends AbstractPower {
 		this.isTurnBased = false;
 		this.img = new Texture(GathererMod.GetPowerPath(RAW_ID));
 
-		addCard(card, upgraded);
+		firstCard = cards.get(0).name;
+
+		for(AbstractCard c : cards) {
+			addCard(c);
+		}
 	}
 
-	public void addCard(AbstractCard card, boolean upgraded) {
-		if (upgraded) discount0.add(card);
-		else discount1.add(card);
-		cards.add(card);
-		this.amount = cards.size();
+	public void addCard(AbstractCard card) {
+		cardList.add(card);
+		this.amount = cardList.size();
 		updateDescription();
 	}
 
 	public void updateDescription() {
-		if (cards.size() > 1) {
-			this.description = DESCRIPTIONS[0] + cards.get(0).name + DESCRIPTIONS[2] + (cards.size() - 1) + DESCRIPTIONS[3] + DESCRIPTIONS[5];
+		if (cardList.size() > 1) {
+			this.description = DESCRIPTIONS[0] + firstCard + DESCRIPTIONS[2] + (amount - 1) + DESCRIPTIONS[3];
 		} else {
-			this.description = DESCRIPTIONS[0] + cards.get(0).name + DESCRIPTIONS[1] + DESCRIPTIONS[4];
+			this.description = DESCRIPTIONS[0] + firstCard + DESCRIPTIONS[1];
 		}
 	}
 
 	@Override
 	public void atStartOfTurn() {
-		AbstractPlayer p = (AbstractPlayer)owner;
+		AbstractPlayer p = (AbstractPlayer) owner;
 
 		ArrayList<AbstractCard> cardsToMove = new ArrayList<>();
 
 		for (AbstractCard c : p.drawPile.group) {
-			if (discount0.contains(c) || discount1.contains(c)) {
+			if (cardList.contains(c)) {
 				if (p.hand.size() == BaseMod.MAX_HAND_SIZE) {
 					p.drawPile.moveToDiscardPile(c);
 					p.createHandIsFullDialog();
@@ -88,7 +88,7 @@ public class SecretPlanPower extends AbstractPower {
 		cardsToMove.clear();
 
 		for (AbstractCard c : p.discardPile.group) {
-			if (discount0.contains(c) || discount1.contains(c)) {
+			if (cardList.contains(c)) {
 				if (p.hand.size() == BaseMod.MAX_HAND_SIZE) {
 					p.createHandIsFullDialog();
 				} else {
@@ -109,19 +109,8 @@ public class SecretPlanPower extends AbstractPower {
 			p.hand.addToHand(c);
 		}
 
-		for(AbstractCard c : discount1) {
-			c.costForTurn = Math.max(c.costForTurn - 1, 0);
-			c.flash();
-			c.isCostModifiedForTurn = true;
-		}
-		for(AbstractCard c : discount0) {
-			c.costForTurn = 0;
-			c.flash();
-			c.isCostModifiedForTurn = true;
-		}
+		cardList.clear();
 
 		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
-		discount1.clear();
-		discount0.clear();
 	}
 }

@@ -33,18 +33,22 @@ public class Light extends CustomCard {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
 		this.baseBlock = POWER;
-		this.baseMagicNumber = POWER;
-		this.magicNumber = this.baseMagicNumber;
 	}
 
 	@Override
 	public void applyPowers() {
-		this.baseBlock = this.magicNumber;
-		if (AbstractDungeon.player.hasPower(ShadowPower.POWER_ID)) {
-			this.baseBlock *= 2;
-		}
 		super.applyPowers();
 		if (AbstractDungeon.player.hasPower(ShadowPower.POWER_ID)) {
+			this.block *= 2;
+			this.isBlockModified = true;
+		}
+	}
+
+	@Override
+	public void calculateCardDamage(final AbstractMonster mo) {
+		super.calculateCardDamage(mo);
+		if (AbstractDungeon.player.hasPower(ShadowPower.POWER_ID)) {
+			this.block *= 2;
 			this.isBlockModified = true;
 		}
 	}
@@ -63,7 +67,6 @@ public class Light extends CustomCard {
 		if (!this.upgraded) {
 			this.upgradeName();
 			this.upgradeBlock(UPGRADE_BONUS);
-			this.upgradeMagicNumber(UPGRADE_BONUS);
 		}
 	}
 }
