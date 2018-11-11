@@ -2,7 +2,7 @@
   "modid": "gatherermod",
   "name": "The Gatherer",
   "author_list": ["Celicath"],
-  "description": "Adds The Gatherer as a new playable character.\r\n\r\nv0.1\r\n- First release with 57 cards, 4 relics.\r\n\r\nv0.2.0\r\n- Once effect cards now says used up after first use.",
+  "description": "Adds The Gatherer as a new playable character.\r\n\r\nv0.2.0\r\n- Big update! Added and fixed many cards, going up to 66 cards. Also improved Potion sack UI. visit https://github.com/Celicath/GathererMod/releases for more information.",
   "version": "0.2.0",
   "sts_version": "11-08-2018",
   "mts_version": "3.6.0",
