@@ -58,7 +58,6 @@ public class Shadow extends CustomCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ShadowPower(p)));
-		this.baseDamage = this.magicNumber;
 	}
 
 	public AbstractCard makeCopy() {

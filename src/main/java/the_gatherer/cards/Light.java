@@ -56,7 +56,6 @@ public class Light extends CustomCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightPower(p)));
-		this.baseBlock = this.magicNumber;
 	}
 
 	public AbstractCard makeCopy() {

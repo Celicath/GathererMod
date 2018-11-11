@@ -57,6 +57,7 @@
   "Gatherer:CollectorsShot": {
     "NAME": "Collector's Shot",
     "DESCRIPTION": "Deal damage equal to !M! X number of unique cards in your deck.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Deal damage equal to !M! X number of unique cards in your deck.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -137,8 +138,7 @@
   },
   "Gatherer:PoisonMastery": {
     "NAME": "Poison Mastery",
-    "DESCRIPTION": "Add !M! Lesser_Poison_Potion to your Sack. Poison damage is increased by 100% this combat.",
-    "UPGRADE_DESCRIPTION": "Innate. Add !M! Lesser_Poison_Potion to your Sack. Poison damage is increased by 100% this combat."
+    "DESCRIPTION": "Add !M! Lesser_Poison_Potion to your Sack. Poison damage is increased by 100% this combat."
   },
   "Gatherer:Pollute": {
     "NAME": "Pollute",
@@ -288,7 +288,7 @@
   "Gatherer:ScrollOfWall": {
     "NAME": "Scroll Of Wall",
     "DESCRIPTION": "Unplayable. Use a Potion to Retain this turn. All incoming Statuses are Exhausted.",
-    "UPGRADE_DESCRIPTION": "Unplayable. Use a Potion to Retain this turn. All incoming Statuses are Exhausted and give 1 Plated Armor up to 5.",
+    "UPGRADE_DESCRIPTION": "Unplayable. Use a Potion to Retain this turn. All incoming Statuses are Exhausted and give 1 Plated Armor.",
     "EXTENDED_DESCRIPTION": [
       "I can't play this card.",
       "Unplayable. Retain this turn. All incoming Statuses are Exhausted.",
@@ -339,8 +339,8 @@
   },
   "Gatherer:HandcraftedFence": {
     "NAME": "Handcrafted Fence",
-    "DESCRIPTION": "Whenever your Block expires, add 1 Repair to your hand. NL (Does not stack.)",
-    "UPGRADE_DESCRIPTION": "Whenever your Block expires, add 1 upgraded Repair to your hand. NL (Does not stack.)"
+    "DESCRIPTION": "At the start of your turn, add 1 Repair to your hand. NL (Does not stack.)",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, add 1 upgraded Repair to your hand. NL (Does not stack.)"
   },
   "Gatherer:Repair": {
     "NAME": "Repair",

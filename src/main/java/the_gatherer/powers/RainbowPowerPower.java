@@ -39,8 +39,8 @@ public class RainbowPowerPower extends AbstractPower {
 
 	@Override
 	public void updateDescription() {
-		this.amount = playedCards.size();
-		this.description = DESCRIPTIONS[0] + this.power * this.amount + DESCRIPTIONS[1];
+		this.amount = this.power * playedCards.size();
+		this.description = DESCRIPTIONS[0] + this.power + DESCRIPTIONS[1] + DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[3];
 	}
 
 	public void stackPower(int stackAmount) {
@@ -68,7 +68,7 @@ public class RainbowPowerPower extends AbstractPower {
 	@Override
 	public void atEndOfTurn(boolean isPlayer) {
 		if (isPlayer) {
-			AbstractDungeon.actionManager.addToBottom(new GainBlockAction(owner, owner, this.power * this.amount));
+			AbstractDungeon.actionManager.addToBottom(new GainBlockAction(owner, owner, this.amount));
 		}
 	}
 }

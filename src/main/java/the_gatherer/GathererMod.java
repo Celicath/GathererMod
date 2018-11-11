@@ -87,6 +87,7 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static int blockExpired = 0;
 
 	public static ArrayList<Class<? extends AbstractPotion>> lesserPotionPool = new ArrayList<>();
+	public static HashSet<AbstractCard> statusesToExhaust = new HashSet<>();
 
 	public static Properties gathererDefaults = new Properties();
 	public static int[] potionSackKeys = new int[]{KEY_I, KEY_O, KEY_P};
@@ -398,6 +399,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		potionSack.removeAllPotions();
 		potionSack.show = false;
 		potionSack.loadKeySettings();
+		statusesToExhaust.clear();
 
 		for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
 			if (c instanceof AbstractNumberedCard) {

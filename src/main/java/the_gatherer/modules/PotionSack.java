@@ -139,6 +139,7 @@ public class PotionSack {
 		}
 		if (InputHelper.justClickedRight && hb.hovered) {
 			potionSackPopupFlipped = !potionSackPopupFlipped;
+			GathererMod.saveConfig();
 			potionUi.setHitboxPosition();
 		}
 		if (moveState > 0) {

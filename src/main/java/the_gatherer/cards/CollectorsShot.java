@@ -21,6 +21,7 @@ public class CollectorsShot extends CustomCard {
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
 	private static final int COST = 2;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final CardType TYPE = CardType.ATTACK;
 	private static final CardColor COLOR = CardColorEnum.LIME;
@@ -28,7 +29,6 @@ public class CollectorsShot extends CustomCard {
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
 	private static final int POWER = 2;
-	private static final int UPGRADE_BONUS = 1;
 
 	public CollectorsShot() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -40,7 +40,7 @@ public class CollectorsShot extends CustomCard {
 		this.baseDamage = GathererMod.countUnique(AbstractDungeon.player.masterDeck) * this.magicNumber;
 
 		super.applyPowers();
-		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
+		this.rawDescription = (upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION) + EXTENDED_DESCRIPTION[0];
 		this.initializeDescription();
 	}
 
@@ -55,7 +55,9 @@ public class CollectorsShot extends CustomCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
-			this.upgradeMagicNumber(UPGRADE_BONUS);
+			this.isInnate = true;
+			this.rawDescription = UPGRADE_DESCRIPTION;
+			this.initializeDescription();
 		}
 	}
 }
