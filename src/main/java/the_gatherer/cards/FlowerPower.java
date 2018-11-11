@@ -36,7 +36,7 @@ public class FlowerPower extends CustomCard {
 	public FlowerPower() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
-		this.tags.add(CustomTags.Flower);
+		this.tags.add(CustomTags.FLOWER);
 		this.baseMagicNumber = MAGIC;
 		this.magicNumber = MAGIC;
 

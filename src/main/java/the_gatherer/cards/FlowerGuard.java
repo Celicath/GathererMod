@@ -32,7 +32,7 @@ public class FlowerGuard extends CustomCard {
 	public FlowerGuard() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseBlock = POWER;
-		this.tags.add(CustomTags.Flower);
+		this.tags.add(CustomTags.FLOWER);
 
 		this.rawDescription = GetRawDescription();
 		this.initializeDescription();

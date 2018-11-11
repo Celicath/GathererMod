@@ -49,10 +49,7 @@ import the_gatherer.patches.AbstractPlayerEnum;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.potions.*;
 import the_gatherer.powers.HandcraftedFencePower;
-import the_gatherer.relics.AlchemyBag;
-import the_gatherer.relics.IronSlate;
-import the_gatherer.relics.MiracleBag;
-import the_gatherer.relics.SilentSlate;
+import the_gatherer.relics.*;
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -261,6 +258,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		BaseMod.addRelicToCustomPool(new MiracleBag(), CardColorEnum.LIME);
 		BaseMod.addRelicToCustomPool(new IronSlate(), CardColorEnum.LIME);
 		BaseMod.addRelicToCustomPool(new SilentSlate(), CardColorEnum.LIME);
+		BaseMod.addRelicToCustomPool(new FlowerGarden(), CardColorEnum.LIME);
 		logger.debug("receiveEditRelics finished.");
 	}
 

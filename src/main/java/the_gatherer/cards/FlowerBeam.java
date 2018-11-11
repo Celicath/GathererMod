@@ -37,7 +37,7 @@ public class FlowerBeam extends CustomCard {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseDamage = POWER;
 		this.isMultiDamage = true;
-		this.tags.add(CustomTags.Flower);
+		this.tags.add(CustomTags.FLOWER);
 
 		this.rawDescription = GetRawDescription();
 		this.initializeDescription();

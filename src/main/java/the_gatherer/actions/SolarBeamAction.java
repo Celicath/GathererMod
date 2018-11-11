@@ -25,7 +25,7 @@ public class SolarBeamAction extends AbstractGameAction {
 
 			while (it.hasNext()) {
 				c = (AbstractCard) it.next();
-				if (c.hasTag(CustomTags.Flower) && c.canUpgrade()) {
+				if (c.hasTag(CustomTags.FLOWER) && c.canUpgrade()) {
 					c.upgrade();
 					c.superFlash();
 				}
@@ -35,7 +35,7 @@ public class SolarBeamAction extends AbstractGameAction {
 
 			while (it.hasNext()) {
 				c = (AbstractCard) it.next();
-				if (c.hasTag(CustomTags.Flower) && c.canUpgrade()) {
+				if (c.hasTag(CustomTags.FLOWER) && c.canUpgrade()) {
 					c.upgrade();
 					c.superFlash();
 				}
@@ -45,7 +45,7 @@ public class SolarBeamAction extends AbstractGameAction {
 
 			while (it.hasNext()) {
 				c = (AbstractCard) it.next();
-				if (c.hasTag(CustomTags.Flower) && c.canUpgrade()) {
+				if (c.hasTag(CustomTags.FLOWER) && c.canUpgrade()) {
 					c.upgrade();
 					c.superFlash();
 				}

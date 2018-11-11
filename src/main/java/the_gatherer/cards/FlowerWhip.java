@@ -38,7 +38,7 @@ public class FlowerWhip extends CustomCard {
 		this.baseDamage = POWER;
 		this.baseMagicNumber = MAGIC_POWER;
 		this.magicNumber = this.baseMagicNumber;
-		this.tags.add(CustomTags.Flower);
+		this.tags.add(CustomTags.FLOWER);
 
 		this.rawDescription = GetRawDescription();
 		this.initializeDescription();
