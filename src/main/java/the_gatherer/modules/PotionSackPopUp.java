@@ -1,6 +1,5 @@
 package the_gatherer.modules;
 
-import basemod.BaseMod;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -22,7 +21,6 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.FruitJuice;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.ui.panels.PotionPopUp;
 import the_gatherer.GathererMod;
 
@@ -237,16 +235,9 @@ public class PotionSackPopUp {
 			if (this.hoveredMonster != null) {
 				CardCrawlGame.metricData.potions_floor_usage.add(AbstractDungeon.floorNum);
 				this.potion.use(this.hoveredMonster);
-				var1 = AbstractDungeon.player.relics.iterator();
 
-				while (var1.hasNext()) {
-					AbstractRelic r = (AbstractRelic) var1.next();
-					r.onUsePotion();
-				}
-
+				GathererMod.ActivatePotionUseEffects(this.potion);
 				GathererMod.potionSack.removePotion(this.slot);
-
-				BaseMod.publishPostPotionUse(this.potion);
 
 				finishTargeting();
 			}
@@ -289,16 +280,11 @@ public class PotionSackPopUp {
 					this.startTargeting();
 				} else {
 					this.potion.use(null);
-					Iterator var1 = AbstractDungeon.player.relics.iterator();
 
-					while (var1.hasNext()) {
-						AbstractRelic r = (AbstractRelic) var1.next();
-						r.onUsePotion();
-					}
+					GathererMod.ActivatePotionUseEffects(this.potion);
 
 					CardCrawlGame.sound.play("POTION_1");
 					GathererMod.potionSack.removePotion(this.slot);
-					BaseMod.publishPostPotionUse(this.potion);
 				}
 
 				this.close();

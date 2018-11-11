@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.ToyOrnithopter;
+import the_gatherer.GathererMod;
 import the_gatherer.potions.PlaceHolderPotion;
 
 public class PotionUsedAction extends AbstractGameAction {
@@ -19,10 +21,7 @@ public class PotionUsedAction extends AbstractGameAction {
 
 	public void update() {
 		if (this.duration == Settings.ACTION_DUR_FAST) {
-			for (AbstractRelic relic : AbstractDungeon.player.relics) {
-				relic.onUsePotion();
-			}
-			BaseMod.publishPostPotionUse(new PlaceHolderPotion());
+			GathererMod.ActivatePotionUseEffects(new PlaceHolderPotion());
 		}
 
 		this.tickDuration();

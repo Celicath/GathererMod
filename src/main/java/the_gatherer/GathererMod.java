@@ -31,6 +31,8 @@ import com.megacrit.cardcrawl.potions.BloodPotion;
 import com.megacrit.cardcrawl.potions.GhostInAJar;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.ToyOrnithopter;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
@@ -553,5 +555,14 @@ public class GathererMod implements PostInitializeSubscriber,
 				GathererMod.blockExpired = 0;
 			}
 		}
+	}
+
+	public static void ActivatePotionUseEffects(AbstractPotion p) {
+		for (AbstractRelic relic : AbstractDungeon.player.relics) {
+			if (relic.relicId != ToyOrnithopter.ID) {
+				relic.onUsePotion();
+			}
+		}
+		BaseMod.publishPostPotionUse(p);
 	}
 }
