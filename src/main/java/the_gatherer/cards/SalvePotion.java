@@ -12,6 +12,7 @@ import the_gatherer.GathererMod;
 import the_gatherer.actions.ModifyMagicNumberAction;
 import the_gatherer.actions.PotionUsedAction;
 import the_gatherer.patches.CardColorEnum;
+import the_gatherer.patches.CustomTags;
 
 public class SalvePotion extends CustomCard {
 	private static final String RAW_ID = "SalvePotion";
@@ -35,6 +36,7 @@ public class SalvePotion extends CustomCard {
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
 		this.tags.add(CardTags.HEALING);
+		this.tags.add(CustomTags.POTION_GEN);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

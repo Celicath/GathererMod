@@ -1,7 +1,7 @@
 package the_gatherer.cards.Helper;
 
 public class GathererCardHelper {
-	public static String FlowerSuffix(int upgrade_count) {
+	public static String FloralSuffix(int upgrade_count) {
 		switch (upgrade_count) {
 			case 0:
 				return " NL Can be upgraded 3 times.";

@@ -55,7 +55,6 @@ public class HandcraftedFence extends CustomCard {
 	@Override
 	public void initializeDescription() {
 		super.initializeDescription();
-		keywords.clear();
 	}
 
 	public AbstractCard makeCopy() {
@@ -88,9 +87,9 @@ public class HandcraftedFence extends CustomCard {
 				float dx = (AbstractCard.IMG_WIDTH * 0.9f - 5f) * drawScale;
 				float dy = (AbstractCard.IMG_HEIGHT * 0.4f - 5f) * drawScale;
 				if (current_x > Settings.WIDTH * 0.75f) {
-					c.current_x = current_x - dx;
-				} else {
 					c.current_x = current_x + dx;
+				} else {
+					c.current_x = current_x - dx;
 				}
 				if (count == 0) {
 					c.current_y = current_y + dy;

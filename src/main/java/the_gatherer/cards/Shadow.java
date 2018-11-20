@@ -12,8 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
-import the_gatherer.powers.LightPower;
-import the_gatherer.powers.ShadowPower;
+import the_gatherer.powers.GlowPower;
 
 public class Shadow extends CustomCard {
 	private static final String RAW_ID = "Shadow";
@@ -28,8 +27,8 @@ public class Shadow extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.SPECIAL;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 9;
-	private static final int UPGRADE_BONUS = 4;
+	private static final int POWER = 8;
+	private static final int UPGRADE_BONUS = 3;
 
 	public Shadow() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -37,27 +36,28 @@ public class Shadow extends CustomCard {
 		this.baseDamage = POWER;
 	}
 
+	private void applyGlowPower() {
+		if (AbstractDungeon.player.hasPower(GlowPower.POWER_ID)) {
+			this.damage = this.damage * (1 + AbstractDungeon.player.getPower(GlowPower.POWER_ID).amount);
+			this.isDamageModified = true;
+		}
+	}
+
 	@Override
 	public void applyPowers() {
 		super.applyPowers();
-		if (AbstractDungeon.player.hasPower(LightPower.POWER_ID)) {
-			this.damage *= 2;
-			this.isDamageModified = true;
-		}
+		applyGlowPower();
 	}
 
 	@Override
 	public void calculateCardDamage(final AbstractMonster mo) {
 		super.calculateCardDamage(mo);
-		if (AbstractDungeon.player.hasPower(LightPower.POWER_ID)) {
-			this.damage *= 2;
-			this.isDamageModified = true;
-		}
+		applyGlowPower();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ShadowPower(p)));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GlowPower(p, 1), 1));
 	}
 
 	public AbstractCard makeCopy() {

@@ -2,7 +2,7 @@
   "Gatherer:LesserAttackPotion": {
     "NAME": "Lesser Attack Potion",
     "DESCRIPTIONS": [
-      "Add a random #yAttack cards to add to your hand, it costs #b0 this turn."
+      "Add a random #yAttack card to your hand, it costs #b0 this turn."
     ]
   },
   "Gatherer:LesserBlockPotion": {
@@ -71,7 +71,7 @@
   "Gatherer:LesserPowerPotion": {
     "NAME": "Lesser Power Potion",
     "DESCRIPTIONS": [
-      "Add a random #yPower cards to add to your hand, it costs #b0 this turn."
+      "Add a random #yPower card to your hand, it costs #b0 this turn."
     ]
   },
   "Gatherer:LesserRegenPotion": {
@@ -85,7 +85,7 @@
   "Gatherer:LesserSkillPotion": {
     "NAME": "Lesser Skill Potion",
     "DESCRIPTIONS": [
-      "Add a random #ySkill cards to add to your hand, it costs #b0 this turn."
+      "Add a random #ySkill card to your hand, it costs #b0 this turn."
     ]
   },
   "Gatherer:LesserStrengthPotion": {
@@ -110,15 +110,15 @@
       " #yWeak."
     ]
   },
-  "Gatherer:FirstAidPotion": {
-    "NAME": "First-Aid Potion",
+  "Gatherer:RecoveryPotion": {
+    "NAME": "Recovery Potion",
     "DESCRIPTIONS": [
       "Heal #b",
       "% of missing health."
     ]
   },
-  "Gatherer:FirstAidPotionPlus": {
-    "NAME": "First-Aid Potion+",
+  "Gatherer:RecoveryPotionPlus": {
+    "NAME": "Recovery Potion+",
     "DESCRIPTIONS": [
       "Heal #b",
       "% of missing health."

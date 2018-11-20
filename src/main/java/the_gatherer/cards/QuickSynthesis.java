@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ObtainLesserPotionAction;
 import the_gatherer.patches.CardColorEnum;
+import the_gatherer.patches.CustomTags;
 
 public class QuickSynthesis extends CustomCard {
 	private static final String RAW_ID = "QuickSynthesis";
@@ -33,6 +34,8 @@ public class QuickSynthesis extends CustomCard {
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
 		this.exhaust = true;
+
+		this.tags.add(CustomTags.POTION_GEN);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

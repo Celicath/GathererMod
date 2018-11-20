@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import the_gatherer.GathererMod;
 
 import java.util.ArrayList;
 
@@ -42,7 +43,7 @@ public class EnchantAction extends AbstractGameAction {
 			} else if (this.p.hand.group.size() - this.notStrike.size() == 1) {
 				for (AbstractCard c : this.p.hand.group) {
 					if (!notStrike.contains(c)) {
-						doAction(c);
+						doEnchant(c, amount);
 						this.isDone = true;
 						return;
 					}
@@ -50,7 +51,9 @@ public class EnchantAction extends AbstractGameAction {
 			}
 
 			this.p.hand.group.removeAll(this.notStrike);
-			AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false, false, false);
+			GathererMod.cardSelectScreenCard = null;
+			GathererMod.enchantAmount = amount;
+			AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false, false, true);
 			this.tickDuration();
 			return;
 		}
@@ -58,7 +61,7 @@ public class EnchantAction extends AbstractGameAction {
 
 			for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
 				if (!notStrike.contains(c)) {
-					doAction(c);
+					doEnchant(c, amount);
 					this.p.hand.addToTop(c);
 				}
 			}
@@ -66,13 +69,14 @@ public class EnchantAction extends AbstractGameAction {
 			this.returnCards();
 			AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
 			AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
+			GathererMod.enchantAmount = 0;
 			this.isDone = true;
 		}
 
 		this.tickDuration();
 	}
 
-	private void doAction(AbstractCard c) {
+	public static void doEnchant(AbstractCard c, int amount) {
 		c.updateCost(1);
 		c.baseDamage += amount;
 		c.superFlash();

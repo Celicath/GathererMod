@@ -2,6 +2,7 @@ package the_gatherer.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -10,6 +11,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.cardManip.ExhaustCardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import javassist.CtBehavior;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.GainPlatedArmorThresholdAction;
@@ -48,7 +50,6 @@ public class ScrollOfWallPatch {
 			}
 			// AbstractDungeon.actionManager.addToTop(new GainPlatedArmorThresholdAction(num, 5));
 		}
-
 
 		public static void exhaustIncomingCard(AbstractCard c) {
 			for (AbstractRelic r : AbstractDungeon.player.relics) {
@@ -192,6 +193,61 @@ public class ScrollOfWallPatch {
 		@Override
 		public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
 			Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractCard.class, "shrink");
+			return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+		}
+	}
+
+	@SpirePatch(
+			clz = ShowCardAndAddToHandEffect.class,
+			method = SpirePatch.CONSTRUCTOR,
+			paramtypez = {
+					AbstractCard.class,
+					float.class,
+					float.class
+			}
+	)
+	public static class AddToHandConstructor1 {
+		@SpirePostfixPatch()
+		public static void Postfix(ShowCardAndAddToHandEffect __instance, AbstractCard card, float offsetX, float offsetY) {
+			int num = ScrollOfWallUtil.needToExhaust(card);
+			if (num >= 0) {
+				ScrollOfWallUtil.setExhaustStatus(card, num);
+			}
+		}
+	}
+
+	@SpirePatch(
+			clz = ShowCardAndAddToHandEffect.class,
+			method = SpirePatch.CONSTRUCTOR,
+			paramtypez = {
+					AbstractCard.class
+			}
+	)
+	public static class AddToHandConstructor2 {
+		@SpirePostfixPatch()
+		public static void Postfix(ShowCardAndAddToHandEffect __instance, AbstractCard card) {
+			int num = ScrollOfWallUtil.needToExhaust(card);
+			if (num >= 0) {
+				ScrollOfWallUtil.setExhaustStatus(card, num);
+			}
+		}
+	}
+
+	@SpirePatch(clz = ShowCardAndAddToHandEffect.class, method = "update")
+	public static class AddToHandUpdate {
+		@SpireInsertPatch(locator = AddToHandLocator.class, localvars = {"card"})
+		public static void Insert(ShowCardAndAddToHandEffect __instance, AbstractCard card) {
+			if (GathererMod.statusesToExhaust.contains(card)) {
+				AbstractDungeon.player.hand.removeCard(card);
+				ScrollOfWallUtil.exhaustIncomingCard(card);
+			}
+		}
+	}
+
+	private static class AddToHandLocator extends SpireInsertLocator {
+		@Override
+		public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+			Matcher finalMatcher = new Matcher.FieldAccessMatcher(ShowCardAndAddToHandEffect.class, "isDone");
 			return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
 		}
 	}

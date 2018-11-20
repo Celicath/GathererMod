@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class TheGatherer extends CustomPlayer {
 	public static final int ENERGY_PER_TURN = 3;
 	public static final int START_HP = 64;
-	public static final int START_GOLD = 160;
+	public static final int START_GOLD = 99;
 	public static final String CLASS_NAME = "The Gatherer";
 
 	public static final String[] orbTextures = {
@@ -74,8 +74,7 @@ public class TheGatherer extends CustomPlayer {
 		retVal.add(Defend_Gatherer.ID);
 		retVal.add(Defend_Gatherer.ID);
 		retVal.add(Centralize.ID);
-		retVal.add(SpareBottle.ID);
-		retVal.add(FlowerWhip.ID);
+		retVal.add(FloralWhip.ID);
 		return retVal;
 	}
 
@@ -106,7 +105,7 @@ public class TheGatherer extends CustomPlayer {
 
 	@Override
 	public AbstractCard getStartCardForEvent() {
-		return new FlowerWhip();
+		return new FloralWhip();
 	}
 
 	@Override
@@ -116,7 +115,7 @@ public class TheGatherer extends CustomPlayer {
 
 	@Override
 	public int getAscensionMaxHPLoss() {
-		return 4;
+		return 5;
 	}
 
 	@Override

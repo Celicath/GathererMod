@@ -34,19 +34,19 @@
       " Poison, Weak and Vulnerable to ALL enemies."
     ]
   },
-  "Gatherer:SecretPlan": {
-    "NAME": "Secret Plan",
+  "Gatherer:ScentOfRosmari": {
+    "NAME": "Scent of Rosmari",
     "DESCRIPTIONS": [
       "At the start of your next turn, return ",
       " to your hand from draw or discard pile.",
       " and ",
-      " other cards to your hand from draw or discard pile.",
+      " other card(s) to your hand from draw or discard pile."
     ]
   },
-  "Gatherer:LightPower": {
-    "NAME": "Power of Light",
+  "Gatherer:GlowPower": {
+    "NAME": "Glow Power",
     "DESCRIPTIONS": [
-      "If you play Shadow! as the next card, it deals double damage."
+      "Boosts the effect of #yGlowing #yPlant, #yLight! and #yShadow. Wears off if you play a card other than those 3."
     ]
   },
   "Gatherer:ShadowPower": {
@@ -120,13 +120,13 @@
       "Whenever your Block expires, add 1 upgraded Repair to your hand."
     ]
   },
-  "Gatherer:RainbowPower" : {
-    "NAME": "Rainbow Power",
+  "Gatherer:ColorfulGarden" : {
+    "NAME": "Colorful Garden",
     "DESCRIPTIONS": [
       "At the end of your turn, gain #b",
       " Block per unique card you played this turn.",
-      " (Currently #b",
-      " Block."
+      " NL (Currently #b",
+      " Block.)"
     ]
   },
 

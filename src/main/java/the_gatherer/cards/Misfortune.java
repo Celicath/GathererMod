@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ObtainLesserPotionAction;
 import the_gatherer.patches.CardColorEnum;
+import the_gatherer.patches.CustomTags;
 import the_gatherer.potions.LesserFearPotion;
 import the_gatherer.potions.LesserWeakPotion;
 
@@ -39,6 +40,8 @@ public class Misfortune extends CustomCard {
 	public Misfortune() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseDamage = POWER;
+
+		this.tags.add(CustomTags.POTION_GEN);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

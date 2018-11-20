@@ -23,12 +23,11 @@ public class Bulldoze extends CustomCard {
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final CardType TYPE = CardType.ATTACK;
 	private static final CardColor COLOR = CardColorEnum.LIME;
-	private static final CardRarity RARITY = CardRarity.UNCOMMON;
+	private static final CardRarity RARITY = CardRarity.RARE;
 	private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
 
-	private static final int POWER = 12;
-	private static final int UPGRADE_BONUS = 3;
-	private static final int MAGIC = 5;
+	private static final int POWER = 10;
+	private static final int MAGIC = 4;
 	private static final int MAGIC_BONUS = -1;
 
 	public Bulldoze() {
@@ -39,22 +38,25 @@ public class Bulldoze extends CustomCard {
 		this.isMultiDamage = true;
 	}
 
-	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-		if (!super.canUse(p, m)) {
-			return false;
-		} else {
-			int count = GathererMod.countUnique(AbstractDungeon.player.discardPile);
-			if (count >= this.magicNumber)
-				return true;
-			else {
-				this.cantUseMessage = EXTENDED_DESCRIPTION[0] + count + EXTENDED_DESCRIPTION[1];
-				return false;
-			}
-		}
+	public int hits() {
+		return GathererMod.countUnique(AbstractDungeon.player.discardPile) / magicNumber;
+	}
+
+	@Override
+	public void applyPowers() {
+		super.applyPowers();
+
+		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + GathererMod.countUnique(AbstractDungeon.player.discardPile) + EXTENDED_DESCRIPTION[1];
+		this.initializeDescription();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+		for (int i = 0 ; i < hits(); i++) {
+			AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+		}
+
+		this.rawDescription = DESCRIPTION;
+		this.initializeDescription();
 	}
 
 	public AbstractCard makeCopy() {
@@ -64,7 +66,6 @@ public class Bulldoze extends CustomCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
-			this.upgradeDamage(UPGRADE_BONUS);
 			this.upgradeMagicNumber(MAGIC_BONUS);
 		}
 	}

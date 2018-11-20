@@ -6,22 +6,26 @@
     "DESCRIPTION": "Cards with different name or color are considered unique."
   },
   {
+    "PROPER_NAME": "Once",
     "NAMES": [
-      "once"
+      "once:",
+      "once_"
     ],
     "DESCRIPTION": "Only activates when you play this card first time in the combat. Displays used up after one use."
   },
   {
+    "PROPER_NAME": "Twice",
     "NAMES": [
-      "twice"
+      "twice:",
+      "twice_"
     ],
     "DESCRIPTION": "Only activates for the first two times you play this card in combat. Displays as Once after one use."
   },
   {
     "NAMES": [
-      "flower"
+      "floral"
     ],
-    "DESCRIPTION": "Card containing #yFlower in its name. It can be upgraded 3 times."
+    "DESCRIPTION": "Card containing #yFloral in its name. It can be upgraded 3 times."
   },
   {
     "PROPER_NAME": "LEP",
@@ -78,5 +82,20 @@
       "lesser_energy_potion"
     ],
     "DESCRIPTION": "A Potion which gives you 1 energy when used."
+  },
+  {
+    "PROPER_NAME": "Card Rarity",
+    "NAMES": [
+      "convert tooltip"
+    ],
+    "DESCRIPTION": "Uncommon = Blue Banner NL Rare = Gold Banner"
+  },
+  {
+    "PROPER_NAME": "Glow Power",
+    "NAMES": [
+      "glow power",
+      "glow_power"
+    ],
+    "DESCRIPTION": "Boosts the effect of #yGlowing #yPlant, #yLight! and #yShadow. Wears off if you play a card other than those 3."
   }
 ]

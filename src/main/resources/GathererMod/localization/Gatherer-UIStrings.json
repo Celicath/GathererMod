@@ -22,7 +22,7 @@
       "Choose a Card to Put on Top of Your Draw Pile."
     ]
   },
-  "Gatherer:BronzeBladeAction": {
+  "Gatherer:BambuSwordAction": {
     "TEXT": [
       "Play"
     ]
@@ -32,7 +32,7 @@
       "Transform"
     ]
   },
-  "Gatherer:InvestigateAction": {
+  "Gatherer:ExamineAction": {
     "TEXT": [
       "Play"
     ]
@@ -43,7 +43,7 @@
       "Exhaust and Draw "
     ]
   },
-  "Gatherer:SecretPlanAction": {
+  "Gatherer:ScentOfRosmariAction": {
     "TEXT": [
       "Put to Your Hand Next Turn"
     ]

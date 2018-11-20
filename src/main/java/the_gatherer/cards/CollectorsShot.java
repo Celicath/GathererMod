@@ -34,14 +34,27 @@ public class CollectorsShot extends CustomCard {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
+		updateDamage();
 	}
 
 	public void applyPowers() {
-		this.baseDamage = GathererMod.countUnique(AbstractDungeon.player.masterDeck) * this.magicNumber;
-
+		updateDamage();
 		super.applyPowers();
-		this.rawDescription = (upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION) + EXTENDED_DESCRIPTION[0];
-		this.initializeDescription();
+	}
+
+	@Override
+	public void update() {
+		super.update();
+
+		updateDamage();
+	}
+
+	private void updateDamage() {
+		if (AbstractDungeon.player != null) {
+			this.baseDamage = GathererMod.countUnique(AbstractDungeon.player.masterDeck) * this.magicNumber;
+			this.rawDescription = (upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION) + EXTENDED_DESCRIPTION[0];
+			this.initializeDescription();
+		}
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.CardColorEnum;
+import the_gatherer.patches.CustomTags;
 import the_gatherer.powers.BomberFormPower;
 
 public class BomberForm extends CustomCard {
@@ -35,6 +36,7 @@ public class BomberForm extends CustomCard {
 		this.magicNumber = baseMagicNumber;
 
 		this.tags.add(BaseModCardTags.FORM);
+		this.tags.add(CustomTags.POTION_GEN);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

@@ -28,11 +28,11 @@
       "Upon pick up, #b2 of your Defends change color to green and gain #b2 #yBlock."
     ]
   },
-  "Gatherer:FlowerGarden": {
-    "NAME": "Flower Garden",
-    "FLAVOR": "A garden made with... an EGG?",
+  "Gatherer:FloralEgg": {
+    "NAME": "Floral Egg",
+    "FLAVOR": "Eggs like flowers. Or they are eggs like flowers",
     "DESCRIPTIONS": [
-      "Upon pick up, upgrade ALL your Flower cards."
+      "Upon pick up, upgrade ALL your #yFloral cards."
     ]
   },
   "Gatherer:FlyingFruit" : {

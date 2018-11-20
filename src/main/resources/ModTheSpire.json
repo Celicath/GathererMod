@@ -2,9 +2,9 @@
   "modid": "gatherermod",
   "name": "The Gatherer",
   "author_list": ["Celicath"],
-  "description": "Adds The Gatherer as a new playable character.\r\n\r\nv0.2.0\r\n- Big update! Added and fixed many cards, going up to 66 cards. Also improved Potion sack UI. visit https://github.com/Celicath/GathererMod/releases for more information.",
-  "version": "0.2.0",
-  "sts_version": "11-08-2018",
+  "description": "Adds The Gatherer as a new playable character.\r\n\r\nv0.3.0\r\n- Now 70 cards and 6 relics.\r\n- Changed cards' name to fit the theme of character.\r\n- Spare Bottle was removed from the starting deck, and is now Event-only.\r\n- Added 5 new cards.\r\n- Some cards have a <Tag> next to their name, which indicates they are different versions of same card.",
+  "version": "0.3.0",
+  "sts_version": "11-15-2018",
   "mts_version": "3.6.0",
   "dependencies": ["basemod"],
   "update_json": "https://api.github.com/repos/Celicath/GathererMod/releases/latest"

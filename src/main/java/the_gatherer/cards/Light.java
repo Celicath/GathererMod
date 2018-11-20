@@ -10,8 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
-import the_gatherer.powers.LightPower;
-import the_gatherer.powers.ShadowPower;
+import the_gatherer.powers.GlowPower;
 
 public class Light extends CustomCard {
 	private static final String RAW_ID = "Light";
@@ -26,7 +25,7 @@ public class Light extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.SPECIAL;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 8;
+	private static final int POWER = 7;
 	private static final int UPGRADE_BONUS = 3;
 
 	public Light() {
@@ -35,27 +34,28 @@ public class Light extends CustomCard {
 		this.baseBlock = POWER;
 	}
 
+	private void applyGlowPower() {
+		if (AbstractDungeon.player.hasPower(GlowPower.POWER_ID)) {
+			this.block = this.block * (1 + AbstractDungeon.player.getPower(GlowPower.POWER_ID).amount);
+			this.isBlockModified = true;
+		}
+	}
+
 	@Override
 	public void applyPowers() {
 		super.applyPowers();
-		if (AbstractDungeon.player.hasPower(ShadowPower.POWER_ID)) {
-			this.block *= 2;
-			this.isBlockModified = true;
-		}
+		applyGlowPower();
 	}
 
 	@Override
 	public void calculateCardDamage(final AbstractMonster mo) {
 		super.calculateCardDamage(mo);
-		if (AbstractDungeon.player.hasPower(ShadowPower.POWER_ID)) {
-			this.block *= 2;
-			this.isBlockModified = true;
-		}
+		applyGlowPower();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LightPower(p)));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GlowPower(p, 1), 1));
 	}
 
 	public AbstractCard makeCopy() {

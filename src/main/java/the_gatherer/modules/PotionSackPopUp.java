@@ -233,7 +233,6 @@ public class PotionSackPopUp {
 			InputHelper.justClickedLeft = false;
 			CInputActionSet.select.unpress();
 			if (this.hoveredMonster != null) {
-				CardCrawlGame.metricData.potions_floor_usage.add(AbstractDungeon.floorNum);
 				this.potion.use(this.hoveredMonster);
 
 				GathererMod.ActivatePotionUseEffects(this.potion);

@@ -19,8 +19,11 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.blue.Defend_Blue;
+import com.megacrit.cardcrawl.cards.blue.Strike_Blue;
 import com.megacrit.cardcrawl.cards.green.Defend_Green;
+import com.megacrit.cardcrawl.cards.green.Strike_Green;
 import com.megacrit.cardcrawl.cards.red.Defend_Red;
+import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -51,6 +54,7 @@ import the_gatherer.patches.AbstractPlayerEnum;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.potions.*;
 import the_gatherer.powers.HandcraftedFencePower;
+import the_gatherer.powers.PoisonMasteryPower;
 import the_gatherer.relics.*;
 
 import java.nio.charset.StandardCharsets;
@@ -65,7 +69,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		OnStartBattleSubscriber, OnPowersModifiedSubscriber,
 		PostPotionUseSubscriber, PostObtainCardSubscriber,
 		PostBattleSubscriber, OnCardUseSubscriber, RenderSubscriber,
-		PostEnergyRechargeSubscriber {
+		PostEnergyRechargeSubscriber, PostUpdateSubscriber {
 
 	public static final Logger logger = LogManager.getLogger(GathererMod.class.getName());
 
@@ -76,7 +80,7 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	public static final String GATHERER_BADGE = "GathererMod/img/badge.png";
 	public static final String GATHERER_BUTTON = "GathererMod/img/character/gatherer/button.png";
-	public static final String GATHERER_PORTRAIT = "GathererMod/img/character/gatherer/PortraitBG.png";
+	public static final String GATHERER_PORTRAIT = "GathererMod/img/character/gatherer/GathererBG.png";
 	public static final String GATHERER_SHOULDER_1 = "GathererMod/img/character/gatherer/shoulder.png";
 	public static final String GATHERER_SHOULDER_2 = "GathererMod/img/character/gatherer/shoulder2.png";
 	public static final String GATHERER_CORPSE = "GathererMod/img/character/gatherer/corpse.png";
@@ -91,6 +95,13 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static Properties gathererDefaults = new Properties();
 	public static int[] potionSackKeys = new int[]{KEY_I, KEY_O, KEY_P};
 	public static boolean potionSackPopupFlipped = false;
+
+	// Transmute & Enchant
+	public static AbstractCard cardSelectScreenCard = null;
+	public static int enchantAmount = 0;
+	public static int transmuteAmount = 0;
+	public static float transmuteAnimTimer = 0;
+	public static boolean bottleCollector = false;
 
 	public GathererMod() {
 		logger.debug("Constructor started.");
@@ -219,6 +230,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
 		potionSack = new PotionSack();
+
 		logger.debug("receivePostInitialize finished.");
 	}
 
@@ -260,7 +272,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		BaseMod.addRelicToCustomPool(new MiracleBag(), CardColorEnum.LIME);
 		BaseMod.addRelicToCustomPool(new IronSlate(), CardColorEnum.LIME);
 		BaseMod.addRelicToCustomPool(new SilentSlate(), CardColorEnum.LIME);
-		BaseMod.addRelicToCustomPool(new FlowerGarden(), CardColorEnum.LIME);
+		BaseMod.addRelicToCustomPool(new FloralEgg(), CardColorEnum.LIME);
 		logger.debug("receiveEditRelics finished.");
 	}
 
@@ -270,15 +282,15 @@ public class GathererMod implements PostInitializeSubscriber,
 		List<CustomCard> cards = new ArrayList<>();
 		cards.add(new Strike_Gatherer());
 		cards.add(new Defend_Gatherer());
-		cards.add(new FlowerWhip());
+		cards.add(new FloralWhip());
 		cards.add(new Centralize());
 		cards.add(new SpareBottle());
 
 		cards.add(new AcidicSpray());
 		cards.add(new BalancedGrowth());
-		cards.add(new BigHands());
+		cards.add(new BigPouch());
 		cards.add(new BomberForm());
-		cards.add(new BronzeBlade());
+		cards.add(new BambuSword());
 		cards.add(new Bulldoze());
 		cards.add(new CarefulStrike());
 		cards.add(new ChargingShot());
@@ -288,24 +300,24 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new CursedBlade());
 		cards.add(new Enchant());
 		cards.add(new FeelingFine());
-		cards.add(new FirstAidKit());
+		cards.add(new RecoveryHerb());
 		cards.add(new FlamingBottle());
-		cards.add(new FlowerBeam());
-		cards.add(new FlowerGuard());
-		cards.add(new FlowerPower());
+		cards.add(new FloralBeam());
+		cards.add(new FloralShield());
+		cards.add(new FloralPower());
 		cards.add(new Frenzy());
 		cards.add(new FruitForce());
-		cards.add(new Fruitify());
+		cards.add(new HeartToFruit());
 		cards.add(new GatherMaterial());
-		cards.add(new GlassHammer());
+		cards.add(new GrassHammer());
 		cards.add(new HandcraftedFence());
-		cards.add(new HarmonicSymbol());
+		cards.add(new EchoOfNature());
 		cards.add(new Herbalism());
-		cards.add(new Investigate());
-		cards.add(new LastResort());
+		cards.add(new Examine());
+		cards.add(new StarFruit());
 		cards.add(new Light());
 		cards.add(new Liquidism());
-		cards.add(new MagicLamp());
+		cards.add(new GlowingPlant());
 		cards.add(new MiningStrike());
 		cards.add(new Misfortune());
 		cards.add(new Overflowing());
@@ -313,27 +325,27 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new Pollute());
 		cards.add(new Polymorphism());
 		cards.add(new QuickSynthesis());
-		cards.add(new RainbowPower());
+		cards.add(new ColorfulGarden());
 		cards.add(new Repair());
-		cards.add(new RustyPipe());
-		cards.add(new SacredSoil());
-		cards.add(new Salvage());
+		cards.add(new RottenStipe());
+		cards.add(new Nutrients());
+		cards.add(new SaveValuables());
 		cards.add(new SalvePotion());
 		cards.add(new ScrollOfPurity());
 		cards.add(new ScrollOfWall());
 		cards.add(new SealedBomb());
-		cards.add(new SecretPlan());
+		cards.add(new ScentOfRosmari());
 		cards.add(new Shadow());
-		cards.add(new SimpleSwing());
+		cards.add(new ScherryThrow());
 		cards.add(new SmartManeuver());
 		cards.add(new Snatch());
-		cards.add(new SolarBeam());
-		cards.add(new SolidTechnique());
+		cards.add(new Photoscythe());
+		cards.add(new Solidify());
 		cards.add(new TacticalStrike());
-		cards.add(new TheCone());
+		cards.add(new EnergyBasket());
 		cards.add(new Transmute());
 		cards.add(new TreeGrowth());
-		cards.add(new TrickStyle());
+		cards.add(new Duality());
 		cards.add(new Uplift());
 		cards.add(new VenomBarrier());
 		cards.add(new WitheringStrike());
@@ -400,6 +412,8 @@ public class GathererMod implements PostInitializeSubscriber,
 		potionSack.show = false;
 		potionSack.loadKeySettings();
 		statusesToExhaust.clear();
+		enchantAmount = 0;
+		transmuteAmount = 0;
 
 		for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
 			if (c instanceof AbstractNumberedCard) {
@@ -472,6 +486,17 @@ public class GathererMod implements PostInitializeSubscriber,
 	}
 
 	@Override
+	public void receivePostUpdate() {
+		if (AbstractDungeon.player == null) {
+			if (potionSack != null && potionSack.show) {
+				potionSack.removeAllPotions();
+				potionSack.show = false;
+			}
+			bottleCollector = false;
+		}
+	}
+
+	@Override
 	public void receiveRender(SpriteBatch sb) {
 	}
 
@@ -503,13 +528,18 @@ public class GathererMod implements PostInitializeSubscriber,
 		return "GathererMod/img/relics/" + id + ".png";
 	}
 
+	public static String GetEventPath(String id) {
+		return "GathererMod/img/events/" + id + ".png";
+	}
+
 	private static String GetLocString(String name) {
 		return Gdx.files.internal("GathererMod/localization/" + name + ".json").readString(
 				String.valueOf(StandardCharsets.UTF_8));
 	}
 
-	public static boolean isBasicDefend(AbstractCard c) {
-		return c.hasTag(BaseModCardTags.BASIC_DEFEND) || c.getClass() == Defend_Red.class || c.getClass() == Defend_Green.class || c.getClass() == Defend_Blue.class;
+	public static boolean isBasic(AbstractCard c) {
+		return c.hasTag(BaseModCardTags.BASIC_DEFEND) || c.getClass() == Defend_Red.class || c.getClass() == Defend_Green.class || c.getClass() == Defend_Blue.class ||
+				c.hasTag(BaseModCardTags.BASIC_STRIKE) || c.getClass() == Strike_Red.class || c.getClass() == Strike_Green.class || c.getClass() == Strike_Blue.class;
 	}
 
 	public static AbstractPotion returnRandomLesserPotion() {
@@ -564,5 +594,18 @@ public class GathererMod implements PostInitializeSubscriber,
 			}
 		}
 		BaseMod.publishPostPotionUse(p);
+	}
+
+	public static int calcPoisonDamageWithPower(int poisonAmount) {
+		PoisonMasteryPower pmp = (PoisonMasteryPower) AbstractDungeon.player.getPower(PoisonMasteryPower.POWER_ID);
+		if (pmp != null) {
+			return calcPoisonDamage(poisonAmount, pmp.amount);
+		} else {
+			return poisonAmount;
+		}
+	}
+
+	public static int calcPoisonDamage(int poisonAmount, int powerAmount) {
+		return poisonAmount * (2 + powerAmount) / 2;
 	}
 }

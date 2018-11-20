@@ -14,13 +14,14 @@ public class ConvertAction extends AbstractGameAction {
 	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("RecycleAction");
 	public static final String[] TEXT = uiStrings.TEXT;
 	private AbstractPlayer p;
-	private int amount;
+	private int uncommonAmount, rareAmount;
 
-	public ConvertAction(int amount) {
+	public ConvertAction(int uncommonAmount, int rareAmount) {
 		this.actionType = ActionType.CARD_MANIPULATION;
 		this.p = AbstractDungeon.player;
 		this.duration = Settings.ACTION_DUR_FAST;
-		this.amount = amount;
+		this.uncommonAmount = uncommonAmount;
+		this.rareAmount = rareAmount;
 	}
 
 	public void update() {
@@ -49,8 +50,10 @@ public class ConvertAction extends AbstractGameAction {
 	}
 
 	void doAction(AbstractCard c) {
-		if (c.rarity == CardRarity.UNCOMMON || c.rarity == CardRarity.RARE) {
-			AbstractDungeon.actionManager.addToTop(new GainBlockAction(p, p, this.amount));
+		if (c.rarity == CardRarity.UNCOMMON) {
+			AbstractDungeon.actionManager.addToTop(new GainBlockAction(p, p, this.uncommonAmount));
+		} else if (c.rarity == CardRarity.RARE) {
+			AbstractDungeon.actionManager.addToTop(new GainBlockAction(p, p, this.rareAmount));
 		}
 		this.p.hand.moveToExhaustPile(c);
 	}

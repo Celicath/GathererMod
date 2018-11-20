@@ -46,7 +46,7 @@ public class ScrollOfWall extends CustomCard implements OnUsePotionEffect {
 
 	@Override
 	public void atTurnStart() {
-		updateDescription(true);
+		updateDescription();
 	}
 
 	public AbstractCard makeCopy() {
@@ -57,12 +57,12 @@ public class ScrollOfWall extends CustomCard implements OnUsePotionEffect {
 		if (!this.upgraded) {
 			this.upgradeName();
 			this.upgradeMagicNumber(UPGRADE_BONUS);
-			updateDescription(false);
+			updateDescription();
 		}
 	}
 
-	void updateDescription(boolean alwaysFalse) {
-		if (this.retain && !alwaysFalse) {
+	void updateDescription() {
+		if (this.retain) {
 			this.rawDescription = upgraded ? EXTENDED_DESCRIPTION[2] : EXTENDED_DESCRIPTION[1];
 		} else {
 			this.rawDescription = upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION;
@@ -75,7 +75,7 @@ public class ScrollOfWall extends CustomCard implements OnUsePotionEffect {
 		if (!this.retain) {
 			this.flash();
 			this.retain = true;
-			updateDescription(false);
+			updateDescription();
 		}
 	}
 }
