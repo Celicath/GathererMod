@@ -13,11 +13,11 @@
   },
   "Gatherer:Centralize": {
     "NAME": "Centralize",
-    "DESCRIPTION": "Choose !M! card from draw pile and place it into your hand.",
-    "UPGRADE_DESCRIPTION": "Choose !M! cards from draw pile and place them into your hand.",
+    "DESCRIPTION": "Fetch !M! card from your draw pile.",
+    "UPGRADE_DESCRIPTION": "Fetch !M! cards from your draw pile.",
     "EXTENDED_DESCRIPTION": [
-      " NL Once_ : Upgrade them for the combat.",
-      " NL Once_: Upgrade it for the combat.",
+      " NL Once_ : Upgrade them for the rest of combat.",
+      " NL Once_: Upgrade it for the rest of combat.",
       " NL Once_ [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
     ]
   },
