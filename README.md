@@ -9,8 +9,8 @@ Will add later
 ## Current State and Goal
 GathererMod is currently at alpha. Any feedback is welcomed.
 
-- Implemented Cards: 57/75
-- Implemented Relics: 4/8
+- Implemented Cards: 66/75
+- Implemented Relics: 5/8
 - Implemented Events: 0
 
 All arts are not final, regardless of having BETA on its image or not. I'll try to make arts after finishing all the contents.

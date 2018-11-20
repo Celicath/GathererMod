@@ -12,6 +12,7 @@ import the_gatherer.GathererMod;
 import the_gatherer.actions.ModifyMagicNumberAction;
 import the_gatherer.actions.PotionUsedAction;
 import the_gatherer.patches.CardColorEnum;
+import the_gatherer.patches.CustomTags;
 
 public class SalvePotion extends CustomCard {
 	private static final String RAW_ID = "SalvePotion";
@@ -24,17 +25,18 @@ public class SalvePotion extends CustomCard {
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final CardType TYPE = CardType.SKILL;
 	private static final CardColor COLOR = CardColorEnum.LIME;
-	private static final CardRarity RARITY = CardRarity.RARE;
+	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
 	private static final int POWER = 3;
-	private static final int UPGRADE_BONUS = 2;
+	private static final int UPGRADE_BONUS = 1;
 
 	public SalvePotion() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
 		this.tags.add(CardTags.HEALING);
+		this.tags.add(CustomTags.POTION_GEN);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

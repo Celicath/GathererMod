@@ -33,6 +33,8 @@ public class LesserExplosivePotion extends CustomPotion {
 		this.description = DESCRIPTIONS[0] + this.potency + DESCRIPTIONS[1];
 		this.isThrown = true;
 		this.tips.add(new PowerTip(this.name, this.description));
+
+		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
 	public void use(AbstractCreature target) {

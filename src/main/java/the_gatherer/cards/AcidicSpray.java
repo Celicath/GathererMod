@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.CardColorEnum;
@@ -31,8 +32,7 @@ public class AcidicSpray extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 4;
-	private static final int UPGRADE_BONUS = 2;
+	private static final int POWER = 3;
 	private static final int MAGIC = 1;
 	private static final int MAGIC_UPGRADE = 1;
 
@@ -44,11 +44,20 @@ public class AcidicSpray extends CustomCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		for (AbstractPower pow : m.powers) {
-			if (pow.type == AbstractPower.PowerType.DEBUFF)
-				AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-		}
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
+		int sum = 0;
+		for (AbstractPower pow : m.powers) {
+			if (pow.type == AbstractPower.PowerType.DEBUFF) {
+				if (pow.amount <= 0) sum++;
+				else sum += pow.amount;
+			}
+		}
+		if (!m.hasPower(ArtifactPower.POWER_ID)) {
+			sum += this.magicNumber;
+		}
+		for (int i = 0; i < sum; i++) {
+			AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.POISON));
+		}
 	}
 
 	public AbstractCard makeCopy() {
@@ -58,7 +67,6 @@ public class AcidicSpray extends CustomCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
-			this.upgradeDamage(UPGRADE_BONUS);
 			this.upgradeMagicNumber(MAGIC_UPGRADE);
 		}
 	}

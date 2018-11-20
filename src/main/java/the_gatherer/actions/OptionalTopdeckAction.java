@@ -31,15 +31,11 @@ public class OptionalTopdeckAction extends AbstractGameAction {
 			}
 
 			int i;
-			if (this.p.hand.group.size() > this.amount) {
+			if (this.p.hand.group.size() > 0) {
 				numPlaced = this.amount;
 				AbstractDungeon.handCardSelectScreen.open(TEXT[0], this.amount, false, true, false, false, true);
 				this.tickDuration();
 				return;
-			}
-
-			for (i = 0; i < this.p.hand.size(); ++i) {
-				this.p.hand.moveToDeck(this.p.hand.getRandomCard(false), false);
 			}
 		}
 

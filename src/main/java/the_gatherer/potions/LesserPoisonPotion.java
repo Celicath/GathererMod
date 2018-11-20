@@ -29,6 +29,8 @@ public class LesserPoisonPotion extends CustomPotion {
 		this.targetRequired = true;
 		this.tips.add(new PowerTip(this.name, this.description));
 		this.tips.add(new PowerTip(TipHelper.capitalize(GameDictionary.POISON.NAMES[0]), GameDictionary.keywords.get(GameDictionary.POISON.NAMES[0])));
+
+		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
 	public void use(AbstractCreature target) {

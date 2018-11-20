@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ObtainLesserPotionAction;
 import the_gatherer.patches.CardColorEnum;
-import the_gatherer.patches.PotionRarityEnum;
+import the_gatherer.patches.CustomTags;
 
 public class QuickSynthesis extends CustomCard {
 	private static final String RAW_ID = "QuickSynthesis";
@@ -24,7 +24,7 @@ public class QuickSynthesis extends CustomCard {
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final CardType TYPE = CardType.SKILL;
 	private static final CardColor COLOR = CardColorEnum.LIME;
-	private static final CardRarity RARITY = CardRarity.UNCOMMON;
+	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
 	private static final int POWER = 1;
@@ -34,12 +34,14 @@ public class QuickSynthesis extends CustomCard {
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
 		this.exhaust = true;
+
+		this.tags.add(CustomTags.POTION_GEN);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		if (this.upgraded)
 			AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 1));
-		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(AbstractDungeon.returnRandomPotion(PotionRarityEnum.LESSER, true)));
+		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(GathererMod.returnRandomLesserPotion()));
 	}
 
 	public AbstractCard makeCopy() {

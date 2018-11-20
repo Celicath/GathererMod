@@ -13,55 +13,52 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.CardColorEnum;
 
-import java.util.HashSet;
-import java.util.Iterator;
-
 public class CollectorsShot extends CustomCard {
 	private static final String RAW_ID = "CollectorsShot";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
-	private static final int COST = 1;
+	private static final int COST = 2;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final CardType TYPE = CardType.ATTACK;
 	private static final CardColor COLOR = CardColorEnum.LIME;
 	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 3;
-	private static final int UPGRADE_BONUS = 1;
+	private static final int POWER = 2;
 
 	public CollectorsShot() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
+		updateDamage();
 	}
 
 	public void applyPowers() {
-		Iterator it = AbstractDungeon.player.masterDeck.group.iterator();
-		HashSet<String> ids1 = new HashSet<>();
-		HashSet<String> ids2 = new HashSet<>();
-		while (it.hasNext()) {
-			AbstractCard c = (AbstractCard) it.next();
-			if (ids1.contains(c.cardID))
-				ids2.add(c.cardID);
-			else ids1.add(c.cardID);
-		}
-
-		this.baseDamage = ids2.size() * this.magicNumber;
-
+		updateDamage();
 		super.applyPowers();
-		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
-		this.initializeDescription();
+	}
+
+	@Override
+	public void update() {
+		super.update();
+
+		updateDamage();
+	}
+
+	private void updateDamage() {
+		if (AbstractDungeon.player != null) {
+			this.baseDamage = GathererMod.countUnique(AbstractDungeon.player.masterDeck) * this.magicNumber;
+			this.rawDescription = (upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION) + EXTENDED_DESCRIPTION[0];
+			this.initializeDescription();
+		}
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
-
-		this.rawDescription = DESCRIPTION;
-		this.initializeDescription();
 	}
 
 	public AbstractCard makeCopy() {
@@ -71,7 +68,9 @@ public class CollectorsShot extends CustomCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
-			this.upgradeMagicNumber(UPGRADE_BONUS);
+			this.isInnate = true;
+			this.rawDescription = UPGRADE_DESCRIPTION;
+			this.initializeDescription();
 		}
 	}
 }

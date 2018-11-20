@@ -7,7 +7,7 @@
   },
   "Gatherer:PotionSack": {
     "TEXT": [
-      "Your Sack can hold 3 Lesser potions. Potions here are only available during this combat.",
+      "Your Sack holds 3 Lesser potions, which are only available during this combat. NL #bDrag: Move position NL #bRight-click: Flip popup",
       "The Sack"
     ]
   },
@@ -22,7 +22,7 @@
       "Choose a Card to Put on Top of Your Draw Pile."
     ]
   },
-  "Gatherer:BronzeBladeAction": {
+  "Gatherer:BambuSwordAction": {
     "TEXT": [
       "Play"
     ]
@@ -32,7 +32,7 @@
       "Transform"
     ]
   },
-  "Gatherer:InvestigateAction": {
+  "Gatherer:ExamineAction": {
     "TEXT": [
       "Play"
     ]
@@ -41,6 +41,16 @@
     "TEXT": [
       "Exhaust",
       "Exhaust and Draw "
+    ]
+  },
+  "Gatherer:ScentOfRosmariAction": {
+    "TEXT": [
+      "Put to Your Hand Next Turn"
+    ]
+  },
+  "Gatherer:EnchantAction": {
+    "TEXT": [
+      "Enchant"
     ]
   }
 }

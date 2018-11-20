@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.CardColorEnum;
 
@@ -35,7 +36,7 @@ public class Herbalism extends CustomCard {
 	public void applyPowers() {
 		this.baseMagicNumber = 0;
 		for (AbstractCard c : AbstractDungeon.player.hand.group) {
-			if (c.costForTurn >= THRESHOLD) {
+			if (c.costForTurn >= THRESHOLD || c.costForTurn == -1 && (EnergyPanel.totalCount - this.costForTurn) >= THRESHOLD) {
 				this.baseMagicNumber++;
 			}
 		}

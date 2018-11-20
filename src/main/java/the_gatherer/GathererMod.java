@@ -1,21 +1,32 @@
 package the_gatherer;
 
 import basemod.BaseMod;
-import basemod.ModLabel;
+import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.BaseModCardTags;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputAdapter;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.blue.Defend_Blue;
+import com.megacrit.cardcrawl.cards.blue.Strike_Blue;
 import com.megacrit.cardcrawl.cards.green.Defend_Green;
+import com.megacrit.cardcrawl.cards.green.Strike_Green;
 import com.megacrit.cardcrawl.cards.red.Defend_Red;
+import com.megacrit.cardcrawl.cards.red.Strike_Red;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
@@ -23,32 +34,33 @@ import com.megacrit.cardcrawl.potions.BloodPotion;
 import com.megacrit.cardcrawl.potions.GhostInAJar;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.ToyOrnithopter;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import the_gatherer.actions.ScrollOfPurityAction;
 import the_gatherer.cards.*;
+import the_gatherer.cards.Helper.AbstractNumberedCard;
 import the_gatherer.character.TheGatherer;
 import the_gatherer.interfaces.OnObtainEffect;
 import the_gatherer.interfaces.OnUsePotionEffect;
-import the_gatherer.interfaces.OnceEffect;
 import the_gatherer.interfaces.PostObtainCardSubscriber;
 import the_gatherer.modules.CaseMod;
+import the_gatherer.modules.ModLabeledButton;
 import the_gatherer.modules.PotionSack;
 import the_gatherer.patches.AbstractPlayerEnum;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.potions.*;
-import the_gatherer.relics.AlchemyBag;
-import the_gatherer.relics.IronSlate;
-import the_gatherer.relics.MiracleBag;
-import the_gatherer.relics.SilentSlate;
+import the_gatherer.powers.HandcraftedFencePower;
+import the_gatherer.powers.PoisonMasteryPower;
+import the_gatherer.relics.*;
 
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+
+import static org.lwjgl.input.Keyboard.*;
 
 @SpireInitializer
 public class GathererMod implements PostInitializeSubscriber,
@@ -57,7 +69,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		OnStartBattleSubscriber, OnPowersModifiedSubscriber,
 		PostPotionUseSubscriber, PostObtainCardSubscriber,
 		PostBattleSubscriber, OnCardUseSubscriber, RenderSubscriber,
-		PostEnergyRechargeSubscriber {
+		PostEnergyRechargeSubscriber, PostUpdateSubscriber {
 
 	public static final Logger logger = LogManager.getLogger(GathererMod.class.getName());
 
@@ -68,13 +80,28 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	public static final String GATHERER_BADGE = "GathererMod/img/badge.png";
 	public static final String GATHERER_BUTTON = "GathererMod/img/character/gatherer/button.png";
-	public static final String GATHERER_PORTRAIT = "GathererMod/img/character/gatherer/PortraitBG.png";
+	public static final String GATHERER_PORTRAIT = "GathererMod/img/character/gatherer/GathererBG.png";
 	public static final String GATHERER_SHOULDER_1 = "GathererMod/img/character/gatherer/shoulder.png";
 	public static final String GATHERER_SHOULDER_2 = "GathererMod/img/character/gatherer/shoulder2.png";
 	public static final String GATHERER_CORPSE = "GathererMod/img/character/gatherer/corpse.png";
 
 	public static PotionSack potionSack;
-	public static Set<Class<?>> playedCardsCombat = new HashSet<>();
+	public static Set<Class<? extends AbstractCard>> playedCardsCombat = new HashSet<>();
+	public static int blockExpired = 0;
+
+	public static ArrayList<Class<? extends AbstractPotion>> lesserPotionPool = new ArrayList<>();
+	public static HashSet<AbstractCard> statusesToExhaust = new HashSet<>();
+
+	public static Properties gathererDefaults = new Properties();
+	public static int[] potionSackKeys = new int[]{KEY_I, KEY_O, KEY_P};
+	public static boolean potionSackPopupFlipped = false;
+
+	// Transmute & Enchant
+	public static AbstractCard cardSelectScreenCard = null;
+	public static int enchantAmount = 0;
+	public static int transmuteAmount = 0;
+	public static float transmuteAnimTimer = 0;
+	public static boolean bottleCollector = false;
 
 	public GathererMod() {
 		logger.debug("Constructor started.");
@@ -93,7 +120,48 @@ public class GathererMod implements PostInitializeSubscriber,
 				"GathererMod/img/cardui/1024/card_lime_orb.png",
 				"GathererMod/img/cardui/512/card_lime_small_orb.png");
 
+		gathererDefaults.setProperty("phoenixStart", "FALSE");
+		gathererDefaults.setProperty("contentSharing", "TRUE");
+		gathererDefaults.setProperty("contentSharing_potions", "TRUE");
+		gathererDefaults.setProperty("overheatedBETA", "FALSE");
+		loadConfig();
+
 		logger.debug("Constructor finished.");
+	}
+
+	public static void loadConfig() {
+		logger.debug("loadConfig started.");
+		try {
+			SpireConfig config = new SpireConfig("GathererMod", "GathererSaveData", gathererDefaults);
+			config.load();
+			potionSackKeys[0] = config.getInt("potionSackKey0");
+			potionSackKeys[1] = config.getInt("potionSackKey1");
+			potionSackKeys[2] = config.getInt("potionSackKey2");
+			potionSackPopupFlipped = config.getBool("potionSackPopupFlipped");
+		} catch (Exception e) {
+			e.printStackTrace();
+			clearConfig();
+		}
+		logger.debug("loadConfig finished.");
+	}
+
+	public static void saveConfig() {
+		logger.debug("saveConfig started.");
+		try {
+			SpireConfig config = new SpireConfig("GathererMod", "GathererSaveData", gathererDefaults);
+			config.setInt("potionSackKey0", potionSackKeys[0]);
+			config.setInt("potionSackKey1", potionSackKeys[1]);
+			config.setInt("potionSackKey2", potionSackKeys[2]);
+			config.setBool("potionSackPopupFlipped", potionSackPopupFlipped);
+			config.save();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		logger.debug("saveConfig finished.");
+	}
+
+	public static void clearConfig() {
+		saveConfig();
 	}
 
 	public static void initialize() {
@@ -102,16 +170,67 @@ public class GathererMod implements PostInitializeSubscriber,
 		logger.debug("initialize finished.");
 	}
 
+
+	private InputProcessor oldInputProcessor;
+	private int keyToConfig = -1;
+
 	@Override
 	public void receivePostInitialize() {
 		logger.debug("receivePostInitialize started.");
 		Texture badgeTexture = new Texture(GATHERER_BADGE);
+
 		ModPanel settingsPanel = new ModPanel();
-		settingsPanel.addUIElement(new ModLabel("This mod does not have any settings.", 400.0f, 700.0f, settingsPanel, (me) -> {
-		}));
+
+		ModLabeledToggleButton flipButton = new ModLabeledToggleButton("Flip Potion Sack popup orientation",
+				400.0f, 720.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+				potionSackPopupFlipped, settingsPanel, (label) -> {
+		}, (button) -> {
+			potionSackPopupFlipped = button.enabled;
+			saveConfig();
+		});
+
+		ModLabeledButton[] potionSackKeysButton = new ModLabeledButton[3];
+		for (int i = 0; i < potionSackKeysButton.length; i++) {
+			int k = i;
+			potionSackKeysButton[i] = new ModLabeledButton("Key shortcut potion sack slot #" + (k + 1) + " : " + Input.Keys.toString(potionSackKeys[k]),
+					380.0f, 600.0f - i * 60, Settings.CREAM_COLOR, FontHelper.charDescFont,
+					settingsPanel, (label) -> {
+				if (keyToConfig == k) {
+					label.text = "Press key for slot #" + (k + 1);
+				} else {
+					label.text = "Key shortcut potion sack slot #" + (k + 1) + " : " + Input.Keys.toString(potionSackKeys[k]);
+				}
+				potionSackKeysButton[k].toggle.wrapHitboxToText(label.text, 1000.0f, 0.0f, label.font);
+			}, (button) -> {
+				if (keyToConfig == k) {
+					keyToConfig = -1;
+					Gdx.input.setInputProcessor(oldInputProcessor);
+				} else {
+					keyToConfig = k;
+					oldInputProcessor = Gdx.input.getInputProcessor();
+					Gdx.input.setInputProcessor(new InputAdapter() {
+						@Override
+						public boolean keyUp(int keycode) {
+							potionSackKeys[k] = keycode;
+							saveConfig();
+							keyToConfig = -1;
+							Gdx.input.setInputProcessor(oldInputProcessor);
+							return true;
+						}
+					});
+				}
+			});
+		}
+
+		settingsPanel.addUIElement(flipButton);
+		for (int i = 0; i < potionSackKeysButton.length; i++) {
+			settingsPanel.addUIElement(potionSackKeysButton[i]);
+		}
+
 		BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
 		potionSack = new PotionSack();
+
 		logger.debug("receivePostInitialize finished.");
 	}
 
@@ -124,23 +243,22 @@ public class GathererMod implements PostInitializeSubscriber,
 				GATHERER_PORTRAIT,
 				AbstractPlayerEnum.THE_GATHERER);
 
-		BaseMod.addPotion(LesserAttackPotion.class, new Color(1.0f, 0.5f, 0.5f, 0.75f), new Color(1.0f, 0.82f, 0.5f, 0.75f), null, LesserAttackPotion.POTION_ID);
-		BaseMod.addPotion(LesserBlockPotion.class, new Color(0.76f, 0.90f, 0.96f, 0.75f), null, null, LesserBlockPotion.POTION_ID);
-		BaseMod.addPotion(LesserDexterityPotion.class, new Color(0.75f, 1.0f, 0.5f, 0.75f), null, null, LesserDexterityPotion.POTION_ID);
-		BaseMod.addPotion(LesserEnergyPotion.class, new Color(1.0f, 0.92f, 0.5f, 0.75f), null, null, LesserEnergyPotion.POTION_ID);
-		BaseMod.addPotion(LesserEssenceOfSteel.class, new Color(0.76f, 0.90f, 0.96f, 0.75f), null, null, LesserEssenceOfSteel.POTION_ID);
-		BaseMod.addPotion(LesserExplosivePotion.class, new Color(1.0f, 0.82f, 0.5f, 0.75f), null, null, LesserExplosivePotion.POTION_ID);
-		BaseMod.addPotion(LesserFearPotion.class, new Color(0.5f, 0.5f, 0.5f, 0.75f), new Color(1.0f, 0.6f, 0.55f, 0.75f), null, LesserFearPotion.POTION_ID);
-		BaseMod.addPotion(LesserFirePotion.class, new Color(1.0f, 0.5f, 0.5f, 0.75f), new Color(1.0f, 0.82f, 0.5f, 0.75f), null, LesserFirePotion.POTION_ID);
-		BaseMod.addPotion(LesserLiquidBronze.class, new Color(1.0f, 0.92f, 0.5f, 0.75f), new Color(0.5f, 1.0f, 1.0f, 0.75f), null, LesserLiquidBronze.POTION_ID);
-		BaseMod.addPotion(LesserPoisonPotion.class, new Color(0.6f, 0.9f, 0.6f, 0.75f), null, new Color(0.56f, 0.77f, 0.56f, 0.75f), LesserPoisonPotion.POTION_ID);
-		BaseMod.addPotion(LesserPowerPotion.class, new Color(0.76f, 0.9f, 0.96f, 0.75f), null, null, LesserPowerPotion.POTION_ID);
-		BaseMod.addPotion(LesserSkillPotion.class, new Color(0.75f, 1.0f, 0.5f, 0.75f), null, null, LesserSkillPotion.POTION_ID);
-		BaseMod.addPotion(LesserStrengthPotion.class, new Color(0.62f, 0.62f, 0.62f, 0.75f), null, new Color(1.0f, 0.75f, 0.65f, 0.75f), LesserStrengthPotion.POTION_ID);
-		BaseMod.addPotion(LesserSwiftPotion.class, new Color(0.52f, 0.63f, 0.8f, 0.75f), null, new Color(0.5f, 1.0f, 1.0f, 0.75f), LesserSwiftPotion.POTION_ID);
-		BaseMod.addPotion(LesserWeakPotion.class, new Color(0.96f, 0.75f, 0.96f, 0.75f), new Color(0.84f, 0.59f, 0.68f, 0.75f), null, LesserWeakPotion.POTION_ID);
-		BaseMod.addPotion(FirstAidPotion.class, new Color(1.0f, 1.0f, 1.0f, 0.75f), new Color(0.875f, 0.875f, 0.875f, 0.75f), null, FirstAidPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(FirstAidPotionPlus.class, new Color(1.0f, 1.0f, 1.0f, 0.75f), new Color(0.875f, 0.875f, 0.875f, 0.75f), null, FirstAidPotionPlus.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
+		lesserPotionPool.add(LesserAttackPotion.class);
+		lesserPotionPool.add(LesserBlockPotion.class);
+		lesserPotionPool.add(LesserDexterityPotion.class);
+		lesserPotionPool.add(LesserEnergyPotion.class);
+		lesserPotionPool.add(LesserEssenceOfSteel.class);
+		lesserPotionPool.add(LesserExplosivePotion.class);
+		lesserPotionPool.add(LesserFearPotion.class);
+		lesserPotionPool.add(LesserFirePotion.class);
+		lesserPotionPool.add(LesserLiquidBronze.class);
+		lesserPotionPool.add(LesserPoisonPotion.class);
+		lesserPotionPool.add(LesserPowerPotion.class);
+		lesserPotionPool.add(LesserSkillPotion.class);
+		lesserPotionPool.add(LesserStrengthPotion.class);
+		lesserPotionPool.add(LesserSwiftPotion.class);
+		lesserPotionPool.add(LesserWeakPotion.class);
+
 		BaseMod.addPotion(BloodPotion.class, Color.WHITE.cpy(), Color.LIGHT_GRAY.cpy(), null, BloodPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
 		BaseMod.addPotion(GhostInAJar.class, Color.WHITE.cpy(), Color.LIGHT_GRAY.cpy(), null, BloodPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
 
@@ -154,6 +272,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		BaseMod.addRelicToCustomPool(new MiracleBag(), CardColorEnum.LIME);
 		BaseMod.addRelicToCustomPool(new IronSlate(), CardColorEnum.LIME);
 		BaseMod.addRelicToCustomPool(new SilentSlate(), CardColorEnum.LIME);
+		BaseMod.addRelicToCustomPool(new FloralEgg(), CardColorEnum.LIME);
 		logger.debug("receiveEditRelics finished.");
 	}
 
@@ -163,60 +282,70 @@ public class GathererMod implements PostInitializeSubscriber,
 		List<CustomCard> cards = new ArrayList<>();
 		cards.add(new Strike_Gatherer());
 		cards.add(new Defend_Gatherer());
-		cards.add(new FlowerWhip());
+		cards.add(new FloralWhip());
 		cards.add(new Centralize());
 		cards.add(new SpareBottle());
 
 		cards.add(new AcidicSpray());
 		cards.add(new BalancedGrowth());
-		cards.add(new BronzeBlade());
-		cards.add(new Bulldoze());
+		cards.add(new BigPouch());
 		cards.add(new BomberForm());
+		cards.add(new BambuSword());
+		cards.add(new Bulldoze());
 		cards.add(new CarefulStrike());
 		cards.add(new ChargingShot());
 		cards.add(new CollectorsShot());
 		cards.add(new Convert());
 		cards.add(new CoupDeGrace());
 		cards.add(new CursedBlade());
+		cards.add(new Enchant());
 		cards.add(new FeelingFine());
-		cards.add(new FirstAidKit());
+		cards.add(new RecoveryHerb());
 		cards.add(new FlamingBottle());
-		cards.add(new FlowerBeam());
-		cards.add(new FlowerGuard());
-		cards.add(new FlowerPower());
-		cards.add(new FrenzyWhip());
+		cards.add(new FloralBeam());
+		cards.add(new FloralShield());
+		cards.add(new FloralPower());
+		cards.add(new Frenzy());
 		cards.add(new FruitForce());
-		cards.add(new Fruitify());
+		cards.add(new HeartToFruit());
 		cards.add(new GatherMaterial());
-		cards.add(new GlassHammer());
-		cards.add(new HarmonicSymbol());
+		cards.add(new GrassHammer());
+		cards.add(new HandcraftedFence());
+		cards.add(new EchoOfNature());
 		cards.add(new Herbalism());
-		cards.add(new Investigate());
-		cards.add(new LastResort());
+		cards.add(new Examine());
+		cards.add(new StarFruit());
 		cards.add(new Light());
 		cards.add(new Liquidism());
-		cards.add(new MagicLamp());
+		cards.add(new GlowingPlant());
+		cards.add(new MiningStrike());
+		cards.add(new Misfortune());
 		cards.add(new Overflowing());
 		cards.add(new PoisonMastery());
 		cards.add(new Pollute());
+		cards.add(new Polymorphism());
 		cards.add(new QuickSynthesis());
-		cards.add(new RustyPipe());
-		cards.add(new SacredSoil());
-		cards.add(new Salvage());
+		cards.add(new ColorfulGarden());
+		cards.add(new Repair());
+		cards.add(new RottenStipe());
+		cards.add(new Nutrients());
+		cards.add(new SaveValuables());
 		cards.add(new SalvePotion());
 		cards.add(new ScrollOfPurity());
 		cards.add(new ScrollOfWall());
 		cards.add(new SealedBomb());
-		cards.add(new SecretPlan());
+		cards.add(new ScentOfRosmari());
 		cards.add(new Shadow());
-		cards.add(new SimpleSwing());
+		cards.add(new ScherryThrow());
+		cards.add(new SmartManeuver());
 		cards.add(new Snatch());
-		cards.add(new SolarBeam());
-		cards.add(new SolidTechnique());
+		cards.add(new Photoscythe());
+		cards.add(new Solidify());
 		cards.add(new TacticalStrike());
+		cards.add(new EnergyBasket());
 		cards.add(new Transmute());
 		cards.add(new TreeGrowth());
-		cards.add(new TrickStyle());
+		cards.add(new Duality());
 		cards.add(new Uplift());
 		cards.add(new VenomBarrier());
 		cards.add(new WitheringStrike());
@@ -263,13 +392,15 @@ public class GathererMod implements PostInitializeSubscriber,
 	@Override
 	public void receiveEditKeywords() {
 		logger.debug("receiveEditKeywords started.");
+		Gson gson = new Gson();
+		String json = GetLocString("Gatherer-KeywordStrings");
+		the_gatherer.modules.Keyword[] keywords = gson.fromJson(json, the_gatherer.modules.Keyword[].class);
 
-		BaseMod.addKeyword(new String[]{"unique", "Unique"}, "Cards with different IDs are considered unique. Whatever that means.");
-		BaseMod.addKeyword(new String[]{"once", "Once"}, "Only activates when you play this unique card first time in the combat.");
-		BaseMod.addKeyword(new String[]{"flower", "Flower"}, "Card containing \"Flower\" in its name. It can be upgraded 3 times.");
-		BaseMod.addKeyword(new String[]{"LEP", "lep", "LEPs"}, "Stands for Lesser Explosive Potion, which normally deals 6 damage to all enemies.");
-		BaseMod.addKeyword(new String[]{"Lesser Fire Potion", "Lesser Fire Potion"}, "A Potion which deals 10 damage to an enemy.");
-
+		if (keywords != null) {
+			for (the_gatherer.modules.Keyword keyword : keywords) {
+				BaseMod.addKeyword(keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+			}
+		}
 		logger.debug("receiveEditKeywords finished.");
 	}
 
@@ -279,6 +410,26 @@ public class GathererMod implements PostInitializeSubscriber,
 		playedCardsCombat = new HashSet<>();
 		potionSack.removeAllPotions();
 		potionSack.show = false;
+		potionSack.loadKeySettings();
+		statusesToExhaust.clear();
+		enchantAmount = 0;
+		transmuteAmount = 0;
+
+		for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
+			if (c instanceof AbstractNumberedCard) {
+				((AbstractNumberedCard) c).initializeNumberedCard();
+			}
+		}
+		for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
+			if (c instanceof AbstractNumberedCard) {
+				((AbstractNumberedCard) c).initializeNumberedCard();
+			}
+		}
+		for (AbstractCard c : AbstractDungeon.player.hand.group) {
+			if (c instanceof AbstractNumberedCard) {
+				((AbstractNumberedCard) c).initializeNumberedCard();
+			}
+		}
 		logger.debug("receiveOnBattleStart finished.");
 	}
 
@@ -324,22 +475,25 @@ public class GathererMod implements PostInitializeSubscriber,
 				}
 			}
 		}
-		if(ScrollOfPurity.drawCount > 0) {
+		if (ScrollOfPurity.drawCount > 0) {
 			AbstractDungeon.actionManager.addToBottom(new ScrollOfPurityAction(ScrollOfPurity.drawCount));
 		}
 	}
 
 	@Override
 	public void receiveCardUsed(AbstractCard c) {
-		if (c instanceof OnceEffect) {
-			OnceEffect oe = (OnceEffect) c;
-			if (playedCardsCombat.contains(c.getClass())) {
-				oe.notFirstTimeEffect();
-			} else {
-				oe.firstTimeEffect();
+		playedCardsCombat.add(c.getClass()); // might be obsoleted?
+	}
+
+	@Override
+	public void receivePostUpdate() {
+		if (AbstractDungeon.player == null) {
+			if (potionSack != null && potionSack.show) {
+				potionSack.removeAllPotions();
+				potionSack.show = false;
 			}
+			bottleCollector = false;
 		}
-		playedCardsCombat.add(c.getClass());
 	}
 
 	@Override
@@ -374,12 +528,84 @@ public class GathererMod implements PostInitializeSubscriber,
 		return "GathererMod/img/relics/" + id + ".png";
 	}
 
+	public static String GetEventPath(String id) {
+		return "GathererMod/img/events/" + id + ".png";
+	}
+
 	private static String GetLocString(String name) {
 		return Gdx.files.internal("GathererMod/localization/" + name + ".json").readString(
 				String.valueOf(StandardCharsets.UTF_8));
 	}
 
-	public static boolean isBasicDefend(AbstractCard c) {
-		return c.hasTag(BaseModCardTags.BASIC_DEFEND) || c.getClass() == Defend_Red.class || c.getClass() == Defend_Green.class || c.getClass() == Defend_Blue.class;
+	public static boolean isBasic(AbstractCard c) {
+		return c.hasTag(BaseModCardTags.BASIC_DEFEND) || c.getClass() == Defend_Red.class || c.getClass() == Defend_Green.class || c.getClass() == Defend_Blue.class ||
+				c.hasTag(BaseModCardTags.BASIC_STRIKE) || c.getClass() == Strike_Red.class || c.getClass() == Strike_Green.class || c.getClass() == Strike_Blue.class;
+	}
+
+	public static AbstractPotion returnRandomLesserPotion() {
+		Class<? extends AbstractPotion> cls = lesserPotionPool.get(AbstractDungeon.potionRng.random.nextInt(lesserPotionPool.size()));
+		try {
+			return cls.newInstance();
+		} catch (Exception e) {
+			logger.warn(e.getMessage());
+			return new LesserFirePotion();
+		}
+	}
+
+	private static void setLesserPotionColor(Color color) {
+		color.r = (color.r * 3 + 2) / 5;
+		color.g = (color.g * 3 + 2) / 5;
+		color.b = (color.b * 3 + 2) / 5;
+		color.a = 0.8f;
+	}
+
+	public static void setLesserPotionColors(Color liquidColor, Color hybridColor, Color spotsColor) {
+		setLesserPotionColor(liquidColor);
+		if (hybridColor != null) {
+			setLesserPotionColor(hybridColor);
+		}
+		if (spotsColor != null) {
+			setLesserPotionColor(spotsColor);
+		}
+	}
+
+	public static int countUnique(CardGroup group) {
+		HashSet<String> ids = new HashSet<>();
+		for (AbstractCard c : group.group) {
+			ids.add(c.cardID);
+		}
+		return ids.size();
+	}
+
+	public static void onBlockExpired() {
+		if (GathererMod.blockExpired > 0 && AbstractDungeon.player != null) {
+			AbstractPower p = AbstractDungeon.player.getPower(HandcraftedFencePower.POWER_ID);
+			if (p instanceof HandcraftedFencePower) {
+				((HandcraftedFencePower) p).onBlockExpired(GathererMod.blockExpired);
+				GathererMod.blockExpired = 0;
+			}
+		}
+	}
+
+	public static void ActivatePotionUseEffects(AbstractPotion p) {
+		for (AbstractRelic relic : AbstractDungeon.player.relics) {
+			if (relic.relicId != ToyOrnithopter.ID) {
+				relic.onUsePotion();
+			}
+		}
+		BaseMod.publishPostPotionUse(p);
+	}
+
+	public static int calcPoisonDamageWithPower(int poisonAmount) {
+		PoisonMasteryPower pmp = (PoisonMasteryPower) AbstractDungeon.player.getPower(PoisonMasteryPower.POWER_ID);
+		if (pmp != null) {
+			return calcPoisonDamage(poisonAmount, pmp.amount);
+		} else {
+			return poisonAmount;
+		}
+	}
+
+	public static int calcPoisonDamage(int poisonAmount, int powerAmount) {
+		return poisonAmount * (2 + powerAmount) / 2;
 	}
 }

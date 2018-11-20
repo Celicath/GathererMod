@@ -1,9 +1,7 @@
 package the_gatherer.powers;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.unique.RemoveDebuffsAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,7 +9,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import the_gatherer.GathererMod;
-import the_gatherer.cards.Light;
 import the_gatherer.interfaces.OnUsePotionEffect;
 
 public class FeelingFinePower extends AbstractPower implements OnUsePotionEffect {
@@ -20,7 +17,7 @@ public class FeelingFinePower extends AbstractPower implements OnUsePotionEffect
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-	private static final int POTION_AMT = 3;
+	private static final int POTION_AMT = 4;
 
 	public FeelingFinePower(AbstractCreature owner) {
 		this.name = NAME;

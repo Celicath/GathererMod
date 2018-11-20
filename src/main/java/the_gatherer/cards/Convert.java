@@ -24,15 +24,37 @@ public class Convert extends CustomCard {
 	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 25;
+	private static final int POWER = 30;
+	private static final int RARE_POWER = 40;
 
 	public Convert() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseBlock = POWER;
+		this.baseMagicNumber = RARE_POWER;
+		this.magicNumber = this.baseMagicNumber;
+	}
+
+	@Override
+	public void applyPowers() {
+		final int current_block = this.baseBlock;
+		this.baseBlock = this.baseMagicNumber;
+		super.applyPowers();
+
+		this.magicNumber = this.block;
+		this.isMagicNumberModified = this.magicNumber != this.baseMagicNumber;
+
+		this.baseBlock = current_block;
+		super.applyPowers();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ConvertAction(this.block));
+		AbstractDungeon.actionManager.addToBottom(new ConvertAction(this.block, this.magicNumber));
+	}
+
+	@Override
+	public void initializeDescription() {
+		super.initializeDescription();
+		keywords.add("convert tooltip");
 	}
 
 	public AbstractCard makeCopy() {

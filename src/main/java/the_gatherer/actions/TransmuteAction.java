@@ -9,20 +9,27 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import the_gatherer.GathererMod;
 
 import java.util.ArrayList;
+
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.returnTrulyRandomCardFromAvailable;
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.returnTrulyRandomColorlessCardFromAvailable;
 
 public class TransmuteAction extends AbstractGameAction {
 	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("Gatherer:TransmuteAction");
 	public static final String[] TEXT = uiStrings.TEXT;
 	private AbstractPlayer p;
 	private ArrayList<AbstractCard> notTransformable = new ArrayList<>();
+	private boolean upgraded;
 
-	public TransmuteAction() {
+	public TransmuteAction(boolean upgraded) {
 		this.actionType = ActionType.CARD_MANIPULATION;
 		this.p = AbstractDungeon.player;
 		this.duration = Settings.ACTION_DUR_FAST;
+		this.upgraded = upgraded;
 	}
 
 	public void update() {
@@ -51,11 +58,12 @@ public class TransmuteAction extends AbstractGameAction {
 			}
 
 			this.p.hand.group.removeAll(this.notTransformable);
-			if (this.p.hand.group.size() > 1) {
-				AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false, false, false);
-				this.tickDuration();
-				return;
-			}
+
+			GathererMod.cardSelectScreenCard = null;
+			GathererMod.transmuteAmount = upgraded ? 2 : 1;
+			AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false, false, true);
+			this.tickDuration();
+			return;
 		}
 		if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
 
@@ -68,6 +76,7 @@ public class TransmuteAction extends AbstractGameAction {
 			this.returnCards();
 			AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
 			AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
+			GathererMod.transmuteAmount = 0;
 			this.isDone = true;
 		}
 
@@ -76,10 +85,28 @@ public class TransmuteAction extends AbstractGameAction {
 
 	private void doAction(AbstractCard c) {
 		AbstractDungeon.player.hand.removeCard(c);
-		AbstractDungeon.transformCard(c, false, AbstractDungeon.cardRandomRng);
-		AbstractCard card = AbstractDungeon.getTransformedCard();
+		AbstractCard card = getTransformedCard(c, this.upgraded);
 		card.setCostForTurn(0);
 		AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(card));
+	}
+
+	public static AbstractCard getTransformedCard(AbstractCard c, boolean upgrade) {
+		AbstractCard card;
+		do {
+			switch (c.color) {
+				case COLORLESS:
+					card = returnTrulyRandomColorlessCardFromAvailable(c, AbstractDungeon.cardRandomRng).makeCopy();
+					break;
+				case CURSE:
+					card = CardLibrary.getCurse(c, AbstractDungeon.cardRandomRng).makeCopy();
+					break;
+				default:
+					card = returnTrulyRandomCardFromAvailable(c, AbstractDungeon.cardRandomRng).makeCopy();
+			}
+		} while (card.hasTag(AbstractCard.CardTags.HEALING));
+		if (upgrade)
+			card.upgrade();
+		return card;
 	}
 
 	private void returnCards() {

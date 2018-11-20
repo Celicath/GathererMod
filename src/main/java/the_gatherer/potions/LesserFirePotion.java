@@ -27,6 +27,8 @@ public class LesserFirePotion extends CustomPotion {
 		this.isThrown = true;
 		this.targetRequired = true;
 		this.tips.add(new PowerTip(this.name, this.description));
+
+		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
 	public void use(AbstractCreature target) {

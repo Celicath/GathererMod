@@ -3,15 +3,15 @@
     "NAME": "Alchemy Bag",
     "FLAVOR": "A mysterious bag with the power of recurring potions.",
     "DESCRIPTIONS": [
-      "At the start of each combat, obtain a lesser potion to your Sack."
+      "At the start of each combat, add a lesser potion to your Sack."
     ]
   },
   "Gatherer:MiracleBag": {
     "NAME": "Miracle Bag",
     "FLAVOR": "Created with forbidden technology.",
     "DESCRIPTIONS": [
-      "At the start of each combat, obtain a random potion.",
-      "Replaces #yAlchemy #yBag. At the start of each combat, obtain a rare potion."
+      "Not replaced #yAlchemy #yBag. At the start of each combat, obtain a random potion (to your regular potion slot).",
+      "Replaces #yAlchemy #yBag. At the start of each combat, obtain a rare potion (to your regular potion slot)."
     ]
   },
   "Gatherer:IronSlate": {
@@ -26,6 +26,13 @@
     "FLAVOR": "A map to follow the Silent's path.",
     "DESCRIPTIONS": [
       "Upon pick up, #b2 of your Defends change color to green and gain #b2 #yBlock."
+    ]
+  },
+  "Gatherer:FloralEgg": {
+    "NAME": "Floral Egg",
+    "FLAVOR": "Eggs like flowers. Or they are eggs like flowers",
+    "DESCRIPTIONS": [
+      "Upon pick up, upgrade ALL your #yFloral cards."
     ]
   },
   "Gatherer:FlyingFruit" : {

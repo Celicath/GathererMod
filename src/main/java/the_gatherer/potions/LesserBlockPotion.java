@@ -27,6 +27,8 @@ public class LesserBlockPotion extends CustomPotion {
 		this.isThrown = false;
 		this.tips.add(new PowerTip(this.name, this.description));
 		this.tips.add(new PowerTip(TipHelper.capitalize(GameDictionary.BLOCK.NAMES[0]), GameDictionary.keywords.get(GameDictionary.BLOCK.NAMES[0])));
+
+		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
 	public void use(AbstractCreature target) {

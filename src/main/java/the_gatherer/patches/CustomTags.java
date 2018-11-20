@@ -5,5 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class CustomTags {
 	@SpireEnum
-	public static AbstractCard.CardTags Flower;
+	public static AbstractCard.CardTags FLORAL;
+	@SpireEnum
+	public static AbstractCard.CardTags POTION_GEN;
 }

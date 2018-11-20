@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import javassist.CtBehavior;
+import the_gatherer.GathererMod;
 import the_gatherer.powers.PoisonMasteryPower;
 
 public class PoisonDamagePatch {
@@ -14,10 +15,7 @@ public class PoisonDamagePatch {
 	public static class LostHPUpdate {
 		@SpireInsertPatch(locator = Locator.class, localvars = {"amount"})
 		public static void Insert(PoisonLoseHpAction __instance, @ByRef int[] amount) {
-			PoisonMasteryPower pmp = (PoisonMasteryPower) AbstractDungeon.player.getPower(PoisonMasteryPower.POWER_ID);
-			if (pmp != null) {
-				amount[0] *= pmp.amount + 1;
-			}
+			amount[0] = GathererMod.calcPoisonDamageWithPower(amount[0]);
 		}
 	}
 
@@ -33,10 +31,7 @@ public class PoisonDamagePatch {
 	public static class HealthBarRender {
 		@SpireInsertPatch(rloc = 29, localvars = {"poisonAmt"})
 		public static void Insert(AbstractCreature __instance, SpriteBatch sb, float x, float y, @ByRef int[] poisonAmt) {
-			PoisonMasteryPower pmp = (PoisonMasteryPower) AbstractDungeon.player.getPower(PoisonMasteryPower.POWER_ID);
-			if (pmp != null) {
-				poisonAmt[0] *= pmp.amount + 1;
-			}
+			poisonAmt[0] = GathererMod.calcPoisonDamageWithPower(poisonAmt[0]);
 		}
 	}
 
@@ -46,7 +41,12 @@ public class PoisonDamagePatch {
 		public static void PostFix(PoisonPower __instance) {
 			PoisonMasteryPower pmp = (PoisonMasteryPower) AbstractDungeon.player.getPower(PoisonMasteryPower.POWER_ID);
 			if (pmp != null) {
-				__instance.description = PoisonPower.DESCRIPTIONS[2] + "[#7fff00]" + (__instance.amount * (pmp.amount + 1)) + PoisonPower.DESCRIPTIONS[1];
+				int newAmount = GathererMod.calcPoisonDamage(__instance.amount, pmp.amount);
+				if (__instance.owner != null && !__instance.owner.isPlayer) {
+					__instance.description = PoisonPower.DESCRIPTIONS[2] + newAmount + PoisonPower.DESCRIPTIONS[1];
+				} else {
+					__instance.description = PoisonPower.DESCRIPTIONS[0] + newAmount + PoisonPower.DESCRIPTIONS[1];
+				}
 			}
 		}
 	}

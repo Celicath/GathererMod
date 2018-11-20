@@ -30,6 +30,8 @@ public class LesserDexterityPotion extends CustomPotion {
 		this.isThrown = false;
 		this.tips.add(new PowerTip(this.name, this.description));
 		this.tips.add(new PowerTip(TipHelper.capitalize(GameDictionary.DEXTERITY.NAMES[0]), GameDictionary.keywords.get(GameDictionary.DEXTERITY.NAMES[0])));
+
+		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
 	public void use(AbstractCreature target) {

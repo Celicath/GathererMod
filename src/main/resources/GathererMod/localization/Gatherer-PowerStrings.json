@@ -34,16 +34,19 @@
       " Poison, Weak and Vulnerable to ALL enemies."
     ]
   },
-  "Gatherer:RemoveRetainCard": {
-    "NAME": "",
+  "Gatherer:ScentOfRosmari": {
+    "NAME": "Scent of Rosmari",
     "DESCRIPTIONS": [
-      "Retaining power only lasts for this turn."
+      "At the start of your next turn, return ",
+      " to your hand from draw or discard pile.",
+      " and ",
+      " other card(s) to your hand from draw or discard pile."
     ]
   },
-  "Gatherer:LightPower": {
-    "NAME": "Power of Light",
+  "Gatherer:GlowPower": {
+    "NAME": "Glow Power",
     "DESCRIPTIONS": [
-      "If you play Shadow! as the next card, it deals double damage."
+      "Boosts the effect of #yGlowing #yPlant, #yLight! and #yShadow. Wears off if you play a card other than those 3."
     ]
   },
   "Gatherer:ShadowPower": {
@@ -76,7 +79,7 @@
   "Gatherer:BomberForm" : {
     "NAME": "Bomber Form",
     "DESCRIPTIONS": [
-      "At the start of your turn, Obtain a LEP. Whenever you obtain a lesser Potion, it becomes LEPs and increase all LEPs' base power by #b",
+      "At the start of your turn, Obtain a LEP. Whenever you obtain a lesser Potion, it becomes LEP and increase damage of all LEPs by #b",
       "."
     ]
   },
@@ -98,16 +101,32 @@
   "Gatherer:Uplift" : {
     "NAME": "Uplift",
     "DESCRIPTIONS": [
-      "Whenever you use a potion, reduce a random card's cost in your hand by #b",
-      " (minimum 1) this turn."
+      "The first card played each turn that costs 2 or more gives you #b",
+      " energy."
     ]
   },
-  "Gatherer:ScrollOfWall" : {
-    "NAME": "ScrollOfWall",
+  "Gatherer:DamageHalf" : {
+    "NAME": "Half Damage",
     "DESCRIPTIONS": [
-      "All Status cards that are added to your deck or discard pile are Exhausted.",
-      "All Status cards that are added to your deck or discard pile are Exhausted, and make you draw #b",
-      "."
+      "Damage from #yAttacks is divided by #b",
+      " this turn.",
+      "Damage from #yAttacks becomes almost 0 this turn."
+    ]
+  },
+  "Gatherer:HandcraftedFence" : {
+    "NAME": "Handcrafted Fence",
+    "DESCRIPTIONS": [
+      "Whenever your Block expires, add 1 Repair to your hand.",
+      "Whenever your Block expires, add 1 upgraded Repair to your hand."
+    ]
+  },
+  "Gatherer:ColorfulGarden" : {
+    "NAME": "Colorful Garden",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain #b",
+      " Block per unique card you played this turn.",
+      " NL (Currently #b",
+      " Block.)"
     ]
   },
 

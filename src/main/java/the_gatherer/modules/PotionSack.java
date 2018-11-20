@@ -8,34 +8,46 @@ import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
+import com.megacrit.cardcrawl.helpers.input.InputAction;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.PotionSlot;
+import the_gatherer.GathererMod;
 
 import java.util.ArrayList;
 
 import static the_gatherer.GathererMod.logger;
+import static the_gatherer.GathererMod.potionSackPopupFlipped;
 
 public class PotionSack {
 	private static UIStrings uiStrings = null;
 	public static String[] TEXT = null;
-	public static Texture panel = null;
+	private static Texture panel = null;
 	public ArrayList<AbstractPotion> potions = null;
 
-	public Hitbox hb;
-	float flashRedTimer = 0.0f;
+	private Hitbox hb;
+	private float flashRedTimer = 0.0f;
 	public PotionSackPopUp potionUi;
-	boolean init = false;
+	private boolean init = false;
 	public boolean show = false;
 
-	private final int width = 240;
-	private final int height = 100;
-	private final float above = 200.0f;
+	private static final int width = 240;
+	private static final int height = 100;
+	private static final float above = 200.0f;
+
+	private int moveState = 0;
+	private float dx;
+	private float dy;
+	private float startx;
+	private float starty;
+
+	public static InputAction[] selectPotionActions = new InputAction[3];
 
 	public PotionSack() {
 		this.potionUi = new PotionSackPopUp();
@@ -43,9 +55,16 @@ public class PotionSack {
 		uiStrings = CardCrawlGame.languagePack.getUIString("Gatherer:PotionSack");
 		TEXT = uiStrings.TEXT;
 		loadImage();
+		loadKeySettings();
 	}
 
-	public static void loadImage() {
+	public void loadKeySettings() {
+		for (int i = 0; i < selectPotionActions.length; i++) {
+			selectPotionActions[i] = new InputAction(GathererMod.potionSackKeys[i]);
+		}
+	}
+
+	private static void loadImage() {
 		if (panel == null)
 			panel = new Texture("GathererMod/img/PotionSack.png");
 	}
@@ -56,7 +75,7 @@ public class PotionSack {
 			logger.info(Settings.scale);
 			logger.info(hb.cX + " " + hb.cY + " " + hb.width + " " + hb.height);
 
-			potions = new ArrayList();
+			potions = new ArrayList<>();
 			for (int i = 0; i < 3; i++) {
 				potions.add(newPotionSlot(i));
 			}
@@ -69,7 +88,12 @@ public class PotionSack {
 				this.flashRedTimer = 0.0F;
 			}
 		}
+
+		this.potionUi.update();
+
 		hb.update();
+		AbstractPotion openP = null;
+		boolean keyboard = false;
 		for (AbstractPotion p : potions) {
 			p.update();
 			if (!(p instanceof PotionSlot)) {
@@ -85,21 +109,65 @@ public class PotionSack {
 					if (AbstractDungeon.player.hoveredCard == null && InputHelper.justClickedLeft || CInputActionSet.select.isJustPressed()) {
 						CInputActionSet.select.unpress();
 						InputHelper.justClickedLeft = false;
-						this.potionUi.open(p.slot, p);
+						openP = p;
 					}
 				} else {
 					p.scale = MathHelper.scaleLerpSnap(p.scale, Settings.scale);
 				}
 			}
 		}
-		this.potionUi.update();
+
+		for (int i = 0; i < selectPotionActions.length; i++) {
+			if (potions != null && !(potions.get(i) instanceof PotionSlot) && selectPotionActions[i].isJustPressed()) {
+				openP = potions.get(i);
+				keyboard = true;
+			}
+		}
+		if (moveState == 0 && openP != null) {
+			this.potionUi.open(openP.slot, openP, keyboard);
+		}
+
+		// dragging
+		if (InputHelper.justClickedLeft) {
+			if (hb.hovered && this.potionUi.isHidden) {
+				dx = hb.cX - InputHelper.mX;
+				dy = hb.cY - InputHelper.mY;
+				moveState = 1;
+				startx = InputHelper.mX;
+				starty = InputHelper.mY;
+			}
+		}
+		if (InputHelper.justClickedRight && hb.hovered) {
+			potionSackPopupFlipped = !potionSackPopupFlipped;
+			GathererMod.saveConfig();
+			potionUi.setHitboxPosition();
+		}
+		if (moveState > 0) {
+			if (InputHelper.justReleasedClickLeft) {
+				moveState = 0;
+			} else {
+				float x = Math.min(Math.max(InputHelper.mX + dx, 0.04f * Settings.WIDTH), 0.6f * Settings.WIDTH);
+				float y = Math.min(Math.max(InputHelper.mY + dy, 0.3f * Settings.HEIGHT), 0.8f * Settings.HEIGHT);
+
+				if ((startx - InputHelper.mX) * (startx - InputHelper.mX) + (starty - InputHelper.mY) * (starty - InputHelper.mY) > 64) {
+					moveState = 2;
+				}
+
+				if (moveState == 2) {
+					hb.move(x, y);
+					for (int i = 0; i < potions.size(); i++) {
+						movePotion(i, potions.get(i));
+					}
+				}
+			}
+		}
 	}
 
 	public void render(SpriteBatch sb) {
 		if (!init || !show || potions == null) return;
 		float r = 0.0f;
 		if (this.flashRedTimer != 0.0F) {
-			r -= this.flashRedTimer / 2.0f;
+			r += this.flashRedTimer / 2.0f;
 		}
 		if (this.hb.hovered) {
 			sb.setColor(new Color(1.0F, 1.0F * (1 - 0.4F * r), 1.0F * (1 - 0.4F * r), 1.0F));
@@ -107,7 +175,7 @@ public class PotionSack {
 			sb.setColor(new Color(0.6F + 0.4f * r, 0.6F, 0.6F, 0.8F + 0.2F * r));
 		}
 
-		sb.draw(panel, hb.x, hb.y, hb.width, hb.height);
+		sb.draw(panel, hb.x, hb.y, 0, 0, width, height, Settings.scale, Settings.scale, 0.0F, 0, 0, width, height, false, potionSackPopupFlipped);
 
 		boolean potion_hovered = false;
 		for (AbstractPotion p : potions) {
@@ -120,6 +188,23 @@ public class PotionSack {
 		if (this.hb.hovered && !potion_hovered) {
 			TipHelper.renderGenericTip((float) InputHelper.mX + 50.0F * Settings.scale, (float) InputHelper.mY, TEXT[1], TEXT[0]);
 		}
+
+		for (int i = 0; i < potions.size(); i++) {
+			AbstractPotion p = potions.get(i);
+			if (!(p instanceof PotionSlot)) {
+				float textSpacing = 35.0F * Settings.scale;
+				float textY = p.hb.cY + (potionSackPopupFlipped ? -textSpacing : textSpacing);
+
+				FontHelper.renderFontCentered(
+						sb,
+						FontHelper.topPanelAmountFont,
+						selectPotionActions[i].getKeyString(),
+						p.posX,
+						textY,
+						Settings.CREAM_COLOR);
+			}
+		}
+
 		hb.render(sb);
 	}
 
@@ -161,12 +246,16 @@ public class PotionSack {
 		return ps;
 	}
 
-	public void flashRed() {
+	private void flashRed() {
 		this.flashRedTimer = 1.0F;
 	}
 
 	private void setPotionPosition(int index, AbstractPotion potion) {
 		potion.setAsObtained(index);
+		movePotion(index, potion);
+	}
+
+	private void movePotion(int index, AbstractPotion potion) {
 		float x = hb.cX + (index - 1) * Settings.POTION_W;
 		float y = hb.cY;
 		potion.move(x, y);

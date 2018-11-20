@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ObtainLesserPotionAction;
 import the_gatherer.patches.CardColorEnum;
+import the_gatherer.patches.CustomTags;
 import the_gatherer.potions.LesserFirePotion;
 
 public class FlamingBottle extends CustomCard {
@@ -33,6 +34,8 @@ public class FlamingBottle extends CustomCard {
 	public FlamingBottle() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseDamage = POWER;
+
+		this.tags.add(CustomTags.POTION_GEN);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -56,6 +59,6 @@ public class FlamingBottle extends CustomCard {
 	@Override
 	public void initializeDescription() {
 		super.initializeDescription();
-		keywords.add("Lesser Fire Potion");
+		//keywords.add("Lesser Fire Potion");
 	}
 }

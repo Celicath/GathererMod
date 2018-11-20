@@ -32,25 +32,34 @@ public class FruitForce extends CustomCard implements OnObtainEffect {
 	private static final int UPGRADE_BONUS = 5;
 	private static final int HP_GAIN = 4;
 
+	private int prevMaxHP = 0;
+
 	public FruitForce() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
+
+		updateDamage();
+	}
+
+	private void updateDamage() {
+		if (AbstractDungeon.player != null && this.prevMaxHP != AbstractDungeon.player.maxHealth) {
+			this.baseDamage = (AbstractDungeon.player.maxHealth * this.magicNumber) / 100;
+			if (prevMaxHP == 0) {
+				this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
+				this.initializeDescription();
+			}
+			prevMaxHP = AbstractDungeon.player.maxHealth;
+		}
 	}
 
 	public void applyPowers() {
-		this.baseDamage = (AbstractDungeon.player.maxHealth * this.magicNumber) / 100;
+		updateDamage();
 		super.applyPowers();
-
-		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
-		this.initializeDescription();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-
-		this.rawDescription = DESCRIPTION;
-		this.initializeDescription();
 	}
 
 	public AbstractCard makeCopy() {
@@ -62,6 +71,13 @@ public class FruitForce extends CustomCard implements OnObtainEffect {
 			this.upgradeName();
 			this.upgradeMagicNumber(UPGRADE_BONUS);
 		}
+	}
+
+	@Override
+	public void update() {
+		super.update();
+
+		updateDamage();
 	}
 
 	@Override

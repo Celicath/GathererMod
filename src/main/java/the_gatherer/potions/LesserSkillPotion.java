@@ -25,6 +25,8 @@ public class LesserSkillPotion extends CustomPotion {
 		this.description = DESCRIPTIONS[0];
 		this.isThrown = false;
 		this.tips.add(new PowerTip(this.name, this.description));
+
+		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
 	public void use(AbstractCreature target) {

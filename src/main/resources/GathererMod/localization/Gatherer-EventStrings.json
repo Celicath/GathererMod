@@ -14,5 +14,19 @@
     ],
     "OPTIONS": [
     ]
+  },
+  "Gatherer:BottleCollector": {
+    "NAME": "Bottle Collector",
+    "DESCRIPTIONS": [
+      "\"Look at my collections, stranger!\" NL A strange-looking maniac shouts behind hundreds of bottles. NL NL \"If ya show me potion @Card,@ I'll spare one.\" NL NL He adds one more suspicious thing. NL \"More #yRare card you pick, #yrarer bottle I give.\"",
+      "\"Thank you thank you!\" NL The collector seems to be exited too much. NL NL \"Now, I want to #rexperiment, ya wanna participate?\" NL NL You leave without responding.",
+      "You don't bother, and run away without looking back."
+    ],
+    "OPTIONS": [
+      "[Give Card] Lose a Potion-generating card. #gReceive #ga #gSpare #gBottle.",
+      "[Locked] Requires: Potion-generating card.",
+      "[Leave]",
+      "Select a Card to Exchange."
+    ]
   }
 }
