@@ -14,7 +14,7 @@
     ]
   },
   "Gatherer:NextNextTurnBlock": {
-    "NAME": "Final Tree Power",
+    "NAME": "Mature Growth",
     "DESCRIPTIONS": [
       "Gain #b",
       " #yBlock 2 turns later."
@@ -23,8 +23,8 @@
   "Gatherer:PoisonMastery": {
     "NAME": "Poison Mastery",
     "DESCRIPTIONS": [
-      "Poison damage is increased by ",
-      "00%."
+      "Poison damage is increased by #b",
+      "%."
     ]
   },
   "Gatherer:Pollute": {

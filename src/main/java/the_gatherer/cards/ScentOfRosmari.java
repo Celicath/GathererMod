@@ -27,13 +27,16 @@ public class ScentOfRosmari extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 1;
-	private static final int UPGRADE_BONUS = 1;
+	private static final int POWER = 6;
+	private static final int UPGRADE_BONUS = 3;
+	private static final int RETAIN = 1;
+	private static final int REATIN_BONUS = 1;
 
 	public ScentOfRosmari() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
-		this.baseMagicNumber = POWER;
+		this.baseBlock = POWER;
+		this.baseMagicNumber = RETAIN;
 		this.magicNumber = this.baseMagicNumber;
 	}
 
@@ -51,7 +54,8 @@ public class ScentOfRosmari extends CustomCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
-			this.upgradeMagicNumber(UPGRADE_BONUS);
+			this.upgradeBlock(UPGRADE_BONUS);
+			this.upgradeMagicNumber(REATIN_BONUS);
 			this.rawDescription = UPGRADE_DESCRIPTION;
 			this.initializeDescription();
 		}

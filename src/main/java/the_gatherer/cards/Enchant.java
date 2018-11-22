@@ -25,8 +25,8 @@ public class Enchant extends CustomCard {
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 12;
-	private static final int UPGRADE_BONUS = 4;
+	private static final int POWER = 14;
+	private static final int UPGRADE_BONUS = 6;
 
 	public Enchant() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

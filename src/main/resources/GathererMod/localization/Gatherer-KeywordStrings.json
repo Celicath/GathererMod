@@ -36,20 +36,30 @@
     "DESCRIPTION": "Stands for Lesser Explosive Potion, which normally deals 6 damage to all enemies."
   },
   {
+    "PROPER_NAME": "Lesser Potion",
+    "NAMES": [
+      "Lesser Potion",
+      "lesser_potion",
+      "lesser_potions"
+    ],
+    "DESCRIPTION": "A \"Lesser\" version of regular potion which is always gained to your Sack."
+  },
+  {
     "PROPER_NAME": "Lesser Fire Potion",
     "NAMES": [
       "lesser fire potion",
       "lesser_fire_potion"
     ],
-    "DESCRIPTION": "A Potion which deals 10 damage to an enemy."
+    "DESCRIPTION": "A #yLesser #yPotion which deals 10 damage to an enemy."
   },
   {
     "PROPER_NAME": "Lesser Poison Potion",
     "NAMES": [
       "lesser poison potion",
-      "lesser_poison_potion"
+      "lesser_poison_potion",
+      "lesser_poison_potions"
     ],
-    "DESCRIPTION": "A Potion which applies 4 #yPoison to an enemy."
+    "DESCRIPTION": "A #yLesser #yPotion which applies 4 #yPoison to an enemy."
   },
   {
     "PROPER_NAME": "Lesser Block Potion",
@@ -57,7 +67,7 @@
       "lesser block potion",
       "lesser_block_potion"
     ],
-    "DESCRIPTION": "A Potion which gains 8 Block when used."
+    "DESCRIPTION": "A #yLesser #yPotion which gains 8 Block when used."
   },
   {
     "PROPER_NAME": "Lesser Weak Potion",
@@ -65,7 +75,7 @@
       "lesser weak potion",
       "lesser_weak_potion"
     ],
-    "DESCRIPTION": "A Potion which applies 2 Weak to an enemy."
+    "DESCRIPTION": "A #yLesser #yPotion which applies 2 Weak to an enemy."
   },
   {
     "PROPER_NAME": "Lesser Fear Potion",
@@ -73,15 +83,42 @@
       "lesser fear potion",
       "lesser_fear_potion"
     ],
-    "DESCRIPTION": "A Potion which applies 2 Vulnerable to an enemy."
+    "DESCRIPTION": "A #yLesser #yPotion which applies 2 Vulnerable to an enemy."
   },
   {
     "PROPER_NAME": "Lesser Energy Potion",
     "NAMES": [
       "lesser energy potion",
-      "lesser_energy_potion"
+      "lesser_energy_potion",
+      "lesser_energy_potions"
     ],
-    "DESCRIPTION": "A Potion which gives you 1 energy when used."
+    "DESCRIPTION": "A #yLesser #yPotion which gives you 1 energy when used."
+  },
+  {
+    "PROPER_NAME": "Recovery Potion",
+    "NAMES": [
+      "recovery potion",
+      "recovery_potion",
+      "recovery_potion+"
+    ],
+    "DESCRIPTION": "A special #ySack #yPotion which heals 10% of missing health. Upgraded version(+) heals 15% instead."
+  },
+  {
+    "PROPER_NAME": "Retain Potion",
+    "NAMES": [
+      "retain potion",
+      "retain_potion",
+      "retain_potion+"
+    ],
+    "DESCRIPTION": "A special #ySack #yPotion which retains 2 random cards this turn. Upgraded version(+) retains entire hand instead."
+  },
+  {
+    "PROPER_NAME": "Black Tea Potion",
+    "NAMES": [
+      "black tea potion",
+      "black_tea_potion"
+    ],
+    "DESCRIPTION": "A Lesser Potion tagged with <Black Tea>. Start each combat with one. When you use this, Exhaust ALL Black Tea cards."
   },
   {
     "PROPER_NAME": "Card Rarity",
@@ -96,6 +133,6 @@
       "glow power",
       "glow_power"
     ],
-    "DESCRIPTION": "Boosts the effect of #yGlowing #yPlant, #yLight! and #yShadow. Wears off if you play a card other than those 3."
+    "DESCRIPTION": "Boosts the effect of #yLight! and #yShadow. Wears off if you play a card which doesn't give you #yGlow #yPower."
   }
 ]

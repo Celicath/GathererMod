@@ -31,7 +31,7 @@ public class Nutrients extends CustomCard implements OnObtainEffect {
 	private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
 	private static final int POWER = 12;
-	private static final int UPGRADE_BONUS = 5;
+	private static final int UPGRADE_BONUS = 4;
 
 	public Nutrients() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

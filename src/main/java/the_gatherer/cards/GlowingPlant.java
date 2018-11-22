@@ -33,10 +33,16 @@ public class GlowingPlant extends CustomCard implements OnObtainEffect {
 	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
+	private static final int POWER = 1;
+	private static final int UPGRADE_BONUS = 1;
+
 	private ArrayList<AbstractCard> tooltips;
 
 	public GlowingPlant() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+
+		this.baseMagicNumber = POWER;
+		this.magicNumber = this.baseMagicNumber;
 
 		tooltips = new ArrayList<>();
 		tooltips.add(new Light());
@@ -44,12 +50,8 @@ public class GlowingPlant extends CustomCard implements OnObtainEffect {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
+		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GlowPower(p, 1), 1));
-		int pow = 0;
-		if (p.hasPower(GlowPower.POWER_ID)) {
-			pow = p.getPower(GlowPower.POWER_ID).amount;
-		}
-		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, upgraded ? pow + 1 : pow));
 	}
 
 	public AbstractCard makeCopy() {
@@ -59,6 +61,7 @@ public class GlowingPlant extends CustomCard implements OnObtainEffect {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
+			this.upgradeMagicNumber(UPGRADE_BONUS);
 			this.rawDescription = UPGRADE_DESCRIPTION;
 			this.initializeDescription();
 		}

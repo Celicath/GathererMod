@@ -2,6 +2,7 @@ package the_gatherer.events;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.green.Alchemize;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
@@ -76,7 +77,7 @@ public class BottleCollector extends AbstractImageEvent {
 		CardGroup retVal = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
 		for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-			if (c.hasTag(CustomTags.POTION_GEN)) {
+			if (c.hasTag(CustomTags.POTION_GEN) || c.cardID == Alchemize.ID) {
 				retVal.group.add(c);
 			}
 		}

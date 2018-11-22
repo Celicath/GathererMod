@@ -25,7 +25,7 @@ public class Repair extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.SPECIAL;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int UPGRADE_BONUS = 3;
+	private static final int UPGRADE_BONUS = 2;
 
 	public Repair() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

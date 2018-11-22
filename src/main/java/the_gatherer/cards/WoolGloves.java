@@ -28,7 +28,7 @@ public class WoolGloves extends AbstractNumberedCard {
 	private static final CardTarget TARGET = CardTarget.SELF;
 
 	private static final int POWER = 8;
-	private static final int UPGRADE_BONUS = 3;
+	private static final int UPGRADE_BONUS = 2;
 
 	public WoolGloves() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

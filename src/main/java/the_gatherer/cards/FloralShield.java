@@ -26,8 +26,9 @@ public class FloralShield extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 7;
+	private static final int POWER = 6;
 	private static final int UPGRADE_BONUS = 3;
+	private static final int UPGRADE_3RD_BONUS = 1;
 
 	public FloralShield() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -60,6 +61,7 @@ public class FloralShield extends CustomCard {
 			++this.timesUpgraded;
 			if (timesUpgraded == 3) {
 				upgradeBaseCost(COST - 1);
+				upgradeBlock(UPGRADE_3RD_BONUS);
 			} else {
 				upgradeBlock(UPGRADE_BONUS);
 			}

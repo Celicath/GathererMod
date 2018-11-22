@@ -103,6 +103,8 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static float transmuteAnimTimer = 0;
 	public static boolean bottleCollector = false;
 
+	public static AbstractPotion lastPotionUsedThisTurn = null;
+
 	public GathererMod() {
 		logger.debug("Constructor started.");
 		BaseMod.subscribe(this);
@@ -293,7 +295,6 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new BambuSword());
 		cards.add(new Bulldoze());
 		cards.add(new CarefulStrike());
-		cards.add(new ChargingShot());
 		cards.add(new CollectorsShot());
 		cards.add(new Convert());
 		cards.add(new CoupDeGrace());
@@ -436,6 +437,7 @@ public class GathererMod implements PostInitializeSubscriber,
 	@Override
 	public void receivePostEnergyRecharge() {
 		logger.debug("receivePostEnergyRecharge started.");
+		lastPotionUsedThisTurn = null;
 		logger.debug("receivePostEnergyRecharge finished.");
 	}
 
@@ -478,6 +480,8 @@ public class GathererMod implements PostInitializeSubscriber,
 		if (ScrollOfPurity.drawCount > 0) {
 			AbstractDungeon.actionManager.addToBottom(new ScrollOfPurityAction(ScrollOfPurity.drawCount));
 		}
+
+		lastPotionUsedThisTurn = p;
 	}
 
 	@Override

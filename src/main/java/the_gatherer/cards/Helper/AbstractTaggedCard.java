@@ -23,7 +23,7 @@ public abstract class AbstractTaggedCard extends CustomCard {
 		this.name = this.rawName + " " + getTagName(this.misc);
 		this.initializeTitle();
 		this.initializeDescription();
-		this.update();
+		//this.update();
 	}
 
 	public abstract void upgradeEffect();

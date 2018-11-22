@@ -28,7 +28,7 @@ public class CarefulStrike extends CustomCard {
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
 	private static final int POWER = 10;
-	private static final int UPGRADE_BONUS = 3;
+	private static final int UPGRADE_BONUS = 4;
 	private static final int TOPDECK_POWER = 1;
 
 	public CarefulStrike() {
