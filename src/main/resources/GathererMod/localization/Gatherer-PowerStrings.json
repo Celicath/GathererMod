@@ -146,6 +146,14 @@
       " NL #r(Deactivated!)"
     ]
   },
+  "Gatherer:LuckyClover" : {
+    "NAME": "Lucky Clover",
+    "DESCRIPTIONS": [
+      "Whenever you lose #b",
+      " or more HP, discard a random card to heal #b",
+      " HP."
+    ]
+  },
 
   "Gatherer:Dummy": { }
 }

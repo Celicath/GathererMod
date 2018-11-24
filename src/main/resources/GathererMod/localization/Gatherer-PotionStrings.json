@@ -128,25 +128,19 @@
   "Gatherer:RetainPotion": {
     "NAME": "Retain Potion",
     "DESCRIPTIONS": [
-      "Retain #b2 random cards this turn."
-    ]
-  },
-  "Gatherer:RetainPotionPlus": {
-    "NAME": "Retain Potion+",
-    "DESCRIPTIONS": [
       "Retain your hand this turn."
-    ]
-  },
-  "Gatherer:PlaceHolderPotion": {
-    "NAME": "PlaceHolder",
-    "DESCRIPTIONS": [
-      "Just a placeholder for implementing potion-based things."
     ]
   },
   "Gatherer:BlackTeaTag": {
     "NAME": "Black Tea Tag",
     "DESCRIPTIONS": [
       " NL NL <Black Tea> tagged NL Exhausts ALL Black Tea when used."
+    ]
+  },
+  "Gatherer:PlaceHolderPotion": {
+    "NAME": "PlaceHolder",
+    "DESCRIPTIONS": [
+      "Just a placeholder for implementing potion-based things."
     ]
   }
 }

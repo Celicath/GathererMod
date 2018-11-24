@@ -215,8 +215,8 @@
   },
   "Gatherer:GlowingPlant": {
     "NAME": "Glowing Plant",
-    "DESCRIPTION": "Draw !D! card. NL Gain 1 Glow_Power. NL When obtained, add a Light! and a Shadow! to your deck.",
-    "UPGRADE_DESCRIPTION": "Draw !D! cards. NL Gain 1 Glow_Power. NL When obtained, add a Light! and a Shadow! to your deck."
+    "DESCRIPTION": "Draw !M! card. NL Gain 1 Glow_Power. NL When obtained, add a Light! and a Shadow! to your deck.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Gain 1 Glow_Power. NL When obtained, add a Light! and a Shadow! to your deck."
   },
   "Gatherer:Light": {
     "NAME": "Light!",
@@ -320,7 +320,7 @@
   },
   "Gatherer:Uplift": {
     "NAME": "Uplift",
-    "DESCRIPTION": "The first card played each turn that costs 2 or more gives you [E] ."
+    "DESCRIPTION": "The first card played each turn that costs 2 or more has Refund 1."
   },
 
   "Gatherer:Bulldoze": {

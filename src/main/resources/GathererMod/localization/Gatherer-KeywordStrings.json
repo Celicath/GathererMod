@@ -107,10 +107,9 @@
     "PROPER_NAME": "Retain Potion",
     "NAMES": [
       "retain potion",
-      "retain_potion",
-      "retain_potion+"
+      "retain_potion"
     ],
-    "DESCRIPTION": "A special #ySack #yPotion which retains 2 random cards this turn. Upgraded version(+) retains entire hand instead."
+    "DESCRIPTION": "A special #ySack #yPotion which retains your hand this turn."
   },
   {
     "PROPER_NAME": "Black Tea Potion",

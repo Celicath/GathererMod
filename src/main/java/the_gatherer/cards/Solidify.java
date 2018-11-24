@@ -26,7 +26,7 @@ public class Solidify extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 8;
+	private static final int POWER = 7;
 	private static final int UPGRADE_BONUS = 3;
 	private static final int THRESHOLD = 30;
 	private static final int THRESHOLD_BONUS = -5;

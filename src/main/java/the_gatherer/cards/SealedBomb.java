@@ -20,14 +20,14 @@ public class SealedBomb extends CustomCard implements OnUsePotionEffect {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
-	private static final int COST = 8;
+	private static final int COST = 7;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final CardType TYPE = CardType.ATTACK;
 	private static final CardColor COLOR = CardColorEnum.LIME;
 	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 30;
+	private static final int POWER = 35;
 	private static final int UPGRADE_BONUS = 5;
 
 	public SealedBomb() {
@@ -51,7 +51,11 @@ public class SealedBomb extends CustomCard implements OnUsePotionEffect {
 		if (!this.upgraded) {
 			this.upgradeName();
 			this.upgradeDamage(UPGRADE_BONUS);
-			this.upgradeBaseCost(COST - 1);
+			if (this.cost == COST) {
+				this.upgradeBaseCost(COST - 1);
+			} else {
+				this.updateCost(-1);
+			}
 		}
 	}
 

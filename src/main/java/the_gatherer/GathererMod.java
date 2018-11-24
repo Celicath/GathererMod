@@ -16,6 +16,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.blue.Defend_Blue;
@@ -40,7 +41,6 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import the_gatherer.actions.ScrollOfPurityAction;
 import the_gatherer.cards.*;
 import the_gatherer.cards.Helper.AbstractNumberedCard;
 import the_gatherer.character.TheGatherer;
@@ -470,7 +470,7 @@ public class GathererMod implements PostInitializeSubscriber,
 			}
 		}
 
-		ScrollOfPurity.drawCount = 0;
+		ScrollOfPurity.exhaustCount = 0;
 		if (AbstractDungeon.player.hand != null) {
 			for (AbstractCard c : AbstractDungeon.player.hand.group) {
 				if (c instanceof OnUsePotionEffect) {
@@ -478,8 +478,9 @@ public class GathererMod implements PostInitializeSubscriber,
 				}
 			}
 		}
-		if (ScrollOfPurity.drawCount > 0) {
-			AbstractDungeon.actionManager.addToBottom(new ScrollOfPurityAction(ScrollOfPurity.drawCount));
+		if (ScrollOfPurity.exhaustCount > 0) {
+			AbstractDungeon.actionManager.addToBottom(new ExhaustAction(
+					AbstractDungeon.player, AbstractDungeon.player, ScrollOfPurity.exhaustCount, false, true, true));
 		}
 
 		lastPotionUsedThisTurn = p;

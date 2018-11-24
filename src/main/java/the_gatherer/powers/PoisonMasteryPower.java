@@ -14,8 +14,8 @@ public class PoisonMasteryPower extends AbstractPower {
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-	public PoisonMasteryPower(AbstractCreature owner, int amount, String newName) {
-		this.name = newName;
+	public PoisonMasteryPower(AbstractCreature owner, int amount) {
+		this.name = NAME;
 		this.ID = POWER_ID;
 		this.owner = owner;
 		this.amount = amount;
@@ -23,10 +23,6 @@ public class PoisonMasteryPower extends AbstractPower {
 		this.type = PowerType.BUFF;
 		this.isTurnBased = false;
 		this.img = new Texture(GathererMod.GetPowerPath(RAW_ID));
-	}
-
-	public PoisonMasteryPower(AbstractCreature owner, int amount) {
-		this(owner, amount, NAME);
 	}
 
 	public void updateDescription() {
