@@ -17,8 +17,8 @@ import the_gatherer.cards.Helper.GathererCardHelper;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.patches.CustomTags;
 
-public class FloralPower extends CustomCard {
-	private static final String RAW_ID = "FloralPower";
+public class FlowerPower extends CustomCard {
+	private static final String RAW_ID = "FlowerPower";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
@@ -33,10 +33,10 @@ public class FloralPower extends CustomCard {
 
 	private static final int MAGIC = 2;
 
-	public FloralPower() {
+	public FlowerPower() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
-		this.tags.add(CustomTags.FLORAL);
+		this.tags.add(CustomTags.FLOWER);
 		this.baseMagicNumber = MAGIC;
 		this.magicNumber = MAGIC;
 
@@ -49,7 +49,7 @@ public class FloralPower extends CustomCard {
 		if (timesUpgraded == 0)
 			str = DESCRIPTION;
 		else str = EXTENDED_DESCRIPTION[timesUpgraded - 1];
-		return str + GathererCardHelper.FloralSuffix(this.timesUpgraded);
+		return str + GathererCardHelper.FlowerSuffix(this.timesUpgraded);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -64,7 +64,7 @@ public class FloralPower extends CustomCard {
 	}
 
 	public AbstractCard makeCopy() {
-		return new FloralPower();
+		return new FlowerPower();
 	}
 
 	@Override

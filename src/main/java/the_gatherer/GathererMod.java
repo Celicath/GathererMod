@@ -284,7 +284,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		List<CustomCard> cards = new ArrayList<>();
 		cards.add(new Strike_Gatherer());
 		cards.add(new Defend_Gatherer());
-		cards.add(new FloralWhip());
+		cards.add(new FlowerWhip());
 		cards.add(new Centralize());
 		cards.add(new SpareBottle());
 
@@ -303,9 +303,9 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new FeelingFine());
 		cards.add(new RecoveryHerb());
 		cards.add(new FlamingBottle());
-		cards.add(new FloralBeam());
-		cards.add(new FloralShield());
-		cards.add(new FloralPower());
+		cards.add(new FlowerBeam());
+		cards.add(new FlowerShield());
+		cards.add(new FlowerPower());
 		cards.add(new Frenzy());
 		cards.add(new FruitForce());
 		cards.add(new HeartToFruit());

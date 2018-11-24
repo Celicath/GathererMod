@@ -49,7 +49,7 @@ public class Photoscythe extends CustomCard {
 		Iterator it = AbstractDungeon.player.masterDeck.group.iterator();
 		while (it.hasNext()) {
 			AbstractCard c = (AbstractCard) it.next();
-			if (c.hasTag(CustomTags.FLORAL)) {
+			if (c.hasTag(CustomTags.FLOWER)) {
 				++count;
 			}
 		}

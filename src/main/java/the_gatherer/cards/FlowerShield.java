@@ -1,10 +1,8 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -15,48 +13,42 @@ import the_gatherer.cards.Helper.GathererCardHelper;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.patches.CustomTags;
 
-public class FloralWhip extends CustomCard {
-	private static final String RAW_ID = "FloralWhip";
+public class FlowerShield extends CustomCard {
+	private static final String RAW_ID = "FlowerShield";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
-	private static final int COST = 0;
+	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-	private static final CardType TYPE = CardType.ATTACK;
+	private static final CardType TYPE = CardType.SKILL;
 	private static final CardColor COLOR = CardColorEnum.LIME;
-	private static final CardRarity RARITY = CardRarity.BASIC;
-	private static final CardTarget TARGET = CardTarget.ENEMY;
+	private static final CardRarity RARITY = CardRarity.COMMON;
+	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 2;
-	private static final int UPGRADE_BONUS = 1;
-	private static final int MAGIC_POWER = 2;
-	private static final int MAGIC_UPGRADE_BONUS = 1;
+	private static final int POWER = 6;
+	private static final int UPGRADE_BONUS = 3;
+	private static final int UPGRADE_3RD_BONUS = 1;
 
-	public FloralWhip() {
+	public FlowerShield() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-		this.baseDamage = POWER;
-		this.baseMagicNumber = MAGIC_POWER;
-		this.magicNumber = this.baseMagicNumber;
-
-		this.tags.add(CustomTags.FLORAL);
+		this.baseBlock = POWER;
+		this.tags.add(CustomTags.FLOWER);
 
 		this.rawDescription = GetRawDescription();
 		this.initializeDescription();
 	}
 
 	private String GetRawDescription() {
-		return DESCRIPTION + GathererCardHelper.FloralSuffix(timesUpgraded);
+		return DESCRIPTION + GathererCardHelper.FlowerSuffix(timesUpgraded);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		for (int i = 0; i < this.magicNumber; ++i) {
-			AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-		}
+		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
 	}
 
 	public AbstractCard makeCopy() {
-		return new FloralWhip();
+		return new FlowerShield();
 	}
 
 	@Override
@@ -66,10 +58,13 @@ public class FloralWhip extends CustomCard {
 
 	public void upgrade() {
 		if (timesUpgraded < 3) {
-			upgradeDamage(UPGRADE_BONUS);
 			++this.timesUpgraded;
-			if (timesUpgraded == 3)
-				upgradeMagicNumber(MAGIC_UPGRADE_BONUS);
+			if (timesUpgraded == 3) {
+				upgradeBaseCost(COST - 1);
+				upgradeBlock(UPGRADE_3RD_BONUS);
+			} else {
+				upgradeBlock(UPGRADE_BONUS);
+			}
 			this.upgraded = true;
 			this.name = NAME + "+" + this.timesUpgraded;
 			this.initializeTitle();

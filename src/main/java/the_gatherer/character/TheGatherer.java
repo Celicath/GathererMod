@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import the_gatherer.GathererMod;
 import the_gatherer.cards.Centralize;
 import the_gatherer.cards.Defend_Gatherer;
-import the_gatherer.cards.FloralWhip;
+import the_gatherer.cards.FlowerWhip;
 import the_gatherer.cards.Strike_Gatherer;
 import the_gatherer.patches.AbstractPlayerEnum;
 import the_gatherer.patches.CardColorEnum;
@@ -77,7 +77,7 @@ public class TheGatherer extends CustomPlayer {
 		retVal.add(Defend_Gatherer.ID);
 		retVal.add(Defend_Gatherer.ID);
 		retVal.add(Centralize.ID);
-		retVal.add(FloralWhip.ID);
+		retVal.add(FlowerWhip.ID);
 		return retVal;
 	}
 
@@ -108,7 +108,7 @@ public class TheGatherer extends CustomPlayer {
 
 	@Override
 	public AbstractCard getStartCardForEvent() {
-		return new FloralWhip();
+		return new FlowerWhip();
 	}
 
 	@Override

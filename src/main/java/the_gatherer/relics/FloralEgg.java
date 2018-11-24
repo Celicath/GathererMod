@@ -25,7 +25,7 @@ public class FloralEgg extends CustomRelic {
 	public void onEquip() {
 		int effectCount = 0;
 		for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-			if (c.hasTag(CustomTags.FLORAL) && c.canUpgrade()) {
+			if (c.hasTag(CustomTags.FLOWER) && c.canUpgrade()) {
 				if (c.canUpgrade()) {
 					if (effectCount < 20) {
 						float x = MathUtils.random(0.1F, 0.9F) * Settings.WIDTH;

@@ -7,8 +7,8 @@
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block."
   },
-  "Gatherer:FloralWhip": {
-    "NAME": "Floral Whip",
+  "Gatherer:FlowerWhip": {
+    "NAME": "Flower Whip",
     "DESCRIPTION": "Deal !D! damage !M! times."
   },
   "Gatherer:Centralize": {
@@ -55,8 +55,8 @@
       ")"
     ]
   },
-  "Gatherer:FloralFalling": {
-    "NAME": "Floral Falling",
+  "Gatherer:FlowerFalling": {
+    "NAME": "Flower Falling",
     "DESCRIPTION": "Deal !D! damage. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Heal !M! HP. NL Exhaust."
   },
@@ -98,8 +98,8 @@
     "NAME": "Energy Basket",
     "DESCRIPTION": "Gain !M! Lesser_Energy_Potions. NL Retain. NL Exhaust."
   },
-  "Gatherer:FloralShield": {
-    "NAME": "Floral Shield",
+  "Gatherer:FlowerShield": {
+    "NAME": "Flower Shield",
     "DESCRIPTION": "Gain !B! Block."
   },
   "Gatherer:GatherMaterial": {
@@ -144,8 +144,8 @@
     "NAME": "Echo of Nature",
     "DESCRIPTION": "Gain !B! Block X times. Deal !D! Damage X times."
   },
-  "Gatherer:FloralBeam": {
-    "NAME": "Floral Beam",
+  "Gatherer:FlowerBeam": {
+    "NAME": "Flower Beam",
     "DESCRIPTION": "Deal !D! damage, then deal !D! damage to ALL enemies."
   },
   "Gatherer:FruitForce": {
@@ -236,7 +236,7 @@
   },
   "Gatherer:Nutrients": {
     "NAME": "Nutrients",
-    "DESCRIPTION": "Gain !B! Block. NL When obtained, upgrade ALL your Floral cards."
+    "DESCRIPTION": "Gain !B! Block. NL When obtained, upgrade ALL your Flower cards."
   },
   "Gatherer:RecipeChange": {
     "NAME": "Recipe Change",
@@ -354,8 +354,8 @@
   },
   "Gatherer:Photoscythe": {
     "NAME": "Photoscythe",
-    "DESCRIPTION": "Upgrade ALL your Floral cards for the combat. Deal !M! damage for each of them. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. Upgrade ALL your Floral cards for the combat. Deal !M! damage for each of them. Exhaust.",
+    "DESCRIPTION": "Upgrade ALL your Flower cards for the combat. Deal !M! damage for each of them. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. Upgrade ALL your Flower cards for the combat. Deal !M! damage for each of them. Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -406,8 +406,8 @@
     "NAME": "Bomber Form",
     "DESCRIPTION": "At the start of your turn, gain a LEP. Any incoming Lesser_Potion becomes LEP, and increases damage of all LEPs by !M!."
   },
-  "Gatherer:FloralPower": {
-    "NAME": "Floral Power",
+  "Gatherer:FlowerPower": {
+    "NAME": "Flower Power",
     "DESCRIPTION": "Gain !M! Weak, Frail, and Vulnerable. At the start of your turn, Draw !M! cards.",
     "EXTENDED_DESCRIPTION": [
       "Gain !M! Weak and Frail. At the start of your turn, Draw !M! cards.",
