@@ -40,8 +40,8 @@
   },
   "Gatherer:CollectorsShot": {
     "NAME": "Collector's Shot",
-    "DESCRIPTION": "Deal damage equal to !M! X number of unique cards in your deck.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Deal damage equal to !M! X number of unique cards in your deck.",
+    "DESCRIPTION": "Deal damage equal to 1.5 times the number of unique cards in your deck.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to 2 times the number of unique cards in your deck.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -166,8 +166,8 @@
   },
   "Gatherer:OddSpoils": {
     "NAME": "Odd Spoils",
-    "DESCRIPTION": "Deal !D! damage. Add !M! random card not in your deck to your discard pile. It costs 0 until played.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. Add !M! random cards not in your deck to your discard pile. They cost 0 until played."
+    "DESCRIPTION": "Deal !D! damage. Add !M! random card not in your deck to your discard pile. It costs 1 less until played.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Add !M! random cards not in your deck to your discard pile. They cost 1 less until played."
   },
   "Gatherer:Polymorphism": {
     "NAME": "Polymorphism",
@@ -288,12 +288,12 @@
 
   "Gatherer:AlchemyTrial": {
     "NAME": "Alchemy Trial",
-    "DESCRIPTION": "Whenever you play 10 cards, gain a Lesser Potion; type depends on the 10th card played.",
-    "UPGRADE_DESCRIPTION": "Innate. Whenever you play 10 cards, gain a Lesser Potion; type depends on the 10th card played."
+    "DESCRIPTION": "Whenever you play 10 cards, gain a Lesser Potion depending on the 10th card played."
   },
   "Gatherer:BalancedGrowth": {
     "NAME": "Balanced Growth",
-    "DESCRIPTION": "At the start of your turn, gain 1 Strength or Dexterity until they are equal."
+    "DESCRIPTION": "At the start of your turn, gain 1 Strength or Dexterity until they are equal.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, gain 1 Strength or Dexterity until they are equal."
   },
   "Gatherer:ColorfulGarden": {
     "NAME": "Colorful Garden",
@@ -311,11 +311,11 @@
   },
   "Gatherer:UpgradeBag": {
     "NAME": "Upgrade Bag",
-    "DESCRIPTION": "Shuffle a Glitched in your deck. If you are NOT holding it, your [#D0F0D0]Sack [#D0F0D0]Potions have + !M! % potency.",
-    "UPGRADE_DESCRIPTION": "Add a Glitched+ in your discard pile. If you are NOT holding it, your [#D0F0D0]Sack [#D0F0D0]Potions have + !M! % potency."
+    "DESCRIPTION": "Shuffle a Glitched in your deck. If you are NOT holding it, your [#D0F0D0]Sack [#D0F0D0]Potions have +50% potency.",
+    "UPGRADE_DESCRIPTION": "Add a Glitched+ in your discard pile. If you are NOT holding it, your [#D0F0D0]Sack [#D0F0D0]Potions have +50% potency."
   },
   "Gatherer:Glitched": {
-    "DESCRIPTION": "Retain. Put this on the bottom of your deck. NL While in your hand, Upgrade Bag power is disabled.",
+    "DESCRIPTION": "Retain. NL Discard this. NL While in your hand, Upgrade Bag power is disabled.",
     "UPGRADE_DESCRIPTION": "Retain. NL Exhaust. NL While in your hand, Upgrade Bag power is disabled."
   },
   "Gatherer:Uplift": {

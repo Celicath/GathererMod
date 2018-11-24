@@ -77,7 +77,7 @@ public class BottleCollector extends AbstractImageEvent {
 		CardGroup retVal = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
 		for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-			if (c.hasTag(CustomTags.POTION_GEN) || c.cardID == Alchemize.ID) {
+			if (c.hasTag(CustomTags.POTION_GEN) || c.cardID.equals(Alchemize.ID)) {
 				retVal.group.add(c);
 			}
 		}

@@ -77,7 +77,6 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static final String AUTHOR = "Celicath";
 	public static final String DESCRIPTION = "Adds The Gatherer as a new playable character.";
 
-
 	public static final String GATHERER_BADGE = "GathererMod/img/badge.png";
 	public static final String GATHERER_BUTTON = "GathererMod/img/character/gatherer/button.png";
 	public static final String GATHERER_PORTRAIT = "GathererMod/img/character/gatherer/GathererBG.png";
@@ -88,8 +87,9 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static PotionSack potionSack;
 	public static Set<Class<? extends AbstractCard>> playedCardsCombat = new HashSet<>();
 	public static int blockExpired = 0;
+	public static Set<AbstractCard> costs1LessUntilPlayed = new HashSet<>();
 
-	public static ArrayList<Class<? extends AbstractPotion>> lesserPotionPool = new ArrayList<>();
+	public static ArrayList<Class<? extends SackPotion>> lesserPotionPool = new ArrayList<>();
 	public static HashSet<AbstractCard> statusesToExhaust = new HashSet<>();
 
 	public static Properties gathererDefaults = new Properties();
@@ -415,6 +415,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		statusesToExhaust.clear();
 		enchantAmount = 0;
 		transmuteAmount = 0;
+		costs1LessUntilPlayed.clear();
 
 		for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
 			if (c instanceof AbstractNumberedCard) {
@@ -487,6 +488,10 @@ public class GathererMod implements PostInitializeSubscriber,
 	@Override
 	public void receiveCardUsed(AbstractCard c) {
 		playedCardsCombat.add(c.getClass()); // might be obsoleted?
+		if (costs1LessUntilPlayed.contains(c)) {
+			costs1LessUntilPlayed.remove(c);
+			c.updateCost(1);
+		}
 	}
 
 	@Override
@@ -546,8 +551,8 @@ public class GathererMod implements PostInitializeSubscriber,
 				c.hasTag(BaseModCardTags.BASIC_STRIKE) || c.getClass() == Strike_Red.class || c.getClass() == Strike_Green.class || c.getClass() == Strike_Blue.class;
 	}
 
-	public static AbstractPotion returnRandomLesserPotion() {
-		Class<? extends AbstractPotion> cls = lesserPotionPool.get(AbstractDungeon.potionRng.random.nextInt(lesserPotionPool.size()));
+	public static SackPotion returnRandomLesserPotion() {
+		Class<? extends SackPotion> cls = lesserPotionPool.get(AbstractDungeon.potionRng.random.nextInt(lesserPotionPool.size()));
 		try {
 			return cls.newInstance();
 		} catch (Exception e) {

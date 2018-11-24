@@ -134,5 +134,12 @@
       "glow_power"
     ],
     "DESCRIPTION": "Boosts the effect of #yLight! and #yShadow. Wears off if you play a card which doesn't give you #yGlow #yPower."
+  },
+  {
+    "PROPER_NAME": "Alchemy Trial",
+    "NAMES": [
+      "alchemy trial tooltip"
+    ],
+    "DESCRIPTION": "#rAttack - Lesser Fire or Explosive Potion NL #gSkill - Lesser Block or Energy Potion NL #bPower - Lesser Strength or Dexterity Potion NL Other - Lesser Weak or Fear Potion"
   }
 ]

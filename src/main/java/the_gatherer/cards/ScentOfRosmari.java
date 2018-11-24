@@ -1,7 +1,7 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -28,7 +28,7 @@ public class ScentOfRosmari extends CustomCard {
 	private static final CardTarget TARGET = CardTarget.SELF;
 
 	private static final int POWER = 6;
-	private static final int UPGRADE_BONUS = 3;
+	private static final int UPGRADE_BONUS = 2;
 	private static final int RETAIN = 1;
 	private static final int REATIN_BONUS = 1;
 
@@ -41,10 +41,9 @@ public class ScentOfRosmari extends CustomCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 1));
+		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
 		AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
 		AbstractDungeon.actionManager.addToBottom(new ScentOfRosmariAction(this.magicNumber));
-
 	}
 
 	public AbstractCard makeCopy() {

@@ -1,6 +1,7 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -36,14 +37,6 @@ public class SmartManeuver extends CustomCard {
 		this.magicNumber = this.baseMagicNumber;
 	}
 
-	@Override
-	public void applyPowers() {
-		super.applyPowers();
-		if (upgraded) {
-			this.retain = true;
-		}
-	}
-
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new DamageHalfPower(m, 1, false), 1));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, magicNumber), magicNumber));
@@ -58,7 +51,7 @@ public class SmartManeuver extends CustomCard {
 			this.upgradeName();
 			this.rawDescription = UPGRADE_DESCRIPTION;
 			this.initializeDescription();
-			this.retain = true;
+			AlwaysRetainField.alwaysRetain.set(this, true);
 		}
 	}
 }

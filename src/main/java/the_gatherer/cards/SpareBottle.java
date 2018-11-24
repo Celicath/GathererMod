@@ -1,6 +1,5 @@
 package the_gatherer.cards;
 
-import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -29,7 +28,7 @@ public class SpareBottle extends AbstractTaggedCard {
 	private static final int POWER = 3;
 	private static final int UPGRADE_BONUS = 2;
 
-	private static String[] tagStrings = new String[] {
+	private static String[] tagStrings = new String[]{
 			"<Norm>",
 			"<Silv>",
 			"<Gold>"

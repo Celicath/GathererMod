@@ -35,7 +35,7 @@ public class ScentOfRosmariPower extends AbstractPower {
 
 		firstCard = cards.get(0).name;
 
-		for(AbstractCard c : cards) {
+		for (AbstractCard c : cards) {
 			addCard(c);
 		}
 	}

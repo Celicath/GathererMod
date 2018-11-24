@@ -17,13 +17,11 @@ public class LoadCardPatch {
 			if (retVal.cardID.equals(Strike_Red.ID)) {
 				GathererMod.logger.info("Strike_RED");
 				retVal.baseDamage += retVal.misc;
-			}
-			else if (retVal.cardID.equals(Defend_Green.ID)) {
+			} else if (retVal.cardID.equals(Defend_Green.ID)) {
 				GathererMod.logger.info("Defend_Green");
 				retVal.baseBlock += retVal.misc;
-			}
-			else if (retVal instanceof AbstractTaggedCard) {
-				((AbstractTaggedCard)retVal).setTag(retVal.misc);
+			} else if (retVal instanceof AbstractTaggedCard) {
+				((AbstractTaggedCard) retVal).setTag(retVal.misc);
 			}
 		}
 	}

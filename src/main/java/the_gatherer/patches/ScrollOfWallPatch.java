@@ -2,7 +2,6 @@ package the_gatherer.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -14,7 +13,6 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import javassist.CtBehavior;
 import the_gatherer.GathererMod;
-import the_gatherer.actions.GainPlatedArmorThresholdAction;
 import the_gatherer.cards.ScrollOfWall;
 
 public class ScrollOfWallPatch {

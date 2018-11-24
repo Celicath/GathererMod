@@ -1,7 +1,7 @@
 package the_gatherer.powers;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.RefundAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -34,7 +34,7 @@ public class UpliftPower extends AbstractPower {
 
 	@Override
 	public void updateDescription() {
-		this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+		this.description = DESCRIPTIONS[0] + this.amount;
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class UpliftPower extends AbstractPower {
 			if (card.costForTurn >= 2) {
 				this.flash();
 
-				AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.amount));
+				AbstractDungeon.actionManager.addToBottom(new RefundAction(card, this.amount));
 				canActivate = false;
 			}
 		}

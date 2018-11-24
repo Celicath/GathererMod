@@ -49,6 +49,7 @@ public class ScentOfRosmariAction extends AbstractGameAction {
 				ArrayList<AbstractCard> cards = new ArrayList<>();
 
 				for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
+					c.retain = true;
 					cards.add(c);
 					if (pow instanceof ScentOfRosmariPower) {
 						((ScentOfRosmariPower) pow).addCard(c);

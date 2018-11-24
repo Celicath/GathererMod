@@ -1,6 +1,7 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -28,7 +29,7 @@ public class Duality extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 17;
+	private static final int POWER = 16;
 	private static final int UPGRADE_BONUS = 5;
 
 	public Duality() {
@@ -36,13 +37,14 @@ public class Duality extends CustomCard {
 
 		this.baseDamage = POWER;
 		this.baseBlock = POWER;
-		this.retain = true;
+
+		AlwaysRetainField.alwaysRetain.set(this, true);
 	}
 
 	@Override
-	public void applyPowers() {
-		super.applyPowers();
-		this.retain = true;
+	public void initializeDescription() {
+		super.initializeDescription();
+		keywords.remove("switch");
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -71,7 +73,6 @@ public class Duality extends CustomCard {
 			this.rawDescription = DESCRIPTION;
 			this.initializeDescription();
 		}
-		this.retain = true;
 	}
 
 	public AbstractCard makeCopy() {

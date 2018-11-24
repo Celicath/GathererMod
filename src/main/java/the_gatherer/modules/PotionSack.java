@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -19,6 +20,9 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.PotionSlot;
 import the_gatherer.GathererMod;
+import the_gatherer.cards.Glitched;
+import the_gatherer.potions.SackPotion;
+import the_gatherer.powers.UpgradeBagPower;
 
 import java.util.ArrayList;
 
@@ -48,6 +52,8 @@ public class PotionSack {
 	private float starty;
 
 	public static InputAction[] selectPotionActions = new InputAction[3];
+
+	public static int potionPotency = 0;
 
 	public PotionSack() {
 		this.potionUi = new PotionSackPopUp();
@@ -158,6 +164,33 @@ public class PotionSack {
 					for (int i = 0; i < potions.size(); i++) {
 						movePotion(i, potions.get(i));
 					}
+				}
+			}
+		}
+
+		int potency = 0;
+		UpgradeBagPower ubp = null;
+		if (AbstractDungeon.player != null) {
+			ubp = (UpgradeBagPower) AbstractDungeon.player.getPower(UpgradeBagPower.POWER_ID);
+			if (ubp != null) {
+				potency = ubp.amount;
+				for (AbstractCard c : AbstractDungeon.player.hand.group) {
+					if (c instanceof Glitched) {
+						potency = 0;
+						break;
+					}
+				}
+			}
+		}
+		if (potency != potionPotency) {
+			potionPotency = potency;
+			if (ubp != null) {
+				ubp.activated = (potency != 0);
+				ubp.updateDescription();
+			}
+			for (AbstractPotion p : potions) {
+				if (p instanceof SackPotion) {
+					((SackPotion) p).updateDescription();
 				}
 			}
 		}

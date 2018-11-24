@@ -1,6 +1,5 @@
 package the_gatherer.potions;
 
-import basemod.abstracts.CustomPotion;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -15,7 +14,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.PotionRarityEnum;
 
-public class LesserStrengthPotion extends CustomPotion {
+public class LesserStrengthPotion extends SackPotion {
 	private static final String RAW_ID = "LesserStrengthPotion";
 	public static final String POTION_ID = GathererMod.makeID(RAW_ID);
 	private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
@@ -24,16 +23,14 @@ public class LesserStrengthPotion extends CustomPotion {
 
 	public LesserStrengthPotion() {
 		super(NAME, POTION_ID, PotionRarityEnum.LESSER, PotionSize.S, PotionColor.STRENGTH);
-		this.potency = this.getPotency();
-		this.description = DESCRIPTIONS[0] + this.potency + DESCRIPTIONS[1];
 		this.isThrown = false;
-		this.tips.add(new PowerTip(this.name, this.description));
-		this.tips.add(new PowerTip(TipHelper.capitalize(GameDictionary.STRENGTH.NAMES[0]), GameDictionary.keywords.get(GameDictionary.STRENGTH.NAMES[0])));
+
+		updateDescription();
 
 		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
-	public void use(AbstractCreature target) {
+	public void use(AbstractCreature target) { super.use(target);
 		target = AbstractDungeon.player;
 		if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, AbstractDungeon.player, new StrengthPower(target, this.potency), this.potency));
@@ -44,7 +41,14 @@ public class LesserStrengthPotion extends CustomPotion {
 		return new LesserStrengthPotion();
 	}
 
-	public int getPotency(int ascensionLevel) {
+	@Override
+	public void updateDescription() {
+		super.updateDescription(DESCRIPTIONS);
+		this.tips.add(new PowerTip(TipHelper.capitalize(GameDictionary.STRENGTH.NAMES[0]), GameDictionary.keywords.get(GameDictionary.STRENGTH.NAMES[0])));
+	}
+
+	@Override
+	public int getBasePotency() {
 		return 1;
 	}
 }

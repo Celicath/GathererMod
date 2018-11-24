@@ -43,7 +43,7 @@ public abstract class AbstractTaggedCard extends CustomCard {
 	@Override
 	public AbstractCard makeStatEquivalentCopy() {
 		AbstractCard c = super.makeStatEquivalentCopy();
-		((AbstractTaggedCard)c).setTag(misc);
+		((AbstractTaggedCard) c).setTag(misc);
 		return c;
 	}
 }

@@ -102,7 +102,7 @@ public class BambuSwordAction extends AbstractGameAction {
 		card.applyPowers();
 		switch (card.target) {
 			case SELF:
-				AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, p));
+				AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, null));
 				break;
 			case ENEMY:
 				AbstractMonster target = primaryTarget;
@@ -112,7 +112,7 @@ public class BambuSwordAction extends AbstractGameAction {
 				AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, target));
 				break;
 			default:
-				AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, p));
+				AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, null));
 				break;
 		}
 		AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));

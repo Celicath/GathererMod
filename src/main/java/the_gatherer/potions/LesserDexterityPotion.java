@@ -1,6 +1,5 @@
 package the_gatherer.potions;
 
-import basemod.abstracts.CustomPotion;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -16,7 +15,7 @@ import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.PotionRarityEnum;
 
-public class LesserDexterityPotion extends CustomPotion {
+public class LesserDexterityPotion extends SackPotion {
 	private static final String RAW_ID = "LesserDexterityPotion";
 	public static final String POTION_ID = GathererMod.makeID(RAW_ID);
 	private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
@@ -25,16 +24,14 @@ public class LesserDexterityPotion extends CustomPotion {
 
 	public LesserDexterityPotion() {
 		super(NAME, POTION_ID, PotionRarityEnum.LESSER, PotionSize.S, PotionColor.GREEN);
-		this.potency = this.getPotency();
-		this.description = DESCRIPTIONS[0] + this.potency + DESCRIPTIONS[1];
 		this.isThrown = false;
-		this.tips.add(new PowerTip(this.name, this.description));
-		this.tips.add(new PowerTip(TipHelper.capitalize(GameDictionary.DEXTERITY.NAMES[0]), GameDictionary.keywords.get(GameDictionary.DEXTERITY.NAMES[0])));
+
+		updateDescription();
 
 		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
-	public void use(AbstractCreature target) {
+	public void use(AbstractCreature target) { super.use(target);
 		target = AbstractDungeon.player;
 		AbstractDungeon.effectList.add(new FlashAtkImgEffect(target.hb.cX, target.hb.cY, AttackEffect.SHIELD));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, AbstractDungeon.player, new DexterityPower(target, this.potency), this.potency));
@@ -44,7 +41,14 @@ public class LesserDexterityPotion extends CustomPotion {
 		return new LesserDexterityPotion();
 	}
 
-	public int getPotency(int ascensionLevel) {
+	@Override
+	public void updateDescription() {
+		super.updateDescription(DESCRIPTIONS);
+		this.tips.add(new PowerTip(TipHelper.capitalize(GameDictionary.DEXTERITY.NAMES[0]), GameDictionary.keywords.get(GameDictionary.DEXTERITY.NAMES[0])));
+	}
+
+	@Override
+	public int getBasePotency() {
 		return 1;
 	}
 }

@@ -1,19 +1,17 @@
 package the_gatherer.potions;
 
-import basemod.abstracts.CustomPotion;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.PotionRarityEnum;
 
-public class LesserFirePotion extends CustomPotion {
+public class LesserFirePotion extends SackPotion {
 	private static final String RAW_ID = "LesserFirePotion";
 	public static final String POTION_ID = GathererMod.makeID(RAW_ID);
 	private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
@@ -22,16 +20,15 @@ public class LesserFirePotion extends CustomPotion {
 
 	public LesserFirePotion() {
 		super(NAME, POTION_ID, PotionRarityEnum.LESSER, PotionSize.SPHERE, PotionColor.FIRE);
-		this.potency = this.getPotency();
-		this.description = DESCRIPTIONS[0] + this.potency + DESCRIPTIONS[1];
-		this.isThrown = true;
+		this.isThrown = false;
 		this.targetRequired = true;
-		this.tips.add(new PowerTip(this.name, this.description));
+
+		updateDescription();
 
 		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
-	public void use(AbstractCreature target) {
+	public void use(AbstractCreature target) { super.use(target);
 		DamageInfo info = new DamageInfo(AbstractDungeon.player, this.potency, DamageInfo.DamageType.THORNS);
 		info.applyEnemyPowersOnly(target);
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.FIRE));
@@ -41,7 +38,13 @@ public class LesserFirePotion extends CustomPotion {
 		return new LesserFirePotion();
 	}
 
-	public int getPotency(int ascensionLevel) {
+	@Override
+	public void updateDescription() {
+		super.updateDescription(DESCRIPTIONS);
+	}
+
+	@Override
+	public int getBasePotency() {
 		return 10;
 	}
 }

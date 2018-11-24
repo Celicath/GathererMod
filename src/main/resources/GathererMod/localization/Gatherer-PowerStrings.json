@@ -101,8 +101,7 @@
   "Gatherer:Uplift" : {
     "NAME": "Uplift",
     "DESCRIPTIONS": [
-      "The first card played each turn that costs 2 or more gives you #b",
-      " energy."
+      "The first card played each turn that costs 2 or more has Refund #b"
     ]
   },
   "Gatherer:DamageHalf" : {
@@ -127,6 +126,24 @@
       " Block per unique card you played this turn.",
       " NL (Currently #b",
       " Block.)"
+    ]
+  },
+  "Gatherer:AlchemyTrial" : {
+    "NAME": "Alchemy Trial",
+    "DESCRIPTIONS": [
+      "If you play #b",
+      " more card, gain #b",
+      " more cards, gain #b",
+      " #yLesser #yPotions. NL #rAttack - Lesser Fire or Explosive Potion NL #gSkill - Lesser Block or Energy Potion NL #bPower - Lesser Strength or Dexterity Potion NL Other - Lesser Weak or Fear Potion"
+    ]
+  },
+  "Gatherer:UpgradeBag" : {
+    "NAME": "Bag Upgraded!",
+    "DESCRIPTIONS": [
+      "If you're NOT holding Glitched in your hand, your Sack potions have #b+",
+      "% potency.",
+      " NL (Activated.)",
+      " NL #r(Deactivated!)"
     ]
   },
 

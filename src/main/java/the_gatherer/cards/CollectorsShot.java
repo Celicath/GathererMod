@@ -28,12 +28,8 @@ public class CollectorsShot extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 2;
-
 	public CollectorsShot() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-		this.baseMagicNumber = POWER;
-		this.magicNumber = this.baseMagicNumber;
 		updateDamage();
 	}
 
@@ -51,7 +47,7 @@ public class CollectorsShot extends CustomCard {
 
 	private void updateDamage() {
 		if (AbstractDungeon.player != null) {
-			this.baseDamage = GathererMod.countUnique(AbstractDungeon.player.masterDeck) * this.magicNumber;
+			this.baseDamage = GathererMod.countUnique(AbstractDungeon.player.masterDeck) * (upgraded ? 4 : 3) / 2;
 			this.rawDescription = (upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION) + EXTENDED_DESCRIPTION[0];
 			this.initializeDescription();
 		}
@@ -68,7 +64,6 @@ public class CollectorsShot extends CustomCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
-			this.isInnate = true;
 			this.rawDescription = UPGRADE_DESCRIPTION;
 			this.initializeDescription();
 		}

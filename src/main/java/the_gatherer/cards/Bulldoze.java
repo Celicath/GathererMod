@@ -51,7 +51,7 @@ public class Bulldoze extends CustomCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		for (int i = 0 ; i < hits(); i++) {
+		for (int i = 0; i < hits(); i++) {
 			AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY));
 		}
 

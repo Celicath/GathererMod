@@ -1,6 +1,7 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -23,7 +24,7 @@ public class EnergyBasket extends CustomCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final CardType TYPE = CardType.SKILL;
 	private static final CardColor COLOR = CardColorEnum.LIME;
-	private static final CardRarity RARITY = CardRarity.COMMON;
+	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
 	private static final int POWER = 2;
@@ -34,15 +35,9 @@ public class EnergyBasket extends CustomCard {
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
 		this.exhaust = true;
-		this.retain = true;
+		AlwaysRetainField.alwaysRetain.set(this, true);
 
 		this.tags.add(CustomTags.POTION_GEN);
-	}
-
-	@Override
-	public void applyPowers() {
-		super.applyPowers();
-		this.retain = true;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

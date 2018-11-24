@@ -1,12 +1,9 @@
 package the_gatherer.actions;
 
-import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.relics.ToyOrnithopter;
 import the_gatherer.GathererMod;
 import the_gatherer.potions.PlaceHolderPotion;
 

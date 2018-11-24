@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 
 public class GathererMetricsPatch {
 
-	@SpirePatch(clz=Metrics.class, method="sendPost", paramtypez = {String.class, String.class})
+	@SpirePatch(clz = Metrics.class, method = "sendPost", paramtypez = {String.class, String.class})
 	public static class SendPostPatch {
 
 		public static void Prefix(Metrics __instance, @ByRef String[] url, String fileName) {
@@ -23,7 +23,7 @@ public class GathererMetricsPatch {
 		}
 	}
 
-	@SpirePatch(clz=DeathScreen.class, method="shouldUploadMetricData")
+	@SpirePatch(clz = DeathScreen.class, method = "shouldUploadMetricData")
 	public static class shouldUploadMetricData {
 
 		public static boolean Postfix(boolean __retVal) {
@@ -34,7 +34,7 @@ public class GathererMetricsPatch {
 		}
 	}
 
-	@SpirePatch(clz=Metrics.class, method="run")
+	@SpirePatch(clz = Metrics.class, method = "run")
 	public static class RunPatch {
 
 		public static void Postfix(Metrics __instance) {
@@ -43,7 +43,7 @@ public class GathererMetricsPatch {
 					Method m = Metrics.class.getDeclaredMethod("gatherAllDataAndSend", boolean.class, boolean.class, MonsterGroup.class);
 					m.setAccessible(true);
 					m.invoke(__instance, __instance.death, __instance.trueVictory, __instance.monsters);
-				} catch (NoSuchMethodException|InvocationTargetException|IllegalAccessException e) {
+				} catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
 					e.printStackTrace();
 				}
 			}

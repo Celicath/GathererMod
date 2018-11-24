@@ -2,7 +2,8 @@
   "Gatherer:LesserAttackPotion": {
     "NAME": "Lesser Attack Potion",
     "DESCRIPTIONS": [
-      "Add a random #yAttack card to your hand, it costs #b0 this turn."
+      "Add #b",
+      " random #yAttack card to your hand, it costs #b0 this turn."
     ]
   },
   "Gatherer:LesserBlockPotion": {
@@ -71,21 +72,22 @@
   "Gatherer:LesserPowerPotion": {
     "NAME": "Lesser Power Potion",
     "DESCRIPTIONS": [
-      "Add a random #yPower card to your hand, it costs #b0 this turn."
+      "Add #b",
+      " random #yPower card to your hand, it costs #b0 this turn."
     ]
   },
   "Gatherer:LesserRegenPotion": {
     "NAME": "Lesser Regen Potion",
     "DESCRIPTIONS": [
       "Gain #b",
-      " #yRegen.",
-      ""
+      " #yRegen."
     ]
   },
   "Gatherer:LesserSkillPotion": {
     "NAME": "Lesser Skill Potion",
     "DESCRIPTIONS": [
-      "Add a random #ySkill card to your hand, it costs #b0 this turn."
+      "Add #b",
+      " random #ySkill card to your hand, it costs #b0 this turn."
     ]
   },
   "Gatherer:LesserStrengthPotion": {
@@ -98,7 +100,6 @@
   "Gatherer:LesserSwiftPotion": {
     "NAME": "Lesser Swift Potion",
     "DESCRIPTIONS": [
-      "",
       "Draw #b",
       " cards."
     ]
@@ -124,10 +125,28 @@
       "% of missing health."
     ]
   },
+  "Gatherer:RetainPotion": {
+    "NAME": "Retain Potion",
+    "DESCRIPTIONS": [
+      "Retain #b2 random cards this turn."
+    ]
+  },
+  "Gatherer:RetainPotionPlus": {
+    "NAME": "Retain Potion+",
+    "DESCRIPTIONS": [
+      "Retain your hand this turn."
+    ]
+  },
   "Gatherer:PlaceHolderPotion": {
     "NAME": "PlaceHolder",
     "DESCRIPTIONS": [
       "Just a placeholder for implementing potion-based things."
+    ]
+  },
+  "Gatherer:BlackTeaTag": {
+    "NAME": "Black Tea Tag",
+    "DESCRIPTIONS": [
+      " NL NL <Black Tea> tagged NL Exhausts ALL Black Tea when used."
     ]
   }
 }
