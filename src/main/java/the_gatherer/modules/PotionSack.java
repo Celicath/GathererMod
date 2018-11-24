@@ -78,8 +78,6 @@ public class PotionSack {
 	public void update() {
 		if (!init) {
 			hb.move(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY + above * Settings.scale);
-			logger.info(Settings.scale);
-			logger.info(hb.cX + " " + hb.cY + " " + hb.width + " " + hb.height);
 
 			potions = new ArrayList<>();
 			for (int i = 0; i < 3; i++) {

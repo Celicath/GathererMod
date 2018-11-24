@@ -29,6 +29,7 @@ public class Duplicator extends CustomCard {
 
 	public Duplicator() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+		this.exhaust = true;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -37,9 +38,6 @@ public class Duplicator extends CustomCard {
 				AbstractDungeon.actionManager.addToBottom(new UsePotionOnRandomTargetAction(po));
 			}
 		}
-
-		this.rawDescription = DESCRIPTION;
-		this.initializeDescription();
 	}
 
 	public AbstractCard makeCopy() {
@@ -49,6 +47,7 @@ public class Duplicator extends CustomCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
+			this.exhaust = false;
 			this.rawDescription = UPGRADE_DESCRIPTION;
 			this.initializeDescription();
 		}
