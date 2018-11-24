@@ -52,5 +52,11 @@
     "TEXT": [
       "Enchant"
     ]
+  },
+  "Gatherer:ChooseLesserPotionAction": {
+    "TEXT": [
+      "Change Recipe",
+      "Gain"
+    ]
   }
 }

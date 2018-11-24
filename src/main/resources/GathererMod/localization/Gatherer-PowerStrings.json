@@ -154,6 +154,14 @@
       " HP."
     ]
   },
+  "Gatherer:RecipeChange" : {
+    "NAME": "Recipe Changed",
+    "DESCRIPTIONS": [
+      "Whenever you obtain a Sack potion, replace it with ",
+      " with #b",
+      "% probability."
+    ]
+  },
 
   "Gatherer:Dummy": { }
 }

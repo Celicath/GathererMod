@@ -30,7 +30,7 @@ public class LesserAttackPotion extends SackPotion {
 		super.use(target);
 		AbstractCard c = AbstractDungeon.returnTrulyRandomCardInCombat(AbstractCard.CardType.ATTACK).makeCopy();
 		c.setCostForTurn(0);
-		AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, true));
+		AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, this.potency));
 	}
 
 	public AbstractPotion makeCopy() {

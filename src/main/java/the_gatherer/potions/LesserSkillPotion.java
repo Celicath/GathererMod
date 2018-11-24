@@ -29,7 +29,7 @@ public class LesserSkillPotion extends SackPotion {
 	public void use(AbstractCreature target) { super.use(target);
 		AbstractCard c = AbstractDungeon.returnTrulyRandomCardInCombat(AbstractCard.CardType.SKILL).makeCopy();
 		c.setCostForTurn(0);
-		AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, true));
+		AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, this.potency));
 	}
 
 	public AbstractPotion makeCopy() {

@@ -89,7 +89,7 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static int blockExpired = 0;
 	public static Set<AbstractCard> costs1LessUntilPlayed = new HashSet<>();
 
-	public static ArrayList<Class<? extends SackPotion>> lesserPotionPool = new ArrayList<>();
+	public static ArrayList<SackPotion> lesserPotionPool = new ArrayList<>();
 	public static HashSet<AbstractCard> statusesToExhaust = new HashSet<>();
 
 	public static Properties gathererDefaults = new Properties();
@@ -245,21 +245,21 @@ public class GathererMod implements PostInitializeSubscriber,
 				GATHERER_PORTRAIT,
 				AbstractPlayerEnum.THE_GATHERER);
 
-		lesserPotionPool.add(LesserAttackPotion.class);
-		lesserPotionPool.add(LesserBlockPotion.class);
-		lesserPotionPool.add(LesserDexterityPotion.class);
-		lesserPotionPool.add(LesserEnergyPotion.class);
-		lesserPotionPool.add(LesserEssenceOfSteel.class);
-		lesserPotionPool.add(LesserExplosivePotion.class);
-		lesserPotionPool.add(LesserFearPotion.class);
-		lesserPotionPool.add(LesserFirePotion.class);
-		lesserPotionPool.add(LesserLiquidBronze.class);
-		lesserPotionPool.add(LesserPoisonPotion.class);
-		lesserPotionPool.add(LesserPowerPotion.class);
-		lesserPotionPool.add(LesserSkillPotion.class);
-		lesserPotionPool.add(LesserStrengthPotion.class);
-		lesserPotionPool.add(LesserSwiftPotion.class);
-		lesserPotionPool.add(LesserWeakPotion.class);
+		lesserPotionPool.add(new LesserAttackPotion());
+		lesserPotionPool.add(new LesserBlockPotion());
+		lesserPotionPool.add(new LesserDexterityPotion());
+		lesserPotionPool.add(new LesserEnergyPotion());
+		lesserPotionPool.add(new LesserEssenceOfSteel());
+		lesserPotionPool.add(new LesserExplosivePotion());
+		lesserPotionPool.add(new LesserFearPotion());
+		lesserPotionPool.add(new LesserFirePotion());
+		lesserPotionPool.add(new LesserLiquidBronze());
+		lesserPotionPool.add(new LesserPoisonPotion());
+		lesserPotionPool.add(new LesserPowerPotion());
+		lesserPotionPool.add(new LesserSkillPotion());
+		lesserPotionPool.add(new LesserStrengthPotion());
+		lesserPotionPool.add(new LesserSwiftPotion());
+		lesserPotionPool.add(new LesserWeakPotion());
 
 		BaseMod.addPotion(BloodPotion.class, Color.WHITE.cpy(), Color.LIGHT_GRAY.cpy(), null, BloodPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
 		BaseMod.addPotion(GhostInAJar.class, Color.WHITE.cpy(), Color.LIGHT_GRAY.cpy(), null, BloodPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
@@ -553,13 +553,8 @@ public class GathererMod implements PostInitializeSubscriber,
 	}
 
 	public static SackPotion returnRandomLesserPotion() {
-		Class<? extends SackPotion> cls = lesserPotionPool.get(AbstractDungeon.potionRng.random.nextInt(lesserPotionPool.size()));
-		try {
-			return cls.newInstance();
-		} catch (Exception e) {
-			logger.warn(e.getMessage());
-			return new LesserFirePotion();
-		}
+		SackPotion sp = lesserPotionPool.get(AbstractDungeon.potionRng.random.nextInt(lesserPotionPool.size()));
+		return (SackPotion)sp.makeCopy();
 	}
 
 	private static void setLesserPotionColor(Color color) {

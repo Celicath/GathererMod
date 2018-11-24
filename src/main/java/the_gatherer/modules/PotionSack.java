@@ -229,7 +229,7 @@ public class PotionSack {
 				FontHelper.renderFontCentered(
 						sb,
 						FontHelper.topPanelAmountFont,
-						selectPotionActions[i].getKeyString(),
+						selectPotionActions[i].getKeyString().substring(0, 3),
 						p.posX,
 						textY,
 						Settings.CREAM_COLOR);
@@ -259,6 +259,13 @@ public class PotionSack {
 			logger.info("Potion Sack is full");
 			return false;
 		}
+	}
+
+	public void setPotion(int index, AbstractPotion potion) {
+		this.potions.set(index, potion);
+		setPotionPosition(index, potion);
+		potion.flash();
+		AbstractPotion.playPotionSound();
 	}
 
 	public void removePotion(int slot) {
