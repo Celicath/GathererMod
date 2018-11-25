@@ -30,7 +30,8 @@ public class LesserFearPotion extends SackPotion {
 		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
-	public void use(AbstractCreature target) { super.use(target);
+	public void use(AbstractCreature target) {
+		super.use(target);
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, AbstractDungeon.player, new VulnerablePower(target, this.potency, false), this.potency));
 	}
 

@@ -12,10 +12,8 @@ import the_gatherer.GathererMod;
 import the_gatherer.actions.ObtainLesserPotionAction;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.patches.CustomTags;
-import the_gatherer.potions.LesserPoisonPotion;
 import the_gatherer.potions.RetainPotion;
 import the_gatherer.powers.LuckyCloverPower;
-import the_gatherer.powers.PoisonMasteryPower;
 
 public class LuckyClover extends CustomCard {
 	private static final String RAW_ID = "LuckyClover";

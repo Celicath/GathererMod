@@ -1,4 +1,4 @@
-package the_gatherer.cards;
+package the_gatherer.cards.Deprecated;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.HealAction;

@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.CardColorEnum;
-import the_gatherer.powers.UpgradeBagPower;
+import the_gatherer.powers.SackPotionPotencyPower;
 
 import java.util.ArrayList;
 
@@ -46,7 +46,7 @@ public class UpgradeBag extends CustomCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new UpgradeBagPower(p, 1), 1));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SackPotionPotencyPower(p, 1), 1));
 		AbstractCard glitched = new Glitched();
 		if (upgraded) {
 			glitched.upgrade();

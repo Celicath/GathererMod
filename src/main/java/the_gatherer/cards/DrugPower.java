@@ -2,6 +2,7 @@ package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -10,7 +11,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.potions.FruitJuice;
 import the_gatherer.GathererMod;
+import the_gatherer.actions.UsePotionOnRandomTargetAction;
 import the_gatherer.patches.CardColorEnum;
 
 public class DrugPower extends CustomCard {
@@ -51,7 +54,18 @@ public class DrugPower extends CustomCard {
 				AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 
 		if (GathererMod.lastPotionUsedThisTurn != null) {
-			GathererMod.lastPotionUsedThisTurn.use(m);
+			boolean notUsing = false;
+			if (GathererMod.lastPotionUsedThisTurn instanceof FruitJuice) {
+				if (GathererMod.drugPowerHPGain >= 100) {
+					AbstractDungeon.actionManager.addToBottom(new TalkAction(p, EXTENDED_DESCRIPTION[3]));
+					notUsing = true;
+				} else {
+					GathererMod.drugPowerHPGain += GathererMod.lastPotionUsedThisTurn.getPotency();
+				}
+			}
+			if (!notUsing) {
+				AbstractDungeon.actionManager.addToBottom(new UsePotionOnRandomTargetAction(GathererMod.lastPotionUsedThisTurn));
+			}
 		}
 
 		this.rawDescription = DESCRIPTION;

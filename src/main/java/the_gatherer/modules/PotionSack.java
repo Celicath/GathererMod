@@ -22,7 +22,7 @@ import com.megacrit.cardcrawl.potions.PotionSlot;
 import the_gatherer.GathererMod;
 import the_gatherer.cards.Glitched;
 import the_gatherer.potions.SackPotion;
-import the_gatherer.powers.UpgradeBagPower;
+import the_gatherer.powers.SackPotionPotencyPower;
 
 import java.util.ArrayList;
 
@@ -167,9 +167,9 @@ public class PotionSack {
 		}
 
 		int potency = 0;
-		UpgradeBagPower ubp = null;
+		SackPotionPotencyPower ubp = null;
 		if (AbstractDungeon.player != null) {
-			ubp = (UpgradeBagPower) AbstractDungeon.player.getPower(UpgradeBagPower.POWER_ID);
+			ubp = (SackPotionPotencyPower) AbstractDungeon.player.getPower(SackPotionPotencyPower.POWER_ID);
 			if (ubp != null) {
 				potency = ubp.amount;
 				for (AbstractCard c : AbstractDungeon.player.hand.group) {

@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.EquilibriumPower;
 import the_gatherer.GathererMod;
-import the_gatherer.actions.RecoveryHerbAction;
 import the_gatherer.patches.PotionRarityEnum;
 
 public class RetainPotion extends SackPotion {
@@ -27,7 +26,8 @@ public class RetainPotion extends SackPotion {
 		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
-	public void use(AbstractCreature target) { super.use(target);
+	public void use(AbstractCreature target) {
+		super.use(target);
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
 				AbstractDungeon.player, AbstractDungeon.player, new EquilibriumPower(AbstractDungeon.player, 1), 1));
 	}

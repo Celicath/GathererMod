@@ -25,7 +25,6 @@
     "NAME": "Spare Bottle",
     "DESCRIPTION": "Whenever you use a Potion, gain !M! Block and deal !M! damage to a random enemy."
   },
-
   "Gatherer:AcidicSpray": {
     "NAME": "Acidic Spray",
     "DESCRIPTION": "Deal !D! damage. Deal !D! damage for each debuff on the target. Apply !M! weak."
@@ -52,7 +51,8 @@
     "EXTENDED_DESCRIPTION": [
       " NL (No Potion played.)",
       " NL (Potion played: NL ",
-      ")"
+      ")",
+      "Huh? Fruit Juice isn't delicious any more!"
     ]
   },
   "Gatherer:FlowerFalling": {
@@ -85,7 +85,6 @@
     "NAME": "Tactical Strike",
     "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards."
   },
-
   "Gatherer:BigPouch": {
     "NAME": "Big Pouch",
     "DESCRIPTION": "Draw !M! Cards. Gain Block equal to total cost of your cards in hand. (Not affected by powers)"
@@ -112,8 +111,8 @@
   },
   "Gatherer:QuickSynthesis": {
     "NAME": "Quick Synthesis",
-    "DESCRIPTION": "Add !M! random Lesser_Potion to your Sack. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Add !M! random Lesser_Potion to your Sack. NL Exhaust."
+    "DESCRIPTION": "Gain !M! random Lesser_Potion. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Gain !M! random Lesser_Potion. NL Exhaust."
   },
   "Gatherer:SaveValuables": {
     "NAME": "Save Valuables",
@@ -132,7 +131,6 @@
       " NL Once_: [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
     ]
   },
-
   "Gatherer:Duality": {
     "NAME": "Duality",
     "DESCRIPTION": "Deal !D! damage. Retain. When Retained, it switches between Attack and Skill.",
@@ -203,11 +201,10 @@
     "NAME": "Withering Strike",
     "DESCRIPTION": "Deal !D! damage. Enemy loses 1 Strength down to !M!."
   },
-
   "Gatherer:Duplicator": {
     "NAME": "Duplicator",
-    "DESCRIPTION": "Gain effects of all your [#D0F0D0]Sack [#D0F0D0]Potions. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain effects of all your [#D0F0D0]Sack [#D0F0D0]Potions."
+    "DESCRIPTION": "Gain effects of all your Lesser_Potions. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain effects of all your Lesser_Potions."
   },
   "Gatherer:Enchant": {
     "NAME": "Enchant",
@@ -245,12 +242,11 @@
   },
   "Gatherer:RecoveryHerb": {
     "NAME": "Recovery Herb",
-    "DESCRIPTION": "Gain a Recovery_Potion. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain a Recovery_Potion+. NL Exhaust."
-  },
-  "Gatherer:SalvePotion": {
-    "NAME": "Salve Potion",
-    "DESCRIPTION": "Considered as using a [#D0F0D0]Sack [#D0F0D0]Potion. NL Heal !M! HP. NL Decrease this card's healing by 1 this combat."
+    "DESCRIPTION": "Considered as using a Potion. Heals !M! % of your missing HP. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "(Heals ",
+      " HP.)"
+    ]
   },
   "Gatherer:ScentOfRosmari": {
     "NAME": "Scent of Rosmari",
@@ -285,7 +281,6 @@
     "NAME": "Venom Barrier",
     "DESCRIPTION": "Gain !B! Block. Whenever you are attacked this turn, apply !M! Poison to the attacker."
   },
-
   "Gatherer:AlchemyTrial": {
     "NAME": "Alchemy Trial",
     "DESCRIPTION": "Whenever you play 10 cards, gain a Lesser Potion depending on the 10th card played."
@@ -311,8 +306,8 @@
   },
   "Gatherer:UpgradeBag": {
     "NAME": "Upgrade Bag",
-    "DESCRIPTION": "Shuffle a Glitched in your deck. If you are NOT holding it, your [#D0F0D0]Sack [#D0F0D0]Potions have +50% potency.",
-    "UPGRADE_DESCRIPTION": "Add a Glitched+ in your discard pile. If you are NOT holding it, your [#D0F0D0]Sack [#D0F0D0]Potions have +50% potency."
+    "DESCRIPTION": "Shuffle a Glitched in your deck. Gain +50% Lesser_Potion Potency.",
+    "UPGRADE_DESCRIPTION": "Add a Glitched+ in your discard pile. Gain +50% Lesser_Potion Potency."
   },
   "Gatherer:Glitched": {
     "DESCRIPTION": "Retain. NL Discard this. NL While in your hand, Upgrade Bag power is disabled.",
@@ -322,7 +317,6 @@
     "NAME": "Uplift",
     "DESCRIPTION": "The first card played each turn that costs 2 or more has Refund 1."
   },
-
   "Gatherer:Bulldoze": {
     "NAME": "Bulldoze",
     "DESCRIPTION": "Deal !D! damage to ALL enemies for every !M! unique cards in your discard pile.",
@@ -360,7 +354,6 @@
       " NL (Deals !D! damage.)"
     ]
   },
-
   "Gatherer:BlackTea": {
     "NAME": "Black Tea",
     "DESCRIPTION": "Gain !M! Strength; amount reduced every turn. When obtained, choose your Black_Tea_Potion.",
@@ -378,6 +371,8 @@
     "EXTENDED_DESCRIPTION": [
       "Gain !B! Block. Exhaust.",
       " NL After playing 3 times, permanently replace this with",
+      " NL After playing 2 more times, permanently replace this with",
+      " NL After playing 1 more time, permanently replace this with",
       " an Ironclad card.",
       " a Silent card.",
       " a Defect card."
@@ -401,7 +396,6 @@
       "I can't play this card."
     ]
   },
-
   "Gatherer:BomberForm": {
     "NAME": "Bomber Form",
     "DESCRIPTION": "At the start of your turn, gain a LEP. Any incoming Lesser_Potion becomes LEP, and increases damage of all LEPs by !M!."
@@ -445,5 +439,9 @@
     "EXTENDED_DESCRIPTION": [
       "This card is deprecated."
     ]
+  },
+  "Gatherer:SalvePotion": {
+    "NAME": "Salve Potion",
+    "DESCRIPTION": "Considered as using a Potion. NL Heal !M! HP. NL Decrease this card's healing by 1 this combat."
   }
 }

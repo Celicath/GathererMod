@@ -26,7 +26,8 @@ public class LesserSkillPotion extends SackPotion {
 		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
-	public void use(AbstractCreature target) { super.use(target);
+	public void use(AbstractCreature target) {
+		super.use(target);
 		AbstractCard c = AbstractDungeon.returnTrulyRandomCardInCombat(AbstractCard.CardType.SKILL).makeCopy();
 		c.setCostForTurn(0);
 		AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, this.potency));

@@ -19,12 +19,11 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.blue.Defend_Blue;
-import com.megacrit.cardcrawl.cards.blue.Strike_Blue;
-import com.megacrit.cardcrawl.cards.green.Defend_Green;
-import com.megacrit.cardcrawl.cards.green.Strike_Green;
-import com.megacrit.cardcrawl.cards.red.Defend_Red;
-import com.megacrit.cardcrawl.cards.red.Strike_Red;
+import com.megacrit.cardcrawl.cards.blue.*;
+import com.megacrit.cardcrawl.cards.blue.Stack;
+import com.megacrit.cardcrawl.cards.green.*;
+import com.megacrit.cardcrawl.cards.red.*;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -104,6 +103,13 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static boolean bottleCollector = false;
 
 	public static AbstractPotion lastPotionUsedThisTurn = null;
+
+	// GrowBook Content
+	public static ArrayList<String> growBookCharacter;
+	public static ArrayList<AbstractCard[]> growBookContent;
+
+	// Drug Power Infinite HP Gain Prevention
+	public static int drugPowerHPGain = 0;
 
 	public GathererMod() {
 		logger.debug("Constructor started.");
@@ -233,8 +239,28 @@ public class GathererMod implements PostInitializeSubscriber,
 
 		potionSack = new PotionSack();
 
+		addGrowBookContent(AbstractPlayer.PlayerClass.IRONCLAD.name(), new AbstractCard[]{
+				new Armaments(), new Havoc(), new TwinStrike(), new Feed()
+		});
+		addGrowBookContent(AbstractPlayer.PlayerClass.THE_SILENT.name(), new AbstractCard[]{
+				new Choke(), new WellLaidPlans(), new PoisonedStab(), new Alchemize()
+		});
+		addGrowBookContent(AbstractPlayer.PlayerClass.DEFECT.name(), new AbstractCard[]{
+				new Stack(), new SteamBarrier(), new AllForOne(), new Seek()
+		});
+
 		logger.debug("receivePostInitialize finished.");
 	}
+
+	private void addGrowBookContent(String name, AbstractCard[] cards) {
+		if (growBookCharacter == null || growBookContent == null) {
+			growBookCharacter = new ArrayList<>();
+			growBookContent = new ArrayList<>();
+		}
+		growBookCharacter.add(name);
+		growBookContent.add(cards);
+	}
+
 
 	@Override
 	public void receiveEditCharacters() {
@@ -331,7 +357,6 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new RottenStipe());
 		cards.add(new Nutrients());
 		cards.add(new SaveValuables());
-		cards.add(new SalvePotion());
 		cards.add(new ScrollOfPurity());
 		cards.add(new ScrollOfWall());
 		cards.add(new SealedBomb());
@@ -416,6 +441,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		enchantAmount = 0;
 		transmuteAmount = 0;
 		costs1LessUntilPlayed.clear();
+		drugPowerHPGain = 0;
 
 		for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
 			if (c instanceof AbstractNumberedCard) {
@@ -554,7 +580,7 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	public static SackPotion returnRandomLesserPotion() {
 		SackPotion sp = lesserPotionPool.get(AbstractDungeon.potionRng.random.nextInt(lesserPotionPool.size()));
-		return (SackPotion)sp.makeCopy();
+		return (SackPotion) sp.makeCopy();
 	}
 
 	private static void setLesserPotionColor(Color color) {

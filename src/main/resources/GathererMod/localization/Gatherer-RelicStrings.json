@@ -35,12 +35,12 @@
       "Upon pick up, upgrade ALL your #yFlower cards."
     ]
   },
-  "Gatherer:FlyingFruit" : {
+  "Gatherer:FlyingFruit": {
     "NAME": "Flying Fruit",
     "FLAVOR": "Fruit flies like a banana.",
     "DESCRIPTIONS": [
       "Whenever you play a new unique card while having this, raise your Max HP by #b1"
     ]
   },
-  "Gatherer:Dummy" : { }
+  "Gatherer:Dummy": {}
 }

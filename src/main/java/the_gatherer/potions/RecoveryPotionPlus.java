@@ -28,7 +28,8 @@ public class RecoveryPotionPlus extends SackPotion {
 		this.spotsColor = null;
 	}
 
-	public void use(AbstractCreature target) { super.use(target);
+	public void use(AbstractCreature target) {
+		super.use(target);
 		AbstractDungeon.actionManager.addToBottom(new RecoveryHerbAction(AbstractDungeon.player, AbstractDungeon.player, this.potency));
 	}
 

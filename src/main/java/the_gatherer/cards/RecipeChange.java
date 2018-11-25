@@ -1,7 +1,6 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -11,7 +10,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ChooseLesserPotionAction;
 import the_gatherer.patches.CardColorEnum;
-import the_gatherer.powers.BalancedGrowthPower;
 
 public class RecipeChange extends CustomCard {
 	private static final String RAW_ID = "RecipeChange";

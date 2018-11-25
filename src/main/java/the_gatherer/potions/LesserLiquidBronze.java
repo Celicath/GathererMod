@@ -30,7 +30,8 @@ public class LesserLiquidBronze extends SackPotion {
 		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
-	public void use(AbstractCreature target) { super.use(target);
+	public void use(AbstractCreature target) {
+		super.use(target);
 		target = AbstractDungeon.player;
 		if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, AbstractDungeon.player, new ThornsPower(target, this.potency), this.potency));

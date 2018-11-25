@@ -76,21 +76,21 @@
       " Strength or Dexterity randomly."
     ]
   },
-  "Gatherer:BomberForm" : {
+  "Gatherer:BomberForm": {
     "NAME": "Bomber Form",
     "DESCRIPTIONS": [
       "At the start of your turn, Obtain a LEP. Whenever you obtain a lesser Potion, it becomes LEP and increase damage of all LEPs by #b",
       "."
     ]
   },
-  "Gatherer:Exploding" : {
+  "Gatherer:Exploding": {
     "NAME": "Exploding",
     "DESCRIPTIONS": [
       "All Lesser Explosive Potions deal #b",
       " more damage."
     ]
   },
-  "Gatherer:FeelingFine" : {
+  "Gatherer:FeelingFine": {
     "NAME": "FeelingFine",
     "DESCRIPTIONS": [
       "If you use #b",
@@ -98,13 +98,13 @@
       " more Potions this turn, remove all of your debuffs."
     ]
   },
-  "Gatherer:Uplift" : {
+  "Gatherer:Uplift": {
     "NAME": "Uplift",
     "DESCRIPTIONS": [
       "The first card played each turn that costs 2 or more has Refund #b"
     ]
   },
-  "Gatherer:DamageHalf" : {
+  "Gatherer:DamageHalf": {
     "NAME": "Half Damage",
     "DESCRIPTIONS": [
       "Damage from #yAttacks is divided by #b",
@@ -112,14 +112,14 @@
       "Damage from #yAttacks becomes almost 0 this turn."
     ]
   },
-  "Gatherer:HandcraftedFence" : {
+  "Gatherer:HandcraftedFence": {
     "NAME": "Handcrafted Fence",
     "DESCRIPTIONS": [
       "Whenever your Block expires, add 1 Repair to your hand.",
       "Whenever your Block expires, add 1 upgraded Repair to your hand."
     ]
   },
-  "Gatherer:ColorfulGarden" : {
+  "Gatherer:ColorfulGarden": {
     "NAME": "Colorful Garden",
     "DESCRIPTIONS": [
       "At the end of your turn, gain #b",
@@ -128,7 +128,7 @@
       " Block.)"
     ]
   },
-  "Gatherer:AlchemyTrial" : {
+  "Gatherer:AlchemyTrial": {
     "NAME": "Alchemy Trial",
     "DESCRIPTIONS": [
       "If you play #b",
@@ -137,16 +137,15 @@
       " #yLesser #yPotions. NL #rAttack - Lesser Fire or Explosive Potion NL #gSkill - Lesser Block or Energy Potion NL #bPower - Lesser Strength or Dexterity Potion NL Other - Lesser Weak or Fear Potion"
     ]
   },
-  "Gatherer:UpgradeBag" : {
-    "NAME": "Bag Upgraded!",
+  "Gatherer:SackPotionPotency": {
+    "NAME": "Sack Potion Potency",
     "DESCRIPTIONS": [
-      "If you're NOT holding Glitched in your hand, your Sack potions have #b+",
+      "Your Sack potions have #b+",
       "% potency.",
-      " NL (Activated.)",
       " NL #r(Deactivated!)"
     ]
   },
-  "Gatherer:LuckyClover" : {
+  "Gatherer:LuckyClover": {
     "NAME": "Lucky Clover",
     "DESCRIPTIONS": [
       "Whenever you lose #b",
@@ -154,7 +153,7 @@
       " HP."
     ]
   },
-  "Gatherer:RecipeChange" : {
+  "Gatherer:RecipeChange": {
     "NAME": "Recipe Changed",
     "DESCRIPTIONS": [
       "Whenever you obtain a Sack potion, replace it with ",
@@ -162,6 +161,5 @@
       "% probability."
     ]
   },
-
-  "Gatherer:Dummy": { }
+  "Gatherer:Dummy": {}
 }

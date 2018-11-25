@@ -58,5 +58,10 @@
       "Change Recipe",
       "Gain"
     ]
+  },
+  "Gatherer:ReplaceGrowBookAction": {
+    "TEXT": [
+      "Replace"
+    ]
   }
 }

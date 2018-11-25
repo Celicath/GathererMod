@@ -25,7 +25,8 @@ public class LesserSwiftPotion extends SackPotion {
 		GathererMod.setLesserPotionColors(liquidColor, hybridColor, spotsColor);
 	}
 
-	public void use(AbstractCreature target) { super.use(target);
+	public void use(AbstractCreature target) {
+		super.use(target);
 		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, this.potency));
 	}
 

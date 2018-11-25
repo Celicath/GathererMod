@@ -24,7 +24,7 @@ public abstract class SackPotion extends CustomPotion {
 		NORMAL, BLACKTEA;
 
 		public String toString() {
-			switch(this) {
+			switch (this) {
 				case NORMAL:
 					return "";
 				case BLACKTEA:

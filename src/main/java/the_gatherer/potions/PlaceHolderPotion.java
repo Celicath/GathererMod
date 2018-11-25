@@ -21,7 +21,8 @@ public class PlaceHolderPotion extends SackPotion {
 		updateDescription();
 	}
 
-	public void use(AbstractCreature target) { super.use(target);
+	public void use(AbstractCreature target) {
+		super.use(target);
 	}
 
 	public AbstractPotion makeCopy() {
