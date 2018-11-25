@@ -30,7 +30,7 @@ public class Duality extends CustomCard {
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
 	private static final int POWER = 16;
-	private static final int UPGRADE_BONUS = 5;
+	private static final int UPGRADE_BONUS = 4;
 
 	public Duality() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
