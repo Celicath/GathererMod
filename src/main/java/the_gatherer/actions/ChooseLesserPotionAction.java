@@ -167,7 +167,7 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 								}
 							} else if (sp instanceof LesserDexterityPotion) {
 								if (skillCount > 0) {
-									thought = MIND_SEARCH_TEXT[2];
+									thought = MIND_SEARCH_TEXT[3];
 									weight += skillCount;
 								}
 								if (balancedGrowth) {

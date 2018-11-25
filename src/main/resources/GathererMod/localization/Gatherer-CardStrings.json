@@ -426,8 +426,8 @@
   },
   "Gatherer:LuckyClover": {
     "NAME": "Lucky Clover",
-    "DESCRIPTION": "Gain a Retain_Potion. NL Whenever you lose 4 or more HP, discard a random card to heal 3 HP.",
-    "UPGRADE_DESCRIPTION": "Gain a Retain_Potion+. NL Whenever you lose 4 or more HP, discard a random card to heal 3 HP."
+    "DESCRIPTION": "Retain your hand this turn. NL Whenever you lose 4 or more HP, discard a random card to heal 3 HP.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Retain your hand this turn. NL Whenever you lose 4 or more HP, discard a random card to heal 3 HP."
   },
   "Gatherer:PoisonMastery": {
     "NAME": "Poison Mastery",

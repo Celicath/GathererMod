@@ -96,8 +96,8 @@ public class RottenStipe extends AbstractTaggedCard {
 
 	@Override
 	public void update() {
-		if (this.misc == -1 && AbstractDungeon.cardRng != null && AbstractDungeon.player != null) {
-			this.misc = AbstractDungeon.cardRng.random(48);
+		if (this.misc == -1 && AbstractDungeon.miscRng != null && AbstractDungeon.player != null) {
+			this.misc = AbstractDungeon.miscRng.random(48);
 			setTag(this.misc);
 		}
 		super.update();

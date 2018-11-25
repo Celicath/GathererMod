@@ -41,6 +41,6 @@ public class LesserSwiftPotion extends SackPotion {
 
 	@Override
 	public int getBasePotency() {
-		return 1;
+		return 2;
 	}
 }

@@ -26,7 +26,7 @@ public class MiningStrike extends CustomCard {
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 9;
+	private static final int POWER = 10;
 	private static final int UPGRADE_BONUS = 3;
 	private static final int DIV = 12;
 	private static final int DIV_BONUS = -2;
