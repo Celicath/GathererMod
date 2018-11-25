@@ -1,6 +1,7 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -62,14 +63,13 @@ public class ScrollOfPurity extends CustomCard implements OnUsePotionEffect {
 	}
 
 	int getThreshold() {
-		return upgraded ? 8 : 7;
+		return upgraded ? 7 : 8;
 	}
 
 	@Override
 	public void onUsePotion(AbstractPotion p) {
 		this.flash();
-		if (ScrollOfPurity.exhaustCount > 0) {
-			AbstractDungeon.actionManager.addToBottom(new ScrollOfPurityCountAction(getThreshold(), this.magicNumber));
-		}
+		AbstractDungeon.actionManager.addToTop(new DrawCardAction(AbstractDungeon.player, 1));
+		AbstractDungeon.actionManager.addToBottom(new ScrollOfPurityCountAction(getThreshold(), this.magicNumber));
 	}
 }

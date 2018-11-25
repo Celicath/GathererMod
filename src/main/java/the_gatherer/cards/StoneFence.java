@@ -14,12 +14,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.CardColorEnum;
-import the_gatherer.powers.HandcraftedFencePower;
+import the_gatherer.powers.StoneFencePower;
 
 import java.util.ArrayList;
 
-public class HandcraftedFence extends CustomCard {
-	private static final String RAW_ID = "HandcraftedFence";
+public class StoneFence extends CustomCard {
+	private static final String RAW_ID = "StoneFence";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
@@ -34,21 +34,21 @@ public class HandcraftedFence extends CustomCard {
 
 	private ArrayList<AbstractCard> tooltips;
 
-	public HandcraftedFence() {
+	public StoneFence() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
 		tooltips = new ArrayList<>();
-		tooltips.add(new Repair());
+		tooltips.add(new Thrower());
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractPower pow = p.getPower(HandcraftedFencePower.POWER_ID);
-		if (pow instanceof HandcraftedFencePower) {
+		AbstractPower pow = p.getPower(StoneFencePower.POWER_ID);
+		if (pow instanceof StoneFencePower) {
 			if (upgraded) {
-				((HandcraftedFencePower) pow).upgrade();
+				((StoneFencePower) pow).upgrade();
 			}
 		} else {
-			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new HandcraftedFencePower(upgraded)));
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneFencePower(upgraded)));
 		}
 	}
 
@@ -58,7 +58,7 @@ public class HandcraftedFence extends CustomCard {
 	}
 
 	public AbstractCard makeCopy() {
-		return new HandcraftedFence();
+		return new StoneFence();
 	}
 
 	public void upgrade() {

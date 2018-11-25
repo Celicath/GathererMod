@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ExhaustCardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect;
@@ -33,8 +34,8 @@ public class ScrollOfWallPatch {
 			return hasOne ? result : -1;
 		}
 
-		public static void setExhaustStatus(AbstractCard card, int num) {
-			GathererMod.statusesToExhaust.add(card);
+		public static void setExhaustStatus(AbstractGameEffect age, int num) {
+			GathererMod.gainCardEffectToExhaust.add(age);
 			for (AbstractCard hc : AbstractDungeon.player.hand.group) {
 				if (hc instanceof ScrollOfWall) {
 					hc.flash();
@@ -49,7 +50,8 @@ public class ScrollOfWallPatch {
 			// AbstractDungeon.actionManager.addToTop(new GainPlatedArmorThresholdAction(num, 5));
 		}
 
-		public static void exhaustIncomingCard(AbstractCard c) {
+		public static void exhaustIncomingCard(AbstractGameEffect age, AbstractCard c) {
+			GathererMod.logger.debug("EXHAUST");
 			for (AbstractRelic r : AbstractDungeon.player.relics) {
 				r.onExhaust(c);
 			}
@@ -66,7 +68,7 @@ public class ScrollOfWallPatch {
 
 			AbstractDungeon.effectsQueue.add(new ExhaustCardEffect(c));
 			AbstractDungeon.player.exhaustPile.addToTop(c);
-			GathererMod.statusesToExhaust.remove(c);
+			GathererMod.gainCardEffectToExhaust.remove(age);
 		}
 	}
 
@@ -86,7 +88,7 @@ public class ScrollOfWallPatch {
 			if (num >= 0) {
 				AbstractDungeon.player.discardPile.removeCard(srcCard);
 				__instance.duration *= 0.5f;
-				ScrollOfWallUtil.setExhaustStatus(srcCard, num);
+				ScrollOfWallUtil.setExhaustStatus(__instance, num);
 			}
 		}
 	}
@@ -100,12 +102,12 @@ public class ScrollOfWallPatch {
 	)
 	public static class AddToDiscardConstruct2 {
 		@SpirePostfixPatch
-		public static void Postfix(ShowCardAndAddToDiscardEffect __instance, AbstractCard srcCard) {
-			int num = ScrollOfWallUtil.needToExhaust(srcCard);
+		public static void Postfix(ShowCardAndAddToDiscardEffect __instance, AbstractCard card) {
+			int num = ScrollOfWallUtil.needToExhaust(card);
 			if (num >= 0) {
-				AbstractDungeon.player.discardPile.removeCard(srcCard);
+				AbstractDungeon.player.discardPile.removeCard(card);
 				__instance.duration *= 0.5f;
-				ScrollOfWallUtil.setExhaustStatus(srcCard, num);
+				ScrollOfWallUtil.setExhaustStatus(__instance, num);
 			}
 		}
 	}
@@ -114,8 +116,8 @@ public class ScrollOfWallPatch {
 	public static class AddToDiscardUpdate {
 		@SpireInsertPatch(locator = AddToDiscardLocator.class, localvars = {"card"})
 		public static SpireReturn Insert(ShowCardAndAddToDiscardEffect __instance, AbstractCard card) {
-			if (GathererMod.statusesToExhaust.contains(card)) {
-				ScrollOfWallUtil.exhaustIncomingCard(card);
+			if (GathererMod.gainCardEffectToExhaust.contains(__instance)) {
+				ScrollOfWallUtil.exhaustIncomingCard(__instance, card);
 				return SpireReturn.Return(null);
 			}
 			return SpireReturn.Continue();
@@ -149,7 +151,7 @@ public class ScrollOfWallPatch {
 			if (num >= 0) {
 				AbstractDungeon.player.drawPile.removeCard(srcCard);
 				__instance.duration *= 0.5f;
-				ScrollOfWallUtil.setExhaustStatus(srcCard, num);
+				ScrollOfWallUtil.setExhaustStatus(__instance, num);
 			}
 		}
 	}
@@ -170,7 +172,7 @@ public class ScrollOfWallPatch {
 			if (num >= 0) {
 				AbstractDungeon.player.drawPile.removeCard(srcCard);
 				__instance.duration *= 0.5f;
-				ScrollOfWallUtil.setExhaustStatus(srcCard, num);
+				ScrollOfWallUtil.setExhaustStatus(__instance, num);
 			}
 		}
 	}
@@ -179,8 +181,8 @@ public class ScrollOfWallPatch {
 	public static class AddToDrawPileUpdate {
 		@SpireInsertPatch(locator = AddToDrawPileLocator.class, localvars = {"card"})
 		public static SpireReturn Insert(ShowCardAndAddToDrawPileEffect __instance, AbstractCard card) {
-			if (GathererMod.statusesToExhaust.contains(card)) {
-				ScrollOfWallUtil.exhaustIncomingCard(card);
+			if (GathererMod.gainCardEffectToExhaust.contains(__instance)) {
+				ScrollOfWallUtil.exhaustIncomingCard(__instance, card);
 				return SpireReturn.Return(null);
 			}
 			return SpireReturn.Continue();
@@ -209,7 +211,7 @@ public class ScrollOfWallPatch {
 		public static void Postfix(ShowCardAndAddToHandEffect __instance, AbstractCard card, float offsetX, float offsetY) {
 			int num = ScrollOfWallUtil.needToExhaust(card);
 			if (num >= 0) {
-				ScrollOfWallUtil.setExhaustStatus(card, num);
+				ScrollOfWallUtil.setExhaustStatus(__instance, num);
 			}
 		}
 	}
@@ -226,7 +228,7 @@ public class ScrollOfWallPatch {
 		public static void Postfix(ShowCardAndAddToHandEffect __instance, AbstractCard card) {
 			int num = ScrollOfWallUtil.needToExhaust(card);
 			if (num >= 0) {
-				ScrollOfWallUtil.setExhaustStatus(card, num);
+				ScrollOfWallUtil.setExhaustStatus(__instance, num);
 			}
 		}
 	}
@@ -235,9 +237,9 @@ public class ScrollOfWallPatch {
 	public static class AddToHandUpdate {
 		@SpireInsertPatch(locator = AddToHandLocator.class, localvars = {"card"})
 		public static void Insert(ShowCardAndAddToHandEffect __instance, AbstractCard card) {
-			if (GathererMod.statusesToExhaust.contains(card)) {
+			if (GathererMod.gainCardEffectToExhaust.contains(__instance)) {
 				AbstractDungeon.player.hand.removeCard(card);
-				ScrollOfWallUtil.exhaustIncomingCard(card);
+				ScrollOfWallUtil.exhaustIncomingCard(__instance, card);
 			}
 		}
 	}

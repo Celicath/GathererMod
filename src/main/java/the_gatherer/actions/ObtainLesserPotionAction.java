@@ -10,6 +10,7 @@ import the_gatherer.GathererMod;
 import the_gatherer.potions.LesserExplosivePotion;
 import the_gatherer.powers.BomberFormPower;
 import the_gatherer.powers.ExplodingPower;
+import the_gatherer.powers.RecipeChangePower;
 
 
 public class ObtainLesserPotionAction extends AbstractGameAction {
@@ -27,12 +28,17 @@ public class ObtainLesserPotionAction extends AbstractGameAction {
 				AbstractDungeon.player.getRelic(Sozu.ID).flash();
 			} else if (AbstractDungeon.player.hasPower(BomberFormPower.POWER_ID)) {
 				if (GathererMod.potionSack.addPotion(new LesserExplosivePotion())) {
-					AbstractDungeon.player.getPower(BomberFormPower.POWER_ID).flash();
 					BomberFormPower bfp = (BomberFormPower) AbstractDungeon.player.getPower(BomberFormPower.POWER_ID);
+					bfp.flash();
 
 					AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ExplodingPower(AbstractDungeon.player, bfp.amount), bfp.amount));
 				}
 			} else {
+				RecipeChangePower rcp = (RecipeChangePower) AbstractDungeon.player.getPower(RecipeChangePower.POWER_ID);
+				if (rcp != null && AbstractDungeon.cardRandomRng.random(100) < rcp.ratio) {
+					this.potion = rcp.potion;
+					rcp.flash();
+				}
 				GathererMod.potionSack.addPotion(this.potion);
 			}
 		}

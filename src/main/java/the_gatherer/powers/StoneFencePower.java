@@ -7,17 +7,17 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import the_gatherer.GathererMod;
-import the_gatherer.cards.Repair;
+import the_gatherer.cards.Thrower;
 
-public class HandcraftedFencePower extends AbstractPower {
-	private static final String RAW_ID = "HandcraftedFence";
+public class StoneFencePower extends AbstractPower {
+	private static final String RAW_ID = "StoneFence";
 	public static final String POWER_ID = GathererMod.makeID(RAW_ID);
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 	private boolean upgraded;
 
-	public HandcraftedFencePower(boolean upgraded) {
+	public StoneFencePower(boolean upgraded) {
 		this.name = NAME;
 		this.ID = POWER_ID;
 		this.upgraded = upgraded;
@@ -45,8 +45,8 @@ public class HandcraftedFencePower extends AbstractPower {
 		if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
 			this.flash();
 
-			Repair c = new Repair();
-			c.setBlock(amount);
+			Thrower c = new Thrower();
+			c.setDamage(amount);
 			if (upgraded) {
 				c.upgrade();
 			}

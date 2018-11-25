@@ -112,11 +112,11 @@
       "Damage from #yAttacks becomes almost 0 this turn."
     ]
   },
-  "Gatherer:HandcraftedFence": {
-    "NAME": "Handcrafted Fence",
+  "Gatherer:StoneFence": {
+    "NAME": "Stone Fence",
     "DESCRIPTIONS": [
-      "Whenever your Block expires, add 1 Repair to your hand.",
-      "Whenever your Block expires, add 1 upgraded Repair to your hand."
+      "Whenever your Block expires, add 1 Thrower to your hand.",
+      "Whenever your Block expires, add 1 upgraded Thrower to your hand."
     ]
   },
   "Gatherer:ColorfulGarden": {

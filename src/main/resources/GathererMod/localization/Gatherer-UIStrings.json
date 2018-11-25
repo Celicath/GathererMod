@@ -7,7 +7,7 @@
   },
   "Gatherer:PotionSack": {
     "TEXT": [
-      "Potions here are called Sack Potions, and are only available during this combat. NL There are 2 types: Lesser & Special. NL #bDrag: Move position NL #bRight-click: Flip popup",
+      "Your Sack can hold 3 Lesser Potions, which are only available during this combat. NL #bDrag: Move position NL #bRight-click: Flip popup",
       "The Sack"
     ]
   },

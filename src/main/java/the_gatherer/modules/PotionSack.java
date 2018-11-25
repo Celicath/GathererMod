@@ -226,10 +226,13 @@ public class PotionSack {
 				float textSpacing = 35.0F * Settings.scale;
 				float textY = p.hb.cY + (potionSackPopupFlipped ? -textSpacing : textSpacing);
 
+				String shortcut = selectPotionActions[i].getKeyString();
+				if (shortcut.length() > 3) shortcut = shortcut.substring(0, 3);
+
 				FontHelper.renderFontCentered(
 						sb,
 						FontHelper.topPanelAmountFont,
-						selectPotionActions[i].getKeyString().substring(0, 3),
+						shortcut,
 						p.posX,
 						textY,
 						Settings.CREAM_COLOR);

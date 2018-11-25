@@ -16,7 +16,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.blue.*;
@@ -38,8 +37,10 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.ToyOrnithopter;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import the_gatherer.actions.ScrollOfPurityFollowUpAction;
 import the_gatherer.cards.*;
 import the_gatherer.cards.Helper.AbstractNumberedCard;
 import the_gatherer.character.TheGatherer;
@@ -52,8 +53,8 @@ import the_gatherer.modules.PotionSack;
 import the_gatherer.patches.AbstractPlayerEnum;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.potions.*;
-import the_gatherer.powers.HandcraftedFencePower;
 import the_gatherer.powers.PoisonMasteryPower;
+import the_gatherer.powers.StoneFencePower;
 import the_gatherer.relics.*;
 
 import java.nio.charset.StandardCharsets;
@@ -89,7 +90,7 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static Set<AbstractCard> costs1LessUntilPlayed = new HashSet<>();
 
 	public static ArrayList<SackPotion> lesserPotionPool = new ArrayList<>();
-	public static HashSet<AbstractCard> statusesToExhaust = new HashSet<>();
+	public static HashSet<AbstractGameEffect> gainCardEffectToExhaust = new HashSet<>();
 
 	public static Properties gathererDefaults = new Properties();
 	public static int[] potionSackKeys = new int[]{KEY_I, KEY_O, KEY_P};
@@ -337,7 +338,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new HeartToFruit());
 		cards.add(new GatherMaterial());
 		cards.add(new GrassHammer());
-		cards.add(new HandcraftedFence());
+		cards.add(new StoneFence());
 		cards.add(new EchoOfNature());
 		cards.add(new Herbalism());
 		cards.add(new Examine());
@@ -353,7 +354,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new Polymorphism());
 		cards.add(new QuickSynthesis());
 		cards.add(new ColorfulGarden());
-		cards.add(new Repair());
+		cards.add(new Thrower());
 		cards.add(new RottenStipe());
 		cards.add(new Nutrients());
 		cards.add(new SaveValuables());
@@ -437,7 +438,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		potionSack.removeAllPotions();
 		potionSack.show = false;
 		potionSack.loadKeySettings();
-		statusesToExhaust.clear();
+		gainCardEffectToExhaust.clear();
 		enchantAmount = 0;
 		transmuteAmount = 0;
 		costs1LessUntilPlayed.clear();
@@ -504,10 +505,7 @@ public class GathererMod implements PostInitializeSubscriber,
 				}
 			}
 		}
-		if (ScrollOfPurity.exhaustCount > 0) {
-			AbstractDungeon.actionManager.addToBottom(new ExhaustAction(
-					AbstractDungeon.player, AbstractDungeon.player, ScrollOfPurity.exhaustCount, false, true, true));
-		}
+		AbstractDungeon.actionManager.addToBottom(new ScrollOfPurityFollowUpAction(ScrollOfPurity.exhaustCount));
 
 		lastPotionUsedThisTurn = p;
 	}
@@ -610,9 +608,9 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	public static void onBlockExpired() {
 		if (GathererMod.blockExpired > 0 && AbstractDungeon.player != null) {
-			AbstractPower p = AbstractDungeon.player.getPower(HandcraftedFencePower.POWER_ID);
-			if (p instanceof HandcraftedFencePower) {
-				((HandcraftedFencePower) p).onBlockExpired(GathererMod.blockExpired);
+			AbstractPower p = AbstractDungeon.player.getPower(StoneFencePower.POWER_ID);
+			if (p instanceof StoneFencePower) {
+				((StoneFencePower) p).onBlockExpired(GathererMod.blockExpired);
 				GathererMod.blockExpired = 0;
 			}
 		}
