@@ -51,6 +51,7 @@ public class ReplaceGrowBookAction extends AbstractGameAction {
 				for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
 					AbstractDungeon.topLevelEffects.add(new ShowCardAndObtainEffect(c, com.megacrit.cardcrawl.core.Settings.WIDTH / 2.0F, com.megacrit.cardcrawl.core.Settings.HEIGHT / 2.0F));
 				}
+				AbstractDungeon.gridSelectScreen.selectedCards.clear();
 			}
 		}
 		this.tickDuration();

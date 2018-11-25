@@ -22,7 +22,7 @@ public class FlowerFalling extends CustomCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
-	private static final int COST = 0;
+	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final CardType TYPE = CardType.ATTACK;
@@ -74,6 +74,7 @@ public class FlowerFalling extends CustomCard {
 			++this.timesUpgraded;
 			if (timesUpgraded == 3) {
 				upgradeMagicNumber(MAGIC_3RD_BONUS);
+				upgradeBaseCost(0);
 			} else {
 				upgradeDamage(UPGRADE_BONUS);
 			}

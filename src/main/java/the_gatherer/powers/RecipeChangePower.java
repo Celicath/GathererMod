@@ -7,8 +7,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import the_gatherer.GathererMod;
-import the_gatherer.actions.ObtainLesserPotionAction;
-import the_gatherer.potions.LesserExplosivePotion;
 
 public class RecipeChangePower extends AbstractPower {
 	private static final String RAW_ID = "RecipeChange";
@@ -21,8 +19,9 @@ public class RecipeChangePower extends AbstractPower {
 	public int ratio;
 
 	public RecipeChangePower(AbstractPotion potion, int ratio) {
+		this.name = NAME;
 		this.ID = POWER_ID;
-		this.amount = -1;
+		this.owner = AbstractDungeon.player;
 		this.potion = potion;
 		this.ratio = ratio;
 		this.updateDescription();
@@ -31,12 +30,8 @@ public class RecipeChangePower extends AbstractPower {
 		this.img = new Texture(GathererMod.GetPowerPath(RAW_ID));
 	}
 
-	public void atStartOfTurnPostDraw() {
-		this.flash();
-		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new LesserExplosivePotion()));
-	}
-
+	@Override
 	public void updateDescription() {
-		this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+		this.description = DESCRIPTIONS[0] + this.potion.name + DESCRIPTIONS[1] + this.ratio + DESCRIPTIONS[2];
 	}
 }

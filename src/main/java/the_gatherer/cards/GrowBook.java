@@ -1,5 +1,6 @@
 package the_gatherer.cards;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -19,6 +20,11 @@ public class GrowBook extends AbstractTaggedCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
+	public static final String[] IMGS = new String[] {
+			GathererMod.GetCardPath(RAW_ID + "_R"),
+			GathererMod.GetCardPath(RAW_ID + "_G"),
+			GathererMod.GetCardPath(RAW_ID + "_B")
+	};
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
@@ -27,8 +33,8 @@ public class GrowBook extends AbstractTaggedCard {
 	private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
-	private static final int POWER = 4;
-	private static final int UPGRADE_BONUS = 2;
+	private static final int POWER = 8;
+	private static final int UPGRADE_BONUS = 3;
 	public static final int TRANSFORM_PLAYS = 3;
 
 	@Override
@@ -38,6 +44,11 @@ public class GrowBook extends AbstractTaggedCard {
 			int classNo = this.misc / TRANSFORM_PLAYS;
 			this.rawDescription = EXTENDED_DESCRIPTION[0] + EXTENDED_DESCRIPTION[1 + played] + EXTENDED_DESCRIPTION[4 + classNo];
 			this.initializeDescription();
+			this.loadCardImage(GathererMod.GetCardPath(RAW_ID));
+
+			if (classNo < IMGS.length) {
+				this.loadCardImage(IMGS[classNo]);
+			}
 		}
 
 		super.setTag(tagNo);
@@ -61,13 +72,16 @@ public class GrowBook extends AbstractTaggedCard {
 		this.rawDescription = DESCRIPTION;
 		this.exhaust = true;
 
+		this.tags.add(CardTags.HEALING);
+
 		this.initializeDescription();
 	}
 
 	@Override
 	public void update() {
-		if (this.misc == -1 && AbstractDungeon.cardRng != null && AbstractDungeon.player != null) {
-			this.misc = AbstractDungeon.cardRng.random(GathererMod.growBookCharacter.size());
+		if (this.misc == -1 && AbstractDungeon.miscRng != null && AbstractDungeon.player != null) {
+			GathererMod.logger.debug(GathererMod.growBookCharacter.size());
+			this.misc = AbstractDungeon.miscRng.random(GathererMod.growBookCharacter.size() - 1) * TRANSFORM_PLAYS;
 			setTag(this.misc);
 		}
 		super.update();

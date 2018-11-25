@@ -110,6 +110,14 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 									else if (m.type == AbstractMonster.EnemyType.BOSS)
 										eliteOrBoss = 2;
 
+									if (!m.hasPower(VulnerablePower.POWER_ID)) {
+										nonVulnerable = true;
+									}
+									if (m.hasPower(PoisonPower.POWER_ID)) {
+										int amt = m.getPower(PoisonPower.POWER_ID).amount;
+										if (amt > maxPoison)
+											maxPoison = amt;
+									}
 									if (m.intent == AbstractMonster.Intent.ATTACK || m.intent == AbstractMonster.Intent.ATTACK_BUFF || m.intent == AbstractMonster.Intent.ATTACK_DEBUFF || m.intent == AbstractMonster.Intent.ATTACK_DEFEND) {
 										int damage = 0;
 										for (DamageInfo di : m.damage) {
@@ -119,14 +127,6 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 										totalDamage += damage;
 										if (!m.hasPower(WeakPower.POWER_ID) && unweakenedDamage < damage) {
 											unweakenedDamage = damage;
-										}
-										if (!m.hasPower(VulnerablePower.POWER_ID)) {
-											nonVulnerable = true;
-										}
-										if (m.hasPower(PoisonPower.POWER_ID)) {
-											int amt = m.getPower(PoisonPower.POWER_ID).amount;
-											if (amt > maxPoison)
-												maxPoison = amt;
 										}
 									}
 									if (lowestEnemyHP > m.currentHealth + m.currentBlock) {
@@ -283,7 +283,7 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 							Class<? extends SackPotion> cls = sp.getClass();
 							if (picked.contains(cls)) continue;
 							int weight = weights.get(i);
-							if (AbstractDungeon.cardRandomRng.random(thisWeightSum) < weight) {
+							if (AbstractDungeon.cardRandomRng.random(thisWeightSum - 1) < weight) {
 								weightSum -= weight;
 								picked.add(cls);
 								if (recipeRatio == 0) {
@@ -305,20 +305,20 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 					LesserPotionOption lpo = (LesserPotionOption) AbstractDungeon.gridSelectScreen.selectedCards.get(0);
 					for (int i = 0; i < GathererMod.potionSack.potions.size(); i++) {
 						if (!(GathererMod.potionSack.potions.get(i) instanceof PotionSlot)) {
-							GathererMod.potionSack.setPotion(i, lpo.potion.makeCopy());
+							GathererMod.potionSack.setPotion(i, (SackPotion)lpo.potion.makeCopy());
 						}
-						RecipeChangePower rcp = (RecipeChangePower) AbstractDungeon.player.getPower(RecipeChangePower.POWER_ID);
-						if (rcp != null) {
-							if (rcp.potion == lpo.potion && rcp.ratio >= this.recipeRatio) {
-								this.tickDuration();
-								return;
-							}
-							AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(
-									AbstractDungeon.player, AbstractDungeon.player, RecipeChangePower.POWER_ID));
-						}
-						AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-								AbstractDungeon.player, AbstractDungeon.player, new RecipeChangePower(lpo.potion, recipeRatio)));
 					}
+					RecipeChangePower rcp = (RecipeChangePower) AbstractDungeon.player.getPower(RecipeChangePower.POWER_ID);
+					if (rcp != null) {
+						if (rcp.potion == lpo.potion && rcp.ratio >= this.recipeRatio) {
+							this.tickDuration();
+							return;
+						}
+						AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(
+								AbstractDungeon.player, AbstractDungeon.player, RecipeChangePower.POWER_ID));
+					}
+					AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
+							AbstractDungeon.player, AbstractDungeon.player, new RecipeChangePower(lpo.potion, recipeRatio)));
 				} else {
 					for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
 						GathererMod.potionSack.addPotion(((LesserPotionOption) c).potion.makeCopy());

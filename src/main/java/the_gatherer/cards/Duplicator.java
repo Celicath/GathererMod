@@ -25,7 +25,7 @@ public class Duplicator extends CustomCard {
 	private static final CardType TYPE = CardType.SKILL;
 	private static final CardColor COLOR = CardColorEnum.LIME;
 	private static final CardRarity RARITY = CardRarity.COMMON;
-	private static final CardTarget TARGET = CardTarget.ENEMY;
+	private static final CardTarget TARGET = CardTarget.SELF;
 
 	public Duplicator() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

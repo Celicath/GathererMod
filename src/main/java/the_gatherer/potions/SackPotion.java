@@ -43,6 +43,7 @@ public abstract class SackPotion extends CustomPotion {
 
 	@Override
 	public void use(AbstractCreature target) {
+		GathererMod.logger.debug(this.name + " was used");
 		if (tag == SackPotionTag.BLACKTEA) {
 			ArrayList<AbstractCard> handCopy = new ArrayList<>();
 			for (AbstractCard c : AbstractDungeon.player.hand.group) {
@@ -87,11 +88,11 @@ public abstract class SackPotion extends CustomPotion {
 			this.description = DESCRIPTIONS[0];
 		}
 
-		if (tag == SackPotionTag.BLACKTEA) {
-			this.description += BT_DESCRIPTIONS[0];
-		}
-
 		this.tips.add(new PowerTip(this.name, this.description));
+
+		if (this.tag.equals(SackPotionTag.BLACKTEA)) {
+			this.tips.add(new PowerTip(BT_NAME, BT_DESCRIPTIONS[0]));
+		}
 	}
 
 	public int getPotency(int ascensionLevel) {

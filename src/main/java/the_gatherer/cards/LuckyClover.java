@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.EquilibriumPower;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ObtainLesserPotionAction;
 import the_gatherer.patches.CardColorEnum;
@@ -40,8 +41,7 @@ public class LuckyClover extends CustomCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		for (int i = 0; i < this.magicNumber; i++)
-			AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new RetainPotion()));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EquilibriumPower(p, this.magicNumber), this.magicNumber));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LuckyCloverPower(p)));
 	}
 

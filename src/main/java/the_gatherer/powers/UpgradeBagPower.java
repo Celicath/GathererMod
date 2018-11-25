@@ -7,15 +7,15 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import the_gatherer.GathererMod;
 
-public class SackPotionPotencyPower extends AbstractPower {
-	private static final String RAW_ID = "SackPotionPotency";
+public class UpgradeBagPower extends AbstractPower {
+	private static final String RAW_ID = "UpgradeBag";
 	public static final String POWER_ID = GathererMod.makeID(RAW_ID);
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 	public boolean activated = true;
 
-	public SackPotionPotencyPower(AbstractCreature owner, int amount) {
+	public UpgradeBagPower(AbstractCreature owner, int amount) {
 		this.name = NAME;
 		this.ID = POWER_ID;
 		this.owner = owner;

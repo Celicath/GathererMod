@@ -134,13 +134,13 @@
       "If you play #b",
       " more card, gain #b",
       " more cards, gain #b",
-      " #yLesser #yPotions. NL #rAttack - Lesser Fire or Explosive Potion NL #gSkill - Lesser Block or Energy Potion NL #bPower - Lesser Strength or Dexterity Potion NL Other - Lesser Weak or Fear Potion"
+      " #yLesser #yPotion(s). NL #rAttack - Lesser Fire or Explosive Potion NL #gSkill - Lesser Block or Energy Potion NL #bPower - Lesser Strength or Dexterity Potion NL Other - Lesser Weak or Fear Potion"
     ]
   },
-  "Gatherer:SackPotionPotency": {
-    "NAME": "Sack Potion Potency",
+  "Gatherer:UpgradeBag": {
+    "NAME": "Bag Upgraded",
     "DESCRIPTIONS": [
-      "Your Sack potions have #b+",
+      "Your #yLesser #yPotions have #b+",
       "% potency.",
       " NL #r(Deactivated!)"
     ]
@@ -156,7 +156,7 @@
   "Gatherer:RecipeChange": {
     "NAME": "Recipe Changed",
     "DESCRIPTIONS": [
-      "Whenever you obtain a Sack potion, replace it with ",
+      "Whenever you gain a #yLesser #yPotion, replace it to ",
       " with #b",
       "% probability."
     ]

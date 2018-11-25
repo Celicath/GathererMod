@@ -1,28 +1,42 @@
 package the_gatherer.cards;
 
+import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import the_gatherer.GathererMod;
 
-public class LesserPotionOption extends AbstractCard {
-	public static final String ID = "hubris:DisguiseKitOption";
+public class LesserPotionOption extends CustomCard {
+	private static final String RAW_ID = "LesserPotionOption";
+	public static final String ID = GathererMod.makeID(RAW_ID);
+	public static final String IMG = GathererMod.GetCardPath("Blank");
 
 	public AbstractPotion potion;
 
 	public LesserPotionOption(AbstractPotion p, String description) {
-		super(ID, p.name, null, null, -2, description, CardType.SKILL, CardColor.COLORLESS, CardRarity.SPECIAL, CardTarget.NONE);
+		super(ID, p.name, IMG, -2, description, CardType.SKILL, CardColor.COLORLESS, CardRarity.SPECIAL, CardTarget.NONE);
+		this.potion = p;
+
+		this.rawDescription = this.rawDescription.replace("#b", "[#87ceeb]");
+		this.rawDescription = this.rawDescription.replace("#g", "[#7fff00]");
+		this.rawDescription = this.rawDescription.replace("#r", "[#ff6563]");
+		this.rawDescription = this.rawDescription.replace("#y", "[#efc851]");
+		this.initializeDescription();
 	}
 
 	@Override
 	public void update() {
 		potion.posX = this.current_x;
-		potion.posY = this.current_y;
+		potion.posY = this.current_y + 70 * Settings.scale;
+		super.update();
 	}
 
 	@Override
 	public void render(SpriteBatch sb) {
+		super.render(sb);
 		potion.render(sb);
 	}
 

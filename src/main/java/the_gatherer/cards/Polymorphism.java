@@ -61,7 +61,7 @@ public class Polymorphism extends CustomCard {
 		for (AbstractCard c : AbstractDungeon.player.hand.group) {
 			if (c != this) {
 				count++;
-				ids.add(c.cardID);
+				ids.add(GathererMod.getUniqueID(c));
 			}
 		}
 

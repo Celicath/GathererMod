@@ -22,7 +22,7 @@ import com.megacrit.cardcrawl.potions.PotionSlot;
 import the_gatherer.GathererMod;
 import the_gatherer.cards.Glitched;
 import the_gatherer.potions.SackPotion;
-import the_gatherer.powers.SackPotionPotencyPower;
+import the_gatherer.powers.UpgradeBagPower;
 
 import java.util.ArrayList;
 
@@ -167,9 +167,9 @@ public class PotionSack {
 		}
 
 		int potency = 0;
-		SackPotionPotencyPower ubp = null;
+		UpgradeBagPower ubp = null;
 		if (AbstractDungeon.player != null) {
-			ubp = (SackPotionPotencyPower) AbstractDungeon.player.getPower(SackPotionPotencyPower.POWER_ID);
+			ubp = (UpgradeBagPower) AbstractDungeon.player.getPower(UpgradeBagPower.POWER_ID);
 			if (ubp != null) {
 				potency = ubp.amount;
 				for (AbstractCard c : AbstractDungeon.player.hand.group) {
@@ -212,7 +212,7 @@ public class PotionSack {
 		for (AbstractPotion p : potions) {
 			p.render(sb);
 			if (p.hb.hovered && !(p instanceof PotionSlot)) {
-				TipHelper.renderGenericTip((float) InputHelper.mX + 50.0F * Settings.scale, (float) InputHelper.mY, p.name, p.description);
+				TipHelper.queuePowerTips((float) InputHelper.mX + 50.0F * Settings.scale, (float) InputHelper.mY, p.tips);
 				potion_hovered = true;
 			}
 		}
@@ -264,7 +264,11 @@ public class PotionSack {
 		}
 	}
 
-	public void setPotion(int index, AbstractPotion potion) {
+	public void setPotion(int index, SackPotion potion) {
+		if (this.potions.get(index) instanceof SackPotion) {
+			potion.tag = ((SackPotion)this.potions.get(index)).tag;
+			potion.updateDescription();
+		}
 		this.potions.set(index, potion);
 		setPotionPosition(index, potion);
 		potion.flash();

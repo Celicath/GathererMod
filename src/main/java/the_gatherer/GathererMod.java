@@ -43,6 +43,7 @@ import org.apache.logging.log4j.Logger;
 import the_gatherer.actions.ScrollOfPurityFollowUpAction;
 import the_gatherer.cards.*;
 import the_gatherer.cards.Helper.AbstractNumberedCard;
+import the_gatherer.cards.Helper.AbstractTaggedCard;
 import the_gatherer.character.TheGatherer;
 import the_gatherer.interfaces.OnObtainEffect;
 import the_gatherer.interfaces.OnUsePotionEffect;
@@ -69,7 +70,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		OnStartBattleSubscriber, OnPowersModifiedSubscriber,
 		PostPotionUseSubscriber, PostObtainCardSubscriber,
 		PostBattleSubscriber, OnCardUseSubscriber, RenderSubscriber,
-		PostEnergyRechargeSubscriber, PostUpdateSubscriber {
+		PreMonsterTurnSubscriber, PostUpdateSubscriber {
 
 	public static final Logger logger = LogManager.getLogger(GathererMod.class.getName());
 
@@ -87,7 +88,6 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static PotionSack potionSack;
 	public static Set<Class<? extends AbstractCard>> playedCardsCombat = new HashSet<>();
 	public static int blockExpired = 0;
-	public static Set<AbstractCard> costs1LessUntilPlayed = new HashSet<>();
 
 	public static ArrayList<SackPotion> lesserPotionPool = new ArrayList<>();
 	public static HashSet<AbstractGameEffect> gainCardEffectToExhaust = new HashSet<>();
@@ -240,13 +240,13 @@ public class GathererMod implements PostInitializeSubscriber,
 
 		potionSack = new PotionSack();
 
-		addGrowBookContent(AbstractPlayer.PlayerClass.IRONCLAD.name(), new AbstractCard[]{
+		addGrowBookContent("Iron", new AbstractCard[]{
 				new Armaments(), new Havoc(), new TwinStrike(), new Feed()
 		});
-		addGrowBookContent(AbstractPlayer.PlayerClass.THE_SILENT.name(), new AbstractCard[]{
+		addGrowBookContent("Silent", new AbstractCard[]{
 				new Choke(), new WellLaidPlans(), new PoisonedStab(), new Alchemize()
 		});
-		addGrowBookContent(AbstractPlayer.PlayerClass.DEFECT.name(), new AbstractCard[]{
+		addGrowBookContent("Defect", new AbstractCard[]{
 				new Stack(), new SteamBarrier(), new AllForOne(), new Seek()
 		});
 
@@ -316,63 +316,75 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new SpareBottle());
 
 		cards.add(new AcidicSpray());
+		cards.add(new AlchemyTrial());
 		cards.add(new BalancedGrowth());
-		cards.add(new BigPouch());
-		cards.add(new BomberForm());
 		cards.add(new BambuSword());
+		cards.add(new BigPouch());
+		cards.add(new BlackTea());
+		cards.add(new BomberForm());
 		cards.add(new Bulldoze());
 		cards.add(new CarefulStrike());
 		cards.add(new CollectorsShot());
+		cards.add(new ColorfulGarden());
 		cards.add(new Convert());
 		cards.add(new CoupDeGrace());
 		cards.add(new CursedBlade());
+		cards.add(new DrugPower());
+		cards.add(new Duality());
+		cards.add(new Duplicator());
+		cards.add(new EchoOfNature());
 		cards.add(new Enchant());
+		cards.add(new EnergyBasket());
+		cards.add(new Examine());
 		cards.add(new FeelingFine());
-		cards.add(new RecoveryHerb());
 		cards.add(new FlamingBottle());
 		cards.add(new FlowerBeam());
-		cards.add(new FlowerShield());
+		cards.add(new FlowerFalling());
 		cards.add(new FlowerPower());
+		cards.add(new FlowerShield());
 		cards.add(new Frenzy());
 		cards.add(new FruitForce());
-		cards.add(new HeartToFruit());
 		cards.add(new GatherMaterial());
+		cards.add(new Glitched());
+		cards.add(new GlowingPlant());
 		cards.add(new GrassHammer());
-		cards.add(new StoneFence());
-		cards.add(new EchoOfNature());
+		cards.add(new GrowBook());
+		cards.add(new HeartToFruit());
 		cards.add(new Herbalism());
-		cards.add(new Examine());
-		cards.add(new StarFruit());
 		cards.add(new Light());
 		cards.add(new Liquidism());
-		cards.add(new GlowingPlant());
+		cards.add(new LuckyClover());
+		cards.add(new MindSearch());
 		cards.add(new MiningStrike());
 		cards.add(new Misfortune());
+		cards.add(new Nutrients());
+		cards.add(new OddSpoils());
 		cards.add(new Overflowing());
+		cards.add(new Photoscythe());
 		cards.add(new PoisonMastery());
 		cards.add(new Pollute());
 		cards.add(new Polymorphism());
 		cards.add(new QuickSynthesis());
-		cards.add(new ColorfulGarden());
-		cards.add(new Thrower());
+		cards.add(new RecipeChange());
+		cards.add(new RecoveryHerb());
 		cards.add(new RottenStipe());
-		cards.add(new Nutrients());
 		cards.add(new SaveValuables());
+		cards.add(new ScentOfRosmari());
+		cards.add(new ScherryThrow());
 		cards.add(new ScrollOfPurity());
 		cards.add(new ScrollOfWall());
 		cards.add(new SealedBomb());
-		cards.add(new ScentOfRosmari());
 		cards.add(new Shadow());
-		cards.add(new ScherryThrow());
 		cards.add(new SmartManeuver());
 		cards.add(new Snatch());
-		cards.add(new Photoscythe());
 		cards.add(new Solidify());
+		cards.add(new StarFruit());
+		cards.add(new StoneFence());
 		cards.add(new TacticalStrike());
-		cards.add(new EnergyBasket());
+		cards.add(new Thrower());
 		cards.add(new Transmute());
 		cards.add(new TreeGrowth());
-		cards.add(new Duality());
+		cards.add(new UpgradeBag());
 		cards.add(new Uplift());
 		cards.add(new VenomBarrier());
 		cards.add(new WitheringStrike());
@@ -441,7 +453,6 @@ public class GathererMod implements PostInitializeSubscriber,
 		gainCardEffectToExhaust.clear();
 		enchantAmount = 0;
 		transmuteAmount = 0;
-		costs1LessUntilPlayed.clear();
 		drugPowerHPGain = 0;
 
 		for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
@@ -463,10 +474,11 @@ public class GathererMod implements PostInitializeSubscriber,
 	}
 
 	@Override
-	public void receivePostEnergyRecharge() {
-		logger.debug("receivePostEnergyRecharge started.");
+	public boolean receivePreMonsterTurn(AbstractMonster m) {
+		logger.debug("receivePreMonsterTurn started.");
 		lastPotionUsedThisTurn = null;
-		logger.debug("receivePostEnergyRecharge finished.");
+		logger.debug("receivePreMonsterTurn finished.");
+		return true;
 	}
 
 	@Override
@@ -513,10 +525,6 @@ public class GathererMod implements PostInitializeSubscriber,
 	@Override
 	public void receiveCardUsed(AbstractCard c) {
 		playedCardsCombat.add(c.getClass()); // might be obsoleted?
-		if (costs1LessUntilPlayed.contains(c)) {
-			costs1LessUntilPlayed.remove(c);
-			c.updateCost(1);
-		}
 	}
 
 	@Override
@@ -598,10 +606,18 @@ public class GathererMod implements PostInitializeSubscriber,
 		}
 	}
 
+	public static String getUniqueID(AbstractCard c) {
+		if (c instanceof AbstractTaggedCard) {
+			return c.cardID + " " + ((AbstractTaggedCard) c).getTagName(c.misc);
+		} else {
+			return c.cardID;
+		}
+	}
+
 	public static int countUnique(CardGroup group) {
 		HashSet<String> ids = new HashSet<>();
 		for (AbstractCard c : group.group) {
-			ids.add(c.cardID);
+			ids.add(getUniqueID(c));
 		}
 		return ids.size();
 	}

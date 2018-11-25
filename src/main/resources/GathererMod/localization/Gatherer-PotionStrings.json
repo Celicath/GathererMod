@@ -132,9 +132,9 @@
     ]
   },
   "Gatherer:BlackTeaTag": {
-    "NAME": "Black Tea Tag",
+    "NAME": "<Black Tea> Tagged",
     "DESCRIPTIONS": [
-      " NL NL <Black Tea> tagged NL Exhausts ALL Black Tea when used."
+      "Exhausts ALL Black Tea when used."
     ]
   },
   "Gatherer:PlaceHolderPotion": {

@@ -35,8 +35,8 @@ public class ObtainLesserPotionAction extends AbstractGameAction {
 				}
 			} else {
 				RecipeChangePower rcp = (RecipeChangePower) AbstractDungeon.player.getPower(RecipeChangePower.POWER_ID);
-				if (rcp != null && AbstractDungeon.cardRandomRng.random(100) < rcp.ratio) {
-					this.potion = rcp.potion;
+				if (rcp != null && AbstractDungeon.cardRandomRng.random(99) < rcp.ratio) {
+					this.potion = rcp.potion.makeCopy();
 					rcp.flash();
 				}
 				GathererMod.potionSack.addPotion(this.potion);

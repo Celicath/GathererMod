@@ -55,13 +55,13 @@
   },
   "Gatherer:ChooseLesserPotionAction": {
     "TEXT": [
-      "Change Recipe",
-      "Gain"
+      "Choose Which Potion to Change Recipe",
+      "Choose 2 Potions to Gain"
     ]
   },
   "Gatherer:ReplaceGrowBookAction": {
     "TEXT": [
-      "Replace"
+      "Choose a Card to Replace Grow Book With"
     ]
   },
   "Gatherer:MindSearchAction": {

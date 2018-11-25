@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.CardColorEnum;
+import the_gatherer.patches.CustomTags;
 import the_gatherer.powers.AlchemyTrialPower;
 
 public class AlchemyTrial extends CustomCard {
@@ -27,6 +28,8 @@ public class AlchemyTrial extends CustomCard {
 
 	public AlchemyTrial() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+
+		this.tags.add(CustomTags.POTION_GEN);
 	}
 
 	@Override

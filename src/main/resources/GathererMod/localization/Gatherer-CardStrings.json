@@ -164,8 +164,8 @@
   },
   "Gatherer:OddSpoils": {
     "NAME": "Odd Spoils",
-    "DESCRIPTION": "Deal !D! damage. Add !M! random card not in your deck to your discard pile. It costs 1 less until played.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. Add !M! random cards not in your deck to your discard pile. They cost 1 less until played."
+    "DESCRIPTION": "Deal !D! damage. Add !M! random card not in your deck to your discard pile. It costs 0 until played.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Add !M! random cards not in your deck to your discard pile. They cost 0 until played."
   },
   "Gatherer:Polymorphism": {
     "NAME": "Polymorphism",
@@ -310,6 +310,7 @@
     "UPGRADE_DESCRIPTION": "Add a Glitched+ in your discard pile. Gain +50% Lesser_Potion Potency."
   },
   "Gatherer:Glitched": {
+    "NAME": "Glitched",
     "DESCRIPTION": "Retain. NL Discard this. NL While in your hand, Upgrade Bag power is disabled.",
     "UPGRADE_DESCRIPTION": "Retain. NL Exhaust. NL While in your hand, Upgrade Bag power is disabled."
   },
@@ -356,9 +357,10 @@
   },
   "Gatherer:BlackTea": {
     "NAME": "Black Tea",
-    "DESCRIPTION": "Gain !M! Strength; amount reduced every turn. When obtained, choose your Black_Tea_Potion.",
+    "DESCRIPTION": "Gain < !M! - Round > Strength. Startup: Gain a random Lesser Potion which Exhausts ALL Black Tea when used.",
     "EXTENDED_DESCRIPTION": [
-      "Black_Tea_Potion: NL "
+      " NL (Gain ",
+      " Strength.)"
     ]
   },
   "Gatherer:Examine": {

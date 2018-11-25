@@ -3,6 +3,7 @@ package the_gatherer.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import the_gatherer.cards.GrowBook;
 
 import java.util.Iterator;
 import java.util.UUID;
@@ -29,9 +30,12 @@ public class IncreaseGrowBookMiscAction extends AbstractGameAction {
 			if (c.uuid.equals(this.uuid)) {
 				c.misc += this.miscIncrease;
 				if (c.misc % TRANSFORM_PLAYS == 0) {
-					AbstractDungeon.actionManager.addToTop(new ReplaceGrowBookAction(c, (c.misc - 1) / TRANSFORM_PLAYS, upgraded));
+					c.misc--;
+					AbstractDungeon.actionManager.addToTop(new ReplaceGrowBookAction(c, c.misc / TRANSFORM_PLAYS, upgraded));
+				} else {
+					((GrowBook)c).setTag(c.misc);
+					c.applyPowers();
 				}
-				c.applyPowers();
 			}
 		}
 

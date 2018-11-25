@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ChooseLesserPotionAction;
 import the_gatherer.patches.CardColorEnum;
+import the_gatherer.patches.CustomTags;
 
 public class MindSearch extends CustomCard {
 	private static final String RAW_ID = "MindSearch";
@@ -28,10 +29,13 @@ public class MindSearch extends CustomCard {
 
 	public MindSearch() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+
+		this.tags.add(CustomTags.POTION_GEN);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new ChooseLesserPotionAction(2, 4, 0, upgraded));
+		this.exhaust = true;
 	}
 
 	public AbstractCard makeCopy() {

@@ -20,7 +20,7 @@ public class LesserFirePotion extends SackPotion {
 
 	public LesserFirePotion() {
 		super(NAME, POTION_ID, PotionRarityEnum.LESSER, PotionSize.SPHERE, PotionColor.FIRE);
-		this.isThrown = false;
+		this.isThrown = true;
 		this.targetRequired = true;
 
 		updateDescription();

@@ -18,10 +18,13 @@ public class ScrollOfPurityFollowUpAction extends AbstractGameAction {
 	}
 
 	public void update() {
+		this.isDone = true;
+		if (AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+			return;
+		}
 		if (ScrollOfPurity.exhaustCount > 0) {
 			AbstractDungeon.actionManager.addToBottom(new ExhaustAction(
 					p, p, ScrollOfPurity.exhaustCount, false, true, true));
 		}
-		this.isDone = true;
 	}
 }

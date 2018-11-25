@@ -30,7 +30,7 @@ public class OddSpoils extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 10;
+	private static final int POWER = 9;
 	private static final int UPGRADE_BONUS = 3;
 	private static final int CARD = 1;
 	private static final int CARD_BONUS = 1;
@@ -41,8 +41,6 @@ public class OddSpoils extends CustomCard {
 		this.baseDamage = POWER;
 		this.baseMagicNumber = CARD;
 		this.magicNumber = this.baseMagicNumber;
-
-		this.tags.add(CardTags.STRIKE);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -66,7 +64,7 @@ public class OddSpoils extends CustomCard {
 
 			for (int j = 0; j < 30; j++) {
 				card = AbstractDungeon.returnTrulyRandomCardInCombat();
-				if (card.cardID.equals(prevCard.cardID))
+				if (prevCard != null && card.cardID.equals(prevCard.cardID))
 					continue;
 				if (set2.contains(card.getClass()))
 					continue;
@@ -76,9 +74,8 @@ public class OddSpoils extends CustomCard {
 			}
 			prevCard = card;
 
-			if (card.costForTurn > 0) {
-				card.updateCost(-1);
-				GathererMod.costs1LessUntilPlayed.add(card);
+			if (card.cost > 0) {
+				card.freeToPlayOnce = true;
 			}
 
 			AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(card, 1));

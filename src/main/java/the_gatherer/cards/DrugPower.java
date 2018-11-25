@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.FruitJuice;
+import com.megacrit.cardcrawl.vfx.SpeechBubble;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.UsePotionOnRandomTargetAction;
 import the_gatherer.patches.CardColorEnum;
@@ -57,7 +58,8 @@ public class DrugPower extends CustomCard {
 			boolean notUsing = false;
 			if (GathererMod.lastPotionUsedThisTurn instanceof FruitJuice) {
 				if (GathererMod.drugPowerHPGain >= 100) {
-					AbstractDungeon.actionManager.addToBottom(new TalkAction(p, EXTENDED_DESCRIPTION[3]));
+					AbstractDungeon.effectList.add(new SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 2.0f,
+							EXTENDED_DESCRIPTION[3], true));
 					notUsing = true;
 				} else {
 					GathererMod.drugPowerHPGain += GathererMod.lastPotionUsedThisTurn.getPotency();

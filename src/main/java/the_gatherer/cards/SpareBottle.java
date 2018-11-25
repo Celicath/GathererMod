@@ -18,6 +18,11 @@ public class SpareBottle extends AbstractTaggedCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
+	public static final String[] IMGS = new String[] {
+			GathererMod.GetCardPath(RAW_ID),
+			GathererMod.GetCardPath(RAW_ID + "_S"),
+			GathererMod.GetCardPath(RAW_ID + "_G")
+	};
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final CardType TYPE = CardType.POWER;
@@ -40,6 +45,9 @@ public class SpareBottle extends AbstractTaggedCard {
 		magicNumber = baseMagicNumber;
 		if (upgraded) {
 			upgradeEffect();
+		}
+		if (tag > 0) {
+			this.loadCardImage(IMGS[tag]);
 		}
 		super.setTag(tag);
 	}
