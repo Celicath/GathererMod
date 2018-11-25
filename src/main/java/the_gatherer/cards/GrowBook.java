@@ -73,6 +73,14 @@ public class GrowBook extends AbstractTaggedCard {
 		super.update();
 	}
 
+	@Override
+	public void initializeDescription() {
+		super.initializeDescription();
+		if (this.misc / TRANSFORM_PLAYS >= 0) {
+			keywords.add("grow book tooltip " + this.misc / TRANSFORM_PLAYS);
+		}
+	}
+
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new IncreaseGrowBookMiscAction(this.uuid, this.misc, 1, upgraded));
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));

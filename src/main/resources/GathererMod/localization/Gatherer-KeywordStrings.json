@@ -140,5 +140,26 @@
       "alchemy trial tooltip"
     ],
     "DESCRIPTION": "#rAttack - Lesser Fire or Explosive Potion NL #gSkill - Lesser Block or Energy Potion NL #bPower - Lesser Strength or Dexterity Potion NL Other - Lesser Weak or Fear Potion"
+  },
+  {
+    "PROPER_NAME": "Ironclad Cards",
+    "NAMES": [
+      "grow book tooltip 0"
+    ],
+    "DESCRIPTION": "Choose 1 from Armaments, Havoc or Dual Strike. Feed is added to the list if upgraded."
+  },
+  {
+    "PROPER_NAME": "Silent Cards",
+    "NAMES": [
+      "grow book tooltip 1"
+    ],
+    "DESCRIPTION": "Choose 1 from Choke, Well-Laid Plans or Poisoned Stab. Alchemize is added to the list if upgraded."
+  },
+  {
+    "PROPER_NAME": "Defect Cards",
+    "NAMES": [
+      "grow book tooltip 2"
+    ],
+    "DESCRIPTION": "Choose 1 from Stack, Steam Barrier or All for one. Seek is added to the list if upgraded."
   }
 ]
