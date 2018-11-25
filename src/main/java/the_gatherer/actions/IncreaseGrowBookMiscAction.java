@@ -29,7 +29,7 @@ public class IncreaseGrowBookMiscAction extends AbstractGameAction {
 			if (c.uuid.equals(this.uuid)) {
 				c.misc += this.miscIncrease;
 				if (c.misc % TRANSFORM_PLAYS == 0) {
-					AbstractDungeon.actionManager.addToTop(new ReplaceGrowBookAction(c, (c.misc - 1) / TRANSFORM_PLAYS, this.uuid, upgraded));
+					AbstractDungeon.actionManager.addToTop(new ReplaceGrowBookAction(c, (c.misc - 1) / TRANSFORM_PLAYS, upgraded));
 				}
 				c.applyPowers();
 			}

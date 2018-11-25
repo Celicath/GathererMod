@@ -51,7 +51,7 @@ public class FlowerBeamFollowUpEffect extends AbstractGameEffect {
 			CardCrawlGame.sound.playV("RELIC_DROP_MAGICAL", 1.5f);
 
 			for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-				if (!m.isDying && !m.halfDead) {
+				if (!m.halfDead && !m.isDying && !m.isEscaping) {
 					rotations.add(MathUtils.random(-10.0F, 10.0F));
 					frames.add(MathUtils.random(8));
 					curPos.add(new Vector2(originX, originY));

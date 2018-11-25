@@ -380,8 +380,8 @@
   },
   "Gatherer:MindSearch": {
     "NAME": "Mind Search",
-    "DESCRIPTION": "Choose and gain 2 out of 4 Lesser_Potions, with the help of Gatherer's thought. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose and gain 2 out of 4 Lesser_Potions, with great help of Gatherer's thought. NL Retain. Exhaust."
+    "DESCRIPTION": "Choose 2 out of 4 Lesser_Potions to gain with the help of Gatherer's thought. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose 2 out of 4 Lesser_Potions to gain with great help of Gatherer's thought. NL Retain. Exhaust."
   },
   "Gatherer:Overflowing": {
     "NAME": "Overflowing",

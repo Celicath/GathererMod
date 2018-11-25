@@ -63,5 +63,26 @@
     "TEXT": [
       "Replace"
     ]
+  },
+  "Gatherer:MindSearchAction": {
+    "TEXT": [
+      "(I want this potion without reason.)",
+      "(I want to block damage.)",
+      "(My health is low.)",
+      "(I want some long term defense.)",
+      "(I have Balanced Growth)",
+      "(I have a lot of cards.)",
+      "(It's better when stacked.)",
+      "(There are multiple enemies.)",
+      "(I can kill an enemy with this.)",
+      "(Let's quickly kill the enemy.)",
+      "(This is so effective.)",
+      "(There are BYRDS!)",
+      "(I have poison mastery.)",
+      "(I want some POWER.)",
+      "(I want some long term damage.)",
+      "(I have enough energy.)",
+      "(Enemy is too strong)"
+    ]
   }
 }

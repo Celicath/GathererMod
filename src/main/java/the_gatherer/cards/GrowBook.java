@@ -22,10 +22,10 @@ public class GrowBook extends AbstractTaggedCard {
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
-	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
+	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
-	private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
-	private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;
+	private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.RARE;
+	private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
 	private static final int POWER = 4;
 	private static final int UPGRADE_BONUS = 2;

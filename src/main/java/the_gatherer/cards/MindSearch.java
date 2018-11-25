@@ -1,6 +1,7 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -11,8 +12,8 @@ import the_gatherer.GathererMod;
 import the_gatherer.actions.ChooseLesserPotionAction;
 import the_gatherer.patches.CardColorEnum;
 
-public class RecipeChange extends CustomCard {
-	private static final String RAW_ID = "RecipeChange";
+public class MindSearch extends CustomCard {
+	private static final String RAW_ID = "MindSearch";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
@@ -22,32 +23,27 @@ public class RecipeChange extends CustomCard {
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
-	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
+	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 25;
-	private static final int UPGRADE_BONUS = 15;
-
-	public RecipeChange() {
+	public MindSearch() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-		this.baseMagicNumber = POWER;
-		this.magicNumber = baseMagicNumber;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ChooseLesserPotionAction(1, upgraded ? 4 : 3, this.magicNumber, upgraded));
+		AbstractDungeon.actionManager.addToBottom(new ChooseLesserPotionAction(2, 4, 0, upgraded));
 	}
 
 	public AbstractCard makeCopy() {
-		return new RecipeChange();
+		return new MindSearch();
 	}
 
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			this.upgradeMagicNumber(UPGRADE_BONUS);
 			this.rawDescription = UPGRADE_DESCRIPTION;
 			this.initializeDescription();
+			AlwaysRetainField.alwaysRetain.set(this, true);
 		}
 	}
 }
