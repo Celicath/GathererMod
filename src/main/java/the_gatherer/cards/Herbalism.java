@@ -18,8 +18,9 @@ public class Herbalism extends CustomCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
-	private static final int COST = 1;
+	private static final int COST = 0;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final CardType TYPE = CardType.SKILL;
 	private static final CardColor COLOR = CardColorEnum.LIME;
@@ -36,14 +37,16 @@ public class Herbalism extends CustomCard {
 	public void applyPowers() {
 		this.baseMagicNumber = 0;
 		for (AbstractCard c : AbstractDungeon.player.hand.group) {
-			if (c.costForTurn >= THRESHOLD || c.costForTurn == -1 && (EnergyPanel.totalCount - this.costForTurn) >= THRESHOLD) {
+			if (c.costForTurn >= THRESHOLD || c.costForTurn == -1 && (EnergyPanel.totalCount) >= THRESHOLD) {
 				this.baseMagicNumber++;
 			}
 		}
+		if (upgraded && this.baseMagicNumber == 0)
+			this.baseMagicNumber = 1;
 		this.magicNumber = this.baseMagicNumber;
 		super.applyPowers();
 
-		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + this.magicNumber + EXTENDED_DESCRIPTION[1];
+		this.rawDescription = (upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION) + EXTENDED_DESCRIPTION[0] + this.magicNumber + EXTENDED_DESCRIPTION[1];
 		this.initializeDescription();
 	}
 
@@ -61,8 +64,8 @@ public class Herbalism extends CustomCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
-
-			this.upgradeBaseCost(0);
+			this.rawDescription = UPGRADE_DESCRIPTION;
+			this.initializeDescription();
 		}
 	}
 }

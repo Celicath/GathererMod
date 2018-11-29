@@ -13,12 +13,11 @@
   },
   "Gatherer:Centralize": {
     "NAME": "Centralize",
-    "DESCRIPTION": "Fetch !M! card from your draw pile.",
-    "UPGRADE_DESCRIPTION": "Fetch !M! cards from your draw pile.",
+    "DESCRIPTION": "Fetch !M! cards from your draw pile.",
     "EXTENDED_DESCRIPTION": [
+      " NL Twice_: Upgrade them for the rest of combat.",
       " NL Once_: Upgrade them for the rest of combat.",
-      " NL Once_: Upgrade it for the rest of combat.",
-      " NL Once_ [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
+      " NL [#D0C8D0]Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
     ]
   },
   "Gatherer:SpareBottle": {
@@ -78,7 +77,7 @@
     "EXTENDED_DESCRIPTION": [
       " NL Twice_: NL Gain a random Lesser_Potion.",
       " NL Once_: Gain a random Lesser_Potion.",
-      " NL Once_: [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
+      " NL [#D0C8D0]Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
     ]
   },
   "Gatherer:TacticalStrike": {
@@ -128,7 +127,7 @@
     "EXTENDED_DESCRIPTION": [
       " NL Twice_: Draw 2 cards, then discard 2 cards.",
       " NL Once_: Draw 2 cards, then discard 2 cards.",
-      " NL Once_: [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
+      " NL [#D0C8D0]Once_ [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
     ]
   },
   "Gatherer:Duality": {
@@ -226,6 +225,7 @@
   "Gatherer:Herbalism": {
     "NAME": "Herbalism",
     "DESCRIPTION": "Gain [E] for each card in your hand that costs 2 or more.",
+    "UPGRADE_DESCRIPTION": "Gain [E] for each card in your hand that costs 2 or more. If there's none, gain [E]",
     "EXTENDED_DESCRIPTION": [
       " NL (Gain ",
       " energy.)"
@@ -250,8 +250,7 @@
   },
   "Gatherer:ScentOfRosmari": {
     "NAME": "Scent of Rosmari",
-    "DESCRIPTION": "Gain !B! Block. Choose !M! card to Retain. If it ends up discarded, return it to your hand next turn.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. Choose !M! cards to Retain. If they end up discarded, return them to your hand next turn."
+    "DESCRIPTION": "Gain !B! Block. Choose !M! cards to Retain. If they end up discarded, return them to your hand next turn."
   },
   "Gatherer:ScrollOfWall": {
     "NAME": "Scroll Of Wall",
@@ -265,8 +264,8 @@
   },
   "Gatherer:SmartManeuver": {
     "NAME": "Smart Maneuver",
-    "DESCRIPTION": "Enemy deals half damage this turn. Next turn, draw !M! cards.",
-    "UPGRADE_DESCRIPTION": "Enemy deals half damage this turn. Next turn, draw !M! cards. NL Retain."
+    "DESCRIPTION": "Enemy deals half damage this turn. Gain a Lesser_Swift_Potion.",
+    "UPGRADE_DESCRIPTION": "Enemy deals half damage this turn. Gain a Lesser_Swift_Potion. NL Retain."
   },
   "Gatherer:Solidify": {
     "NAME": "Solidify",
@@ -336,7 +335,7 @@
     "EXTENDED_DESCRIPTION": [
       " NL Twice_: Enemy loses !M! Strength this turn. When Obtained, become [#FF6563]Cursed [#FF6563]- [#FF6563]Normality.",
       " NL Once_: Enemy loses !M! Strength this turn. When Obtained, become [#FF6563]Cursed [#FF6563]- [#FF6563]Normality.",
-      " NL Once_ [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up. When Obtained, become [#FF6563]Cursed [#FF6563]- [#FF6563]Normality."
+      " NL [#D0C8D0]Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up. When Obtained, become [#FF6563]Cursed [#FF6563]- [#FF6563]Normality."
     ]
   },
   "Gatherer:FlamingBottle": {
@@ -426,8 +425,8 @@
   },
   "Gatherer:LuckyClover": {
     "NAME": "Lucky Clover",
-    "DESCRIPTION": "Retain your hand this turn. NL Whenever you lose 4 or more HP, discard a random card to heal 3 HP.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Retain your hand this turn. NL Whenever you lose 4 or more HP, discard a random card to heal 3 HP."
+    "DESCRIPTION": "Retain your hand this turn. NL Whenever you lose 3 or more HP, discard a random card to heal 3 HP.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Retain your hand this turn. NL Whenever you lose 3 or more HP, discard a random card to heal 3 HP."
   },
   "Gatherer:PoisonMastery": {
     "NAME": "Poison Mastery",

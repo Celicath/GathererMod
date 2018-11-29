@@ -11,7 +11,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import the_gatherer.GathererMod;
+import the_gatherer.actions.ObtainLesserPotionAction;
 import the_gatherer.patches.CardColorEnum;
+import the_gatherer.potions.LesserSwiftPotion;
 import the_gatherer.powers.DamageHalfPower;
 
 public class SmartManeuver extends CustomCard {
@@ -28,18 +30,15 @@ public class SmartManeuver extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 2;
-
 	public SmartManeuver() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
-		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new DamageHalfPower(m, 1, false), 1));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, magicNumber), magicNumber));
+		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new LesserSwiftPotion()));
 	}
 
 	public AbstractCard makeCopy() {

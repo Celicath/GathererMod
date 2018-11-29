@@ -19,15 +19,13 @@ public class Centralize extends AbstractNumberedCard {
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
 	private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.BASIC;
 	private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
-	private static final int POWER = 1;
-	private static final int UPGRADE_BONUS = 1;
+	private static final int POWER = 2;
 
 	public Centralize() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -37,25 +35,19 @@ public class Centralize extends AbstractNumberedCard {
 	}
 
 	public void updateDescription() {
-		if (upgraded) {
-			if (playCount == 0) {
-				this.rawDescription = UPGRADE_DESCRIPTION + EXTENDED_DESCRIPTION[0];
-			} else {
-				this.rawDescription = UPGRADE_DESCRIPTION + EXTENDED_DESCRIPTION[2];
-			}
+		if (upgraded && playCount == 0) {
+			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
+		} else if (playCount == 0 || upgraded && playCount == 1) {
+			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
 		} else {
-			if (playCount == 0) {
-				this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
-			} else {
-				this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[2];
-			}
+			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[2];
 		}
 
 		this.initializeDescription();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new CentralizeAction(magicNumber, playCount == 0));
+		AbstractDungeon.actionManager.addToBottom(new CentralizeAction(magicNumber, playCount == 0 || upgraded && playCount == 1));
 		addPlayCount();
 	}
 
@@ -66,7 +58,6 @@ public class Centralize extends AbstractNumberedCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			this.upgradeMagicNumber(UPGRADE_BONUS);
 			updateDescription();
 		}
 	}

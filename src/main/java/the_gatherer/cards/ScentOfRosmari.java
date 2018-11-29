@@ -29,7 +29,7 @@ public class ScentOfRosmari extends CustomCard {
 
 	private static final int POWER = 6;
 	private static final int UPGRADE_BONUS = 2;
-	private static final int RETAIN = 1;
+	private static final int RETAIN = 2;
 	private static final int REATIN_BONUS = 1;
 
 	public ScentOfRosmari() {

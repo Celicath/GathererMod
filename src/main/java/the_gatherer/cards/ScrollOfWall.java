@@ -39,8 +39,15 @@ public class ScrollOfWall extends CustomCard implements OnUsePotionEffect {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 	}
 
+	@Override
 	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
 		this.cantUseMessage = EXTENDED_DESCRIPTION[0];
+		return false;
+	}
+
+	@Override
+	public boolean hasEnoughEnergy() {
+		super.hasEnoughEnergy();
 		return false;
 	}
 

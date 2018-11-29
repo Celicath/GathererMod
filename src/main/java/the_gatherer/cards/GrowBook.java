@@ -33,7 +33,7 @@ public class GrowBook extends AbstractTaggedCard {
 	private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
-	private static final int POWER = 8;
+	private static final int POWER = 10;
 	private static final int UPGRADE_BONUS = 3;
 	public static final int TRANSFORM_PLAYS = 3;
 

@@ -95,29 +95,12 @@
     "DESCRIPTION": "A #yLesser #yPotion which gives you 1 energy when used."
   },
   {
-    "PROPER_NAME": "Recovery Potion",
+    "PROPER_NAME": "Lesser Swift Potion",
     "NAMES": [
-      "recovery potion",
-      "recovery_potion",
-      "recovery_potion+"
+      "lesser swift potion",
+      "lesser_swift_potion"
     ],
-    "DESCRIPTION": "A special #ySack #yPotion which heals 10% of missing health. Upgraded version(+) heals 15% instead."
-  },
-  {
-    "PROPER_NAME": "Retain Potion",
-    "NAMES": [
-      "retain potion",
-      "retain_potion"
-    ],
-    "DESCRIPTION": "A special #ySack #yPotion which retains your hand this turn."
-  },
-  {
-    "PROPER_NAME": "Black Tea Potion",
-    "NAMES": [
-      "black tea potion",
-      "black_tea_potion"
-    ],
-    "DESCRIPTION": "A Lesser Potion tagged with <Black Tea>. Start each combat with one. When you use this, Exhaust ALL Black Tea cards."
+    "DESCRIPTION": "A #yLesser #yPotion which draws 2 cards when used."
   },
   {
     "PROPER_NAME": "Card Rarity",

@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class TheGatherer extends CustomPlayer {
 	public static final int ENERGY_PER_TURN = 3;
-	public static final int START_HP = 64;
+	public static final int START_HP = 72;
 	public static final int START_GOLD = 99;
 	public static final String CLASS_NAME = "The Gatherer";
 

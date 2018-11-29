@@ -49,6 +49,11 @@ public class ScrollOfPurity extends CustomCard implements OnUsePotionEffect {
 		return false;
 	}
 
+	public boolean hasEnoughEnergy() {
+		super.hasEnoughEnergy();
+		return false;
+	}
+
 	public AbstractCard makeCopy() {
 		return new ScrollOfPurity();
 	}
