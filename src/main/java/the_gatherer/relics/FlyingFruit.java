@@ -20,7 +20,7 @@ public class FlyingFruit extends CustomRelic implements CustomSavable<HashSet<St
 
 	public FlyingFruit() {
 		super(ID, new Texture(GathererMod.GetRelicPath(RelicID)),
-				RelicTier.STARTER, LandingSound.FLAT);
+				RelicTier.RARE, LandingSound.FLAT);
 		this.counter = 0;
 	}
 

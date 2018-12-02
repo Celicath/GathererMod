@@ -13,7 +13,7 @@ public class ExplorersTrail extends CustomRelic {
 
 	public ExplorersTrail() {
 		super(ID, new Texture(GathererMod.GetRelicPath(RelicID)),
-				RelicTier.UNCOMMON, LandingSound.FLAT);
+				RelicTier.BOSS, LandingSound.FLAT);
 		this.counter = 0;
 	}
 

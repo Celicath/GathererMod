@@ -14,7 +14,7 @@ public class Leftovers extends CustomRelic {
 
 	public Leftovers() {
 		super(ID, new Texture(GathererMod.GetRelicPath(RelicID)),
-				RelicTier.STARTER, LandingSound.MAGICAL);
+				RelicTier.RARE, LandingSound.MAGICAL);
 	}
 
 	@Override
