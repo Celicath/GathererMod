@@ -32,7 +32,7 @@ public class GainPotionIfSolidAction extends AbstractGameAction {
 				}
 				if (!full) {
 					AbstractDungeon.actionManager.addToTop(new LoseBlockAction(owner, owner, 5));
-					AbstractDungeon.actionManager.addToTop(new ObtainLesserPotionAction(new LesserBlockPotion()));
+					AbstractDungeon.actionManager.addToTop(new ObtainLesserPotionAction(new LesserBlockPotion(), true));
 				}
 			}
 		}

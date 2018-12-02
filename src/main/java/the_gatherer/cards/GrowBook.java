@@ -1,6 +1,5 @@
 package the_gatherer.cards;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -20,7 +19,7 @@ public class GrowBook extends AbstractTaggedCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
-	public static final String[] IMGS = new String[] {
+	public static final String[] IMGS = new String[]{
 			GathererMod.GetCardPath(RAW_ID + "_R"),
 			GathererMod.GetCardPath(RAW_ID + "_G"),
 			GathererMod.GetCardPath(RAW_ID + "_B")

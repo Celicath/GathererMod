@@ -46,7 +46,7 @@ public class BlackTea extends CustomCard implements StartupCard {
 	public boolean atBattleStartPreDraw() {
 		SackPotion p = GathererMod.returnRandomLesserPotion();
 		p.setTag(SackPotion.SackPotionTag.BLACKTEA);
-		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(p));
+		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(p, true));
 		return true;
 	}
 

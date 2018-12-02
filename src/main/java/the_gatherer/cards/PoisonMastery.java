@@ -41,7 +41,7 @@ public class PoisonMastery extends CustomCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		for (int i = 0; i < this.magicNumber; i++)
-			AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new LesserPoisonPotion()));
+			AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new LesserPoisonPotion(), true));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PoisonMasteryPower(p, 1), 1));
 	}
 

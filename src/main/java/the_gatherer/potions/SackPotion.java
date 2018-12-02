@@ -82,10 +82,9 @@ public abstract class SackPotion extends CustomPotion {
 		this.potency = getPotency();
 
 		this.tips.clear();
-		if (DESCRIPTIONS.length > 1) {
-			this.description = DESCRIPTIONS[0] + this.potency + DESCRIPTIONS[1];
-		} else {
-			this.description = DESCRIPTIONS[0];
+		this.description = DESCRIPTIONS[0];
+		for (int i = 1; i < DESCRIPTIONS.length; i++) {
+			this.description += this.potency + DESCRIPTIONS[i];
 		}
 
 		this.tips.add(new PowerTip(this.name, this.description));

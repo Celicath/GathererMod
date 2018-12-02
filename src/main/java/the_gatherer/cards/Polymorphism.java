@@ -32,27 +32,48 @@ public class Polymorphism extends CustomCard {
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 4;
+	private static final int POWER = 0;
 	private static final int UPGRADE_BONUS = 3;
+	private static final int DRAW = 2;
 
 	public Polymorphism() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseDamage = POWER;
+		this.baseMagicNumber = DRAW;
+		this.magicNumber = this.baseMagicNumber;
 	}
 
-	@Override
-	public void applyPowers() {
+	private void calculateDamage() {
 		int count = 0;
 		for (AbstractCard c : AbstractDungeon.player.hand.group) {
 			if (c != this)
 				count++;
 		}
-		this.baseDamage = count;
-		if (upgraded) this.baseDamage += 3;
-		super.applyPowers();
+		this.baseDamage = this.baseDamage + count;
+	}
 
-		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
+	@Override
+	public void applyPowers() {
+		int temp = this.baseDamage;
+		calculateDamage();
+		super.applyPowers();
+		this.baseDamage = temp;
+		this.isDamageModified = true;
+
+		if (isActivated()) {
+			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
+		} else {
+			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
+		}
 		this.initializeDescription();
+	}
+
+	@Override
+	public void calculateCardDamage(final AbstractMonster mo) {
+		int temp = this.baseDamage;
+		calculateDamage();
+		super.calculateCardDamage(mo);
+		this.baseDamage = temp;
 	}
 
 	private boolean isActivated() {
@@ -70,7 +91,7 @@ public class Polymorphism extends CustomCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		if (isActivated()) {
-			AbstractDungeon.actionManager.addToTop(new DrawCardAction(AbstractDungeon.player, 1));
+			AbstractDungeon.actionManager.addToTop(new DrawCardAction(AbstractDungeon.player, this.magicNumber));
 			AbstractDungeon.actionManager.addToTop(new GainEnergyAction(1));
 		}
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m,

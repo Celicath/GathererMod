@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import the_gatherer.GathererMod;
 
 import java.util.HashSet;
 
@@ -22,42 +23,65 @@ public class GatherMaterialAction extends AbstractGameAction {
 
 	public void update() {
 		if (this.duration == Settings.ACTION_DUR_MED) {
-			if (this.p.drawPile.isEmpty()) {
-				this.isDone = true;
-				return;
-			}
-
-			CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 			HashSet<String> uniques = new HashSet<>();
+			CardGroup moveFromDrawToHand = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+			CardGroup moveFromDiscardToHand = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+			CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
 			for (AbstractCard c : this.p.drawPile.group) {
-				if (!uniques.contains(c.cardID)) {
-					tmp.addToRandomSpot(c);
-					uniques.add(c.cardID);
+				tmp.addToRandomSpot(c);
+			}
+			tmp.shuffle();
+			for (int i = 0; uniques.size() < this.amount && i < tmp.size(); ++i) {
+				AbstractCard card = tmp.getNCardFromTop(i);
+				if (!uniques.contains(GathererMod.getUniqueID(card))) {
+					uniques.add(GathererMod.getUniqueID(card));
+					moveFromDrawToHand.addToBottom(card);
 				}
 			}
 
-			tmp.shuffle();
-			for (int i = 0; i < this.amount; ++i) {
-				if (!tmp.isEmpty()) {
-					AbstractCard card = tmp.getBottomCard();
-					tmp.removeCard(card);
-					if (this.p.hand.size() == BaseMod.MAX_HAND_SIZE) {
-						this.p.drawPile.moveToDiscardPile(card);
-						this.p.createHandIsFullDialog();
-					} else {
-						card.unhover();
-						card.lighten(true);
-						card.setAngle(0.0F);
-						card.drawScale = 0.12F;
-						card.targetDrawScale = 0.75F;
-						card.current_x = CardGroup.DRAW_PILE_X;
-						card.current_y = CardGroup.DRAW_PILE_Y;
-						this.p.drawPile.removeCard(card);
-						AbstractDungeon.player.hand.addToTop(card);
-						AbstractDungeon.player.hand.refreshHandLayout();
-						AbstractDungeon.player.hand.applyPowers();
+			if (this.amount > uniques.size()) {
+				tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+				for (AbstractCard c : this.p.discardPile.group) {
+					tmp.addToRandomSpot(c);
+				}
+				tmp.shuffle();
+				for (int i = 0; uniques.size() < this.amount && i < tmp.size(); ++i) {
+					AbstractCard card = tmp.getNCardFromTop(i);
+					if (!uniques.contains(GathererMod.getUniqueID(card))) {
+						uniques.add(GathererMod.getUniqueID(card));
+						moveFromDiscardToHand.addToBottom(card);
 					}
+				}
+			}
+
+			for (int i = 0; i < moveFromDrawToHand.size(); i++) {
+				AbstractCard card = moveFromDrawToHand.getNCardFromTop(i);
+				if (this.p.hand.size() == BaseMod.MAX_HAND_SIZE) {
+					this.p.drawPile.moveToDiscardPile(card);
+					this.p.createHandIsFullDialog();
+				} else {
+					this.p.drawPile.moveToHand(card, this.p.drawPile);
+				}
+			}
+
+
+			for (int i = 0; i < moveFromDiscardToHand.size(); i++) {
+				AbstractCard card = moveFromDiscardToHand.getNCardFromTop(i);
+				if (this.p.hand.size() == BaseMod.MAX_HAND_SIZE) {
+					this.p.createHandIsFullDialog();
+				} else {
+					card.unhover();
+					card.lighten(true);
+					card.setAngle(0.0F);
+					card.drawScale = 0.12F;
+					card.targetDrawScale = 0.75F;
+					card.current_x = CardGroup.DISCARD_PILE_X;
+					card.current_y = CardGroup.DISCARD_PILE_Y;
+					this.p.discardPile.removeCard(card);
+					AbstractDungeon.player.hand.addToTop(card);
+					AbstractDungeon.player.hand.refreshHandLayout();
+					AbstractDungeon.player.hand.applyPowers();
 				}
 			}
 

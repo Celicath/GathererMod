@@ -15,11 +15,13 @@ import the_gatherer.powers.RecipeChangePower;
 
 public class ObtainLesserPotionAction extends AbstractGameAction {
 	private AbstractPotion potion;
+	private boolean allowRecipeChange;
 
-	public ObtainLesserPotionAction(AbstractPotion potion) {
+	public ObtainLesserPotionAction(AbstractPotion potion, boolean allowRecipeChange) {
 		this.actionType = ActionType.SPECIAL;
 		this.duration = Settings.ACTION_DUR_XFAST;
 		this.potion = potion;
+		this.allowRecipeChange = allowRecipeChange;
 	}
 
 	public void update() {
@@ -35,7 +37,7 @@ public class ObtainLesserPotionAction extends AbstractGameAction {
 				}
 			} else {
 				RecipeChangePower rcp = (RecipeChangePower) AbstractDungeon.player.getPower(RecipeChangePower.POWER_ID);
-				if (rcp != null && AbstractDungeon.cardRandomRng.random(99) < rcp.ratio) {
+				if (rcp != null && allowRecipeChange && AbstractDungeon.cardRandomRng.random(99) < rcp.ratio) {
 					this.potion = rcp.potion.makeCopy();
 					rcp.flash();
 				}

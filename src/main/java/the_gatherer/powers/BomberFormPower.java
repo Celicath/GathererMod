@@ -34,7 +34,7 @@ public class BomberFormPower extends AbstractPower {
 
 	public void atStartOfTurnPostDraw() {
 		this.flash();
-		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new LesserExplosivePotion()));
+		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new LesserExplosivePotion(), false));
 	}
 
 	public void updateDescription() {

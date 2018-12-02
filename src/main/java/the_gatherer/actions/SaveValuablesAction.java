@@ -1,6 +1,7 @@
 package the_gatherer.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -8,17 +9,18 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import the_gatherer.GathererMod;
 
-import java.util.Iterator;
-
-public class DiscardPileToDeckAction extends AbstractGameAction {
-	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("Gatherer:DiscardPileToDeckAction");
+public class SaveValuablesAction extends AbstractGameAction {
+	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("Gatherer:SaveValuablesAction");
 	public static final String[] TEXT = uiStrings.TEXT;
 	private AbstractPlayer p;
+	int block;
 
-	public DiscardPileToDeckAction(AbstractCreature source, int amount) {
+	public SaveValuablesAction(AbstractCreature source, int amount, int block) {
 		this.p = AbstractDungeon.player;
 		this.setValues(null, source, amount);
+		this.block = block;
 		this.actionType = ActionType.CARD_MANIPULATION;
 		this.duration = Settings.ACTION_DUR_FASTER;
 	}
@@ -35,12 +37,12 @@ public class DiscardPileToDeckAction extends AbstractGameAction {
 
 				AbstractDungeon.gridSelectScreen.open(this.p.discardPile, this.amount, true, TEXT[0] + this.amount + TEXT[1]);
 			} else if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
-				Iterator var3 = AbstractDungeon.gridSelectScreen.selectedCards.iterator();
-
-				while (var3.hasNext()) {
-					AbstractCard c = (AbstractCard) var3.next();
+				for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
 					this.p.discardPile.removeCard(c);
 					this.p.hand.moveToDeck(c, true);
+				}
+				for (int i = GathererMod.countUnique(AbstractDungeon.gridSelectScreen.selectedCards); i > 0; i--) {
+					AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block, true));
 				}
 				AbstractDungeon.gridSelectScreen.selectedCards.clear();
 			}

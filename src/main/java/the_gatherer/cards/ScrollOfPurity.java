@@ -68,13 +68,13 @@ public class ScrollOfPurity extends CustomCard implements OnUsePotionEffect {
 	}
 
 	int getThreshold() {
-		return upgraded ? 7 : 8;
+		return 7;
 	}
 
 	@Override
 	public void onUsePotion(AbstractPotion p) {
 		this.flash();
-		AbstractDungeon.actionManager.addToTop(new DrawCardAction(AbstractDungeon.player, 1));
+		AbstractDungeon.actionManager.addToTop(new DrawCardAction(AbstractDungeon.player, this.magicNumber));
 		AbstractDungeon.actionManager.addToBottom(new ScrollOfPurityCountAction(getThreshold(), this.magicNumber));
 	}
 }

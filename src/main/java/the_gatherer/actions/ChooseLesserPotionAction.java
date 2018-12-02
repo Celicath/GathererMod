@@ -1,5 +1,7 @@
 package the_gatherer.actions;
 
+import basemod.ReflectionHacks;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -12,6 +14,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.city.BookOfStabbing;
 import com.megacrit.cardcrawl.monsters.city.Byrd;
 import com.megacrit.cardcrawl.potions.PotionSlot;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
@@ -21,13 +24,11 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import the_gatherer.GathererMod;
 import the_gatherer.cards.BalancedGrowth;
+import the_gatherer.cards.FeelingFine;
 import the_gatherer.cards.LesserPotionOption;
 import the_gatherer.cards.PoisonMastery;
 import the_gatherer.potions.*;
-import the_gatherer.powers.BalancedGrowthPower;
-import the_gatherer.powers.BomberFormPower;
-import the_gatherer.powers.PoisonMasteryPower;
-import the_gatherer.powers.RecipeChangePower;
+import the_gatherer.powers.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -37,7 +38,7 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 	public static final String[] TEXT = uiStrings.TEXT;
 
 	private static final UIStrings mindSearchStrings = CardCrawlGame.languagePack.getUIString("Gatherer:MindSearchAction");
-	public static final String[] MIND_SEARCH_TEXT = mindSearchStrings.TEXT;
+	public static String[] MIND_SEARCH_TEXT = mindSearchStrings.TEXT;
 
 	private AbstractPlayer p;
 	private int pick, num;
@@ -45,6 +46,12 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 	private boolean upgraded;
 
 	public static ArrayList<SackPotion> potionList;
+
+	static {
+		for (int i = 0; i < MIND_SEARCH_TEXT.length; i++) {
+			MIND_SEARCH_TEXT[i] = MIND_SEARCH_TEXT[i].replaceAll("(?<=\\s|^)(?=\\S)", "[#f8e8a0]");
+		}
+	}
 
 	public ChooseLesserPotionAction(int pick, int num, int recipeRatio, boolean upgraded) {
 		this.p = AbstractDungeon.player;
@@ -65,9 +72,19 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 				CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
 				if (p.hasPower(BomberFormPower.POWER_ID)) {
+					ArrayList<Integer> lineNo = new ArrayList<>();
+					for (int i = 1; i <= 5; i++)
+						lineNo.add(i);
+
 					for (int n = 0; n < num; n++) {
 						LesserExplosivePotion lep = new LesserExplosivePotion();
-						group.addToTop(new LesserPotionOption(lep, lep.description));
+						if (recipeRatio == 0) {
+							int k = MathUtils.random(lineNo.size() - 1);
+							group.addToTop(new LesserPotionOption(lep, lep.description + " NL " + MIND_SEARCH_TEXT[MIND_SEARCH_TEXT.length - lineNo.get(k)]));
+							lineNo.remove(k);
+						} else {
+							group.addToTop(new LesserPotionOption(lep, lep.description));
+						}
 					}
 				} else {
 					if (potionList == null) {
@@ -96,6 +113,7 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 							boolean nonVulnerable = false;
 							int maxPoison = 0;
 							boolean isBYRD = false;
+							boolean isBook = false;
 
 							int eliteOrBoss = 0;
 
@@ -103,8 +121,10 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 								if (!m.halfDead && !m.isDying && !m.isEscaping) {
 									enemyCount++;
 
-									if (m.id == Byrd.ID)
+									if (m.id.equals(Byrd.ID))
 										isBYRD = true;
+									else if (m.id.equals(BookOfStabbing.ID))
+										isBook = true;
 									if (m.type == AbstractMonster.EnemyType.ELITE)
 										eliteOrBoss = 1;
 									else if (m.type == AbstractMonster.EnemyType.BOSS)
@@ -119,11 +139,14 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 											maxPoison = amt;
 									}
 									if (m.intent == AbstractMonster.Intent.ATTACK || m.intent == AbstractMonster.Intent.ATTACK_BUFF || m.intent == AbstractMonster.Intent.ATTACK_DEBUFF || m.intent == AbstractMonster.Intent.ATTACK_DEFEND) {
-										int damage = 0;
-										for (DamageInfo di : m.damage) {
-											enemyAttackCount++;
-											damage += di.output;
+										int damage = (int) ReflectionHacks.getPrivate(m, AbstractMonster.class, "intentBaseDmg");
+										int mult = 1;
+										if ((boolean) ReflectionHacks.getPrivate(m, AbstractMonster.class, "isMultiDmg")) {
+											mult = (int) ReflectionHacks.getPrivate(m, AbstractMonster.class, "intentMultiAmt");
 										}
+										damage *= mult;
+										enemyAttackCount += mult;
+
 										totalDamage += damage;
 										if (!m.hasPower(WeakPower.POWER_ID) && unweakenedDamage < damage) {
 											unweakenedDamage = damage;
@@ -139,6 +162,7 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 							int attackCount = 0;
 							int totalCost = 0;
 							boolean poisonMastery = p.hasPower(PoisonMasteryPower.POWER_ID);
+							boolean feelingFine = p.hasPower(FeelingFinePower.POWER_ID);
 							boolean balancedGrowth = p.hasPower(BalancedGrowthPower.POWER_ID);
 							for (AbstractCard c : p.hand.group) {
 								if (c.type == AbstractCard.CardType.SKILL) skillCount++;
@@ -147,6 +171,20 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 								totalCost += c.costForTurn;
 								if (c instanceof PoisonMastery)
 									poisonMastery = true;
+								else if (c instanceof FeelingFine)
+									feelingFine = true;
+								else if (c instanceof BalancedGrowth)
+									balancedGrowth = true;
+							}
+							for (AbstractCard c : p.drawPile.group) {
+								if (c.type == AbstractCard.CardType.SKILL) skillCount++;
+								else if (c.type == AbstractCard.CardType.ATTACK) attackCount++;
+
+								totalCost += c.costForTurn;
+								if (c instanceof PoisonMastery)
+									poisonMastery = true;
+								else if (c instanceof FeelingFine)
+									feelingFine = true;
 								else if (c instanceof BalancedGrowth)
 									balancedGrowth = true;
 							}
@@ -163,7 +201,7 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 								}
 								if (p.currentHealth <= p.maxHealth / 5) {
 									thought = MIND_SEARCH_TEXT[2];
-									weight += 8;
+									weight += 10;
 								}
 							} else if (sp instanceof LesserDexterityPotion) {
 								if (skillCount > 0) {
@@ -172,10 +210,10 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 								}
 								if (balancedGrowth) {
 									thought = MIND_SEARCH_TEXT[4];
-									weight += 6;
+									weight += 8;
 								}
 							} else if (sp instanceof LesserEnergyPotion) {
-								weight += totalCost;
+								weight += totalCost * 2;
 								if (totalCost >= 4) {
 									thought = MIND_SEARCH_TEXT[5];
 								}
@@ -186,7 +224,7 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 									thought = MIND_SEARCH_TEXT[3];
 								}
 								if (p.hasPower(PlatedArmorPower.POWER_ID)) {
-									int now = p.getPower(PlatedArmorPower.POWER_ID).amount;
+									int now = p.getPower(PlatedArmorPower.POWER_ID).amount * 3;
 									weight += now;
 									if (now >= highest) {
 										thought = MIND_SEARCH_TEXT[6];
@@ -194,11 +232,11 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 								}
 							} else if (sp instanceof LesserExplosivePotion) {
 								if (enemyCount > 1) {
-									weight += enemyCount * 3;
+									weight += enemyCount * 2;
 									thought = MIND_SEARCH_TEXT[7];
 								}
 								if (lowestEnemyHP <= sp.getPotency()) {
-									weight += 10;
+									weight += 12;
 									thought = MIND_SEARCH_TEXT[8];
 								}
 							} else if (sp instanceof LesserFearPotion) {
@@ -209,7 +247,7 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 							} else if (sp instanceof LesserFirePotion) {
 								weight++;
 								if (lowestEnemyHP <= sp.getPotency()) {
-									weight += 10;
+									weight += 14;
 									thought = MIND_SEARCH_TEXT[8];
 								}
 							} else if (sp instanceof LesserLiquidBronze) {
@@ -217,8 +255,12 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 								if (enemyAttackCount >= 3) {
 									thought = MIND_SEARCH_TEXT[10];
 								}
+								if (isBook) {
+									weight += 10;
+									thought = MIND_SEARCH_TEXT[10];
+								}
 								if (isBYRD) {
-									weight += 20;
+									weight += 25;
 									thought = MIND_SEARCH_TEXT[11];
 								}
 							} else if (sp instanceof LesserPoisonPotion) {
@@ -227,13 +269,31 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 									thought = MIND_SEARCH_TEXT[6];
 								}
 								if (poisonMastery) {
-									weight += 12;
+									weight += 14;
 									thought = MIND_SEARCH_TEXT[12];
 								}
 							} else if (sp instanceof LesserPowerPotion) {
 								if (eliteOrBoss > 0) {
-									weight += eliteOrBoss * 3 + 4;
+									weight += eliteOrBoss * 3 + 5;
 									thought = MIND_SEARCH_TEXT[13];
+								}
+							} else if (sp instanceof LesserSpeedPotion) {
+								if (skillCount > 0) {
+									thought = MIND_SEARCH_TEXT[17];
+									weight += skillCount * 2;
+								}
+								if (feelingFine) {
+									thought = MIND_SEARCH_TEXT[19];
+									weight += 12;
+								}
+							} else if (sp instanceof LesserSteroidPotion) {
+								if (attackCount > 0) {
+									thought = MIND_SEARCH_TEXT[18];
+									weight += attackCount * 2;
+								}
+								if (feelingFine) {
+									thought = MIND_SEARCH_TEXT[19];
+									weight += 12;
 								}
 							} else if (sp instanceof LesserStrengthPotion) {
 								if (attackCount > 0) {
@@ -242,16 +302,16 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 								}
 								if (balancedGrowth) {
 									thought = MIND_SEARCH_TEXT[4];
-									weight += 6;
+									weight += 8;
 								}
 							} else if (sp instanceof LesserSwiftPotion) {
-								weight += EnergyPanel.totalCount * 3;
+								weight += EnergyPanel.totalCount * 4;
 								if (EnergyPanel.totalCount > 1) {
 									thought = MIND_SEARCH_TEXT[15];
 								}
 							} else if (sp instanceof LesserWeakPotion) {
-								if (enemyCount == 1 && nonVulnerable) {
-									weight += eliteOrBoss * 3 + 4;
+								if (eliteOrBoss > 0) {
+									weight += eliteOrBoss * 3 + 2;
 									thought = MIND_SEARCH_TEXT[16];
 								}
 								weight += unweakenedDamage / 4;
@@ -261,7 +321,7 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 								}
 							}
 							if (!upgraded) {
-								weight += 3;
+								weight += 2;
 							}
 							weights.add(weight);
 							thoughts.add(thought);
@@ -305,7 +365,7 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 					LesserPotionOption lpo = (LesserPotionOption) AbstractDungeon.gridSelectScreen.selectedCards.get(0);
 					for (int i = 0; i < GathererMod.potionSack.potions.size(); i++) {
 						if (!(GathererMod.potionSack.potions.get(i) instanceof PotionSlot)) {
-							GathererMod.potionSack.setPotion(i, (SackPotion)lpo.potion.makeCopy());
+							GathererMod.potionSack.setPotion(i, (SackPotion) lpo.potion.makeCopy());
 						}
 					}
 					RecipeChangePower rcp = (RecipeChangePower) AbstractDungeon.player.getPower(RecipeChangePower.POWER_ID);
@@ -321,7 +381,7 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 							AbstractDungeon.player, AbstractDungeon.player, new RecipeChangePower(lpo.potion, recipeRatio)));
 				} else {
 					for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
-						GathererMod.potionSack.addPotion(((LesserPotionOption) c).potion.makeCopy());
+						AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(((LesserPotionOption) c).potion.makeCopy(), false));
 					}
 				}
 				AbstractDungeon.gridSelectScreen.selectedCards.clear();

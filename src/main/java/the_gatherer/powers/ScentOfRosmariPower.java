@@ -110,7 +110,7 @@ public class ScentOfRosmariPower extends AbstractPower {
 	}
 
 	@Override
-	public void atEndOfTurn ( boolean isPlayer){
+	public void atEndOfTurn(boolean isPlayer) {
 		if (isPlayer) {
 			for (AbstractCard c : AbstractDungeon.player.hand.group) {
 				if (cardList.contains(c)) {

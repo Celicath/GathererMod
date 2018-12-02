@@ -22,7 +22,6 @@ import com.megacrit.cardcrawl.cards.blue.*;
 import com.megacrit.cardcrawl.cards.blue.Stack;
 import com.megacrit.cardcrawl.cards.green.*;
 import com.megacrit.cardcrawl.cards.red.*;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -272,7 +271,6 @@ public class GathererMod implements PostInitializeSubscriber,
 				GATHERER_PORTRAIT,
 				AbstractPlayerEnum.THE_GATHERER);
 
-		lesserPotionPool.add(new LesserAttackPotion());
 		lesserPotionPool.add(new LesserBlockPotion());
 		lesserPotionPool.add(new LesserDexterityPotion());
 		lesserPotionPool.add(new LesserEnergyPotion());
@@ -283,7 +281,8 @@ public class GathererMod implements PostInitializeSubscriber,
 		lesserPotionPool.add(new LesserLiquidBronze());
 		lesserPotionPool.add(new LesserPoisonPotion());
 		lesserPotionPool.add(new LesserPowerPotion());
-		lesserPotionPool.add(new LesserSkillPotion());
+		lesserPotionPool.add(new LesserSpeedPotion());
+		lesserPotionPool.add(new LesserSteroidPotion());
 		lesserPotionPool.add(new LesserStrengthPotion());
 		lesserPotionPool.add(new LesserSwiftPotion());
 		lesserPotionPool.add(new LesserWeakPotion());
@@ -302,6 +301,9 @@ public class GathererMod implements PostInitializeSubscriber,
 		BaseMod.addRelicToCustomPool(new IronSlate(), CardColorEnum.LIME);
 		BaseMod.addRelicToCustomPool(new SilentSlate(), CardColorEnum.LIME);
 		BaseMod.addRelicToCustomPool(new FloralEgg(), CardColorEnum.LIME);
+		BaseMod.addRelicToCustomPool(new Leftovers(), CardColorEnum.LIME);
+		BaseMod.addRelicToCustomPool(new FlyingFruit(), CardColorEnum.LIME);
+		//BaseMod.addRelicToCustomPool(new ExplorersTrail(), CardColorEnum.LIME);
 		logger.debug("receiveEditRelics finished.");
 	}
 
@@ -615,8 +617,12 @@ public class GathererMod implements PostInitializeSubscriber,
 	}
 
 	public static int countUnique(CardGroup group) {
+		return countUnique(group.group);
+	}
+
+	public static int countUnique(Iterable<AbstractCard> group) {
 		HashSet<String> ids = new HashSet<>();
-		for (AbstractCard c : group.group) {
+		for (AbstractCard c : group) {
 			ids.add(getUniqueID(c));
 		}
 		return ids.size();
@@ -652,5 +658,19 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	public static int calcPoisonDamage(int poisonAmount, int powerAmount) {
 		return poisonAmount * (2 + powerAmount) / 2;
+	}
+
+	public static String stripPrefix(String id) {
+		if (id.equals(Strike_Gatherer.ID)) {
+			return "Strike";
+		} else if (id.equals(Defend_Gatherer.ID)) {
+			return "Defend";
+		} else {
+			int index = id.lastIndexOf(':');
+			if (index != -1 && index < id.length() - 1) {
+				return id.substring(index + 1);
+			}
+			return id;
+		}
 	}
 }

@@ -21,7 +21,6 @@ public class ScentOfRosmari extends CustomCard {
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final CardType TYPE = CardType.SKILL;
 	private static final CardColor COLOR = CardColorEnum.LIME;
 	private static final CardRarity RARITY = CardRarity.UNCOMMON;
@@ -55,8 +54,6 @@ public class ScentOfRosmari extends CustomCard {
 			this.upgradeName();
 			this.upgradeBlock(UPGRADE_BONUS);
 			this.upgradeMagicNumber(REATIN_BONUS);
-			this.rawDescription = UPGRADE_DESCRIPTION;
-			this.initializeDescription();
 		}
 	}
 }

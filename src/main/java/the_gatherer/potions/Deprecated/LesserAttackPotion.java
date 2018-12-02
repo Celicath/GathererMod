@@ -1,4 +1,4 @@
-package the_gatherer.potions;
+package the_gatherer.potions.Deprecated;
 
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.PotionRarityEnum;
+import the_gatherer.potions.SackPotion;
 
 public class LesserAttackPotion extends SackPotion {
 	private static final String RAW_ID = "LesserAttackPotion";

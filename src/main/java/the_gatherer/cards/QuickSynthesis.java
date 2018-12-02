@@ -41,7 +41,7 @@ public class QuickSynthesis extends CustomCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		if (this.upgraded)
 			AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 1));
-		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(GathererMod.returnRandomLesserPotion()));
+		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(GathererMod.returnRandomLesserPotion(), true));
 	}
 
 	public AbstractCard makeCopy() {

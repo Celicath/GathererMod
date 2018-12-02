@@ -35,11 +35,27 @@
       "Upon pick up, upgrade ALL your #yFlower cards."
     ]
   },
+  "Gatherer:Leftovers": {
+    "NAME": "Leftovers",
+    "FLAVOR": "No one can fully understand how potion can be made with leftover liquid.",
+    "DESCRIPTIONS": [
+      "Whenever you use a Potion, gain a #yLesser_Potion to your Sack with 20% chance."
+    ]
+  },
   "Gatherer:FlyingFruit": {
     "NAME": "Flying Fruit",
     "FLAVOR": "Fruit flies like a banana.",
     "DESCRIPTIONS": [
-      "Whenever you play a new unique card while having this, raise your Max HP by #b1"
+      "Whenever you #yExhaust #b1/3/6/10 #yUnique cards after pick up, raises your Max HP by #b",
+      " NL NL #yExhausted cards: NL "
+    ]
+  },
+  "Gatherer:ExplorersTrail": {
+    "NAME": "Explorer's Trail",
+    "FLAVOR": "Sometimes explorers follow a clearly wrong path.",
+    "DESCRIPTIONS": [
+      "Card reward screen now shows the pick ratio from previous patch. NL Gain [E] at the start of your turn if you choose lowest-picked card from the previous card reward.",
+      " NL (Activated!)"
     ]
   },
   "Gatherer:Dummy": {}

@@ -266,7 +266,7 @@ public class PotionSack {
 
 	public void setPotion(int index, SackPotion potion) {
 		if (this.potions.get(index) instanceof SackPotion) {
-			potion.tag = ((SackPotion)this.potions.get(index)).tag;
+			potion.tag = ((SackPotion) this.potions.get(index)).tag;
 			potion.updateDescription();
 		}
 		this.potions.set(index, potion);

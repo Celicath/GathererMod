@@ -115,7 +115,7 @@
   },
   "Gatherer:SaveValuables": {
     "NAME": "Save Valuables",
-    "DESCRIPTION": "Choose up to !M! cards from your discard pile. Shuffle them into your draw pile."
+    "DESCRIPTION": "Choose up to !M! cards from your discard pile. Shuffle them into your draw pile and gain !B! Block for each Unique card."
   },
   "Gatherer:TreeGrowth": {
     "NAME": "Tree Growth",
@@ -168,10 +168,11 @@
   },
   "Gatherer:Polymorphism": {
     "NAME": "Polymorphism",
-    "DESCRIPTION": "Deal damage equal to number of other cards in your hand. If they are all Unique, gain [E] and draw a card.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to number of other cards in your hand +3. If they are all Unique, gain [E] and draw a card.",
+    "DESCRIPTION": "Deal damage equal to number of other cards in your hand. If they are all Unique, gain [E] and draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to number of other cards in your hand +3. If they are all Unique, gain [E] and draw !M! cards.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Deals !D! Damage.)"
+      " NL (Deals !D! Damage.)",
+      " NL (Draw & !D! damage!)"
     ]
   },
   "Gatherer:RottenStipe": {
@@ -391,8 +392,8 @@
   },
   "Gatherer:ScrollOfPurity": {
     "NAME": "Scroll of Purity",
-    "DESCRIPTION": "Unplayable. Whenever you use a Potion, draw a card, then Exhaust up to !M! card if you have 8 or more.",
-    "UPGRADE_DESCRIPTION": "Unplayable. Whenever you use a Potion, draw a card, then Exhaust up to !M! cards if you have 7 or more.",
+    "DESCRIPTION": "Unplayable. Whenever you use a Potion, draw !M! card, then Exhaust up to !M! card if you have 7 or more.",
+    "UPGRADE_DESCRIPTION": "Unplayable. Whenever you use a Potion, draw !M! cards, then Exhaust up to !M! cards if you have 7 or more.",
     "EXTENDED_DESCRIPTION": [
       "I can't play this card."
     ]
@@ -412,8 +413,8 @@
   },
   "Gatherer:StoneFence": {
     "NAME": "Stone Fence",
-    "DESCRIPTION": "At the start of your turn, add 1 Thrower to your hand. NL (Does not stack.)",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, add 1 upgraded Thrower to your hand. NL (Does not stack.)"
+    "DESCRIPTION": "Whenever your Block expires, add 1 Thrower to your hand. NL (Does not stack.)",
+    "UPGRADE_DESCRIPTION": "Whenever your Block expires, add 1 upgraded Thrower to your hand. NL (Does not stack.)"
   },
   "Gatherer:Thrower": {
     "NAME": "Thrower",
@@ -433,7 +434,6 @@
     "DESCRIPTION": "Gain !M! Lesser_Poison_Potion. Poison damage is increased by 50% this combat.",
     "UPGRADE_DESCRIPTION": "Gain !M! Lesser_Poison_Potions. Poison damage is increased by 50% this combat."
   },
-
   "Gatherer:ChargingShot": {
     "NAME": "Charging Shot",
     "DESCRIPTION": "Deal !D! damage. While in your hand, using a Potion increases its damage by !M! this combat.",

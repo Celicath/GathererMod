@@ -42,7 +42,7 @@ public class FlamingBottle extends CustomCard {
 		AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(m,
 				new DamageInfo(p, this.damage, this.damageTypeForTurn),
 				AbstractGameAction.AttackEffect.FIRE));
-		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new LesserFirePotion()));
+		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new LesserFirePotion(), true));
 	}
 
 	public AbstractCard makeCopy() {

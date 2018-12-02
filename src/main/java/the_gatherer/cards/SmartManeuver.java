@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ObtainLesserPotionAction;
 import the_gatherer.patches.CardColorEnum;
@@ -38,7 +37,7 @@ public class SmartManeuver extends CustomCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new DamageHalfPower(m, 1, false), 1));
-		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new LesserSwiftPotion()));
+		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new LesserSwiftPotion(), true));
 	}
 
 	public AbstractCard makeCopy() {

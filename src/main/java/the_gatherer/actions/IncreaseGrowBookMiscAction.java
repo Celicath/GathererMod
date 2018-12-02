@@ -33,7 +33,7 @@ public class IncreaseGrowBookMiscAction extends AbstractGameAction {
 					c.misc--;
 					AbstractDungeon.actionManager.addToTop(new ReplaceGrowBookAction(c, c.misc / TRANSFORM_PLAYS, upgraded));
 				} else {
-					((GrowBook)c).setTag(c.misc);
+					((GrowBook) c).setTag(c.misc);
 					c.applyPowers();
 				}
 			}

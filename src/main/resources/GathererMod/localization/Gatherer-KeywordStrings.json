@@ -1,9 +1,10 @@
 [
   {
     "NAMES": [
-      "unique"
+      "unique",
+      "uniques"
     ],
-    "DESCRIPTION": "Cards with different name or color are considered unique."
+    "DESCRIPTION": "Cards with different name(except for upgrades), color or Tag are considered unique."
   },
   {
     "PROPER_NAME": "Once",

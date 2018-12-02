@@ -11,7 +11,7 @@
       "The Sack"
     ]
   },
-  "Gatherer:DiscardPileToDeckAction": {
+  "Gatherer:SaveValuablesAction": {
     "TEXT": [
       "Choose ",
       " cards to shuffle to your deck."
@@ -45,7 +45,7 @@
   },
   "Gatherer:ScentOfRosmariAction": {
     "TEXT": [
-      "Put to Your Hand Next Turn"
+      "Super Retain"
     ]
   },
   "Gatherer:EnchantAction": {
@@ -82,7 +82,15 @@
       "(I want some POWER.)",
       "(I want some long term damage.)",
       "(I have enough energy.)",
-      "(Enemy is too strong)"
+      "(Enemy is too strong)",
+      "(I want some short term defense.)",
+      "(I want some short term power.)",
+      "(I have Feeling Fine.)",
+      "(I'm The BOMBER!)",
+      "(I'm in Bomber Form!)",
+      "(Explosive!)",
+      "(Let's feel the power of Orange color!)",
+      "(I can only see this!)"
     ]
   }
 }

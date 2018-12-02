@@ -42,30 +42,6 @@ public class CentralizeAction extends AbstractGameAction {
 
 			if (tmp.size() == 0) {
 				this.isDone = true;
-			} else if (tmp.size() == 1) {
-				card = tmp.getTopCard();
-				if (this.p.hand.size() == 10) {
-					this.p.drawPile.moveToDiscardPile(card);
-					this.p.createHandIsFullDialog();
-				} else {
-					card.unhover();
-					card.lighten(true);
-					card.setAngle(0.0F);
-					card.drawScale = 0.12F;
-					card.targetDrawScale = 0.75F;
-					card.current_x = CardGroup.DRAW_PILE_X;
-					card.current_y = CardGroup.DRAW_PILE_Y;
-					this.p.drawPile.removeCard(card);
-					AbstractDungeon.player.hand.addToTop(card);
-					AbstractDungeon.player.hand.refreshHandLayout();
-					AbstractDungeon.player.hand.applyPowers();
-				}
-				if (upgrade && (card.type != AbstractCard.CardType.STATUS && card.type != AbstractCard.CardType.CURSE)) {
-					card.upgrade();
-					card.superFlash();
-				}
-
-				this.isDone = true;
 			} else if (tmp.size() <= this.amount) {
 				for (int i = 0; i < tmp.size(); ++i) {
 					card = tmp.getNCardFromTop(i);
@@ -84,6 +60,10 @@ public class CentralizeAction extends AbstractGameAction {
 						AbstractDungeon.player.hand.addToTop(card);
 						AbstractDungeon.player.hand.refreshHandLayout();
 						AbstractDungeon.player.hand.applyPowers();
+					}
+					if (upgrade && (card.type != AbstractCard.CardType.STATUS && card.type != AbstractCard.CardType.CURSE)) {
+						card.upgrade();
+						card.superFlash();
 					}
 				}
 

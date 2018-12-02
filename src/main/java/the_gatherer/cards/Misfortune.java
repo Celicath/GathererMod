@@ -47,10 +47,10 @@ public class Misfortune extends CustomCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 		if (m.hasPower(WeakPower.POWER_ID)) {
-			AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new LesserWeakPotion()));
+			AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new LesserWeakPotion(), true));
 		}
 		if (upgraded && m.hasPower(VulnerablePower.POWER_ID)) {
-			AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new LesserFearPotion()));
+			AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new LesserFearPotion(), true));
 		}
 	}
 

@@ -10,10 +10,8 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.EquilibriumPower;
 import the_gatherer.GathererMod;
-import the_gatherer.actions.ObtainLesserPotionAction;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.patches.CustomTags;
-import the_gatherer.potions.RetainPotion;
 import the_gatherer.powers.LuckyCloverPower;
 
 public class LuckyClover extends CustomCard {

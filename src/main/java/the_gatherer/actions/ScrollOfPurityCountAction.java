@@ -2,10 +2,8 @@ package the_gatherer.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.UIStrings;
 import the_gatherer.cards.ScrollOfPurity;
 
 public class ScrollOfPurityCountAction extends AbstractGameAction {

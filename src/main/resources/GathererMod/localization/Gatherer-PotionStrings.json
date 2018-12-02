@@ -1,11 +1,4 @@
 {
-  "Gatherer:LesserAttackPotion": {
-    "NAME": "Lesser Attack Potion",
-    "DESCRIPTIONS": [
-      "Add #b",
-      " random #yAttack card to your hand, it costs #b0 this turn."
-    ]
-  },
   "Gatherer:LesserBlockPotion": {
     "NAME": "Lesser Block Potion",
     "DESCRIPTIONS": [
@@ -83,17 +76,26 @@
       " #yRegen."
     ]
   },
-  "Gatherer:LesserSkillPotion": {
-    "NAME": "Lesser Skill Potion",
-    "DESCRIPTIONS": [
-      "Add #b",
-      " random #ySkill card to your hand, it costs #b0 this turn."
-    ]
-  },
   "Gatherer:LesserStrengthPotion": {
     "NAME": "Lesser Strength Potion",
     "DESCRIPTIONS": [
       "Gain #b",
+      " #yStrength."
+    ]
+  },
+  "Gatherer:LesserSpeedPotion": {
+    "NAME": "Lesser Swift Potion",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yDexterity. At the end of your turn, lose #b",
+      " #yDexterity."
+    ]
+  },
+  "Gatherer:LesserSteroidPotion": {
+    "NAME": "Lesser Steroid Potion",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yStrength. At the end of your turn, lose #b",
       " #yStrength."
     ]
   },
@@ -141,6 +143,20 @@
     "NAME": "PlaceHolder",
     "DESCRIPTIONS": [
       "Just a placeholder for implementing potion-based things."
+    ]
+  },
+  "Gatherer:LesserAttackPotion": {
+    "NAME": "Lesser Attack Potion",
+    "DESCRIPTIONS": [
+      "Add #b",
+      " random #yAttack card to your hand, it costs #b0 this turn."
+    ]
+  },
+  "Gatherer:LesserSkillPotion": {
+    "NAME": "Lesser Skill Potion",
+    "DESCRIPTIONS": [
+      "Add #b",
+      " random #ySkill card to your hand, it costs #b0 this turn."
     ]
   }
 }

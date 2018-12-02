@@ -56,7 +56,7 @@ public class Snatch extends AbstractNumberedCard {
 				new DamageInfo(p, this.damage, this.damageTypeForTurn),
 				AbstractGameAction.AttackEffect.SLASH_VERTICAL));
 		if (playCount == 0 || upgraded && playCount == 1) {
-			AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(GathererMod.returnRandomLesserPotion()));
+			AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(GathererMod.returnRandomLesserPotion(), true));
 		}
 		addPlayCount();
 	}

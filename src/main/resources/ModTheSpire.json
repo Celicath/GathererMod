@@ -4,7 +4,7 @@
   "author_list": [
     "Celicath"
   ],
-  "description": "Adds The Gatherer as a new playable character with 75 cards, 5 relics.\r\n- Requires StSLib to run.\r\n\r\nv0.4.0\r\n- HP changed to 72 (was 64)\r\n- Changed name of cards to match the theme more.\r\n- Spare Bottle is removed from the starting deck, and is now Event-only.\r\n- Some cards have a <Tag> next to their name, which indicates they are different versions of same card. Tag difference matter for Uniqueness too.\r\n- Various balance changes.\r\n\r\n- For more information, visit\r\nhttps://github.com/Celicath/GathererMod/releases\r\n\r\nv0.3.1\r\n- Mining Stirke deals 1 more damage (partial revert)\r\n- Fixed bug where Scent of Rosmari was retaining cards for more than 1 turn.\r\n- Flower Power is now Uncommon.\r\n- Fixed Lucky Clover's wrong description.",
+  "description": "Adds The Gatherer as a new playable character with 75 cards, 7 relics.\r\n- Requires Basemod, StSLib to run.\r\n\r\nv0.4.0\r\n- 2 new relics: FlyingFruit, Leftovers\r\n- HP changed to 72 (was 64)\r\n- Text changes. The Sack explains that Toy Orth doesn't work on Lesser Potions.\r\n- Lesser Potion changes\r\n- Buff: Gather Material, Herbalism, Polymorphism, Scent of Rosmari, Smart Maneuver, Grow Book, Mind Search, Scroll of Purity, Lucky Clover\r\n- Rework: Save Valuables\r\n- For more information, visit\r\nhttps://github.com/Celicath/GathererMod/releases",
   "version": "0.4.0",
   "sts_version": "11-15-2018",
   "mts_version": "3.6.2",

@@ -19,6 +19,7 @@ public class LesserPotionOption extends CustomCard {
 	public LesserPotionOption(AbstractPotion p, String description) {
 		super(ID, p.name, IMG, -2, description, CardType.SKILL, CardColor.COLORLESS, CardRarity.SPECIAL, CardTarget.NONE);
 		this.potion = p;
+		this.potion.scale = this.drawScale * 1.5f;
 
 		this.rawDescription = this.rawDescription.replace("#b", "[#87ceeb]");
 		this.rawDescription = this.rawDescription.replace("#g", "[#7fff00]");
@@ -29,9 +30,10 @@ public class LesserPotionOption extends CustomCard {
 
 	@Override
 	public void update() {
-		potion.posX = this.current_x;
-		potion.posY = this.current_y + 70 * Settings.scale;
 		super.update();
+		this.potion.scale = this.drawScale * 1.5f;
+		potion.posX = this.current_x;
+		potion.posY = this.current_y + 50 * Settings.scale * this.potion.scale;
 	}
 
 	@Override

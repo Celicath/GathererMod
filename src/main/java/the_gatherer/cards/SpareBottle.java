@@ -18,7 +18,7 @@ public class SpareBottle extends AbstractTaggedCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
-	public static final String[] IMGS = new String[] {
+	public static final String[] IMGS = new String[]{
 			GathererMod.GetCardPath(RAW_ID),
 			GathererMod.GetCardPath(RAW_ID + "_S"),
 			GathererMod.GetCardPath(RAW_ID + "_G")

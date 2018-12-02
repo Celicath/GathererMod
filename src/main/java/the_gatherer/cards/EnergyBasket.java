@@ -42,7 +42,7 @@ public class EnergyBasket extends CustomCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		for (int i = 0; i < this.magicNumber; i++) {
-			AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new LesserEnergyPotion()));
+			AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(new LesserEnergyPotion(), true));
 		}
 	}
 
