@@ -5,8 +5,8 @@ The main focus of The Gatherer is the Potion. She has a potion Sack which can ho
 
 Other mechanics: Cards care about 2+ Cost cards, Unique cards, on-obtain effect card
 
-* Now you need StSLib(https://github.com/kiooeht/StSLib/releases) to play this mod!
-
+* Requires ModTheSpire and BaseMod.
+* Also you need StSLib(https://github.com/kiooeht/StSLib/releases) to play this mod!
 
 ## Gameplay
 Will add later with screens shots.
@@ -16,7 +16,7 @@ GathererMod is currently at beta. All cards are implemented.
 Now I'm wishing for a few more balance pass and most importantly, custom in-game animation before going version 1.0.
 
 - Implemented Cards: 75/75
-- Implemented Relics: 5/7?
+- Implemented Relics: 7/8
 - Implemented Events: 1
 
 All arts are not final, except for the character select screen art drawn by MappyTheKat.
@@ -36,7 +36,7 @@ As a goal, The Gatherer will have similar quality as official characters. The po
 
 ## License
 - All code is in MIT license.
-- Arts are complicated. The character select screen art is drawn by MappyTheKat, so you need to ask him before using it(or, if you ask me, I'll forward to him). Some arts are from Slay the Spire base game or slightly altered of it, which feels strange for me to license. All barebone arts usually made with shapes are free to use. If you're unsure, feel free to contact me before using them.
+- Arts are complicated. The character select screen art is drawn by MappyTheKat, so you need to ask him before using it(or, if you ask me, I'll forward to him). Some arts are from Slay the Spire base game or slightly altered of it, which feels strange for me to license. Similar for googled images. Arts made by me, usually with simple shapes, are free to use. If you're unsure about where art was from, feel free to contact me.
 
 ## Contacts
 - Celicath@gmail.com
