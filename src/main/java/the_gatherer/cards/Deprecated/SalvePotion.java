@@ -13,6 +13,7 @@ import the_gatherer.actions.ModifyMagicNumberAction;
 import the_gatherer.actions.PotionUsedAction;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.patches.CustomTags;
+import the_gatherer.potions.PlaceHolderPotion;
 
 public class SalvePotion extends CustomCard {
 	private static final String RAW_ID = "SalvePotion";
@@ -42,7 +43,7 @@ public class SalvePotion extends CustomCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, this.magicNumber));
 		AbstractDungeon.actionManager.addToBottom(new ModifyMagicNumberAction(this.uuid, -1));
-		AbstractDungeon.actionManager.addToBottom(new PotionUsedAction());
+		AbstractDungeon.actionManager.addToBottom(new PotionUsedAction(new PlaceHolderPotion(), true));
 
 		this.rawDescription = DESCRIPTION;
 		this.initializeDescription();

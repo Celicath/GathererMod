@@ -235,7 +235,7 @@ public class PotionSackPopUp {
 			if (this.hoveredMonster != null) {
 				this.potion.use(this.hoveredMonster);
 
-				GathererMod.ActivatePotionUseEffects(this.potion);
+				GathererMod.ActivatePotionUseEffects(this.potion, true);
 				GathererMod.potionSack.removePotion(this.slot);
 
 				finishTargeting();
@@ -280,7 +280,7 @@ public class PotionSackPopUp {
 				} else {
 					this.potion.use(null);
 
-					GathererMod.ActivatePotionUseEffects(this.potion);
+					GathererMod.ActivatePotionUseEffects(this.potion, true);
 
 					CardCrawlGame.sound.play("POTION_1");
 					GathererMod.potionSack.removePotion(this.slot);

@@ -28,19 +28,20 @@ public class Photoscythe extends CustomCard {
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final CardType TYPE = CardType.ATTACK;
 	private static final CardColor COLOR = CardColorEnum.LIME;
 	private static final CardRarity RARITY = CardRarity.RARE;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 4;
+	private static final int POWER = 3;
+	private static final int UPGRADE_BONUS = 1;
 
 	public Photoscythe() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
+		this.isInnate = true;
 		this.exhaust = true;
 	}
 
@@ -56,13 +57,7 @@ public class Photoscythe extends CustomCard {
 		this.baseDamage = count * this.magicNumber;
 
 		super.applyPowers();
-		if (!this.upgraded) {
-			this.rawDescription = DESCRIPTION;
-		} else {
-			this.rawDescription = UPGRADE_DESCRIPTION;
-		}
-
-		this.rawDescription = this.rawDescription + EXTENDED_DESCRIPTION[0];
+		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
 		this.initializeDescription();
 	}
 
@@ -72,11 +67,7 @@ public class Photoscythe extends CustomCard {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
 		AbstractDungeon.actionManager.addToBottom(new PhotoscytheAction());
 
-		if (!this.upgraded) {
-			this.rawDescription = DESCRIPTION;
-		} else {
-			this.rawDescription = UPGRADE_DESCRIPTION;
-		}
+		this.rawDescription = DESCRIPTION;
 		this.initializeDescription();
 	}
 
@@ -87,9 +78,7 @@ public class Photoscythe extends CustomCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
-			this.isInnate = true;
-			this.rawDescription = UPGRADE_DESCRIPTION;
-			this.initializeDescription();
+			this.upgradeMagicNumber(UPGRADE_BONUS);
 		}
 	}
 }

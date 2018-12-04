@@ -39,6 +39,14 @@ public class BomberForm extends CustomCard {
 		this.tags.add(CustomTags.POTION_GEN);
 	}
 
+	@Override
+	public void initializeDescription() {
+		super.initializeDescription();
+		if (!keywords.contains("bomberform tooltip")) {
+			keywords.add("bomberform tooltip");
+		}
+	}
+
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BomberFormPower(p, this.magicNumber), this.magicNumber));
 	}

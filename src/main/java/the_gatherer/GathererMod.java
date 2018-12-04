@@ -69,7 +69,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		OnStartBattleSubscriber, OnPowersModifiedSubscriber,
 		PostPotionUseSubscriber, PostObtainCardSubscriber,
 		PostBattleSubscriber, OnCardUseSubscriber, RenderSubscriber,
-		PreMonsterTurnSubscriber, PostUpdateSubscriber {
+		PreMonsterTurnSubscriber, PostUpdateSubscriber, PostEnergyRechargeSubscriber {
 
 	public static final Logger logger = LogManager.getLogger(GathererMod.class.getName());
 
@@ -103,6 +103,16 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static boolean bottleCollector = false;
 
 	public static AbstractPotion lastPotionUsedThisTurn = null;
+	public static void setLastPotionUsedThisTurn(AbstractPotion p) {
+		if (AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+			lastPotionUsedThisTurn = p;
+			for (AbstractCard c : AbstractDungeon.player.hand.group) {
+				c.applyPowers();
+			}
+		} else {
+			lastPotionUsedThisTurn = null;
+		}
+	}
 
 	// GrowBook Content
 	public static ArrayList<String> growBookCharacter;
@@ -478,7 +488,7 @@ public class GathererMod implements PostInitializeSubscriber,
 	@Override
 	public boolean receivePreMonsterTurn(AbstractMonster m) {
 		logger.debug("receivePreMonsterTurn started.");
-		lastPotionUsedThisTurn = null;
+		setLastPotionUsedThisTurn(null);
 		logger.debug("receivePreMonsterTurn finished.");
 		return true;
 	}
@@ -521,7 +531,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		}
 		AbstractDungeon.actionManager.addToBottom(new ScrollOfPurityFollowUpAction(ScrollOfPurity.exhaustCount));
 
-		lastPotionUsedThisTurn = p;
+		setLastPotionUsedThisTurn(p);
 	}
 
 	@Override
@@ -629,7 +639,7 @@ public class GathererMod implements PostInitializeSubscriber,
 	}
 
 	public static void onBlockExpired() {
-		if (GathererMod.blockExpired > 0 && AbstractDungeon.player != null) {
+		if (AbstractDungeon.player != null) {
 			AbstractPower p = AbstractDungeon.player.getPower(StoneFencePower.POWER_ID);
 			if (p instanceof StoneFencePower) {
 				((StoneFencePower) p).onBlockExpired(GathererMod.blockExpired);
@@ -638,9 +648,9 @@ public class GathererMod implements PostInitializeSubscriber,
 		}
 	}
 
-	public static void ActivatePotionUseEffects(AbstractPotion p) {
+	public static void ActivatePotionUseEffects(AbstractPotion p, boolean disableToyOrnithopter) {
 		for (AbstractRelic relic : AbstractDungeon.player.relics) {
-			if (relic.relicId != ToyOrnithopter.ID) {
+			if (!disableToyOrnithopter || relic.relicId != ToyOrnithopter.ID) {
 				relic.onUsePotion();
 			}
 		}
@@ -672,5 +682,10 @@ public class GathererMod implements PostInitializeSubscriber,
 			}
 			return id;
 		}
+	}
+
+	@Override
+	public void receivePostEnergyRecharge() {
+		logger.debug("receivePostEnergyRecharge");
 	}
 }

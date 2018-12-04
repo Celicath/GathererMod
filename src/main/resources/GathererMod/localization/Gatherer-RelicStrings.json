@@ -46,7 +46,7 @@
     "NAME": "Flying Fruit",
     "FLAVOR": "Fruit flies like a banana.",
     "DESCRIPTIONS": [
-      "Whenever you #yExhaust #b1/3/6/10 #yUnique cards after pick up, raises your Max HP by #b",
+      "When you #yExhaust #b1/3/6/10 #yUnique cards after pick up, raise your Max HP by #b",
       " NL NL #yExhausted cards: NL "
     ]
   },

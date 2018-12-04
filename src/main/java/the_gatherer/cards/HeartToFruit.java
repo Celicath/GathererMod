@@ -26,8 +26,8 @@ public class HeartToFruit extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.RARE;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 18;
-	private static final int UPGRADE_BONUS = 6;
+	private static final int POWER = 17;
+	private static final int UPGRADE_BONUS = 5;
 	private static final int HP_GAIN = 4;
 	private static final int HP_BONUS = 1;
 

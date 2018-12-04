@@ -40,6 +40,7 @@ public class DrugPower extends CustomCard {
 	}
 
 	public void applyPowers() {
+		super.applyPowers();
 		if (GathererMod.lastPotionUsedThisTurn != null) {
 			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1] + GathererMod.lastPotionUsedThisTurn.name + EXTENDED_DESCRIPTION[2];
 		} else {

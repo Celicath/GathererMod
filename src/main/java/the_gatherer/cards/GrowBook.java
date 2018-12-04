@@ -43,7 +43,6 @@ public class GrowBook extends AbstractTaggedCard {
 			int classNo = this.misc / TRANSFORM_PLAYS;
 			this.rawDescription = EXTENDED_DESCRIPTION[0] + EXTENDED_DESCRIPTION[1 + played] + EXTENDED_DESCRIPTION[4 + classNo];
 			this.initializeDescription();
-			this.loadCardImage(GathererMod.GetCardPath(RAW_ID));
 
 			if (classNo < IMGS.length) {
 				this.loadCardImage(IMGS[classNo]);

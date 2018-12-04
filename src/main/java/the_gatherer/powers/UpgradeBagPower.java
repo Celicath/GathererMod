@@ -15,6 +15,8 @@ public class UpgradeBagPower extends AbstractPower {
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 	public boolean activated = true;
 
+	public static final int POTENCY_MULT = 100;
+
 	public UpgradeBagPower(AbstractCreature owner, int amount) {
 		this.name = NAME;
 		this.ID = POWER_ID;
@@ -28,6 +30,6 @@ public class UpgradeBagPower extends AbstractPower {
 
 	@Override
 	public void updateDescription() {
-		this.description = DESCRIPTIONS[0] + this.amount * 50 + DESCRIPTIONS[1] + (activated ? "" : DESCRIPTIONS[2]);
+		this.description = DESCRIPTIONS[0] + this.amount * POTENCY_MULT + DESCRIPTIONS[1] + (activated ? "" : DESCRIPTIONS[2]);
 	}
 }

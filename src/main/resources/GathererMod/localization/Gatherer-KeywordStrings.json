@@ -130,7 +130,7 @@
     "NAMES": [
       "grow book tooltip 0"
     ],
-    "DESCRIPTION": "Choose 1 from Armaments, Havoc or Dual Strike. Feed is added to the list if upgraded."
+    "DESCRIPTION": "Choose 1 from Armaments, Havoc or Twin Strike. Feed is added to the list if upgraded."
   },
   {
     "PROPER_NAME": "Silent Cards",
@@ -145,5 +145,11 @@
       "grow book tooltip 2"
     ],
     "DESCRIPTION": "Choose 1 from Stack, Steam Barrier or All for one. Seek is added to the list if upgraded."
+  },
+  {
+    "NAMES": [
+      "bomberform tooltip"
+    ],
+    "DESCRIPTION": "If you play multiple #yBomber #yForms, damage boost is stacked but you only get 1 #yLEP per turn."
   }
 ]

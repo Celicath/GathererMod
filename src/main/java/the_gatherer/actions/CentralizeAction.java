@@ -1,6 +1,8 @@
 package the_gatherer.actions;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.UpgradeRandomCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,7 +11,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 
-import java.util.Iterator;
+import java.util.ArrayList;
 
 public class CentralizeAction extends AbstractGameAction {
 	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("AnyCardFromDeckToHandAction");
@@ -19,6 +21,7 @@ public class CentralizeAction extends AbstractGameAction {
 	private AbstractPlayer p;
 
 	private boolean upgrade;
+	private ArrayList<AbstractCard> fetchedCards;
 
 	public CentralizeAction(int amount, boolean upgrade) {
 		this.p = AbstractDungeon.player;
@@ -27,24 +30,23 @@ public class CentralizeAction extends AbstractGameAction {
 		this.duration = Settings.ACTION_DUR_MED;
 
 		this.upgrade = upgrade;
+		this.fetchedCards = new ArrayList<>();
 	}
 
 	public void update() {
-		AbstractCard card;
 		if (this.duration == Settings.ACTION_DUR_MED) {
 			CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-			Iterator it = this.p.drawPile.group.iterator();
 
-			while (it.hasNext()) {
-				card = (AbstractCard) it.next();
-				tmp.addToRandomSpot(card);
+			for (AbstractCard c : this.p.drawPile.group) {
+				tmp.addToRandomSpot(c);
 			}
 
 			if (tmp.size() == 0) {
+				upgradeCards();
 				this.isDone = true;
 			} else if (tmp.size() <= this.amount) {
 				for (int i = 0; i < tmp.size(); ++i) {
-					card = tmp.getNCardFromTop(i);
+					AbstractCard card = tmp.getNCardFromTop(i);
 					if (this.p.hand.size() == 10) {
 						this.p.drawPile.moveToDiscardPile(card);
 						this.p.createHandIsFullDialog();
@@ -61,13 +63,11 @@ public class CentralizeAction extends AbstractGameAction {
 						AbstractDungeon.player.hand.refreshHandLayout();
 						AbstractDungeon.player.hand.applyPowers();
 					}
-					if (upgrade && (card.type != AbstractCard.CardType.STATUS && card.type != AbstractCard.CardType.CURSE)) {
-						card.upgrade();
-						card.superFlash();
-					}
+					this.fetchedCards.add(card);
 				}
-
+				upgradeCards();
 				this.isDone = true;
+
 			} else {
 				if (upgrade) {
 					if (this.amount == 1) {
@@ -86,13 +86,11 @@ public class CentralizeAction extends AbstractGameAction {
 			}
 		} else {
 			if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0) {
-				Iterator it = AbstractDungeon.gridSelectScreen.selectedCards.iterator();
 
-				while (it.hasNext()) {
-					card = (AbstractCard) it.next();
+				for (AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards) {
 					card.unhover();
 
-					if (this.p.hand.size() == 10) {
+					if (this.p.hand.size() == BaseMod.MAX_HAND_SIZE) {
 						this.p.drawPile.moveToDiscardPile(card);
 						this.p.createHandIsFullDialog();
 					} else {
@@ -103,17 +101,31 @@ public class CentralizeAction extends AbstractGameAction {
 					this.p.hand.refreshHandLayout();
 					this.p.hand.applyPowers();
 
-					if (upgrade && (card.type != AbstractCard.CardType.STATUS && card.type != AbstractCard.CardType.CURSE)) {
-						card.upgrade();
-						card.superFlash();
-					}
+					this.fetchedCards.add(card);
 				}
+				upgradeCards();
 
 				AbstractDungeon.gridSelectScreen.selectedCards.clear();
 				this.p.hand.refreshHandLayout();
 			}
 
 			this.tickDuration();
+		}
+	}
+
+	void upgradeCards() {
+		if (upgrade) {
+			int count = this.amount;
+			for (AbstractCard card : this.fetchedCards) {
+				if (upgrade && (card.type != AbstractCard.CardType.STATUS && card.type != AbstractCard.CardType.CURSE) && card.canUpgrade()) {
+					card.upgrade();
+					card.superFlash();
+					count--;
+				}
+			}
+			for (int i = 0; i < count; i++) {
+				AbstractDungeon.actionManager.addToTop(new UpgradeRandomCardAction());
+			}
 		}
 	}
 }

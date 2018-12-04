@@ -15,8 +15,8 @@
     "NAME": "Centralize",
     "DESCRIPTION": "Fetch !M! cards from your draw pile.",
     "EXTENDED_DESCRIPTION": [
-      " NL Twice_: Upgrade them for the rest of combat.",
-      " NL Once_: Upgrade them for the rest of combat.",
+      " NL Twice_: Upgrade !M! random cards in hand; fetched cards get priority.",
+      " NL Once_: Upgrade !M! random cards for the rest of combat; fetched cards get priority.",
       " NL [#D0C8D0]Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
     ]
   },
@@ -102,7 +102,7 @@
   },
   "Gatherer:GatherMaterial": {
     "NAME": "Gather Material",
-    "DESCRIPTION": "Put !M! random Unique cards from your draw pile into your hand."
+    "DESCRIPTION": "Put !M! random Unique cards from your draw or discard pile into your hand."
   },
   "Gatherer:Pollute": {
     "NAME": "Pollute",
@@ -306,8 +306,8 @@
   },
   "Gatherer:UpgradeBag": {
     "NAME": "Upgrade Bag",
-    "DESCRIPTION": "Shuffle a Glitched in your deck. Gain +50% Lesser_Potion Potency.",
-    "UPGRADE_DESCRIPTION": "Add a Glitched+ in your discard pile. Gain +50% Lesser_Potion Potency."
+    "DESCRIPTION": "Shuffle a Glitched in your deck. Your potions in the Sack are 100% more Potent.",
+    "UPGRADE_DESCRIPTION": "Add a Glitched+ in your discard pile. Your potions in the Sack are 100% more Potent."
   },
   "Gatherer:Glitched": {
     "NAME": "Glitched",
@@ -349,8 +349,7 @@
   },
   "Gatherer:Photoscythe": {
     "NAME": "Photoscythe",
-    "DESCRIPTION": "Upgrade ALL your Flower cards for the combat. Deal !M! damage for each of them. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. Upgrade ALL your Flower cards for the combat. Deal !M! damage for each of them. Exhaust.",
+    "DESCRIPTION": "Innate. Upgrade ALL your Flower cards for the rest of combat. Deal !M! damage for each of them. Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -413,21 +412,20 @@
   },
   "Gatherer:StoneFence": {
     "NAME": "Stone Fence",
-    "DESCRIPTION": "Whenever your Block expires, add 1 Thrower to your hand. NL (Does not stack.)",
-    "UPGRADE_DESCRIPTION": "Whenever your Block expires, add 1 upgraded Thrower to your hand. NL (Does not stack.)"
+    "DESCRIPTION": "At the start of your turn, add 1 Thrower to your hand. NL (Does not stack.)",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, add 1 upgraded Thrower to your hand. NL (Does not stack.)"
   },
   "Gatherer:Thrower": {
     "NAME": "Thrower",
-    "DESCRIPTION": "Ethereal. Deal damage equal to expired block of this turn. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Ethereal. Deal damage equal to expired block of this turn +2. Exhaust.",
+    "DESCRIPTION": "Deal damage equal to amount of expired Block this turn. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to amount of expired Block this turn +2. Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
   },
   "Gatherer:LuckyClover": {
     "NAME": "Lucky Clover",
-    "DESCRIPTION": "Retain your hand this turn. NL Whenever you lose 3 or more HP, discard a random card to heal 3 HP.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Retain your hand this turn. NL Whenever you lose 3 or more HP, discard a random card to heal 3 HP."
+    "DESCRIPTION": "Retain your hand this turn. NL Whenever you lose 3 or more HP, discard a random card to heal 3 HP."
   },
   "Gatherer:PoisonMastery": {
     "NAME": "Poison Mastery",

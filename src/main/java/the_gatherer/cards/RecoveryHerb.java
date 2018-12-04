@@ -12,6 +12,8 @@ import the_gatherer.actions.PotionUsedAction;
 import the_gatherer.actions.RecoveryHerbAction;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.patches.CustomTags;
+import the_gatherer.potions.RecoveryPotion;
+import the_gatherer.potions.RecoveryPotionPlus;
 
 public class RecoveryHerb extends CustomCard {
 	private static final String RAW_ID = "RecoveryHerb";
@@ -50,7 +52,7 @@ public class RecoveryHerb extends CustomCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new RecoveryHerbAction(p, p, this.magicNumber));
-		AbstractDungeon.actionManager.addToBottom(new PotionUsedAction());
+		AbstractDungeon.actionManager.addToBottom(new PotionUsedAction(upgraded ? new RecoveryPotionPlus() : new RecoveryPotion(), false));
 
 		this.rawDescription = DESCRIPTION;
 		this.initializeDescription();

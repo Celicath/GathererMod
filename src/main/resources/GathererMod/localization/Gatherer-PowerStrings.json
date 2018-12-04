@@ -79,7 +79,7 @@
   "Gatherer:BomberForm": {
     "NAME": "Bomber Form",
     "DESCRIPTIONS": [
-      "At the start of your turn, Obtain a LEP. Whenever you obtain a lesser Potion, it becomes LEP and increase damage of all LEPs by #b",
+      "At the start of your turn, obtain a LEP. Whenever you obtain a Lesser Potion, it becomes LEP and increase damage of all LEPs by #b",
       "."
     ]
   },
@@ -140,8 +140,8 @@
   "Gatherer:UpgradeBag": {
     "NAME": "Bag Upgraded",
     "DESCRIPTIONS": [
-      "Your #yLesser #yPotions have #b+",
-      "% potency.",
+      "Your Potions in the Sack are ",
+      "% more Potent.",
       " NL #r(Deactivated!)"
     ]
   },

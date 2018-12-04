@@ -14,6 +14,8 @@ import the_gatherer.modules.PotionSack;
 
 import java.util.ArrayList;
 
+import static the_gatherer.powers.UpgradeBagPower.POTENCY_MULT;
+
 public abstract class SackPotion extends CustomPotion {
 	private static final String BT_ID = GathererMod.makeID("BlackTeaTag");
 	private static final PotionStrings blackTeaStrings = CardCrawlGame.languagePack.getPotionString(BT_ID);
@@ -43,7 +45,6 @@ public abstract class SackPotion extends CustomPotion {
 
 	@Override
 	public void use(AbstractCreature target) {
-		GathererMod.logger.debug(this.name + " was used");
 		if (tag == SackPotionTag.BLACKTEA) {
 			ArrayList<AbstractCard> handCopy = new ArrayList<>();
 			for (AbstractCard c : AbstractDungeon.player.hand.group) {
@@ -95,7 +96,7 @@ public abstract class SackPotion extends CustomPotion {
 	}
 
 	public int getPotency(int ascensionLevel) {
-		return getBasePotency() * (upgrade + 2) / 2;
+		return getBasePotency() * (upgrade * POTENCY_MULT + 100) / 100;
 	}
 
 	public abstract int getBasePotency();
