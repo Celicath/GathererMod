@@ -50,8 +50,8 @@
       " NL NL #yExhausted cards: NL "
     ]
   },
-  "Gatherer:ExplorersTrail": {
-    "NAME": "Explorer's Trail",
+  "Gatherer:ExplorersPath": {
+    "NAME": "Explorer's Path",
     "FLAVOR": "Sometimes it's worth to explore the worst path.",
     "DESCRIPTIONS": [
       "Gain [E] at the start of your turn. This deactivates after one combat. NL Card reward screen now shows the pick ratio from previous 2 weeks. NL Choosing the lowest-picked card reactivates energy gain for the next combat.",

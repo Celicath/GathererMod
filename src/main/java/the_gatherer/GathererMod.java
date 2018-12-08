@@ -102,6 +102,7 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static float transmuteAnimTimer = 0;
 	public static boolean bottleCollector = false;
 
+	// Drug Power
 	public static AbstractPotion lastPotionUsedThisTurn = null;
 	public static void setLastPotionUsedThisTurn(AbstractPotion p) {
 		logger.debug("Last potion used: " + (p == null ? "null" : p.name));
@@ -114,13 +115,15 @@ public class GathererMod implements PostInitializeSubscriber,
 			lastPotionUsedThisTurn = null;
 		}
 	}
+	// Drug Power Infinite HP Gain Prevention
+	public static int drugPowerHPGain = 0;
 
 	// GrowBook Content
 	public static ArrayList<String> growBookCharacter;
 	public static ArrayList<AbstractCard[]> growBookContent;
 
-	// Drug Power Infinite HP Gain Prevention
-	public static int drugPowerHPGain = 0;
+	// Explorers Path
+	public static HashSet<AbstractCard> explorersPathBestOption = new HashSet<>();
 
 	public GathererMod() {
 		logger.debug("Constructor started.");
@@ -314,6 +317,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		BaseMod.addRelicToCustomPool(new FloralEgg(), CardColorEnum.LIME);
 		BaseMod.addRelicToCustomPool(new Leftovers(), CardColorEnum.LIME);
 		BaseMod.addRelicToCustomPool(new FlyingFruit(), CardColorEnum.LIME);
+		BaseMod.addRelicToCustomPool(new ExplorersPath(), CardColorEnum.LIME);
 		//BaseMod.addRelicToCustomPool(new ExplorersTrail(), CardColorEnum.LIME);
 		logger.debug("receiveEditRelics finished.");
 	}
@@ -468,6 +472,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		transmuteAmount = 0;
 		drugPowerHPGain = 0;
 		setLastPotionUsedThisTurn(null);
+		explorersPathBestOption.clear();
 
 		for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
 			if (c instanceof AbstractNumberedCard) {
