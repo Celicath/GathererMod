@@ -22,6 +22,8 @@ public abstract class SackPotion extends CustomPotion {
 	public static final String BT_NAME = blackTeaStrings.NAME;
 	public static final String[] BT_DESCRIPTIONS = blackTeaStrings.DESCRIPTIONS;
 
+	private String rawName;
+
 	public enum SackPotionTag {
 		NORMAL, BLACKTEA;
 
@@ -38,13 +40,14 @@ public abstract class SackPotion extends CustomPotion {
 
 	public SackPotion(String name, String id, PotionRarity rarity, PotionSize size, PotionColor color) {
 		super(name, id, rarity, size, color);
+		this.rawName = this.name;
 	}
 
 	public int upgrade = 0;
 	public SackPotionTag tag = SackPotionTag.NORMAL;
 
-	@Override
-	public void use(AbstractCreature target) {
+	// Only called when you Use from the Potion Sack.
+	public void actualUseEffect() {
 		if (tag == SackPotionTag.BLACKTEA) {
 			ArrayList<AbstractCard> handCopy = new ArrayList<>();
 			for (AbstractCard c : AbstractDungeon.player.hand.group) {
@@ -73,6 +76,7 @@ public abstract class SackPotion extends CustomPotion {
 			for (AbstractCard c : discardCopy) {
 				AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.discardPile));
 			}
+			this.name = this.rawName;
 		}
 	}
 
@@ -103,7 +107,7 @@ public abstract class SackPotion extends CustomPotion {
 
 	public void setTag(SackPotionTag tag) {
 		this.tag = tag;
-		this.name += tag.toString();
+		this.name = this.rawName + tag.toString();
 		updateDescription();
 	}
 }

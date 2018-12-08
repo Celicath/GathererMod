@@ -56,7 +56,7 @@ public class Thrower extends CustomCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
-			this.upgradeBlock(UPGRADE_BONUS);
+			this.upgradeDamage(UPGRADE_BONUS);
 			this.rawDescription = UPGRADE_DESCRIPTION + EXTENDED_DESCRIPTION[0];
 			this.initializeDescription();
 		}

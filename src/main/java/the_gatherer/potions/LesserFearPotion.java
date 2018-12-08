@@ -31,7 +31,6 @@ public class LesserFearPotion extends SackPotion {
 	}
 
 	public void use(AbstractCreature target) {
-		super.use(target);
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, AbstractDungeon.player, new VulnerablePower(target, this.potency, false), this.potency));
 	}
 

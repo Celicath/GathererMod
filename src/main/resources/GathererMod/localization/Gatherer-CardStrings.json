@@ -127,7 +127,7 @@
     "EXTENDED_DESCRIPTION": [
       " NL Twice_: Draw 2 cards, then discard 2 cards.",
       " NL Once_: Draw 2 cards, then discard 2 cards.",
-      " NL [#D0C8D0]Once_ [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
+      " NL [#D0C8D0]Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
     ]
   },
   "Gatherer:Duality": {
@@ -158,8 +158,8 @@
   },
   "Gatherer:Misfortune": {
     "NAME": "Misfortune",
-    "DESCRIPTION": "Deal !D! damage. If it is Weakened, gain a Lesser_Weak_Potion.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. If it is Weakened or Vulnerable, gain a Lesser_Weak_Potion or Lesser_Fear_Potion, respectively."
+    "DESCRIPTION": "Deal !D! damage. Gain up to !M! Lesser_Potion with debuff effect that the enemy already has.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Gain up to !M! Lesser_Potions with debuff effect that the enemy already has."
   },
   "Gatherer:OddSpoils": {
     "NAME": "Odd Spoils",
@@ -238,8 +238,7 @@
   },
   "Gatherer:RecipeChange": {
     "NAME": "Recipe Change",
-    "DESCRIPTION": "Choose 1 out of 3 Lesser_Potions. Replace all your current and !M! % of future Lesser_Potions with it.",
-    "UPGRADE_DESCRIPTION": "Choose 1 out of 4 Lesser_Potions. Replace all your current and !M! % of future Lesser_Potions with it."
+    "DESCRIPTION": "Choose 1 from ALL Lesser_Potions. Replace all your current and 25% of future Lesser_Potions with it. Exhaust."
   },
   "Gatherer:RecoveryHerb": {
     "NAME": "Recovery Herb",
@@ -391,8 +390,8 @@
   },
   "Gatherer:ScrollOfPurity": {
     "NAME": "Scroll of Purity",
-    "DESCRIPTION": "Unplayable. Whenever you use a Potion, draw !M! card, then Exhaust up to !M! card if you have 7 or more.",
-    "UPGRADE_DESCRIPTION": "Unplayable. Whenever you use a Potion, draw !M! cards, then Exhaust up to !M! cards if you have 7 or more.",
+    "DESCRIPTION": "Unplayable. Whenever you use a Potion, draw !M! card and Exhaust up to !M! card.",
+    "UPGRADE_DESCRIPTION": "Unplayable. Whenever you use a Potion, draw !M! cards and Exhaust up to !M! cards.",
     "EXTENDED_DESCRIPTION": [
       "I can't play this card."
     ]
@@ -429,8 +428,7 @@
   },
   "Gatherer:PoisonMastery": {
     "NAME": "Poison Mastery",
-    "DESCRIPTION": "Gain !M! Lesser_Poison_Potion. Poison damage is increased by 50% this combat.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Lesser_Poison_Potions. Poison damage is increased by 50% this combat."
+    "DESCRIPTION": "Gain a Lesser_Poison_Potion. NL Poison damage is increased by 100%. Cards with Poison in text have Refund 1."
   },
   "Gatherer:ChargingShot": {
     "NAME": "Charging Shot",

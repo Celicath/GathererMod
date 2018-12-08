@@ -29,7 +29,6 @@ public class LesserFirePotion extends SackPotion {
 	}
 
 	public void use(AbstractCreature target) {
-		super.use(target);
 		DamageInfo info = new DamageInfo(AbstractDungeon.player, this.potency, DamageInfo.DamageType.THORNS);
 		info.applyEnemyPowersOnly(target);
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.FIRE));

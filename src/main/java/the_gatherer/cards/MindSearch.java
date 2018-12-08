@@ -34,7 +34,7 @@ public class MindSearch extends CustomCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ChooseLesserPotionAction(2, 4, 0, upgraded));
+		AbstractDungeon.actionManager.addToBottom(new ChooseLesserPotionAction(2, 4, false, upgraded));
 		this.exhaust = true;
 	}
 

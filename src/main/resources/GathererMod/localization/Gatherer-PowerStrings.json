@@ -24,7 +24,8 @@
     "NAME": "Poison Mastery",
     "DESCRIPTIONS": [
       "Poison damage is increased by #b",
-      "%."
+      "%. NL Cards with #yPoison in text have Refund #b",
+      "."
     ]
   },
   "Gatherer:Pollute": {
@@ -156,7 +157,7 @@
   "Gatherer:RecipeChange": {
     "NAME": "Recipe Changed",
     "DESCRIPTIONS": [
-      "Whenever you gain a #yLesser #yPotion, replace it to ",
+      "Whenever you gain a #yLesser #yPotion, replace it to a ",
       " with #b",
       "% probability."
     ]

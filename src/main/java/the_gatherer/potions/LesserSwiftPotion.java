@@ -26,7 +26,6 @@ public class LesserSwiftPotion extends SackPotion {
 	}
 
 	public void use(AbstractCreature target) {
-		super.use(target);
 		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, this.potency));
 	}
 

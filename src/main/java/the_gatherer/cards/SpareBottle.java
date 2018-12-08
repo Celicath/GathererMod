@@ -48,11 +48,15 @@ public class SpareBottle extends AbstractTaggedCard {
 		}
 		if (tag > 0) {
 			this.loadCardImage(IMGS[tag]);
+			this.textureImg = IMGS[tag];
 		}
+
 		super.setTag(tag);
 	}
 
 	public String getTagName(int tag) {
+		if (tag < 0)
+			return "<?>";
 		return tagStrings[tag];
 	}
 

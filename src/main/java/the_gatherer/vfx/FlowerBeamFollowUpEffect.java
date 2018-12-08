@@ -133,4 +133,7 @@ public class FlowerBeamFollowUpEffect extends AbstractGameEffect {
 		sb.draw(img, v.x, v.y, 16.0F, 16.0F, 32.0F, 32.0F, this.scale, this.scale, rotations.get(loc), 0, 0, 32, 32, flipH, flipV);
 		sb.setBlendFunction(770, 771);
 	}
+
+	public void dispose() {
+	}
 }

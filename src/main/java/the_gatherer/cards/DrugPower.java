@@ -2,19 +2,26 @@ package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.FruitJuice;
 import com.megacrit.cardcrawl.vfx.SpeechBubble;
+import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
+import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.UsePotionOnRandomTargetAction;
 import the_gatherer.patches.CardColorEnum;
+
+import static com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect.BLUNT_HEAVY;
 
 public class DrugPower extends CustomCard {
 	private static final String RAW_ID = "DrugPower";
@@ -50,11 +57,8 @@ public class DrugPower extends CustomCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new DamageAction(m,
-				new DamageInfo(p, this.damage, this.damageTypeForTurn),
-				AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 
-		if (GathererMod.lastPotionUsedThisTurn != null) {
+		if (GathererMod.lastPotionUsedThisTurn != null && !GathererMod.lastPotionUsedThisTurn.isThrown) {
 			boolean notUsing = false;
 			if (GathererMod.lastPotionUsedThisTurn instanceof FruitJuice) {
 				if (GathererMod.drugPowerHPGain >= 100) {
@@ -66,8 +70,14 @@ public class DrugPower extends CustomCard {
 				}
 			}
 			if (!notUsing) {
-				AbstractDungeon.actionManager.addToBottom(new UsePotionOnRandomTargetAction(GathererMod.lastPotionUsedThisTurn));
+				GathererMod.lastPotionUsedThisTurn.use(null);
 			}
+		}
+
+		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), BLUNT_HEAVY));
+
+		if (GathererMod.lastPotionUsedThisTurn != null && GathererMod.lastPotionUsedThisTurn.isThrown) {
+			AbstractDungeon.actionManager.addToBottom(new UsePotionOnRandomTargetAction(GathererMod.lastPotionUsedThisTurn));
 		}
 
 		this.rawDescription = DESCRIPTION;

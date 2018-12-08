@@ -39,11 +39,11 @@ public class FruitForce extends CustomCard implements OnObtainEffect {
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
 
-		updateDamage();
+		updateDamage(true);
 	}
 
-	private void updateDamage() {
-		if (AbstractDungeon.player != null && this.prevMaxHP != AbstractDungeon.player.maxHealth) {
+	private void updateDamage(boolean ignoreUpdate) {
+		if (AbstractDungeon.player != null && (ignoreUpdate || this.prevMaxHP != AbstractDungeon.player.maxHealth)) {
 			this.baseDamage = (AbstractDungeon.player.maxHealth * this.magicNumber) / 100;
 			if (prevMaxHP == 0) {
 				this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
@@ -54,7 +54,7 @@ public class FruitForce extends CustomCard implements OnObtainEffect {
 	}
 
 	public void applyPowers() {
-		updateDamage();
+		updateDamage(false);
 		super.applyPowers();
 	}
 
@@ -70,6 +70,7 @@ public class FruitForce extends CustomCard implements OnObtainEffect {
 		if (!this.upgraded) {
 			this.upgradeName();
 			this.upgradeMagicNumber(UPGRADE_BONUS);
+			updateDamage(true);
 		}
 	}
 
@@ -77,7 +78,7 @@ public class FruitForce extends CustomCard implements OnObtainEffect {
 	public void update() {
 		super.update();
 
-		updateDamage();
+		updateDamage(false);
 	}
 
 	@Override

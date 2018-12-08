@@ -26,7 +26,6 @@ public class LesserEnergyPotion extends SackPotion {
 	}
 
 	public void use(AbstractCreature target) {
-		super.use(target);
 		AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.potency));
 	}
 

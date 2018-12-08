@@ -29,7 +29,6 @@ public class LesserBlockPotion extends SackPotion {
 	}
 
 	public void use(AbstractCreature target) {
-		super.use(target);
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.potency));
 	}
 

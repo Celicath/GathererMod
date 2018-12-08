@@ -29,9 +29,18 @@ public class PoisonDamagePatch {
 
 	@SpirePatch(clz = AbstractCreature.class, method = "renderRedHealthBar")
 	public static class HealthBarRender {
-		@SpireInsertPatch(rloc = 29, localvars = {"poisonAmt"})
+		@SpireInsertPatch(locator = BarLocator.class, localvars = {"poisonAmt"})
 		public static void Insert(AbstractCreature __instance, SpriteBatch sb, float x, float y, @ByRef int[] poisonAmt) {
 			poisonAmt[0] = GathererMod.calcPoisonDamageWithPower(poisonAmt[0]);
+		}
+	}
+
+	private static class BarLocator extends SpireInsertLocator {
+		@Override
+		public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+			Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractCreature.class, "hasPower");
+			final int[] all = LineFinder.findAllInOrder(ctMethodToPatch, finalMatcher);
+			return new int[]{all[all.length - 1]};
 		}
 	}
 

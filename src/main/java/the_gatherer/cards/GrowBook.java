@@ -47,6 +47,7 @@ public class GrowBook extends AbstractTaggedCard {
 			if (classNo < IMGS.length) {
 				this.loadCardImage(IMGS[classNo]);
 			}
+			this.textureImg = IMGS[classNo];
 		}
 
 		super.setTag(tagNo);
@@ -56,7 +57,7 @@ public class GrowBook extends AbstractTaggedCard {
 	public String getTagName(int tag) {
 		switch (tag / TRANSFORM_PLAYS) {
 			case -1:
-				return "";
+				return "<?>";
 			default:
 				return "<" + GathererMod.growBookCharacter.get(tag / TRANSFORM_PLAYS) + ">";
 		}

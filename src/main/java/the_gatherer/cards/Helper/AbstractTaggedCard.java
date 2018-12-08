@@ -1,7 +1,9 @@
 package the_gatherer.cards.Helper;
 
 import basemod.abstracts.CustomCard;
+import basemod.abstracts.CustomSavable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import the_gatherer.GathererMod;
 
 public abstract class AbstractTaggedCard extends CustomCard {
 	protected String rawName;

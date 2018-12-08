@@ -1,9 +1,14 @@
 package the_gatherer.powers;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.RefundAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import the_gatherer.GathererMod;
 
@@ -25,7 +30,32 @@ public class PoisonMasteryPower extends AbstractPower {
 		this.img = new Texture(GathererMod.GetPowerPath(RAW_ID));
 	}
 
+	@Override
+	public void onPlayCard(AbstractCard card, AbstractMonster m) {
+		if (card.costForTurn > 0) {
+			String lowered = card.rawDescription.toLowerCase();
+			boolean containsPosion =
+					card.keywords != null && (card.keywords.contains("poison")
+							|| card.keywords.contains(GameDictionary.POISON.NAMES[0]))
+							|| lowered.contains("poison");
+
+			if (!containsPosion) {
+				for (String word : GameDictionary.POISON.NAMES) {
+					if (lowered.contains(word)) {
+						containsPosion = true;
+						break;
+					}
+				}
+			}
+
+			if (containsPosion) {
+				this.flash();
+				AbstractDungeon.actionManager.addToBottom(new RefundAction(card, this.amount));
+			}
+		}
+	}
+
 	public void updateDescription() {
-		this.description = DESCRIPTIONS[0] + (this.amount * 50) + DESCRIPTIONS[1];
+		this.description = DESCRIPTIONS[0] + (this.amount * 100) + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
 	}
 }

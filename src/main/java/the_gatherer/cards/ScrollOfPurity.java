@@ -68,7 +68,7 @@ public class ScrollOfPurity extends CustomCard implements OnUsePotionEffect {
 	}
 
 	int getThreshold() {
-		return 7;
+		return 0;
 	}
 
 	@Override

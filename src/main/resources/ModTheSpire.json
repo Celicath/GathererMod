@@ -4,9 +4,9 @@
   "author_list": [
     "Celicath"
   ],
-  "description": "Adds The Gatherer as a new playable character with 75 cards, 7 relics.\r\n- Requires Basemod, StSLib to run.\r\n\r\nv0.4.0\r\n- 2 new relics: FlyingFruit, Leftovers\r\n- HP changed to 72 (was 64)\r\n- Text changes. The Sack explains that Toy Orth doesn't work on Lesser Potions.\r\n- Lesser Potion changes\r\n- Buff: Gather Material, Herbalism, Polymorphism, Scent of Rosmari, Smart Maneuver, Grow Book, Mind Search, Scroll of Purity, Lucky Clover\r\n- Rework: Save Valuables\r\n\r\nv0.4.1\r\n- Buff: Centralize, Flower Falling, Flower Shield, Lucky Clover, Scent of Rosmari\r\n- Nerf: Heart to Fruit\r\n- Changed: Photoscythe, Upgrade Bag\r\n- Recovery Herb now works with Toy Ornithopter and Drug Power.\r\n- Tootips and text changes, bug fixes\r\n\r\n- For more information, visit\r\nhttps://github.com/Celicath/GathererMod/releases",
-  "version": "0.4.1",
-  "sts_version": "11-15-2018",
+  "description": "Adds The Gatherer as a new playable character with 75 cards, 8 relics.\r\n- Requires Basemod, StSLib to run.\r\n\r\nv0.4.X\r\n- 2 new relics: FlyingFruit, Leftovers\r\n- HP changed to 72 (was 64)\r\n- Various text changes.\r\n- Changes to list of Lesser Potions\r\n- Buff: Centralize, Flower Falling, Flower Shield, Gather Material, Herbalism, Polymorphism, Scent of Rosmari, Smart Maneuver, Grow Book, Mind Search, Scroll of Purity, Lucky Clover\r\n- Nerf: Heart to Fruit\r\n- Changed: Photoscythe, Upgrade Bag\r\n- Rework: Save Valuables\r\n\r\nv0.5.0\r\n- Something\r\n\r\n- For more information, visit\r\nhttps://github.com/Celicath/GathererMod/releases",
+  "version": "0.5.0",
+  "sts_version": "12-06-2018",
   "mts_version": "3.6.2",
   "dependencies": [
     "basemod",

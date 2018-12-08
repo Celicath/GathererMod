@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Bezier;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.Vector2;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.GameCursor;
 import com.megacrit.cardcrawl.core.Settings;
@@ -23,6 +24,7 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.FruitJuice;
 import com.megacrit.cardcrawl.ui.panels.PotionPopUp;
 import the_gatherer.GathererMod;
+import the_gatherer.potions.SackPotion;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -233,7 +235,7 @@ public class PotionSackPopUp {
 			InputHelper.justClickedLeft = false;
 			CInputActionSet.select.unpress();
 			if (this.hoveredMonster != null) {
-				this.potion.use(this.hoveredMonster);
+				usePotion(this.hoveredMonster);
 
 				GathererMod.ActivatePotionUseEffects(this.potion, true);
 				GathererMod.potionSack.removePotion(this.slot);
@@ -242,6 +244,13 @@ public class PotionSackPopUp {
 			}
 		}
 
+	}
+
+	private void usePotion(AbstractCreature c) {
+		this.potion.use(c);
+		if(this.potion instanceof SackPotion) {
+			((SackPotion)this.potion).actualUseEffect();
+		}
 	}
 
 	private void updateInput() {
@@ -278,7 +287,7 @@ public class PotionSackPopUp {
 				if (this.potion.targetRequired) {
 					this.startTargeting();
 				} else {
-					this.potion.use(null);
+					usePotion(null);
 
 					GathererMod.ActivatePotionUseEffects(this.potion, true);
 

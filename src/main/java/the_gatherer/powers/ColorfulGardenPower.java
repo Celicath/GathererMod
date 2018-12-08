@@ -68,6 +68,7 @@ public class ColorfulGardenPower extends AbstractPower {
 	@Override
 	public void atEndOfTurn(boolean isPlayer) {
 		if (isPlayer) {
+			this.flash();
 			AbstractDungeon.actionManager.addToBottom(new GainBlockAction(owner, owner, this.amount));
 		}
 	}

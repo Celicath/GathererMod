@@ -104,6 +104,7 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	public static AbstractPotion lastPotionUsedThisTurn = null;
 	public static void setLastPotionUsedThisTurn(AbstractPotion p) {
+		logger.debug("Last potion used: " + (p == null ? "null" : p.name));
 		if (AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 			lastPotionUsedThisTurn = p;
 			for (AbstractCard c : AbstractDungeon.player.hand.group) {
@@ -466,6 +467,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		enchantAmount = 0;
 		transmuteAmount = 0;
 		drugPowerHPGain = 0;
+		setLastPotionUsedThisTurn(null);
 
 		for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
 			if (c instanceof AbstractNumberedCard) {
@@ -667,7 +669,7 @@ public class GathererMod implements PostInitializeSubscriber,
 	}
 
 	public static int calcPoisonDamage(int poisonAmount, int powerAmount) {
-		return poisonAmount * (2 + powerAmount) / 2;
+		return poisonAmount * (1 + powerAmount);
 	}
 
 	public static String stripPrefix(String id) {

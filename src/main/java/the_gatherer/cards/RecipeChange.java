@@ -17,25 +17,22 @@ public class RecipeChange extends CustomCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
-	private static final int COST = 0;
+	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 25;
-	private static final int UPGRADE_BONUS = 15;
+	private static final int NEW_COST = 0;
 
 	public RecipeChange() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-		this.baseMagicNumber = POWER;
-		this.magicNumber = baseMagicNumber;
+		this.exhaust = true;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ChooseLesserPotionAction(1, upgraded ? 4 : 3, this.magicNumber, upgraded));
+		AbstractDungeon.actionManager.addToBottom(new ChooseLesserPotionAction(1, GathererMod.lesserPotionPool.size(), true, upgraded));
 	}
 
 	public AbstractCard makeCopy() {
@@ -45,9 +42,7 @@ public class RecipeChange extends CustomCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			this.upgradeMagicNumber(UPGRADE_BONUS);
-			this.rawDescription = UPGRADE_DESCRIPTION;
-			this.initializeDescription();
+			this.upgradeBaseCost(NEW_COST);
 		}
 	}
 }

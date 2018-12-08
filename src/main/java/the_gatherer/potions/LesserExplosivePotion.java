@@ -35,7 +35,6 @@ public class LesserExplosivePotion extends SackPotion {
 	}
 
 	public void use(AbstractCreature target) {
-		super.use(target);
 		Iterator var2 = AbstractDungeon.getMonsters().monsters.iterator();
 
 		while (var2.hasNext()) {

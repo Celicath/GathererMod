@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ObtainLesserPotionAction;
 import the_gatherer.patches.CardColorEnum;
+import the_gatherer.patches.CustomTags;
 import the_gatherer.potions.LesserSwiftPotion;
 import the_gatherer.powers.DamageHalfPower;
 
@@ -33,6 +34,8 @@ public class SmartManeuver extends CustomCard {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
 		this.magicNumber = this.baseMagicNumber;
+
+		this.tags.add(CustomTags.POTION_GEN);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

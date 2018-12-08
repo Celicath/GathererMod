@@ -22,7 +22,6 @@ public class PlaceHolderPotion extends SackPotion {
 	}
 
 	public void use(AbstractCreature target) {
-		super.use(target);
 	}
 
 	public AbstractPotion makeCopy() {

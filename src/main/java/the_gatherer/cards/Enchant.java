@@ -26,7 +26,7 @@ public class Enchant extends CustomCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
 	private static final int POWER = 14;
-	private static final int UPGRADE_BONUS = 6;
+	private static final int UPGRADE_BONUS = 4;
 
 	public Enchant() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

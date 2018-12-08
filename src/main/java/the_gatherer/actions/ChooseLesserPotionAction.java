@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -40,9 +39,11 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 	private static final UIStrings mindSearchStrings = CardCrawlGame.languagePack.getUIString("Gatherer:MindSearchAction");
 	public static String[] MIND_SEARCH_TEXT = mindSearchStrings.TEXT;
 
+	private static int recipeChangeRatio = 25;
+
 	private AbstractPlayer p;
 	private int pick, num;
-	private int recipeRatio;
+	private boolean recipeChange;
 	private boolean upgraded;
 
 	public static ArrayList<SackPotion> potionList;
@@ -53,12 +54,12 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 		}
 	}
 
-	public ChooseLesserPotionAction(int pick, int num, int recipeRatio, boolean upgraded) {
+	public ChooseLesserPotionAction(int pick, int num, boolean recipeChange, boolean upgraded) {
 		this.p = AbstractDungeon.player;
 		this.setValues(null, p, pick);
 		this.pick = pick;
 		this.num = num;
-		this.recipeRatio = recipeRatio;
+		this.recipeChange = recipeChange;
 		this.actionType = ActionType.CARD_MANIPULATION;
 		this.duration = Settings.ACTION_DUR_FASTER;
 		this.upgraded = upgraded;
@@ -72,18 +73,19 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 				CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
 				if (p.hasPower(BomberFormPower.POWER_ID)) {
-					ArrayList<Integer> lineNo = new ArrayList<>();
-					for (int i = 1; i <= 5; i++)
-						lineNo.add(i);
-
-					for (int n = 0; n < num; n++) {
+					if (recipeChange) {
 						LesserExplosivePotion lep = new LesserExplosivePotion();
-						if (recipeRatio == 0) {
+						group.addToTop(new LesserPotionOption(lep, lep.description));
+					} else {
+						ArrayList<Integer> lineNo = new ArrayList<>();
+						for (int i = 1; i <= 5; i++)
+							lineNo.add(i);
+
+						for (int n = 0; n < num; n++) {
+							LesserExplosivePotion lep = new LesserExplosivePotion();
 							int k = MathUtils.random(lineNo.size() - 1);
 							group.addToTop(new LesserPotionOption(lep, lep.description + " NL " + MIND_SEARCH_TEXT[MIND_SEARCH_TEXT.length - lineNo.get(k)]));
 							lineNo.remove(k);
-						} else {
-							group.addToTop(new LesserPotionOption(lep, lep.description));
 						}
 					}
 				} else {
@@ -103,7 +105,11 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 
 					int weightSum = 0;
 
-					if (recipeRatio == 0) {
+					if (recipeChange) {
+						for (SackPotion sp : potionList) {
+							group.addToTop(new LesserPotionOption(sp, sp.description));
+						}
+					} else {
 						for (SackPotion sp : potionList) {
 							int enemyCount = 0;
 							int enemyAttackCount = 0;
@@ -327,41 +333,31 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 							thoughts.add(thought);
 							weightSum += weight;
 						}
-					} else {
-						for (SackPotion sp : potionList) {
-							int weight = 1;
-							weights.add(weight);
-							weightSum += weight;
-						}
-					}
 
-					HashSet<Class<? extends SackPotion>> picked = new HashSet<>();
-					for (int n = 0; n < num; n++) {
-						int thisWeightSum = weightSum;
-						for (int i = 0; i < potionList.size(); i++) {
-							SackPotion sp = potionList.get(i);
-							Class<? extends SackPotion> cls = sp.getClass();
-							if (picked.contains(cls)) continue;
-							int weight = weights.get(i);
-							if (AbstractDungeon.cardRandomRng.random(thisWeightSum - 1) < weight) {
-								weightSum -= weight;
-								picked.add(cls);
-								if (recipeRatio == 0) {
+						HashSet<Class<? extends SackPotion>> picked = new HashSet<>();
+						for (int n = 0; n < num; n++) {
+							int thisWeightSum = weightSum;
+							for (int i = 0; i < potionList.size(); i++) {
+								SackPotion sp = potionList.get(i);
+								Class<? extends SackPotion> cls = sp.getClass();
+								if (picked.contains(cls)) continue;
+								int weight = weights.get(i);
+								if (AbstractDungeon.cardRandomRng.random(thisWeightSum - 1) < weight) {
+									weightSum -= weight;
+									picked.add(cls);
 									group.addToTop(new LesserPotionOption(sp, sp.description + " NL " + thoughts.get(i)));
-								} else {
-									group.addToTop(new LesserPotionOption(sp, sp.description));
+									break;
 								}
-								break;
+								thisWeightSum -= weight;
 							}
-							thisWeightSum -= weight;
 						}
 					}
 				}
-				AbstractDungeon.gridSelectScreen.open(group, pick, recipeRatio > 0 ? TEXT[0] : TEXT[1], false);
+				AbstractDungeon.gridSelectScreen.open(group, pick, recipeChange ? TEXT[0] : TEXT[1], false);
 
 			} else if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
 
-				if (recipeRatio > 0) {
+				if (recipeChange) {
 					LesserPotionOption lpo = (LesserPotionOption) AbstractDungeon.gridSelectScreen.selectedCards.get(0);
 					for (int i = 0; i < GathererMod.potionSack.potions.size(); i++) {
 						if (!(GathererMod.potionSack.potions.get(i) instanceof PotionSlot)) {
@@ -370,7 +366,7 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 					}
 					RecipeChangePower rcp = (RecipeChangePower) AbstractDungeon.player.getPower(RecipeChangePower.POWER_ID);
 					if (rcp != null) {
-						if (rcp.potion == lpo.potion && rcp.ratio >= this.recipeRatio) {
+						if (rcp.potion == lpo.potion && rcp.ratio >= recipeChangeRatio) {
 							this.tickDuration();
 							return;
 						}
@@ -378,7 +374,7 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 								AbstractDungeon.player, AbstractDungeon.player, RecipeChangePower.POWER_ID));
 					}
 					AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-							AbstractDungeon.player, AbstractDungeon.player, new RecipeChangePower(lpo.potion, recipeRatio)));
+							AbstractDungeon.player, AbstractDungeon.player, new RecipeChangePower(lpo.potion, recipeChangeRatio)));
 				} else {
 					for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
 						AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(((LesserPotionOption) c).potion.makeCopy(), false));

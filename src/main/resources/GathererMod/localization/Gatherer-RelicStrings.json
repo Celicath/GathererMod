@@ -3,15 +3,15 @@
     "NAME": "Alchemy Bag",
     "FLAVOR": "A mysterious bag with the power of recurring potions.",
     "DESCRIPTIONS": [
-      "At the start of each combat, add a lesser potion to your Sack."
+      "At the start of each combat, gain a random Lesser Potion."
     ]
   },
   "Gatherer:MiracleBag": {
     "NAME": "Miracle Bag",
     "FLAVOR": "Created with forbidden technology.",
     "DESCRIPTIONS": [
-      "Not replaced #yAlchemy #yBag. At the start of each combat, obtain a random potion (to your regular potion slot).",
-      "Replaces #yAlchemy #yBag. At the start of each combat, obtain a rare potion (to your regular potion slot)."
+      "Not replaced #yAlchemy #yBag. NL At the start of each combat, obtain a random potion (to your regular potion slot).",
+      "Replaces #yAlchemy #yBag. NL At the start of each combat, obtain a rare potion (to your regular potion slot)."
     ]
   },
   "Gatherer:IronSlate": {
@@ -39,22 +39,22 @@
     "NAME": "Leftovers",
     "FLAVOR": "No one can fully understand how potion can be made with leftover liquid.",
     "DESCRIPTIONS": [
-      "Whenever you use a Potion, gain a #yLesser_Potion to your Sack with 20% chance."
+      "Whenever you use a Potion, gain a random #yLesser_Potion with #b20% chance."
     ]
   },
   "Gatherer:FlyingFruit": {
     "NAME": "Flying Fruit",
     "FLAVOR": "Fruit flies like a banana.",
     "DESCRIPTIONS": [
-      "When you #yExhaust #b1/3/6/10 #yUnique cards after pick up, raise your Max HP by #b",
+      "When you #yExhaust #b1/3/6/10 #yUnique cards after picking this up, raise your Max HP by #b",
       " NL NL #yExhausted cards: NL "
     ]
   },
   "Gatherer:ExplorersTrail": {
     "NAME": "Explorer's Trail",
-    "FLAVOR": "Sometimes explorers follow a clearly wrong path.",
+    "FLAVOR": "Sometimes it's worth to explore the worst path.",
     "DESCRIPTIONS": [
-      "Card reward screen now shows the pick ratio from previous patch. NL Gain [E] at the start of your turn if you choose lowest-picked card from the previous card reward.",
+      "Gain [E] at the start of your turn. This deactivates after one combat. NL Card reward screen now shows the pick ratio from previous 2 weeks. NL Choosing the lowest-picked card reactivates energy gain for the next combat.",
       " NL (Activated!)"
     ]
   },
