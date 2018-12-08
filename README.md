@@ -3,7 +3,7 @@ GathererMod adds a new character for Slay The Spire, The Gatherer. Contains 75 c
 
 The main focus of The Gatherer is the Potion. She has a potion Sack which can hold 3 "lesser" potions. The contents of the sack are gone at the end of each combat, so it's better to use them all. Especially when there are powers that care about using potions.
 
-Other mechanics: Cards care about 2+ Cost cards, Unique cards, on-obtain effect card
+Other themes: Cards care about 2+ Cost cards, Unique cards, on-obtain effect card, relatively large deck with some control.
 
 * Requires ModTheSpire and BaseMod.
 * Also you need StSLib(https://github.com/kiooeht/StSLib/releases) to play this mod!
@@ -15,9 +15,11 @@ Will add later with screens shots.
 GathererMod is currently at beta. All cards are implemented.
 Now I'm wishing for a few more balance pass and most importantly, custom in-game animation before going version 1.0.
 
-- Implemented Cards: 75/75
-- Implemented Relics: 7/8
-- Implemented Events: 1
+- Cards: 75
+- Relics: 8
+- Events: 1
+
+Everything is Gatherer-exclusive.
 
 All arts are not final, except for the character select screen art drawn by MappyTheKat.
 
