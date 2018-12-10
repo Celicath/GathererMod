@@ -183,9 +183,6 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 									balancedGrowth = true;
 							}
 							for (AbstractCard c : p.drawPile.group) {
-								if (c.type == AbstractCard.CardType.SKILL) skillCount++;
-								else if (c.type == AbstractCard.CardType.ATTACK) attackCount++;
-
 								if (c instanceof PoisonMastery)
 									poisonMastery = true;
 								else if (c instanceof FeelingFine)
