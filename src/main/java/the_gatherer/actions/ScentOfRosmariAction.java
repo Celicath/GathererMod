@@ -59,7 +59,7 @@ public class ScentOfRosmariAction extends AbstractGameAction {
 					this.p.hand.refreshHandLayout();
 					this.p.hand.applyPowers();
 				}
-				if (!(pow instanceof ScentOfRosmariPower)) {
+				if (!(pow instanceof ScentOfRosmariPower) && !cards.isEmpty()) {
 					AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new ScentOfRosmariPower(cards)));
 				}
 				this.returnCards();

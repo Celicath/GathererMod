@@ -95,7 +95,7 @@ public class GrowBook extends AbstractTaggedCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new IncreaseGrowBookMiscAction(this.uuid, this.misc, 1, upgraded));
+		AbstractDungeon.actionManager.addToBottom(new IncreaseGrowBookMiscAction(this.uuid, 1));
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
 	}
 

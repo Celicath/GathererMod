@@ -13,12 +13,10 @@ import static the_gatherer.cards.GrowBook.TRANSFORM_PLAYS;
 public class IncreaseGrowBookMiscAction extends AbstractGameAction {
 	private int miscIncrease;
 	private UUID uuid;
-	private boolean upgraded;
 
-	public IncreaseGrowBookMiscAction(UUID targetUUID, int miscValue, int miscIncrease, boolean upgraded) {
+	public IncreaseGrowBookMiscAction(UUID targetUUID, int miscIncrease) {
 		this.miscIncrease = miscIncrease;
 		this.uuid = targetUUID;
-		this.upgraded = upgraded;
 	}
 
 	public void update() {
@@ -31,7 +29,7 @@ public class IncreaseGrowBookMiscAction extends AbstractGameAction {
 				c.misc += this.miscIncrease;
 				if (c.misc % TRANSFORM_PLAYS == 0) {
 					c.misc--;
-					AbstractDungeon.actionManager.addToTop(new ReplaceGrowBookAction(c, c.misc / TRANSFORM_PLAYS, upgraded));
+					AbstractDungeon.actionManager.addToTop(new ReplaceGrowBookAction(c, c.misc / TRANSFORM_PLAYS, c.upgraded));
 				} else {
 					((GrowBook) c).setTag(c.misc);
 					c.applyPowers();

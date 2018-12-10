@@ -1,22 +1,19 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.potions.AttackPotion;
 import com.megacrit.cardcrawl.potions.FruitJuice;
+import com.megacrit.cardcrawl.potions.PowerPotion;
+import com.megacrit.cardcrawl.potions.SkillPotion;
 import com.megacrit.cardcrawl.vfx.SpeechBubble;
-import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
-import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.UsePotionOnRandomTargetAction;
 import the_gatherer.patches.CardColorEnum;
@@ -58,25 +55,33 @@ public class DrugPower extends CustomCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 
-		if (GathererMod.lastPotionUsedThisTurn != null && !GathererMod.lastPotionUsedThisTurn.isThrown) {
-			boolean notUsing = false;
-			if (GathererMod.lastPotionUsedThisTurn instanceof FruitJuice) {
-				if (GathererMod.drugPowerHPGain >= 100) {
-					AbstractDungeon.effectList.add(new SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 2.0f,
-							EXTENDED_DESCRIPTION[3], true));
-					notUsing = true;
-				} else {
-					GathererMod.drugPowerHPGain += GathererMod.lastPotionUsedThisTurn.getPotency();
+		boolean useLater = false;
+		if (GathererMod.lastPotionUsedThisTurn != null) {
+			if (!GathererMod.lastPotionUsedThisTurn.isThrown &&
+					!(GathererMod.lastPotionUsedThisTurn instanceof PowerPotion) &&
+					!(GathererMod.lastPotionUsedThisTurn instanceof SkillPotion) &&
+					!(GathererMod.lastPotionUsedThisTurn instanceof AttackPotion)) {
+				boolean notUsing = false;
+				if (GathererMod.lastPotionUsedThisTurn instanceof FruitJuice) {
+					if (GathererMod.drugPowerHPGain >= 100) {
+						AbstractDungeon.effectList.add(new SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 2.0f,
+								EXTENDED_DESCRIPTION[3], true));
+						notUsing = true;
+					} else {
+						GathererMod.drugPowerHPGain += GathererMod.lastPotionUsedThisTurn.getPotency();
+					}
 				}
-			}
-			if (!notUsing) {
-				GathererMod.lastPotionUsedThisTurn.use(null);
+				if (!notUsing) {
+					GathererMod.lastPotionUsedThisTurn.use(null);
+				}
+			} else {
+				useLater = true;
 			}
 		}
 
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), BLUNT_HEAVY));
 
-		if (GathererMod.lastPotionUsedThisTurn != null && GathererMod.lastPotionUsedThisTurn.isThrown) {
+		if (useLater) {
 			AbstractDungeon.actionManager.addToBottom(new UsePotionOnRandomTargetAction(GathererMod.lastPotionUsedThisTurn));
 		}
 

@@ -186,7 +186,6 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 								if (c.type == AbstractCard.CardType.SKILL) skillCount++;
 								else if (c.type == AbstractCard.CardType.ATTACK) attackCount++;
 
-								totalCost += c.costForTurn;
 								if (c instanceof PoisonMastery)
 									poisonMastery = true;
 								else if (c instanceof FeelingFine)

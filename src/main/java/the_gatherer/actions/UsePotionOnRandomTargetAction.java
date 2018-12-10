@@ -19,26 +19,25 @@ public class UsePotionOnRandomTargetAction extends AbstractGameAction {
 	}
 
 	public void update() {
-		if (this.duration == Settings.ACTION_DUR_FAST) {
-			if (AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-				this.isDone = true;
-				return;
-			}
-			AbstractCreature target = null;
-			ArrayList<AbstractMonster> tmp = new ArrayList<>();
-			for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-				if (!m.halfDead && !m.isDying && !m.isEscaping) {
-					tmp.add(m);
-				}
-			}
-			if (tmp.size() > 0) {
-				target = tmp.get(MathUtils.random(0, tmp.size() - 1));
-			}
-
-			this.target = target;
-
-			p.use(target);
+		if (AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+			this.isDone = true;
+			return;
 		}
+		AbstractCreature target = null;
+		ArrayList<AbstractMonster> tmp = new ArrayList<>();
+		for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+			if (!m.halfDead && !m.isDying && !m.isEscaping) {
+				tmp.add(m);
+			}
+		}
+		if (tmp.size() > 0) {
+			target = tmp.get(MathUtils.random(0, tmp.size() - 1));
+		}
+
+		this.target = target;
+
+		p.use(target);
+		this.isDone = true;
 		this.tickDuration();
 	}
 }
