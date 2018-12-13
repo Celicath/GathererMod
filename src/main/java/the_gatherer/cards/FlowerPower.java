@@ -27,7 +27,7 @@ public class FlowerPower extends CustomCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final CardType TYPE = CardType.POWER;
-	private static final CardColor COLOR = CardColorEnum.LIME;
+	private static final CardColor COLOR = CardColorEnum.GATHERER_LIME;
 	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.SELF;
 

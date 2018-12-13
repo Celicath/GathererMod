@@ -21,7 +21,7 @@ public class Glitched extends CustomCard {
 	private static final int COST = 3;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final CardType TYPE = CardType.STATUS;
-	private static final CardColor COLOR = CardColorEnum.LIME;
+	private static final CardColor COLOR = CardColorEnum.GATHERER_LIME;
 	private static final CardRarity RARITY = CardRarity.SPECIAL;
 	private static final CardTarget TARGET = CardTarget.SELF;
 

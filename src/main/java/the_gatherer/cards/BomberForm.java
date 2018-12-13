@@ -23,7 +23,7 @@ public class BomberForm extends CustomCard {
 	private static final int COST = 3;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.POWER;
-	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
+	private static final AbstractCard.CardColor COLOR = CardColorEnum.GATHERER_LIME;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 

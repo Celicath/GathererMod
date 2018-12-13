@@ -103,7 +103,7 @@ public class TheGatherer extends CustomPlayer {
 
 	@Override
 	public AbstractCard.CardColor getCardColor() {
-		return CardColorEnum.LIME;
+		return CardColorEnum.GATHERER_LIME;
 	}
 
 	@Override

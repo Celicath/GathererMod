@@ -5,5 +5,5 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class CardColorEnum {
 	@SpireEnum
-	public static AbstractCard.CardColor LIME;
+	public static AbstractCard.CardColor GATHERER_LIME;
 }

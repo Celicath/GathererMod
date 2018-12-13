@@ -23,7 +23,7 @@ public class MindSearch extends CustomCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
-	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
+	private static final AbstractCard.CardColor COLOR = CardColorEnum.GATHERER_LIME;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 

@@ -24,7 +24,7 @@ public class WitheringStrike extends CustomCard {
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
-	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
+	private static final AbstractCard.CardColor COLOR = CardColorEnum.GATHERER_LIME;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 

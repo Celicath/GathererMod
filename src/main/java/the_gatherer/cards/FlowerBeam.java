@@ -31,7 +31,7 @@ public class FlowerBeam extends CustomCard {
 	private static final int COST = 2;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final CardType TYPE = CardType.ATTACK;
-	private static final CardColor COLOR = CardColorEnum.LIME;
+	private static final CardColor COLOR = CardColorEnum.GATHERER_LIME;
 	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 

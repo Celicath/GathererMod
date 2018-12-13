@@ -21,7 +21,7 @@ public class Centralize extends AbstractNumberedCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
-	private static final AbstractCard.CardColor COLOR = CardColorEnum.LIME;
+	private static final AbstractCard.CardColor COLOR = CardColorEnum.GATHERER_LIME;
 	private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.BASIC;
 	private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 

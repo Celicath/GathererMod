@@ -5,5 +5,5 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 
 public class LibraryTypeEnum {
 	@SpireEnum
-	public static CardLibrary.LibraryType LIME;
+	public static CardLibrary.LibraryType GATHERER_LIME;
 }

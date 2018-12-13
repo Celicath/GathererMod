@@ -132,7 +132,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		BaseMod.subscribe(this);
 		CaseMod.subscribe(this);
 
-		BaseMod.addColor(CardColorEnum.LIME,
+		BaseMod.addColor(CardColorEnum.GATHERER_LIME,
 				Color.LIME, Color.LIME, Color.LIME, Color.LIME, Color.LIME, Color.LIME, Color.LIME,
 				"GathererMod/img/cardui/512/bg_attack_lime.png",
 				"GathererMod/img/cardui/512/bg_skill_lime.png",
@@ -312,15 +312,15 @@ public class GathererMod implements PostInitializeSubscriber,
 	@Override
 	public void receiveEditRelics() {
 		logger.debug("receiveEditRelics started.");
-		BaseMod.addRelicToCustomPool(new AlchemyBag(), CardColorEnum.LIME);
-		BaseMod.addRelicToCustomPool(new MiracleBag(), CardColorEnum.LIME);
-		BaseMod.addRelicToCustomPool(new IronSlate(), CardColorEnum.LIME);
-		BaseMod.addRelicToCustomPool(new SilentSlate(), CardColorEnum.LIME);
-		BaseMod.addRelicToCustomPool(new FloralEgg(), CardColorEnum.LIME);
-		BaseMod.addRelicToCustomPool(new Leftovers(), CardColorEnum.LIME);
-		BaseMod.addRelicToCustomPool(new FlyingFruit(), CardColorEnum.LIME);
-		BaseMod.addRelicToCustomPool(new ExplorersPath(), CardColorEnum.LIME);
-		//BaseMod.addRelicToCustomPool(new ExplorersTrail(), CardColorEnum.LIME);
+		BaseMod.addRelicToCustomPool(new AlchemyBag(), CardColorEnum.GATHERER_LIME);
+		BaseMod.addRelicToCustomPool(new MiracleBag(), CardColorEnum.GATHERER_LIME);
+		BaseMod.addRelicToCustomPool(new IronSlate(), CardColorEnum.GATHERER_LIME);
+		BaseMod.addRelicToCustomPool(new SilentSlate(), CardColorEnum.GATHERER_LIME);
+		BaseMod.addRelicToCustomPool(new FloralEgg(), CardColorEnum.GATHERER_LIME);
+		BaseMod.addRelicToCustomPool(new Leftovers(), CardColorEnum.GATHERER_LIME);
+		BaseMod.addRelicToCustomPool(new FlyingFruit(), CardColorEnum.GATHERER_LIME);
+		BaseMod.addRelicToCustomPool(new ExplorersPath(), CardColorEnum.GATHERER_LIME);
+		//BaseMod.addRelicToCustomPool(new ExplorersTrail(), CardColorEnum.GATHERER_LIME);
 		logger.debug("receiveEditRelics finished.");
 	}
 
