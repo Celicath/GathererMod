@@ -248,8 +248,8 @@ public class PotionSackPopUp {
 
 	private void usePotion(AbstractCreature c) {
 		this.potion.use(c);
-		if(this.potion instanceof SackPotion) {
-			((SackPotion)this.potion).actualUseEffect();
+		if (this.potion instanceof SackPotion) {
+			((SackPotion) this.potion).actualUseEffect();
 		}
 	}
 

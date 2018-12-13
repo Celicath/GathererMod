@@ -29,7 +29,7 @@ public class BambuSword extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 7;
+	private static final int POWER = 8;
 	private static final int UPGRADE_BONUS = 3;
 
 	public BambuSword() {

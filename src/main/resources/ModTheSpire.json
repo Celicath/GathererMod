@@ -4,7 +4,7 @@
   "author_list": [
     "Celicath"
   ],
-  "credits" : "MappyTheKat - Character art",
+  "credits": "MappyTheKat - Character art",
   "description": "Adds The Gatherer as a new playable character with 75 cards, 8 relics.\r\n- Requires Basemod, StSLib to run.\r\n\r\nv0.4.0 - v0.4.2\r\n- 3 new relics: FlyingFruit, Leftovers, Explorer's Path\r\n- HP changed to 72 (was 64)\r\n- Various text changes.\r\n- Changes to list of Lesser Potions\r\n- Buff: Centralize, Star Fruit, Flower Falling, Flower Shield, Gather Material, Herbalism, Polymorphism, Scent of Rosmari, Smart Maneuver, Solidify, Grow Book, Mind Search, Scroll of Purity, Lucky Clover\r\n- Nerf: Enchant, Heart to Fruit\r\n- Changed: Photoscythe, Upgrade Bag\r\n- Rework: Misfortune, Recipe Change, Save Valuables, Poison Mastery\r\n\r\nv0.4.3\n- Bug fix: Drug Power, Scent of Rosmari, Grow Book, Mind Search\r\n\r\n- For more information, visit\r\nhttps://github.com/Celicath/GathererMod/releases",
   "version": "0.4.3",
   "sts_version": "12-06-2018",

@@ -41,12 +41,12 @@ public class StoneFencePower extends AbstractPower {
 		}
 	}
 
-	public void onBlockExpired(int amount) {
+	public void activate() {
 		if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
 			this.flash();
 
 			Thrower c = new Thrower();
-			c.setDamage(amount);
+			c.setDamage(GathererMod.remainedBlock);
 			if (upgraded) {
 				c.upgrade();
 			}

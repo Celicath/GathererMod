@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import the_gatherer.GathererMod;
-import the_gatherer.potions.PlaceHolderPotion;
 
 public class PotionUsedAction extends AbstractGameAction {
 	private AbstractPlayer p;

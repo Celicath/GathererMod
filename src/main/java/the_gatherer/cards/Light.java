@@ -25,18 +25,21 @@ public class Light extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.SPECIAL;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 7;
+	private static final int POWER = 8;
 	private static final int UPGRADE_BONUS = 3;
+	private static final int BONUS = 5;
 
 	public Light() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
 		this.baseBlock = POWER;
+		this.magicNumber = BONUS;
+		this.baseMagicNumber = this.magicNumber;
 	}
 
 	private void applyGlowPower() {
 		if (AbstractDungeon.player.hasPower(GlowPower.POWER_ID)) {
-			this.block = this.block * (1 + AbstractDungeon.player.getPower(GlowPower.POWER_ID).amount);
+			this.block += this.magicNumber * AbstractDungeon.player.getPower(GlowPower.POWER_ID).amount;
 			this.isBlockModified = true;
 		}
 	}

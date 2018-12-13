@@ -1,10 +1,12 @@
 package the_gatherer.actions;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 public class BigPouchAction extends AbstractGameAction {
@@ -24,7 +26,15 @@ public class BigPouchAction extends AbstractGameAction {
 					sum += EnergyPanel.getCurrentEnergy();
 				}
 			}
-			AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, sum));
+			float tmp = sum;
+			for (final AbstractPower p : AbstractDungeon.player.powers) {
+				tmp = p.modifyBlock(tmp);
+			}
+			if (tmp < 0.0f) {
+				tmp = 0.0f;
+			}
+			int block = MathUtils.floor(tmp);
+			AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
 		}
 
 		this.tickDuration();

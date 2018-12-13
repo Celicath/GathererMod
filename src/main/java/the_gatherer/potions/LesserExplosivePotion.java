@@ -25,9 +25,17 @@ public class LesserExplosivePotion extends SackPotion {
 	public static final String NAME = potionStrings.NAME;
 	public static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;
 
+	private int level;
+
 	public LesserExplosivePotion() {
 		super(NAME, POTION_ID, PotionRarityEnum.LESSER, PotionSize.H, PotionColor.EXPLOSIVE);
 		this.isThrown = true;
+
+		level = 0;
+		if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower(ExplodingPower.POWER_ID)) {
+			level = AbstractDungeon.player.getPower(ExplodingPower.POWER_ID).amount;
+		}
+		this.potency = getPotency();
 
 		updateDescription();
 
@@ -59,10 +67,12 @@ public class LesserExplosivePotion extends SackPotion {
 
 	@Override
 	public int getBasePotency() {
-		if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower(ExplodingPower.POWER_ID)) {
-			return 6 + AbstractDungeon.player.getPower(ExplodingPower.POWER_ID).amount;
-		} else {
-			return 6;
-		}
+		return 6;
+	}
+
+	@Override
+	public int getPotency(int ascensionLevel) {
+		int base = super.getPotency(ascensionLevel);
+		return base + level;
 	}
 }

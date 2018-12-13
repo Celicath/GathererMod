@@ -87,7 +87,7 @@
   "Gatherer:Exploding": {
     "NAME": "Exploding",
     "DESCRIPTIONS": [
-      "All Lesser Explosive Potions deal #b",
+      "Your next Lesser Explosive Potion deals #b",
       " more damage."
     ]
   },

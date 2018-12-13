@@ -37,6 +37,7 @@ public class Thrower extends CustomCard {
 		this.initializeDescription();
 
 		this.exhaust = true;
+		this.isEthereal = true;
 	}
 
 	public void setDamage(int damage) {

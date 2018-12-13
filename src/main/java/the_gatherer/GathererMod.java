@@ -18,8 +18,8 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.blue.*;
 import com.megacrit.cardcrawl.cards.blue.Stack;
+import com.megacrit.cardcrawl.cards.blue.*;
 import com.megacrit.cardcrawl.cards.green.*;
 import com.megacrit.cardcrawl.cards.red.*;
 import com.megacrit.cardcrawl.core.Settings;
@@ -86,7 +86,7 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	public static PotionSack potionSack;
 	public static Set<Class<? extends AbstractCard>> playedCardsCombat = new HashSet<>();
-	public static int blockExpired = 0;
+	public static int remainedBlock = 0;
 
 	public static ArrayList<SackPotion> lesserPotionPool = new ArrayList<>();
 	public static HashSet<AbstractGameEffect> gainCardEffectToExhaust = new HashSet<>();
@@ -104,6 +104,7 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	// Drug Power
 	public static AbstractPotion lastPotionUsedThisTurn = null;
+
 	public static void setLastPotionUsedThisTurn(AbstractPotion p) {
 		logger.debug("Last potion used: " + (p == null ? "null" : p.name));
 		if (AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
@@ -115,6 +116,7 @@ public class GathererMod implements PostInitializeSubscriber,
 			lastPotionUsedThisTurn = null;
 		}
 	}
+
 	// Drug Power Infinite HP Gain Prevention
 	public static int drugPowerHPGain = 0;
 
@@ -302,7 +304,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		lesserPotionPool.add(new LesserWeakPotion());
 
 		BaseMod.addPotion(BloodPotion.class, Color.WHITE.cpy(), Color.LIGHT_GRAY.cpy(), null, BloodPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(GhostInAJar.class, Color.WHITE.cpy(), Color.LIGHT_GRAY.cpy(), null, BloodPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
+		BaseMod.addPotion(GhostInAJar.class, Color.WHITE.cpy(), Color.LIGHT_GRAY.cpy(), null, GhostInAJar.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
 
 		logger.debug("receiveEditCharacters finished.");
 	}
@@ -645,16 +647,6 @@ public class GathererMod implements PostInitializeSubscriber,
 		return ids.size();
 	}
 
-	public static void onBlockExpired() {
-		if (AbstractDungeon.player != null) {
-			AbstractPower p = AbstractDungeon.player.getPower(StoneFencePower.POWER_ID);
-			if (p instanceof StoneFencePower) {
-				((StoneFencePower) p).onBlockExpired(GathererMod.blockExpired);
-				GathererMod.blockExpired = 0;
-			}
-		}
-	}
-
 	public static void ActivatePotionUseEffects(AbstractPotion p, boolean disableToyOrnithopter) {
 		for (AbstractRelic relic : AbstractDungeon.player.relics) {
 			if (!disableToyOrnithopter || relic.relicId != ToyOrnithopter.ID) {
@@ -688,6 +680,15 @@ public class GathererMod implements PostInitializeSubscriber,
 				return id.substring(index + 1);
 			}
 			return id;
+		}
+	}
+
+	public static void activateStoneFence() {
+		if (AbstractDungeon.player != null) {
+			StoneFencePower sfp = (StoneFencePower) AbstractDungeon.player.getPower(StoneFencePower.POWER_ID);
+			if (sfp != null) {
+				sfp.activate();
+			}
 		}
 	}
 

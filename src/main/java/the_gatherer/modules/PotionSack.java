@@ -186,9 +186,15 @@ public class PotionSack {
 				ubp.activated = (potency != 0);
 				ubp.updateDescription();
 			}
+		}
+
+		if (potions != null) {
 			for (AbstractPotion p : potions) {
 				if (p instanceof SackPotion) {
-					((SackPotion) p).updateDescription();
+					SackPotion sp = (SackPotion) p;
+					if (sp.upgrade != potionPotency) {
+						sp.updateDescription();
+					}
 				}
 			}
 		}
@@ -266,7 +272,7 @@ public class PotionSack {
 
 	public void setPotion(int index, SackPotion potion) {
 		if (this.potions.get(index) instanceof SackPotion) {
-			potion.setTag(((SackPotion)this.potions.get(index)).tag);
+			potion.setTag(((SackPotion) this.potions.get(index)).tag);
 		}
 		this.potions.set(index, potion);
 		setPotionPosition(index, potion);

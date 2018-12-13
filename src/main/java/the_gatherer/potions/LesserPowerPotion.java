@@ -27,9 +27,11 @@ public class LesserPowerPotion extends SackPotion {
 	}
 
 	public void use(AbstractCreature target) {
-		AbstractCard c = AbstractDungeon.returnTrulyRandomCardInCombat(AbstractCard.CardType.POWER).makeCopy();
-		c.setCostForTurn(0);
-		AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, this.potency));
+		for (int i = 0; i < this.potency; i++) {
+			AbstractCard c = AbstractDungeon.returnTrulyRandomCardInCombat(AbstractCard.CardType.POWER).makeCopy();
+			c.setCostForTurn(0);
+			AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, 1));
+		}
 	}
 
 	public AbstractPotion makeCopy() {

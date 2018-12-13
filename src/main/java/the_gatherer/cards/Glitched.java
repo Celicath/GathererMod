@@ -18,13 +18,14 @@ public class Glitched extends CustomCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
-	private static final int COST = 2;
+	private static final int COST = 3;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final CardType TYPE = CardType.STATUS;
 	private static final CardColor COLOR = CardColorEnum.LIME;
 	private static final CardRarity RARITY = CardRarity.SPECIAL;
 	private static final CardTarget TARGET = CardTarget.SELF;
+
+	private static final int NEW_COST = 2;
 
 	public Glitched() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -33,6 +34,7 @@ public class Glitched extends CustomCard {
 		this.rawDescription = DESCRIPTION;
 		this.initializeDescription();
 		AlwaysRetainField.alwaysRetain.set(this, true);
+		this.exhaust = true;
 	}
 
 	@Override
@@ -58,9 +60,7 @@ public class Glitched extends CustomCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
-			this.exhaust = true;
-			this.rawDescription = UPGRADE_DESCRIPTION;
-			this.initializeDescription();
+			this.upgradeBaseCost(NEW_COST);
 		}
 	}
 }

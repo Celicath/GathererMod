@@ -15,8 +15,8 @@
     "NAME": "Centralize",
     "DESCRIPTION": "Fetch !M! cards from your draw pile.",
     "EXTENDED_DESCRIPTION": [
-      " NL Twice_: Upgrade !M! random cards in hand; fetched cards get priority.",
-      " NL Once_: Upgrade !M! random cards for the rest of combat; fetched cards get priority.",
+      " NL Twice_: Upgrade !M! random cards in hand; Fetched cards get priority.",
+      " NL Once_: Upgrade !M! random cards in hand; Fetched cards get priority.",
       " NL [#D0C8D0]Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
     ]
   },
@@ -86,7 +86,7 @@
   },
   "Gatherer:BigPouch": {
     "NAME": "Big Pouch",
-    "DESCRIPTION": "Draw !M! Cards. Gain Block equal to total cost of your cards in hand. (Not affected by powers)"
+    "DESCRIPTION": "Draw !M! Cards. Gain Block equal to total cost of your cards in hand."
   },
   "Gatherer:Convert": {
     "NAME": "Convert",
@@ -217,11 +217,11 @@
   },
   "Gatherer:Light": {
     "NAME": "Light!",
-    "DESCRIPTION": "Gain !B! Block. NL Block is increased by 100% for each Glow_Power. NL Gain 1 Glow_Power."
+    "DESCRIPTION": "Gain !B! Block. NL Block is increased by !M! for each Glow_Power. NL Gain 1 Glow_Power."
   },
   "Gatherer:Shadow": {
     "NAME": "Shadow!",
-    "DESCRIPTION": "Deal !D! damage. NL Damage is increased by 100% for each Glow_Power. NL Gain 1 Glow_Power."
+    "DESCRIPTION": "Deal !D! damage. NL Damage is increased by !M! for each Glow_Power. NL Gain 1 Glow_Power."
   },
   "Gatherer:Herbalism": {
     "NAME": "Herbalism",
@@ -305,13 +305,12 @@
   },
   "Gatherer:UpgradeBag": {
     "NAME": "Upgrade Bag",
-    "DESCRIPTION": "Shuffle a Glitched in your deck. Your potions in the Sack are 100% more Potent.",
-    "UPGRADE_DESCRIPTION": "Add a Glitched+ in your discard pile. Your potions in the Sack are 100% more Potent."
+    "DESCRIPTION": "Shuffle a Glitched in your deck. Your Lesser Potions are 100% more potent.",
+    "UPGRADE_DESCRIPTION": "Add a Glitched+ in your discard pile. Your Lesser Potions are 100% more potent."
   },
   "Gatherer:Glitched": {
     "NAME": "Glitched",
-    "DESCRIPTION": "Retain. NL Discard this. NL While in your hand, Upgrade Bag power is disabled.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Exhaust. NL While in your hand, Upgrade Bag power is disabled."
+    "DESCRIPTION": "Retain. NL Exhaust. NL While in your hand, Upgrade Bag power is disabled."
   },
   "Gatherer:Uplift": {
     "NAME": "Uplift",
@@ -385,8 +384,8 @@
   },
   "Gatherer:Overflowing": {
     "NAME": "Overflowing",
-    "DESCRIPTION": "Gain [E] [E] [E]. NL Energy is conserved for the next turn. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain [E] [E] [E] [E]. NL Energy is conserved for the next turn. NL Exhaust."
+    "DESCRIPTION": " Gain [E] [E] [E]. NL Energy is conserved for the next turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "  Gain [E] [E] [E] [E]. NL Energy is conserved for the next turn. NL Exhaust."
   },
   "Gatherer:ScrollOfPurity": {
     "NAME": "Scroll of Purity",
@@ -398,7 +397,7 @@
   },
   "Gatherer:BomberForm": {
     "NAME": "Bomber Form",
-    "DESCRIPTION": "At the start of your turn, gain a LEP. Any incoming Lesser_Potion becomes LEP, and increases damage of all LEPs by !M!."
+    "DESCRIPTION": "At the start of your turn, gain a LEP. Any incoming Lesser_Potion becomes LEP, and raises future LEPs' damage by !M!."
   },
   "Gatherer:FlowerPower": {
     "NAME": "Flower Power",
@@ -416,8 +415,8 @@
   },
   "Gatherer:Thrower": {
     "NAME": "Thrower",
-    "DESCRIPTION": "Deal damage equal to amount of expired Block this turn. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to amount of expired Block this turn +2. Exhaust.",
+    "DESCRIPTION": "Ethereal. Deal damage equal to amount of Block remained at the start of this turn. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. Deal damage equal to amount of Block remained at the start of this turn +2. Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]

@@ -27,18 +27,21 @@ public class Shadow extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.SPECIAL;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 8;
+	private static final int POWER = 9;
 	private static final int UPGRADE_BONUS = 3;
+	private static final int BONUS = 6;
 
 	public Shadow() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
 		this.baseDamage = POWER;
+		this.magicNumber = BONUS;
+		this.baseMagicNumber = this.magicNumber;
 	}
 
 	private void applyGlowPower() {
 		if (AbstractDungeon.player.hasPower(GlowPower.POWER_ID)) {
-			this.damage = this.damage * (1 + AbstractDungeon.player.getPower(GlowPower.POWER_ID).amount);
+			this.damage += this.magicNumber * AbstractDungeon.player.getPower(GlowPower.POWER_ID).amount;
 			this.isDamageModified = true;
 		}
 	}

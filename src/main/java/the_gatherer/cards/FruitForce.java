@@ -54,7 +54,7 @@ public class FruitForce extends CustomCard implements OnObtainEffect {
 	}
 
 	public void applyPowers() {
-		updateDamage(false);
+		updateDamage(true);
 		super.applyPowers();
 	}
 

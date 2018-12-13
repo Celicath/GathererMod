@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.EquilibriumPower;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.CardColorEnum;
-import the_gatherer.patches.CustomTags;
 import the_gatherer.powers.LuckyCloverPower;
 
 public class LuckyClover extends CustomCard {

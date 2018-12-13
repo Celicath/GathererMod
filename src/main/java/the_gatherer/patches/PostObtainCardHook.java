@@ -19,7 +19,7 @@ public class PostObtainCardHook {
 
 			// ExplorersPath
 			if (AbstractDungeon.player.hasRelic(ExplorersPath.ID) && GathererMod.explorersPathBestOption.contains(card)) {
-				ExplorersPath ep = (ExplorersPath)AbstractDungeon.player.getRelic(ExplorersPath.ID);
+				ExplorersPath ep = (ExplorersPath) AbstractDungeon.player.getRelic(ExplorersPath.ID);
 				ep.activate();
 			}
 		}
