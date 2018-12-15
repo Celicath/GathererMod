@@ -61,6 +61,14 @@ public class FlowerBeam extends CustomCard {
 		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 	}
 
+	@Override
+	public void initializeDescription() {
+		super.initializeDescription();
+		if (!keywords.contains("flower beam tooltip")) {
+			keywords.add("flower beam tooltip");
+		}
+	}
+
 	public AbstractCard makeCopy() {
 		return new FlowerBeam();
 	}

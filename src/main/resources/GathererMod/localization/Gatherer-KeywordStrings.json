@@ -24,9 +24,9 @@
   },
   {
     "NAMES": [
-      "floral"
+      "flower"
     ],
-    "DESCRIPTION": "Card containing #yFloral in its name. It can be upgraded 3 times."
+    "DESCRIPTION": "Card containing #yFlower in its name. It can be upgraded 3 times, where 3rd upgrade is special."
   },
   {
     "PROPER_NAME": "LEP",
@@ -147,9 +147,45 @@
     "DESCRIPTION": "Choose 1 from Stack, Steam Barrier or All for one. Seek is added to the list if upgraded."
   },
   {
+    "PROPER_NAME": "When Stacked",
     "NAMES": [
       "bomberform tooltip"
     ],
     "DESCRIPTION": "If you play multiple #yBomber #yForms, damage boost is stacked but you only get 1 #yLEP per turn. NL Also, bonus damage from #yBomber #yForm is not doubled by #yUpgrade #yBag."
+  },
+  {
+    "PROPER_NAME": "3rd Upgrade",
+    "NAMES": [
+      "flower whip tooltip"
+    ],
+    "DESCRIPTION": "3rd #yUpgrade makes this attack 3 times in addition to damage increase."
+  },
+  {
+    "PROPER_NAME": "3rd Upgrade",
+    "NAMES": [
+      "flower falling tooltip"
+    ],
+    "DESCRIPTION": "3rd #yUpgrade makes this cost 0 and heal for 3 instead of increasing damage."
+  },
+  {
+    "PROPER_NAME": "3rd Upgrade",
+    "NAMES": [
+      "flower shield tooltip"
+    ],
+    "DESCRIPTION": "3rd #yUpgrade makes this cost 0 instead of increasing #yBlock."
+  },
+  {
+    "PROPER_NAME": "3rd Upgrade",
+    "NAMES": [
+      "flower beam tooltip"
+    ],
+    "DESCRIPTION": "3rd #yUpgrade makes this cost 1 instead of increasing damage."
+  },
+  {
+    "PROPER_NAME": "3rd Upgrade",
+    "NAMES": [
+      "flower power tooltip"
+    ],
+    "DESCRIPTION": "3rd #yUpgrade makes this cost 1 in addition to removing a debuff."
   }
 ]

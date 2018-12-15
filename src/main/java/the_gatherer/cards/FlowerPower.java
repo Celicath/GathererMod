@@ -44,6 +44,14 @@ public class FlowerPower extends CustomCard {
 		this.initializeDescription();
 	}
 
+	@Override
+	public void initializeDescription() {
+		super.initializeDescription();
+		if (!keywords.contains("flower power tooltip")) {
+			keywords.add("flower power tooltip");
+		}
+	}
+
 	private String GetRawDescription() {
 		String str;
 		if (timesUpgraded == 0)

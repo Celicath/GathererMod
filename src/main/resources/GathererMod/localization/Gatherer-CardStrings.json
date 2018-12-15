@@ -429,6 +429,17 @@
     "NAME": "Poison Mastery",
     "DESCRIPTION": "Gain a Lesser_Poison_Potion. NL Poison damage is increased by 100%. Cards with Poison in text have Refund 1."
   },
+
+  "Gatherer:FlowerSuffix": {
+    "NAME": "FlowerSuffix",
+    "DESCRIPTION": "Description suffix for Flower cards.",
+    "EXTENDED_DESCRIPTION": [
+      " NL Can be Upgraded 3 times.",
+      " NL Can be Upgraded 2 more times.",
+      " NL Can be Upgraded 1 more time."
+    ]
+  },
+
   "Gatherer:ChargingShot": {
     "NAME": "Charging Shot",
     "DESCRIPTION": "Deal !D! damage. While in your hand, using a Potion increases its damage by !M! this combat.",

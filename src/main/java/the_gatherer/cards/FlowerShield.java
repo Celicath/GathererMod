@@ -39,6 +39,14 @@ public class FlowerShield extends CustomCard {
 		this.initializeDescription();
 	}
 
+	@Override
+	public void initializeDescription() {
+		super.initializeDescription();
+		if (!keywords.contains("flower shield tooltip")) {
+			keywords.add("flower shield tooltip");
+		}
+	}
+
 	private String GetRawDescription() {
 		return DESCRIPTION + GathererCardHelper.FlowerSuffix(timesUpgraded);
 	}

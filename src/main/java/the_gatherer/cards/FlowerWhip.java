@@ -45,6 +45,14 @@ public class FlowerWhip extends CustomCard {
 		this.initializeDescription();
 	}
 
+	@Override
+	public void initializeDescription() {
+		super.initializeDescription();
+		if (!keywords.contains("flower whip tooltip")) {
+			keywords.add("flower whip tooltip");
+		}
+	}
+
 	private String GetRawDescription() {
 		return DESCRIPTION + GathererCardHelper.FlowerSuffix(timesUpgraded);
 	}

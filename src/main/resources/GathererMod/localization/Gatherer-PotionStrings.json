@@ -84,7 +84,7 @@
     ]
   },
   "Gatherer:LesserSpeedPotion": {
-    "NAME": "Lesser Swift Potion",
+    "NAME": "Lesser Speed Potion",
     "DESCRIPTIONS": [
       "Gain #b",
       " #yDexterity. At the end of your turn, lose #b",

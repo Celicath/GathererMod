@@ -49,6 +49,14 @@ public class FlowerFalling extends CustomCard {
 		this.initializeDescription();
 	}
 
+	@Override
+	public void initializeDescription() {
+		super.initializeDescription();
+		if (!keywords.contains("flower falling tooltip")) {
+			keywords.add("flower falling tooltip");
+		}
+	}
+
 	private String GetRawDescription() {
 		return (timesUpgraded == 3 ? UPGRADE_DESCRIPTION : DESCRIPTION) + GathererCardHelper.FlowerSuffix(timesUpgraded);
 	}
