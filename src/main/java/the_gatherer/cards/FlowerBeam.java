@@ -58,7 +58,7 @@ public class FlowerBeam extends CustomCard {
 		AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmallLaserEffect(m.hb.cX, m.hb.cY, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.3F));
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
 		AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlowerBeamFollowUpEffect(m.hb.cX, m.hb.cY), FlowerBeamFollowUpEffect.EFFECT_DUR));
-		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 	}
 
 	@Override

@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import java.util.ArrayList;
 
 public class FlowerBeamFollowUpEffect extends AbstractGameEffect {
-	public static final float EFFECT_DUR = 0.6f;
+	public static final float EFFECT_DUR = 0.5f;
 	private static Texture[] imgs = null;
 	private boolean init = false;
 

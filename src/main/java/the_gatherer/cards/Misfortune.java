@@ -43,7 +43,7 @@ public class Misfortune extends CustomCard {
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
 	private static final int POWER = 3;
-	private static final int UPGRADE_BONUS = 2;
+	private static final int UPGRADE_BONUS = 1;
 	private static final int POTION_GET = 1;
 	private static final int POTION_BONUS = 1;
 

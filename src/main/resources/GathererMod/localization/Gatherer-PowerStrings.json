@@ -24,8 +24,7 @@
     "NAME": "Poison Mastery",
     "DESCRIPTIONS": [
       "Poison damage is increased by #b",
-      "%. NL Cards with #yPoison in text have Refund #b",
-      "."
+      "%."
     ]
   },
   "Gatherer:Pollute": {

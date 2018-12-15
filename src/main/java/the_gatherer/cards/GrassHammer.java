@@ -57,7 +57,7 @@ public class GrassHammer extends CustomCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 		AbstractDungeon.actionManager.addToBottom(
-				new DamageRandomEnemyExceptTargetAction(m, new DamageInfo(p, this.magicNumber),
+				new DamageRandomEnemyExceptTargetAction(m, new DamageInfo(p, this.baseMagicNumber),
 						AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 	}
 

@@ -427,7 +427,7 @@
   },
   "Gatherer:PoisonMastery": {
     "NAME": "Poison Mastery",
-    "DESCRIPTION": "Gain a Lesser_Poison_Potion. NL Poison damage is increased by 100%. Cards with Poison in text have Refund 1."
+    "DESCRIPTION": "Gain a Lesser_Poison_Potion. NL Poison damage is increased by 50%."
   },
 
   "Gatherer:FlowerSuffix": {

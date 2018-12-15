@@ -30,32 +30,7 @@ public class PoisonMasteryPower extends AbstractPower {
 		this.img = new Texture(GathererMod.GetPowerPath(RAW_ID));
 	}
 
-	@Override
-	public void onPlayCard(AbstractCard card, AbstractMonster m) {
-		if (card.costForTurn > 0) {
-			String lowered = card.rawDescription.toLowerCase();
-			boolean containsPosion =
-					card.keywords != null && (card.keywords.contains("poison")
-							|| card.keywords.contains(GameDictionary.POISON.NAMES[0]))
-							|| lowered.contains("poison");
-
-			if (!containsPosion) {
-				for (String word : GameDictionary.POISON.NAMES) {
-					if (lowered.contains(word)) {
-						containsPosion = true;
-						break;
-					}
-				}
-			}
-
-			if (containsPosion) {
-				this.flash();
-				AbstractDungeon.actionManager.addToBottom(new RefundAction(card, this.amount));
-			}
-		}
-	}
-
 	public void updateDescription() {
-		this.description = DESCRIPTIONS[0] + (this.amount * 100) + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
+		this.description = DESCRIPTIONS[0] + (this.amount * 50) + DESCRIPTIONS[1];
 	}
 }

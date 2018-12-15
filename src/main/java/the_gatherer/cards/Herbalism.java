@@ -51,7 +51,9 @@ public class Herbalism extends CustomCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.magicNumber));
+		if (this.magicNumber > 0) {
+			AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.magicNumber));
+		}
 
 		this.rawDescription = DESCRIPTION;
 		this.initializeDescription();

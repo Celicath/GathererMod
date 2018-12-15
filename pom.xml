@@ -3,7 +3,7 @@
 
     <groupId>gatherermod</groupId>
     <artifactId>gatherermod</artifactId>
-    <version>v0.4.3</version>
+    <version>v0.5.0</version>
     <packaging>jar</packaging>
 
     <name>GathererMod</name>

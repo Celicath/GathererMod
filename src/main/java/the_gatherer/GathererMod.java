@@ -467,7 +467,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		logger.debug("receiveOnBattleStart started.");
 		playedCardsCombat = new HashSet<>();
 		potionSack.removeAllPotions();
-		potionSack.show = false;
+		potionSack.hide();
 		potionSack.loadKeySettings();
 		gainCardEffectToExhaust.clear();
 		enchantAmount = 0;
@@ -551,9 +551,9 @@ public class GathererMod implements PostInitializeSubscriber,
 	@Override
 	public void receivePostUpdate() {
 		if (AbstractDungeon.player == null) {
-			if (potionSack != null && potionSack.show) {
+			if (potionSack != null && potionSack.showing) {
 				potionSack.removeAllPotions();
-				potionSack.show = false;
+				potionSack.show();
 			}
 			bottleCollector = false;
 		}
@@ -572,7 +572,7 @@ public class GathererMod implements PostInitializeSubscriber,
 	@Override
 	public void receivePostBattle(AbstractRoom room) {
 		potionSack.removeAllPotions();
-		potionSack.show = false;
+		potionSack.hide();
 	}
 
 	public static String makeID(String text) {
@@ -666,7 +666,7 @@ public class GathererMod implements PostInitializeSubscriber,
 	}
 
 	public static int calcPoisonDamage(int poisonAmount, int powerAmount) {
-		return poisonAmount * (1 + powerAmount);
+		return poisonAmount * (2 + powerAmount) / 2;
 	}
 
 	public static String stripPrefix(String id) {

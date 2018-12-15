@@ -39,7 +39,7 @@ public class PotionSack {
 	private float flashRedTimer = 0.0f;
 	public PotionSackPopUp potionUi;
 	private boolean init = false;
-	public boolean show = false;
+	public boolean showing = false;
 
 	private static final int width = 240;
 	private static final int height = 100;
@@ -166,10 +166,9 @@ public class PotionSack {
 			}
 		}
 
-		int potency = 0;
-		UpgradeBagPower ubp = null;
-		if (AbstractDungeon.player != null) {
-			ubp = (UpgradeBagPower) AbstractDungeon.player.getPower(UpgradeBagPower.POWER_ID);
+		if (AbstractDungeon.player != null && !AbstractDungeon.player.endTurnQueued && !AbstractDungeon.player.isEndingTurn) {
+			int potency = 0;
+			UpgradeBagPower ubp = (UpgradeBagPower) AbstractDungeon.player.getPower(UpgradeBagPower.POWER_ID);
 			if (ubp != null) {
 				potency = ubp.amount;
 				for (AbstractCard c : AbstractDungeon.player.hand.group) {
@@ -179,21 +178,21 @@ public class PotionSack {
 					}
 				}
 			}
-		}
-		if (potency != potionPotency) {
-			potionPotency = potency;
-			if (ubp != null) {
-				ubp.activated = (potency != 0);
-				ubp.updateDescription();
+			if (potency != potionPotency) {
+				potionPotency = potency;
+				if (ubp != null) {
+					ubp.activated = (potency != 0);
+					ubp.updateDescription();
+				}
 			}
-		}
 
-		if (potions != null) {
-			for (AbstractPotion p : potions) {
-				if (p instanceof SackPotion) {
-					SackPotion sp = (SackPotion) p;
-					if (sp.upgrade != potionPotency) {
-						sp.updateDescription();
+			if (potions != null) {
+				for (AbstractPotion p : potions) {
+					if (p instanceof SackPotion) {
+						SackPotion sp = (SackPotion) p;
+						if (sp.upgrade != potionPotency) {
+							sp.updateDescription();
+						}
 					}
 				}
 			}
@@ -201,7 +200,7 @@ public class PotionSack {
 	}
 
 	public void render(SpriteBatch sb) {
-		if (!init || !show || potions == null) return;
+		if (!init || !showing || potions == null) return;
 		float r = 0.0f;
 		if (this.flashRedTimer != 0.0F) {
 			r += this.flashRedTimer / 2.0f;
@@ -231,6 +230,8 @@ public class PotionSack {
 			if (!(p instanceof PotionSlot)) {
 				float textSpacing = 35.0F * Settings.scale;
 				float textY = p.hb.cY + (potionSackPopupFlipped ? -textSpacing : textSpacing);
+				float textSpacingPower = 30.0F * Settings.scale;
+				float textYPower = p.hb.cY + (potionSackPopupFlipped ? textSpacingPower : -textSpacingPower);
 
 				String shortcut = selectPotionActions[i].getKeyString();
 				if (shortcut.length() > 3) shortcut = shortcut.substring(0, 3);
@@ -242,6 +243,19 @@ public class PotionSack {
 						p.posX,
 						textY,
 						Settings.CREAM_COLOR);
+
+				if (p instanceof SackPotion) {
+					SackPotion sp = (SackPotion) p;
+					if (sp.getBasePotency() != sp.getPotency()) {
+						FontHelper.renderFontCentered(
+								sb,
+								FontHelper.cardDescFont_N,
+								"(" + sp.getPotency() + ")",
+								p.posX,
+								textYPower,
+								Settings.CREAM_COLOR);
+					}
+				}
 			}
 		}
 
@@ -249,7 +263,7 @@ public class PotionSack {
 	}
 
 	public boolean addPotion(AbstractPotion potion) {
-		show = true;
+		showing = true;
 		int index = 0;
 		for (AbstractPotion p : this.potions) {
 			if ((p instanceof PotionSlot)) {
@@ -310,5 +324,14 @@ public class PotionSack {
 		float y = hb.cY;
 		potion.move(x, y);
 		potion.hb.move(x, y);
+	}
+
+	public void show() {
+		showing = true;
+	}
+
+	public void hide() {
+		showing = false;
+		potionUi.close();
 	}
 }

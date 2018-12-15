@@ -61,7 +61,9 @@ public class BlackTea extends CustomCard implements StartupCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber));
+		if (this.magicNumber > 0) {
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber));
+		}
 
 		this.rawDescription = DESCRIPTION;
 		this.initializeDescription();
