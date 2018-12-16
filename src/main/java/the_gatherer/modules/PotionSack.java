@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.unique.RestoreRetainedCardsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -166,32 +168,47 @@ public class PotionSack {
 			}
 		}
 
-		if (AbstractDungeon.player != null && !AbstractDungeon.player.endTurnQueued && !AbstractDungeon.player.isEndingTurn) {
+		if (AbstractDungeon.player != null) {
 			int potency = 0;
-			UpgradeBagPower ubp = (UpgradeBagPower) AbstractDungeon.player.getPower(UpgradeBagPower.POWER_ID);
-			if (ubp != null) {
-				potency = ubp.amount;
-				for (AbstractCard c : AbstractDungeon.player.hand.group) {
-					if (c instanceof Glitched) {
-						potency = 0;
-						break;
+			boolean shouldSkip = false;
+			if (AbstractDungeon.actionManager.currentAction instanceof RestoreRetainedCardsAction)
+				shouldSkip = true;
+			else if (AbstractDungeon.actionManager.actions != null) {
+				for (AbstractGameAction action : AbstractDungeon.actionManager.actions) {
+					if (action instanceof RestoreRetainedCardsAction) {
+						potency = potionPotency;
+						shouldSkip = true;
 					}
 				}
 			}
-			if (potency != potionPotency) {
-				potionPotency = potency;
-				if (ubp != null) {
-					ubp.activated = (potency != 0);
-					ubp.updateDescription();
-				}
-			}
 
-			if (potions != null) {
-				for (AbstractPotion p : potions) {
-					if (p instanceof SackPotion) {
-						SackPotion sp = (SackPotion) p;
-						if (sp.upgrade != potionPotency) {
-							sp.updateDescription();
+			if (!shouldSkip) {
+				UpgradeBagPower ubp = (UpgradeBagPower) AbstractDungeon.player.getPower(UpgradeBagPower.POWER_ID);
+				if (ubp != null) {
+					potency = ubp.amount;
+					for (AbstractCard c : AbstractDungeon.player.hand.group) {
+						if (c instanceof Glitched) {
+							potency = 0;
+							break;
+						}
+					}
+				}
+				if (potency != potionPotency) {
+					logger.debug("potencyChanged : " + potionPotency + " > " + potency);
+					potionPotency = potency;
+					if (ubp != null) {
+						ubp.activated = (potency != 0);
+						ubp.updateDescription();
+					}
+				}
+
+				if (potions != null) {
+					for (AbstractPotion p : potions) {
+						if (p instanceof SackPotion) {
+							SackPotion sp = (SackPotion) p;
+							if (sp.upgrade != potionPotency) {
+								sp.updateDescription();
+							}
 						}
 					}
 				}
