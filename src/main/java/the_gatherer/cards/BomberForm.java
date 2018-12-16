@@ -3,6 +3,7 @@ package the_gatherer.cards;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -49,6 +50,9 @@ public class BomberForm extends CustomCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BomberFormPower(p, this.magicNumber), this.magicNumber));
+		if (p.hasPower(RecipeChange.ID)) {
+			AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, RecipeChange.ID));
+		}
 	}
 
 	public AbstractCard makeCopy() {

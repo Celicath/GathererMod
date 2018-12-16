@@ -115,7 +115,7 @@ public class PotionSackPopUp {
 			this.updateControllerTargetInput();
 			this.updateTargetMode();
 		}
-		if (AbstractDungeon.player.isDraggingCard && !this.isHidden){
+		if (AbstractDungeon.player.isDraggingCard && !this.isHidden) {
 			this.close();
 		}
 	}

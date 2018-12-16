@@ -357,7 +357,7 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 					LesserPotionOption lpo = (LesserPotionOption) AbstractDungeon.gridSelectScreen.selectedCards.get(0);
 					for (int i = 0; i < GathererMod.potionSack.potions.size(); i++) {
 						if (!(GathererMod.potionSack.potions.get(i) instanceof PotionSlot)) {
-							GathererMod.potionSack.setPotion(i, (SackPotion) lpo.potion.makeCopy());
+							AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction((SackPotion) lpo.potion.makeCopy(), false, i));
 						}
 					}
 					RecipeChangePower rcp = (RecipeChangePower) AbstractDungeon.player.getPower(RecipeChangePower.POWER_ID);
@@ -369,11 +369,14 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 						AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(
 								AbstractDungeon.player, AbstractDungeon.player, RecipeChangePower.POWER_ID));
 					}
-					AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-							AbstractDungeon.player, AbstractDungeon.player, new RecipeChangePower(lpo.potion, recipeChangeRatio)));
+
+					if (!p.hasPower(BomberFormPower.POWER_ID)) {
+						AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
+								AbstractDungeon.player, AbstractDungeon.player, new RecipeChangePower(lpo.potion, recipeChangeRatio)));
+					}
 				} else {
 					for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
-						AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(((LesserPotionOption) c).potion.makeCopy(), false));
+						AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction((SackPotion) ((LesserPotionOption) c).potion.makeCopy(), false));
 					}
 				}
 				AbstractDungeon.gridSelectScreen.selectedCards.clear();

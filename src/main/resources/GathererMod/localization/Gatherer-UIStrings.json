@@ -92,5 +92,12 @@
       "(Let's feel the power of Orange color!)",
       "(I can only see this!)"
     ]
+  },
+  "Gatherer:ExcessPotionHandleAction": {
+    "TEXT": [
+      "Your Sack is Full. ",
+      "Use or Discard this Lesser Potion.",
+      "Use or Discard these Lesser Potions."
+    ]
   }
 }

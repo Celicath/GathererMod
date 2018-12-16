@@ -4,24 +4,30 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.relics.Sozu;
 import the_gatherer.GathererMod;
 import the_gatherer.potions.LesserExplosivePotion;
+import the_gatherer.potions.SackPotion;
 import the_gatherer.powers.BomberFormPower;
 import the_gatherer.powers.ExplodingPower;
 import the_gatherer.powers.RecipeChangePower;
 
 
 public class ObtainLesserPotionAction extends AbstractGameAction {
-	private AbstractPotion potion;
+	private SackPotion potion;
 	private boolean allowRecipeChange;
+	private int overrideIndex;
 
-	public ObtainLesserPotionAction(AbstractPotion potion, boolean allowRecipeChange) {
+	public ObtainLesserPotionAction(SackPotion potion, boolean allowRecipeChange) {
+		this(potion, allowRecipeChange, -1);
+	}
+
+	public ObtainLesserPotionAction(SackPotion potion, boolean allowRecipeChange, int overrideIndex) {
 		this.actionType = ActionType.SPECIAL;
 		this.duration = Settings.ACTION_DUR_XFAST;
 		this.potion = potion;
 		this.allowRecipeChange = allowRecipeChange;
+		this.overrideIndex = overrideIndex;
 	}
 
 	public void update() {
@@ -29,7 +35,7 @@ public class ObtainLesserPotionAction extends AbstractGameAction {
 			if (AbstractDungeon.player.hasRelic(Sozu.ID)) {
 				AbstractDungeon.player.getRelic(Sozu.ID).flash();
 			} else if (AbstractDungeon.player.hasPower(BomberFormPower.POWER_ID)) {
-				if (GathererMod.potionSack.addPotion(new LesserExplosivePotion())) {
+				if (GathererMod.potionSack.addPotion(new LesserExplosivePotion(), overrideIndex)) {
 					BomberFormPower bfp = (BomberFormPower) AbstractDungeon.player.getPower(BomberFormPower.POWER_ID);
 					bfp.flash();
 
@@ -38,10 +44,10 @@ public class ObtainLesserPotionAction extends AbstractGameAction {
 			} else {
 				RecipeChangePower rcp = (RecipeChangePower) AbstractDungeon.player.getPower(RecipeChangePower.POWER_ID);
 				if (rcp != null && allowRecipeChange && AbstractDungeon.cardRandomRng.random(99) < rcp.ratio) {
-					this.potion = rcp.potion.makeCopy();
+					this.potion = (SackPotion) rcp.potion.makeCopy();
 					rcp.flash();
 				}
-				GathererMod.potionSack.addPotion(this.potion);
+				GathererMod.potionSack.addPotion(this.potion, overrideIndex);
 			}
 		}
 

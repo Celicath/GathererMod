@@ -13,6 +13,7 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -452,10 +453,10 @@ public class GathererMod implements PostInitializeSubscriber,
 		logger.debug("receiveEditKeywords started.");
 		Gson gson = new Gson();
 		String json = GetLocString("Gatherer-KeywordStrings");
-		the_gatherer.modules.Keyword[] keywords = gson.fromJson(json, the_gatherer.modules.Keyword[].class);
+		Keyword[] keywords = gson.fromJson(json, Keyword[].class);
 
 		if (keywords != null) {
-			for (the_gatherer.modules.Keyword keyword : keywords) {
+			for (Keyword keyword : keywords) {
 				BaseMod.addKeyword(keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
 			}
 		}

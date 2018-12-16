@@ -4,9 +4,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import the_gatherer.GathererMod;
+import the_gatherer.potions.SackPotion;
 
 public class RecipeChangePower extends AbstractPower {
 	private static final String RAW_ID = "RecipeChange";
@@ -15,10 +15,10 @@ public class RecipeChangePower extends AbstractPower {
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-	public AbstractPotion potion;
+	public SackPotion potion;
 	public int ratio;
 
-	public RecipeChangePower(AbstractPotion potion, int ratio) {
+	public RecipeChangePower(SackPotion potion, int ratio) {
 		this.name = NAME;
 		this.ID = POWER_ID;
 		this.owner = AbstractDungeon.player;

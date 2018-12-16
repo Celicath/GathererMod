@@ -76,7 +76,7 @@ public class Misfortune extends CustomCard {
 		Collections.shuffle(potions, AbstractDungeon.cardRandomRng.random);
 
 		for (int i = 0; i < this.magicNumber && i < potions.size(); i++) {
-			AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(potions.get(i).makeCopy(), true));
+			AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction((SackPotion) potions.get(i).makeCopy(), true));
 		}
 	}
 

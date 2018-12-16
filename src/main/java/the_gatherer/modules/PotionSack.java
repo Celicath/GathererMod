@@ -57,6 +57,8 @@ public class PotionSack {
 
 	public static int potionPotency = 0;
 
+	public static final Color POTENCY_COLOR = new Color(0.8f, 1.0f, 1.0f, 1.0f);
+
 	public PotionSack() {
 		this.potionUi = new PotionSackPopUp();
 		hb = new Hitbox(width * Settings.scale, height * Settings.scale);
@@ -245,10 +247,10 @@ public class PotionSack {
 		for (int i = 0; i < potions.size(); i++) {
 			AbstractPotion p = potions.get(i);
 			if (!(p instanceof PotionSlot)) {
-				float textSpacing = 35.0F * Settings.scale;
-				float textY = p.hb.cY + (potionSackPopupFlipped ? -textSpacing : textSpacing);
-				float textSpacingPower = 30.0F * Settings.scale;
-				float textYPower = p.hb.cY + (potionSackPopupFlipped ? textSpacingPower : -textSpacingPower);
+				float textSpacingUpper = 35.0F * Settings.scale;
+				float textSpacingLower = -30.0F * Settings.scale;
+				float textY = p.hb.cY + (potionSackPopupFlipped ? textSpacingLower : textSpacingUpper);
+				float textYPower = p.hb.cY + (potionSackPopupFlipped ? textSpacingUpper : textSpacingLower);
 
 				String shortcut = selectPotionActions[i].getKeyString();
 				if (shortcut.length() > 3) shortcut = shortcut.substring(0, 3);
@@ -266,11 +268,11 @@ public class PotionSack {
 					if (sp.getBasePotency() != sp.getPotency()) {
 						FontHelper.renderFontCentered(
 								sb,
-								FontHelper.cardDescFont_N,
+								FontHelper.topPanelAmountFont,
 								"(" + sp.getPotency() + ")",
 								p.posX,
 								textYPower,
-								Settings.CREAM_COLOR);
+								POTENCY_COLOR);
 					}
 				}
 			}
@@ -279,29 +281,21 @@ public class PotionSack {
 		hb.render(sb);
 	}
 
-	public boolean addPotion(AbstractPotion potion) {
+	public boolean addPotion(SackPotion potion, int index) {
 		showing = true;
-		int index = 0;
-		for (AbstractPotion p : this.potions) {
-			if ((p instanceof PotionSlot)) {
-				break;
+		if (index == -1) {
+			index = 0;
+			for (AbstractPotion p : this.potions) {
+				if ((p instanceof PotionSlot)) {
+					break;
+				}
+				index++;
 			}
-			index++;
+			if (index >= this.potions.size()) {
+				flashRed();
+				return false;
+			}
 		}
-		if (index < this.potions.size()) {
-			this.potions.set(index, potion);
-			setPotionPosition(index, potion);
-			potion.flash();
-			AbstractPotion.playPotionSound();
-			return true;
-		} else {
-			flashRed();
-			logger.info("Potion Sack is full");
-			return false;
-		}
-	}
-
-	public void setPotion(int index, SackPotion potion) {
 		if (this.potions.get(index) instanceof SackPotion) {
 			potion.setTag(((SackPotion) this.potions.get(index)).tag);
 		}
@@ -309,6 +303,7 @@ public class PotionSack {
 		setPotionPosition(index, potion);
 		potion.flash();
 		AbstractPotion.playPotionSound();
+		return true;
 	}
 
 	public void removePotion(int slot) {

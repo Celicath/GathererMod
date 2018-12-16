@@ -65,7 +65,7 @@ public class AlchemyTrialPower extends AbstractPower {
 						p = rng ? new LesserWeakPotion() : new LesserFearPotion();
 				}
 
-				AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(p, true));
+				AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction((SackPotion) p, true));
 			}
 		}
 		this.updateDescription();
