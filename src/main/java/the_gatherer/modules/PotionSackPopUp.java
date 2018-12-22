@@ -34,9 +34,9 @@ import static the_gatherer.GathererMod.potionSackPopupFlipped;
 public class PotionSackPopUp {
 	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("PotionPopUp");
 	public static final String[] TEXT = uiStrings.TEXT;
-	private static final String THROW_LABEL = TEXT[0];
-	private static final String DRINK_LABEL = TEXT[1];
-	private static final String DISCARD_LABEL = TEXT[2];
+	public static final String THROW_LABEL = TEXT[0];
+	public static final String DRINK_LABEL = TEXT[1];
+	public static final String DISCARD_LABEL = TEXT[2];
 	public int slot;
 	public AbstractPotion potion;
 	public boolean isHidden = true;

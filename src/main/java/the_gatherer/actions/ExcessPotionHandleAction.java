@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import the_gatherer.GathererMod;
 import the_gatherer.potions.SackPotion;
 
 import java.util.ArrayList;
@@ -25,6 +26,8 @@ public class ExcessPotionHandleAction extends AbstractGameAction {
 	public void update() {
 		if (AbstractDungeon.getCurrRoom().isBattleEnding() || excessPotions.isEmpty()) {
 			this.isDone = true;
+		} else {
+			GathererMod.excessPotionHandleScreen.open(TEXT[0] + (excessPotions.size() > 1 ? TEXT[2] : TEXT[1]));
 		}
 		this.tickDuration();
 	}

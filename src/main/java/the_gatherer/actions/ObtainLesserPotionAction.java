@@ -34,23 +34,23 @@ public class ObtainLesserPotionAction extends AbstractGameAction {
 		if (this.duration == Settings.ACTION_DUR_XFAST) {
 			if (AbstractDungeon.player.hasRelic(Sozu.ID)) {
 				AbstractDungeon.player.getRelic(Sozu.ID).flash();
-			} else if (AbstractDungeon.player.hasPower(BomberFormPower.POWER_ID)) {
-				if (GathererMod.potionSack.addPotion(new LesserExplosivePotion(), overrideIndex)) {
-					BomberFormPower bfp = (BomberFormPower) AbstractDungeon.player.getPower(BomberFormPower.POWER_ID);
-					bfp.flash();
-
-					AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ExplodingPower(AbstractDungeon.player, bfp.amount), bfp.amount));
-				}
 			} else {
-				RecipeChangePower rcp = (RecipeChangePower) AbstractDungeon.player.getPower(RecipeChangePower.POWER_ID);
-				if (rcp != null && allowRecipeChange && AbstractDungeon.cardRandomRng.random(99) < rcp.ratio) {
-					this.potion = (SackPotion) rcp.potion.makeCopy();
-					rcp.flash();
+				BomberFormPower bfp = (BomberFormPower) AbstractDungeon.player.getPower(BomberFormPower.POWER_ID);
+				if (bfp != null) {
+					potion = new LesserExplosivePotion();
+					AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ExplodingPower(AbstractDungeon.player, bfp.amount), bfp.amount));
+				} else {
+					RecipeChangePower rcp = (RecipeChangePower) AbstractDungeon.player.getPower(RecipeChangePower.POWER_ID);
+					if (rcp != null && allowRecipeChange && AbstractDungeon.cardRandomRng.random(99) < rcp.ratio) {
+						this.potion = (SackPotion) rcp.potion.makeCopy();
+						rcp.flash();
+					}
 				}
-				GathererMod.potionSack.addPotion(this.potion, overrideIndex);
+				if (!GathererMod.potionSack.addPotion(this.potion, overrideIndex)) {
+					AbstractDungeon.actionManager.addToBottom(new ExcessPotionHandleAction(potion));
+				}
 			}
 		}
-
 		this.tickDuration();
 	}
 }

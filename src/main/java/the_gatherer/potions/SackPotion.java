@@ -109,4 +109,10 @@ public abstract class SackPotion extends CustomPotion {
 		this.name = this.rawName + tag.toString();
 		updateDescription();
 	}
+
+	public SackPotion getStatEquivalentCopy() {
+		SackPotion sp = (SackPotion) this.makeCopy();
+		sp.setTag(this.tag);
+		return sp;
+	}
 }

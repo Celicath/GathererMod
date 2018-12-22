@@ -57,6 +57,7 @@ import the_gatherer.potions.*;
 import the_gatherer.powers.PoisonMasteryPower;
 import the_gatherer.powers.StoneFencePower;
 import the_gatherer.relics.*;
+import the_gatherer.screens.ExcessPotionHandleScreen;
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -105,6 +106,9 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	// Drug Power
 	public static AbstractPotion lastPotionUsedThisTurn = null;
+
+	// Excess Potion
+	public static ExcessPotionHandleScreen excessPotionHandleScreen = null;
 
 	public static void setLastPotionUsedThisTurn(AbstractPotion p) {
 		logger.debug("Last potion used: " + (p == null ? "null" : p.name));
@@ -255,6 +259,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
 		potionSack = new PotionSack();
+		excessPotionHandleScreen = new ExcessPotionHandleScreen();
 
 		addGrowBookContent("Iron", new AbstractCard[]{
 				new Armaments(), new Havoc(), new TwinStrike(), new Feed()
@@ -476,6 +481,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		drugPowerHPGain = 0;
 		setLastPotionUsedThisTurn(null);
 		explorersPathBestOption.clear();
+		excessPotionHandleScreen.close();
 
 		for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
 			if (c instanceof AbstractNumberedCard) {

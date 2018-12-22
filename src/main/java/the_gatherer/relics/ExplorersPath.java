@@ -37,6 +37,12 @@ public class ExplorersPath extends CustomRelic {
 		activate();
 	}
 
+
+	@Override
+	public void onUnequip() {
+
+	}
+
 	@Override
 	public void onVictory() {
 		if (this.counter > 0) {

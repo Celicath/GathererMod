@@ -76,7 +76,7 @@ public class PotionSack {
 
 	private static void loadImage() {
 		if (panel == null)
-			panel = new Texture("GathererMod/img/PotionSack.png");
+			panel = new Texture("GathererMod/img/ui/PotionSack.png");
 	}
 
 	public void update() {
@@ -247,8 +247,8 @@ public class PotionSack {
 		for (int i = 0; i < potions.size(); i++) {
 			AbstractPotion p = potions.get(i);
 			if (!(p instanceof PotionSlot)) {
-				float textSpacingUpper = 35.0F * Settings.scale;
-				float textSpacingLower = -30.0F * Settings.scale;
+				float textSpacingUpper = 30.0F * Settings.scale;
+				float textSpacingLower = -35.0F * Settings.scale;
 				float textY = p.hb.cY + (potionSackPopupFlipped ? textSpacingLower : textSpacingUpper);
 				float textYPower = p.hb.cY + (potionSackPopupFlipped ? textSpacingUpper : textSpacingLower);
 
