@@ -5,9 +5,6 @@ import com.megacrit.cardcrawl.actions.utility.LoseBlockAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.potions.AbstractPotion;
-import com.megacrit.cardcrawl.potions.PotionSlot;
-import the_gatherer.GathererMod;
 import the_gatherer.potions.LesserBlockPotion;
 
 public class GainPotionIfSolidAction extends AbstractGameAction {

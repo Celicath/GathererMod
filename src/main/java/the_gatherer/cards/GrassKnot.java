@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.EquilibriumPower;
 import the_gatherer.GathererMod;
-import the_gatherer.cards.Deprecated.LuckyClover;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.powers.GrassKnotPower;
 
@@ -43,7 +42,7 @@ public class GrassKnot extends CustomCard {
 	}
 
 	public AbstractCard makeCopy() {
-		return new LuckyClover();
+		return new GrassKnot();
 	}
 
 	public void upgrade() {

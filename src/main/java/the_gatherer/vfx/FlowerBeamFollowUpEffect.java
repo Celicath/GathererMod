@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 public class FlowerBeamFollowUpEffect extends AbstractGameEffect {
 	public static final float EFFECT_DUR = 0.5f;
+	public static final float EFFECT_DUR_CARD = 0.3f;
 	private static Texture[] imgs = null;
 	private boolean init = false;
 

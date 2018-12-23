@@ -37,7 +37,7 @@
   },
   "Gatherer:Leftovers": {
     "NAME": "Leftovers",
-    "FLAVOR": "No one can fully understand how potion can be made with leftover liquid.",
+    "FLAVOR": "How alchemists make new material from leftovers is a mystery.",
     "DESCRIPTIONS": [
       "Whenever you use a Potion, gain a random #yLesser_Potion with #b20% chance."
     ]
@@ -54,8 +54,10 @@
     "NAME": "Explorer's Path",
     "FLAVOR": "Sometimes it's worth to explore the worst path.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. This deactivates after one combat. NL Card reward screen now shows the pick ratio from previous 2 weeks. NL Choosing the lowest-picked card reactivates energy gain for the next combat.",
-      " NL (Activated!)"
+      "Gain [E] at the start of your turn if this has at least #b1 charge. NL (Start with #b2 charges.) NL You can now see the pick ratio of cards in the reward screen. NL Choose the lowest-picked card to regain #b1 charge. NL Synergy: ",
+      "Synergy",
+      "If you have the ",
+      ", you can choose one of the 2 lowest-picked card to gain energy."
     ]
   },
   "Gatherer:Dummy": {}

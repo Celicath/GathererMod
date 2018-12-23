@@ -7,8 +7,10 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.QuestionCard;
 import the_gatherer.GathererMod;
 
 import java.nio.charset.StandardCharsets;
@@ -34,37 +36,40 @@ public class ExplorersPath extends CustomRelic {
 
 	@Override
 	public void onEquip() {
-		activate();
+		for (int i = 0; i < 2; i++)
+			chooseCorrectly();
 	}
 
 
 	@Override
 	public void onUnequip() {
-
+		if (counter > 0)
+			--AbstractDungeon.player.energy.energyMaster;
 	}
 
 	@Override
 	public void onVictory() {
 		if (this.counter > 0) {
-			setCounter(0);
-			--AbstractDungeon.player.energy.energyMaster;
+			setCounter(this.counter - 1);
+			if (counter == 0)
+				--AbstractDungeon.player.energy.energyMaster;
 			refreshDescription();
 		}
 	}
 
-	public void activate() {
-		if (this.counter == 0) {
-			this.flash();
-			setCounter(1);
+	public void chooseCorrectly() {
+		this.flash();
+		if (counter == 0)
 			++AbstractDungeon.player.energy.energyMaster;
-			refreshDescription();
-		}
+		setCounter(counter + 1);
+		refreshDescription();
 	}
 
 	private void refreshDescription() {
 		this.description = getUpdatedDescription();
 		this.tips.clear();
 		this.tips.add(new PowerTip(this.name, this.description));
+		tips.add(new PowerTip(DESCRIPTIONS[1], DESCRIPTIONS[2] + FontHelper.colorString(new QuestionCard().name, "y") + DESCRIPTIONS[3]));
 		this.initializeTips();
 	}
 
@@ -90,11 +95,7 @@ public class ExplorersPath extends CustomRelic {
 
 	@Override
 	public String getUpdatedDescription() {
-		if (this.counter > 0) {
-			return DESCRIPTIONS[0] + DESCRIPTIONS[1];
-		} else {
-			return DESCRIPTIONS[0];
-		}
+		return DESCRIPTIONS[0] + new QuestionCard().name;
 	}
 
 	@Override

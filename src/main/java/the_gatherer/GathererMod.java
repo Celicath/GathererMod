@@ -42,7 +42,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import the_gatherer.actions.ScrollOfPurityFollowUpAction;
 import the_gatherer.cards.*;
-import the_gatherer.cards.Deprecated.LuckyClover;
 import the_gatherer.cards.Helper.AbstractNumberedCard;
 import the_gatherer.cards.Helper.AbstractTaggedCard;
 import the_gatherer.character.TheGatherer;
@@ -55,7 +54,6 @@ import the_gatherer.modules.PotionSack;
 import the_gatherer.patches.AbstractPlayerEnum;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.potions.*;
-import the_gatherer.powers.GrassKnotPower;
 import the_gatherer.powers.PoisonMasteryPower;
 import the_gatherer.powers.StoneFencePower;
 import the_gatherer.relics.*;
@@ -509,10 +507,10 @@ public class GathererMod implements PostInitializeSubscriber,
 		logger.debug("receivePreMonsterTurn started.");
 		setLastPotionUsedThisTurn(null);
 
-		GrassKnotPower gkp = (GrassKnotPower)AbstractDungeon.player.getPower(GrassKnotPower.POWER_ID);
+/*		GrassKnotPower gkp = (GrassKnotPower) AbstractDungeon.player.getPower(GrassKnotPower.POWER_ID);
 		if (gkp != null) {
 			gkp.discardForBenefit();
-		}
+		}*/
 
 		logger.debug("receivePreMonsterTurn finished.");
 		return true;

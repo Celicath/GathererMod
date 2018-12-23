@@ -13,7 +13,6 @@ import the_gatherer.actions.RecoveryHerbAction;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.patches.CustomTags;
 import the_gatherer.potions.RecoveryPotion;
-import the_gatherer.potions.RecoveryPotionPlus;
 
 public class RecoveryHerb extends CustomCard {
 	private static final String RAW_ID = "RecoveryHerb";

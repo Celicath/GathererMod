@@ -36,13 +36,15 @@ public class GrassKnotPower extends AbstractPower {
 		alreadyDiscarded = false;
 	}
 
-	public void discardForBenefit() {
+	@Override
+	public void atEndOfRound() {
 		if (!alreadyDiscarded) {
 			alreadyDiscarded = true;
 
 			AbstractDungeon.actionManager.addToBottom(new GrassKnotDiscardAction(this.amount));
 		}
 	}
+
 	public static void gainBlock(int num) {
 		AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, num * BLOCK));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ThornsPower(AbstractDungeon.player, num * THORNS), num * THORNS));

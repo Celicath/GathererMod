@@ -43,7 +43,7 @@ public class Duality extends AbstractTaggedCard {
 
 	@Override
 	public void setTag(int tagNo) {
-		if (this.misc == 1) {
+		if (tagNo == 1) {
 			this.type = CardType.SKILL;
 			this.target = CardTarget.SELF;
 			this.rawDescription = EXTENDED_DESCRIPTION[0];
@@ -124,6 +124,7 @@ public class Duality extends AbstractTaggedCard {
 	}
 
 	private void transform() {
+		this.flash();
 		setTag(this.misc == 1 ? 0 : 1);
 	}
 

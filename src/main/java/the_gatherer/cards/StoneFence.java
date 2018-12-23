@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.powers.StoneFencePower;
@@ -42,7 +41,8 @@ public class StoneFence extends CustomCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneFencePower(upgraded ? 2 : 1)));
+		int magic = upgraded ? 2 : 1;
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneFencePower(magic), magic));
 	}
 
 	@Override

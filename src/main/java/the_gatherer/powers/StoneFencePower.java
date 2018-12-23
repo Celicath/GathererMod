@@ -41,7 +41,7 @@ public class StoneFencePower extends AbstractPower {
 	public void updateDescription() {
 		this.description = DESCRIPTIONS[0];
 		if (amount > upgradeAmount) {
-			if(upgradeAmount > 0) {
+			if (upgradeAmount > 0) {
 				this.description += upgradeAmount + DESCRIPTIONS[1] + DESCRIPTIONS[2] + (amount - upgradeAmount) + DESCRIPTIONS[3];
 			} else {
 				this.description += (amount - upgradeAmount) + DESCRIPTIONS[3];
@@ -63,7 +63,7 @@ public class StoneFencePower extends AbstractPower {
 			cUp.setDamage(GathererMod.remainedBlock);
 			cUp.upgrade();
 			if (upgradeAmount > 0)
-				AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, upgradeAmount, false));
+				AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(cUp, upgradeAmount, false));
 			if (amount > upgradeAmount)
 				AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, amount - upgradeAmount, false));
 		}

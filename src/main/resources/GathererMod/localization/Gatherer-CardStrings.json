@@ -133,9 +133,9 @@
   },
   "Gatherer:Duality": {
     "NAME": "Duality",
-    "DESCRIPTION": "Deal !D! damage. Retain. When Retained, it switches between Attack and Skill.",
+    "DESCRIPTION": "Deal !D! damage. Retain. When Retained, its tag switches between <ATK> and <DEF>.",
     "EXTENDED_DESCRIPTION": [
-      "Gain !B! Block. Retain. When Retained, it switches between Attack and Skill."
+      "Gain !B! Block. Retain. When Retained, its tag switches between <ATK> and <DEF>."
     ]
   },
   "Gatherer:EchoOfNature": {

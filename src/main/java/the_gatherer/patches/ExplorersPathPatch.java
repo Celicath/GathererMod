@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.relics.QuestionCard;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
@@ -62,16 +63,26 @@ public class ExplorersPathPatch {
 		public static void Postfix(CardRewardScreen __instance, ArrayList<AbstractCard> cards, RewardItem rItem, String header) {
 			if (AbstractDungeon.player.hasRelic(ExplorersPath.ID) && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT) {
 				double min = 100.1;
+				double min2 = 100.1;
 				AbstractCard cmin = null;
+				AbstractCard cmin2 = null;
 				for (AbstractCard c : __instance.rewardGroup) {
 					double r = ExplorersPath.getRatio(c.cardID);
 					if (r < min) {
+						min2 = min;
+						cmin2 = cmin;
 						min = r;
 						cmin = c;
+					} else if (r < min2) {
+						min2 = r;
+						cmin2 = c;
 					}
 				}
 				if (cmin != null) {
 					GathererMod.explorersPathBestOption.add(cmin);
+				}
+				if (AbstractDungeon.player.hasRelic(QuestionCard.ID) && cmin2 != null) {
+					GathererMod.explorersPathBestOption.add(cmin2);
 				}
 			}
 		}
