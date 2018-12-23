@@ -41,23 +41,10 @@ public class GrassHammer extends CustomCard {
 		this.magicNumber = this.baseMagicNumber;
 	}
 
-	@Override
-	public void applyPowers() {
-		final int current_damage = this.baseDamage;
-		this.baseDamage = this.baseMagicNumber;
-		super.applyPowers();
-
-		this.magicNumber = this.damage;
-		this.isMagicNumberModified = this.magicNumber != this.baseMagicNumber;
-
-		this.baseDamage = current_damage;
-		super.applyPowers();
-	}
-
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 		AbstractDungeon.actionManager.addToBottom(
-				new DamageRandomEnemyExceptTargetAction(m, new DamageInfo(p, this.baseMagicNumber),
+				new DamageRandomEnemyExceptTargetAction(m, new DamageInfo(p, this.magicNumber),
 						AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 	}
 

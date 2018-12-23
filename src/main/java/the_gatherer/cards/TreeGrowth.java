@@ -29,8 +29,8 @@ public class TreeGrowth extends CustomCard {
 
 	private static final int POWER = 5;
 	private static final int UPGRADE_BONUS = 2;
-	private static final int SECONDARY_POWER = 10;
-	private static final int SECONDARY_BONUS = 4;
+	private static final int SECONDARY_POWER = 9;
+	private static final int SECONDARY_BONUS = 3;
 
 	public TreeGrowth() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

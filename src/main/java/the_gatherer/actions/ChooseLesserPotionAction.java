@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.city.BookOfStabbing;
 import com.megacrit.cardcrawl.monsters.city.Byrd;
+import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.PotionSlot;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
@@ -355,8 +356,11 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 
 				if (recipeChange) {
 					LesserPotionOption lpo = (LesserPotionOption) AbstractDungeon.gridSelectScreen.selectedCards.get(0);
-					for (int i = 0; i < GathererMod.potionSack.potions.size(); i++) {
-						if (!(GathererMod.potionSack.potions.get(i) instanceof PotionSlot)) {
+					ArrayList<AbstractPotion> origPotions = new ArrayList<>(GathererMod.potionSack.potions);
+					GathererMod.potionSack.removeAllPotions();
+
+					for (int i = 0; i < origPotions.size(); i++) {
+						if (!(origPotions.get(i) instanceof PotionSlot)) {
 							AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction((SackPotion) lpo.potion.makeCopy(), false, i));
 						}
 					}

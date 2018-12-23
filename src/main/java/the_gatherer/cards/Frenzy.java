@@ -32,8 +32,8 @@ public class Frenzy extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 12;
-	private static final int UPGRADE_BONUS = 4;
+	private static final int POWER = 13;
+	private static final int UPGRADE_BONUS = 3;
 	private static final int MAGIC = 2;
 	private static final int MAGIC_BONUS = 1;
 

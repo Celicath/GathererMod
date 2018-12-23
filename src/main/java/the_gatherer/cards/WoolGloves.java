@@ -28,7 +28,7 @@ public class WoolGloves extends AbstractNumberedCard {
 	private static final CardTarget TARGET = CardTarget.SELF;
 
 	private static final int POWER = 8;
-	private static final int UPGRADE_BONUS = 2;
+	private static final int UPGRADE_BONUS = 3;
 
 	public WoolGloves() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -53,8 +53,8 @@ public class WoolGloves extends AbstractNumberedCard {
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
 
 		if (playCount == 0 || upgraded && playCount == 1) {
-			AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 2));
-			AbstractDungeon.actionManager.addToBottom(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, 2, false));
+			AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 3));
+			AbstractDungeon.actionManager.addToBottom(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, 3, false));
 		}
 		addPlayCount();
 	}

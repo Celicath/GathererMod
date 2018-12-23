@@ -28,7 +28,7 @@ public class Snatch extends AbstractNumberedCard {
 	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 6;
+	private static final int POWER = 7;
 	private static final int UPGRADE_BONUS = 2;
 
 	public Snatch() {

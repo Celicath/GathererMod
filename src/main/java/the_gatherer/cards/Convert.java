@@ -24,8 +24,8 @@ public class Convert extends CustomCard {
 	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 30;
-	private static final int RARE_POWER = 40;
+	private static final int POWER = 25;
+	private static final int RARE_POWER = 35;
 
 	public Convert() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

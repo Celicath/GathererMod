@@ -42,14 +42,7 @@ public class StoneFence extends CustomCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractPower pow = p.getPower(StoneFencePower.POWER_ID);
-		if (pow instanceof StoneFencePower) {
-			if (upgraded) {
-				((StoneFencePower) pow).upgrade();
-			}
-		} else {
-			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneFencePower(upgraded)));
-		}
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StoneFencePower(upgraded ? 2 : 1)));
 	}
 
 	@Override

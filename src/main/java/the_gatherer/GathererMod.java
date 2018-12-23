@@ -42,6 +42,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import the_gatherer.actions.ScrollOfPurityFollowUpAction;
 import the_gatherer.cards.*;
+import the_gatherer.cards.Deprecated.LuckyClover;
 import the_gatherer.cards.Helper.AbstractNumberedCard;
 import the_gatherer.cards.Helper.AbstractTaggedCard;
 import the_gatherer.character.TheGatherer;
@@ -54,6 +55,7 @@ import the_gatherer.modules.PotionSack;
 import the_gatherer.patches.AbstractPlayerEnum;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.potions.*;
+import the_gatherer.powers.GrassKnotPower;
 import the_gatherer.powers.PoisonMasteryPower;
 import the_gatherer.powers.StoneFencePower;
 import the_gatherer.relics.*;
@@ -373,12 +375,12 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new Glitched());
 		cards.add(new GlowingPlant());
 		cards.add(new GrassHammer());
+		cards.add(new GrassKnot());
 		cards.add(new GrowBook());
 		cards.add(new HeartToFruit());
 		cards.add(new Herbalism());
 		cards.add(new Light());
 		cards.add(new Liquidism());
-		cards.add(new LuckyClover());
 		cards.add(new MindSearch());
 		cards.add(new MiningStrike());
 		cards.add(new Misfortune());
@@ -506,6 +508,12 @@ public class GathererMod implements PostInitializeSubscriber,
 	public boolean receivePreMonsterTurn(AbstractMonster m) {
 		logger.debug("receivePreMonsterTurn started.");
 		setLastPotionUsedThisTurn(null);
+
+		GrassKnotPower gkp = (GrassKnotPower)AbstractDungeon.player.getPower(GrassKnotPower.POWER_ID);
+		if (gkp != null) {
+			gkp.discardForBenefit();
+		}
+
 		logger.debug("receivePreMonsterTurn finished.");
 		return true;
 	}
@@ -674,7 +682,7 @@ public class GathererMod implements PostInitializeSubscriber,
 	}
 
 	public static int calcPoisonDamage(int poisonAmount, int powerAmount) {
-		return poisonAmount * (2 + powerAmount) / 2;
+		return poisonAmount * (1 + powerAmount);
 	}
 
 	public static String stripPrefix(String id) {

@@ -15,12 +15,14 @@ public class StoneFencePower extends AbstractPower {
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-	private boolean upgraded;
+	private int upgradeAmount = 0;
 
-	public StoneFencePower(boolean upgraded) {
+	/// amount : 2 = upgraded, 1 = unupgraded
+	public StoneFencePower(int amount) {
 		this.name = NAME;
 		this.ID = POWER_ID;
-		this.upgraded = upgraded;
+		this.amount = 1;
+		this.upgradeAmount = amount - 1;
 		this.updateDescription();
 		this.type = PowerType.BUFF;
 		this.owner = AbstractDungeon.player;
@@ -28,17 +30,26 @@ public class StoneFencePower extends AbstractPower {
 		this.img = new Texture(GathererMod.GetPowerPath(RAW_ID));
 	}
 
-	public void upgrade() {
-		this.upgraded = true;
+	@Override
+	public void stackPower(int amount) {
+		this.amount++;
+		if (amount == 2)
+			this.upgradeAmount++;
 		updateDescription();
 	}
 
 	public void updateDescription() {
-		if (this.upgraded) {
-			this.description = DESCRIPTIONS[1];
+		this.description = DESCRIPTIONS[0];
+		if (amount > upgradeAmount) {
+			if(upgradeAmount > 0) {
+				this.description += upgradeAmount + DESCRIPTIONS[1] + DESCRIPTIONS[2] + (amount - upgradeAmount) + DESCRIPTIONS[3];
+			} else {
+				this.description += (amount - upgradeAmount) + DESCRIPTIONS[3];
+			}
 		} else {
-			this.description = DESCRIPTIONS[0];
+			this.description += upgradeAmount + DESCRIPTIONS[1];
 		}
+		this.description += DESCRIPTIONS[4];
 	}
 
 	public void activate() {
@@ -47,10 +58,14 @@ public class StoneFencePower extends AbstractPower {
 
 			Thrower c = new Thrower();
 			c.setDamage(GathererMod.remainedBlock);
-			if (upgraded) {
-				c.upgrade();
-			}
-			AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(c, 1, false));
+
+			Thrower cUp = new Thrower();
+			cUp.setDamage(GathererMod.remainedBlock);
+			cUp.upgrade();
+			if (upgradeAmount > 0)
+				AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, upgradeAmount, false));
+			if (amount > upgradeAmount)
+				AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, amount - upgradeAmount, false));
 		}
 	}
 }

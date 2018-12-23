@@ -19,7 +19,7 @@ public class UpliftPower extends AbstractPower {
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 	private AbstractPlayer p;
-	private boolean canActivate = true;
+	private int refunded = 0;
 
 	public UpliftPower(AbstractCreature owner, int amount) {
 		this.name = NAME;
@@ -34,23 +34,21 @@ public class UpliftPower extends AbstractPower {
 
 	@Override
 	public void updateDescription() {
-		this.description = DESCRIPTIONS[0] + this.amount;
+		this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
 	}
 
 	@Override
 	public void onPlayCard(AbstractCard card, AbstractMonster m) {
-		if (canActivate) {
-			if (card.costForTurn >= 2) {
-				this.flash();
+		if (refunded < this.amount && card.costForTurn >= 2) {
+			this.flash();
 
-				AbstractDungeon.actionManager.addToBottom(new RefundAction(card, this.amount));
-				canActivate = false;
-			}
+			AbstractDungeon.actionManager.addToBottom(new RefundAction(card, 1));
+			refunded++;
 		}
 	}
 
 	@Override
 	public void atStartOfTurn() {
-		canActivate = true;
+		refunded = 0;
 	}
 }

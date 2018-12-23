@@ -30,7 +30,7 @@ public class RecoveryHerb extends CustomCard {
 	private static final CardTarget TARGET = CardTarget.SELF;
 
 	private static final int POWER = 10;
-	private static final int UPGRADE_BONUS = 5;
+	private static final int NEW_COST = 0;
 
 	public RecoveryHerb() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -52,7 +52,7 @@ public class RecoveryHerb extends CustomCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new RecoveryHerbAction(p, p, this.magicNumber));
-		AbstractDungeon.actionManager.addToBottom(new PotionUsedAction(upgraded ? new RecoveryPotionPlus() : new RecoveryPotion(), false));
+		AbstractDungeon.actionManager.addToBottom(new PotionUsedAction(new RecoveryPotion(), false));
 
 		this.rawDescription = DESCRIPTION;
 		this.initializeDescription();
@@ -65,7 +65,7 @@ public class RecoveryHerb extends CustomCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
-			this.upgradeMagicNumber(UPGRADE_BONUS);
+			this.upgradeBaseCost(NEW_COST);
 		}
 	}
 }

@@ -8,42 +8,50 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.EquilibriumPower;
 import the_gatherer.GathererMod;
+import the_gatherer.cards.Deprecated.LuckyClover;
 import the_gatherer.patches.CardColorEnum;
-import the_gatherer.powers.FeelingFinePower;
+import the_gatherer.powers.GrassKnotPower;
 
-public class FeelingFine extends CustomCard {
-	private static final String RAW_ID = "FeelingFine";
+public class GrassKnot extends CustomCard {
+	private static final String RAW_ID = "GrassKnot";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
-	private static final int COST = 0;
+	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.POWER;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.GATHERER_LIME;
-	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
+	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
-	public FeelingFine() {
+	private static final int POWER = 1;
+	private static final int UPGRADE_BONUS = 1;
+
+	public GrassKnot() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+		this.baseMagicNumber = POWER;
+		this.magicNumber = this.baseMagicNumber;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FeelingFinePower(p)));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EquilibriumPower(p, 1), 1));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GrassKnotPower(p, this.magicNumber), this.magicNumber));
 	}
 
 	public AbstractCard makeCopy() {
-		return new FeelingFine();
+		return new LuckyClover();
 	}
 
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
+			this.upgradeMagicNumber(UPGRADE_BONUS);
 			this.rawDescription = UPGRADE_DESCRIPTION;
 			this.initializeDescription();
-			this.isInnate = true;
 		}
 	}
 }

@@ -23,17 +23,8 @@ public class GainPotionIfSolidAction extends AbstractGameAction {
 	public void update() {
 		if (this.duration == Settings.ACTION_DUR_FASTER) {
 			if (owner.currentBlock >= threshold) {
-				boolean full = true;
-				for (AbstractPotion p : GathererMod.potionSack.potions) {
-					if (p instanceof PotionSlot) {
-						full = false;
-						break;
-					}
-				}
-				if (!full) {
-					AbstractDungeon.actionManager.addToTop(new LoseBlockAction(owner, owner, 5));
-					AbstractDungeon.actionManager.addToTop(new ObtainLesserPotionAction(new LesserBlockPotion(), true));
-				}
+				AbstractDungeon.actionManager.addToTop(new LoseBlockAction(owner, owner, 5));
+				AbstractDungeon.actionManager.addToTop(new ObtainLesserPotionAction(new LesserBlockPotion(), true));
 			}
 		}
 

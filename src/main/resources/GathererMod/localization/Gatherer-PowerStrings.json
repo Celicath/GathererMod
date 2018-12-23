@@ -115,8 +115,11 @@
   "Gatherer:StoneFence": {
     "NAME": "Stone Fence",
     "DESCRIPTIONS": [
-      "Whenever your Block expires, add 1 Thrower to your hand.",
-      "Whenever your Block expires, add 1 upgraded Thrower to your hand."
+      "At the start of your turn, add ",
+      " upgraded #yThrower(s) ",
+      " and ",
+      " #yThrower(s) ",
+      " to your hand."
     ]
   },
   "Gatherer:ColorfulGarden": {
@@ -145,12 +148,13 @@
       " NL #r(Deactivated!)"
     ]
   },
-  "Gatherer:LuckyClover": {
-    "NAME": "Lucky Clover",
+  "Gatherer:GrassKnot": {
+    "NAME": "Grass Knot",
     "DESCRIPTIONS": [
-      "Whenever you lose #b",
-      " or more HP, discard a random card to heal #b",
-      " HP."
+      "At the end of your turn, discard up to #b",
+      " cards for #b",
+      " Block and #b",
+      " Thorns each."
     ]
   },
   "Gatherer:RecipeChange": {

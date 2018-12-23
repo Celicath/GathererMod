@@ -69,7 +69,7 @@
   },
   "Gatherer:ScherryThrow": {
     "NAME": "Scherry Throw",
-    "DESCRIPTION": "Deal !D! damage. NL Gain [E]."
+    "DESCRIPTION": "Deal !D! damage. NL Next turn, gain [E]."
   },
   "Gatherer:Snatch": {
     "NAME": "Snatch",
@@ -82,7 +82,8 @@
   },
   "Gatherer:TacticalStrike": {
     "NAME": "Tactical Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards."
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw !M! cards. NL Gain !M! Strength until end of turn."
   },
   "Gatherer:BigPouch": {
     "NAME": "Big Pouch",
@@ -125,8 +126,8 @@
     "NAME": "Wool Gloves",
     "DESCRIPTION": "Gain !B! Block.",
     "EXTENDED_DESCRIPTION": [
-      " NL Twice_: Draw 2 cards, then discard 2 cards.",
-      " NL Once_: Draw 2 cards, then discard 2 cards.",
+      " NL Twice_: Draw 3 cards, then discard 3 cards.",
+      " NL Once_: Draw 3 cards, then discard 3 cards.",
       " NL [#D0C8D0]Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
     ]
   },
@@ -296,7 +297,8 @@
   },
   "Gatherer:FeelingFine": {
     "NAME": "Feeling Fine",
-    "DESCRIPTION": "Whenever you use 3 Potions in a turn, remove all of your debuffs."
+    "DESCRIPTION": "Whenever you use 3 Potions in a turn, remove all of your debuffs.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you use 3 Potions in a turn, remove all of your debuffs."
   },
   "Gatherer:Liquidism": {
     "NAME": "Liquidism",
@@ -314,7 +316,8 @@
   },
   "Gatherer:Uplift": {
     "NAME": "Uplift",
-    "DESCRIPTION": "The first card played each turn that costs 2 or more has Refund 1."
+    "DESCRIPTION": "The first card played each turn that costs 2 or more has Refund 1.",
+    "UPGRADE_DESCRIPTION": "The first !M! cards played each turn that costs 2 or more have Refund 1."
   },
   "Gatherer:Bulldoze": {
     "NAME": "Bulldoze",
@@ -410,8 +413,8 @@
   },
   "Gatherer:StoneFence": {
     "NAME": "Stone Fence",
-    "DESCRIPTION": "At the start of your turn, add 1 Thrower to your hand. NL (Does not stack.)",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, add 1 upgraded Thrower to your hand. NL (Does not stack.)"
+    "DESCRIPTION": "At the start of your turn, add 1 Thrower to your hand.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, add 1 upgraded Thrower to your hand."
   },
   "Gatherer:Thrower": {
     "NAME": "Thrower",
@@ -421,13 +424,14 @@
       " NL (Deals !D! damage.)"
     ]
   },
-  "Gatherer:LuckyClover": {
-    "NAME": "Lucky Clover",
-    "DESCRIPTION": "Retain your hand this turn. NL Whenever you lose 3 or more HP, discard a random card to heal 3 HP."
+  "Gatherer:GrassKnot": {
+    "NAME": "Grass Knot",
+    "DESCRIPTION": "Retain your hand this turn. At the end of your turn, discard up to !M! Retained card for 4 Block and 2 Thorns each.",
+    "UPGRADE_DESCRIPTION": "Retain your hand this turn. At the end of your turn, discard up to !M! Retained cards for 4 Block and 2 Thorns each."
   },
   "Gatherer:PoisonMastery": {
     "NAME": "Poison Mastery",
-    "DESCRIPTION": "Gain a Lesser_Poison_Potion. NL Poison damage is increased by 50%."
+    "DESCRIPTION": "Gain a Lesser_Poison_Potion. NL Poison damage is increased by 100%."
   },
   "Gatherer:FlowerSuffix": {
     "NAME": "FlowerSuffix",
