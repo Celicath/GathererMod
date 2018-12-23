@@ -95,9 +95,9 @@
   },
   "Gatherer:ExcessPotionHandleAction": {
     "TEXT": [
-      "Your Sack is Full. ",
-      "Use or Discard this Lesser Potion.",
-      "Use or Discard these Lesser Potions."
+      "Use or Discard this Excess Potion.",
+      "Use or Discard these Excess Potions.",
+      " Target is chosen randomly."
     ]
   }
 }

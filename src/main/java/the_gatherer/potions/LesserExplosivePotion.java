@@ -78,7 +78,7 @@ public class LesserExplosivePotion extends SackPotion {
 
 	@Override
 	public SackPotion getStatEquivalentCopy() {
-		LesserExplosivePotion lep = (LesserExplosivePotion)super.getStatEquivalentCopy();
+		LesserExplosivePotion lep = (LesserExplosivePotion) super.getStatEquivalentCopy();
 		lep.explosiveLevel = this.explosiveLevel;
 		return lep;
 	}

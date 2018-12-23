@@ -482,6 +482,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		setLastPotionUsedThisTurn(null);
 		explorersPathBestOption.clear();
 		excessPotionHandleScreen.close();
+		ExcessPotionHandleScreen.potions.clear();
 
 		for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
 			if (c instanceof AbstractNumberedCard) {

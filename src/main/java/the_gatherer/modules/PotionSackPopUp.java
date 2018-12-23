@@ -237,9 +237,7 @@ public class PotionSackPopUp {
 			InputHelper.justClickedLeft = false;
 			CInputActionSet.select.unpress();
 			if (this.hoveredMonster != null) {
-				usePotion(this.hoveredMonster);
-
-				GathererMod.ActivatePotionUseEffects(this.potion, true);
+				usePotionInSack(this.hoveredMonster, this.potion);
 				GathererMod.potionSack.removePotion(this.slot);
 
 				finishTargeting();
@@ -248,11 +246,12 @@ public class PotionSackPopUp {
 
 	}
 
-	private void usePotion(AbstractCreature c) {
-		this.potion.use(c);
-		if (this.potion instanceof SackPotion) {
-			((SackPotion) this.potion).actualUseEffect();
+	public static void usePotionInSack(AbstractCreature c, AbstractPotion p) {
+		p.use(c);
+		if (p instanceof SackPotion) {
+			((SackPotion) p).actualUseEffect();
 		}
+		GathererMod.ActivatePotionUseEffects(p, true);
 	}
 
 	private void updateInput() {
@@ -289,9 +288,7 @@ public class PotionSackPopUp {
 				if (this.potion.targetRequired) {
 					this.startTargeting();
 				} else {
-					usePotion(null);
-
-					GathererMod.ActivatePotionUseEffects(this.potion, true);
+					usePotionInSack(null, this.potion);
 
 					CardCrawlGame.sound.play("POTION_1");
 					GathererMod.potionSack.removePotion(this.slot);
