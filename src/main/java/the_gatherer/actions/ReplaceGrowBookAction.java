@@ -1,6 +1,7 @@
 package the_gatherer.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -50,6 +51,7 @@ public class ReplaceGrowBookAction extends AbstractGameAction {
 
 				for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
 					AbstractDungeon.topLevelEffects.add(new ShowCardAndObtainEffect(c, com.megacrit.cardcrawl.core.Settings.WIDTH / 2.0F, com.megacrit.cardcrawl.core.Settings.HEIGHT / 2.0F));
+					AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, 1, false));
 				}
 				AbstractDungeon.gridSelectScreen.selectedCards.clear();
 			}
