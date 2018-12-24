@@ -400,7 +400,7 @@
   },
   "Gatherer:BomberForm": {
     "NAME": "Bomber Form",
-    "DESCRIPTION": "At the start of your turn, gain a LEP. All future Lesser_Potion becomes LEP and raises future LEPs' damage by !M!."
+    "DESCRIPTION": "At the start of your turn, gain a LEP. All future Lesser_Potions become LEP and raise all LEPs' damage by !M!."
   },
   "Gatherer:FlowerPower": {
     "NAME": "Flower Power",

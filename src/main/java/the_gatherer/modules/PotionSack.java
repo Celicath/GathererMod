@@ -281,21 +281,28 @@ public class PotionSack {
 		hb.render(sb);
 	}
 
-	public boolean addPotion(SackPotion potion, int index) {
+	public boolean addPotion(AbstractPotion potion) {
 		showing = true;
-		if (index == -1) {
-			index = 0;
-			for (AbstractPotion p : this.potions) {
-				if ((p instanceof PotionSlot)) {
-					break;
-				}
-				index++;
+		int index = 0;
+		for (AbstractPotion p : this.potions) {
+			if ((p instanceof PotionSlot)) {
+				break;
 			}
-			if (index >= this.potions.size()) {
-				flashRed();
-				return false;
-			}
+			index++;
 		}
+		if (index < this.potions.size()) {
+			this.potions.set(index, potion);
+			setPotionPosition(index, potion);
+			potion.flash();
+			AbstractPotion.playPotionSound();
+			return true;
+		} else {
+			flashRed();
+			return false;
+		}
+	}
+
+	public void setPotion(int index, SackPotion potion) {
 		if (this.potions.get(index) instanceof SackPotion) {
 			potion.setTag(((SackPotion) this.potions.get(index)).tag);
 		}
@@ -303,7 +310,6 @@ public class PotionSack {
 		setPotionPosition(index, potion);
 		potion.flash();
 		AbstractPotion.playPotionSound();
-		return true;
 	}
 
 	public void removePotion(int slot) {

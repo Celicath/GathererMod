@@ -16,18 +16,12 @@ import the_gatherer.powers.RecipeChangePower;
 public class ObtainLesserPotionAction extends AbstractGameAction {
 	private SackPotion potion;
 	private boolean allowRecipeChange;
-	private int overrideIndex;
 
 	public ObtainLesserPotionAction(SackPotion potion, boolean allowRecipeChange) {
-		this(potion, allowRecipeChange, -1);
-	}
-
-	public ObtainLesserPotionAction(SackPotion potion, boolean allowRecipeChange, int overrideIndex) {
 		this.actionType = ActionType.SPECIAL;
 		this.duration = Settings.ACTION_DUR_XFAST;
 		this.potion = potion;
 		this.allowRecipeChange = allowRecipeChange;
-		this.overrideIndex = overrideIndex;
 	}
 
 	public void update() {
@@ -38,7 +32,6 @@ public class ObtainLesserPotionAction extends AbstractGameAction {
 				BomberFormPower bfp = (BomberFormPower) AbstractDungeon.player.getPower(BomberFormPower.POWER_ID);
 				if (bfp != null) {
 					potion = new LesserExplosivePotion();
-					AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ExplodingPower(AbstractDungeon.player, bfp.amount), bfp.amount));
 				} else {
 					RecipeChangePower rcp = (RecipeChangePower) AbstractDungeon.player.getPower(RecipeChangePower.POWER_ID);
 					if (rcp != null && allowRecipeChange && AbstractDungeon.cardRandomRng.random(99) < rcp.ratio) {
@@ -46,7 +39,7 @@ public class ObtainLesserPotionAction extends AbstractGameAction {
 						rcp.flash();
 					}
 				}
-				if (!GathererMod.potionSack.addPotion(this.potion, overrideIndex)) {
+				if (!GathererMod.potionSack.addPotion(this.potion)) {
 					AbstractDungeon.actionManager.addToBottom(new ExcessPotionHandleAction(potion));
 				}
 			}

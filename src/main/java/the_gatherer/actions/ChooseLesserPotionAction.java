@@ -356,12 +356,10 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 
 				if (recipeChange) {
 					LesserPotionOption lpo = (LesserPotionOption) AbstractDungeon.gridSelectScreen.selectedCards.get(0);
-					ArrayList<AbstractPotion> origPotions = new ArrayList<>(GathererMod.potionSack.potions);
-					GathererMod.potionSack.removeAllPotions();
 
-					for (int i = 0; i < origPotions.size(); i++) {
-						if (!(origPotions.get(i) instanceof PotionSlot)) {
-							AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction((SackPotion) lpo.potion.makeCopy(), false, i));
+					for (int i = 0; i < GathererMod.potionSack.potions.size(); i++) {
+						if (!(GathererMod.potionSack.potions.get(i) instanceof PotionSlot)) {
+							GathererMod.potionSack.setPotion(i, (SackPotion) lpo.potion.makeCopy());
 						}
 					}
 					RecipeChangePower rcp = (RecipeChangePower) AbstractDungeon.player.getPower(RecipeChangePower.POWER_ID);

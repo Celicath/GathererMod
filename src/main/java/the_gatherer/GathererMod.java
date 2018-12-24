@@ -545,6 +545,11 @@ public class GathererMod implements PostInitializeSubscriber,
 					((LesserExplosivePotion) p).updateDescription();
 				}
 			}
+			for (AbstractPotion p : ExcessPotionHandleScreen.potions) {
+				if (p instanceof LesserExplosivePotion) {
+					((LesserExplosivePotion) p).updateDescription();
+				}
+			}
 		}
 		logger.debug("receivePowersModified finished.");
 	}

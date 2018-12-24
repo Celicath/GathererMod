@@ -7,7 +7,7 @@
     ]
   },
   "Gatherer:MiracleBag": {
-    "NAME": "Miracle Bag",
+    "NAME": "미라클 가방",
     "FLAVOR": "금지된 기술로 만들어 졌습니다.",
     "DESCRIPTIONS": [
       "( #y연금술 #y가방 과 교체되지 않음) NL 전투 시작 시 무작위 포션을 얻습니다. (일반 포션 슬롯으로)",

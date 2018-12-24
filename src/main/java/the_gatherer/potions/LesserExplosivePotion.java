@@ -2,6 +2,7 @@ package the_gatherer.potions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -14,6 +15,7 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.vfx.combat.ExplosionSmallEffect;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.PotionRarityEnum;
+import the_gatherer.powers.BomberFormPower;
 import the_gatherer.powers.ExplodingPower;
 
 import java.util.Iterator;
@@ -25,16 +27,10 @@ public class LesserExplosivePotion extends SackPotion {
 	public static final String NAME = potionStrings.NAME;
 	public static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;
 
-	private int explosiveLevel;
-
 	public LesserExplosivePotion() {
 		super(NAME, POTION_ID, PotionRarityEnum.LESSER, PotionSize.H, PotionColor.EXPLOSIVE);
 		this.isThrown = true;
 
-		explosiveLevel = 0;
-		if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower(ExplodingPower.POWER_ID)) {
-			explosiveLevel = AbstractDungeon.player.getPower(ExplodingPower.POWER_ID).amount;
-		}
 		this.potency = getPotency();
 
 		updateDescription();
@@ -54,6 +50,11 @@ public class LesserExplosivePotion extends SackPotion {
 
 		AbstractDungeon.actionManager.addToBottom(new WaitAction(0.5F));
 		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.potency, true), DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
+
+		BomberFormPower bfp = (BomberFormPower) AbstractDungeon.player.getPower(BomberFormPower.POWER_ID);
+		if (bfp != null) {
+			AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ExplodingPower(AbstractDungeon.player, bfp.amount), bfp.amount));
+		}
 	}
 
 	public AbstractPotion makeCopy() {
@@ -73,13 +74,12 @@ public class LesserExplosivePotion extends SackPotion {
 	@Override
 	public int getPotency(int ascensionLevel) {
 		int base = super.getPotency(ascensionLevel);
-		return base + explosiveLevel;
-	}
-
-	@Override
-	public SackPotion getStatEquivalentCopy() {
-		LesserExplosivePotion lep = (LesserExplosivePotion) super.getStatEquivalentCopy();
-		lep.explosiveLevel = this.explosiveLevel;
-		return lep;
+		if (AbstractDungeon.player != null) {
+			ExplodingPower ep = (ExplodingPower) AbstractDungeon.player.getPower(ExplodingPower.POWER_ID);
+			if (ep != null) {
+				return base + ep.amount;
+			}
+		}
+		return base;
 	}
 }
