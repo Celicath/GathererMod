@@ -32,6 +32,7 @@ public class ExplorersPath extends CustomRelic {
 		super(ID, new Texture(GathererMod.GetRelicPath(RelicID)),
 				RelicTier.BOSS, LandingSound.FLAT);
 		this.counter = 0;
+		refreshDescription();
 	}
 
 	@Override
@@ -69,7 +70,7 @@ public class ExplorersPath extends CustomRelic {
 		this.description = getUpdatedDescription();
 		this.tips.clear();
 		this.tips.add(new PowerTip(this.name, this.description));
-		tips.add(new PowerTip(DESCRIPTIONS[1], DESCRIPTIONS[2] + FontHelper.colorString(new QuestionCard().name, "y") + DESCRIPTIONS[3]));
+		this.tips.add(new PowerTip(DESCRIPTIONS[1], DESCRIPTIONS[2] + FontHelper.colorString(new QuestionCard().name, "y") + DESCRIPTIONS[3]));
 		this.initializeTips();
 	}
 

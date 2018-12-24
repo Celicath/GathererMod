@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import the_gatherer.GathererMod;
 import the_gatherer.powers.GrassKnotPower;
 
 import java.util.ArrayList;
@@ -49,6 +50,7 @@ public class GrassKnotDiscardAction extends AbstractGameAction {
 				card.triggerOnManualDiscard();
 				GameActionManager.incrementDiscard(false);
 			}
+			GathererMod.logger.debug("NUM=" + num);
 			GrassKnotPower.gainBlock(num);
 
 			AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
