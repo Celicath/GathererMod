@@ -427,27 +427,38 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	}
 
+	public static String getLocCode() {
+		if (Settings.language == Settings.GameLanguage.KOR) {
+			return "kor";
+		} else {
+			return "eng";
+		}
+	}
+
+
 	@Override
 	public void receiveEditStrings() {
 		logger.debug("receiveEditStrings started.");
 
+		String loc = getLocCode();
+
 		// RelicStrings
-		String relicStrings = GetLocString("Gatherer-RelicStrings");
+		String relicStrings = GetLocString(loc, "Gatherer-RelicStrings");
 		BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
 		// CardStrings
-		String cardStrings = GetLocString("Gatherer-CardStrings");
+		String cardStrings = GetLocString(loc, "Gatherer-CardStrings");
 		BaseMod.loadCustomStrings(CardStrings.class, cardStrings);
 		// PotionStrings
-		String potionStrings = GetLocString("Gatherer-PotionStrings");
+		String potionStrings = GetLocString(loc, "Gatherer-PotionStrings");
 		BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
 		// PowerStrings
-		String powerStrings = GetLocString("Gatherer-PowerStrings");
+		String powerStrings = GetLocString(loc, "Gatherer-PowerStrings");
 		BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
 		// UIStrings
-		String uiStrings = GetLocString("Gatherer-UIStrings");
+		String uiStrings = GetLocString(loc, "Gatherer-UIStrings");
 		BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
 		// EventStrings
-		String eventStrings = GetLocString("Gatherer-EventStrings");
+		String eventStrings = GetLocString(loc, "Gatherer-EventStrings");
 		BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
 
 		logger.debug("receiveEditStrings finished.");
@@ -457,7 +468,9 @@ public class GathererMod implements PostInitializeSubscriber,
 	public void receiveEditKeywords() {
 		logger.debug("receiveEditKeywords started.");
 		Gson gson = new Gson();
-		String json = GetLocString("Gatherer-KeywordStrings");
+		String loc = getLocCode();
+
+		String json = GetLocString(loc, "Gatherer-KeywordStrings");
 		Keyword[] keywords = gson.fromJson(json, Keyword[].class);
 
 		if (keywords != null) {
@@ -609,8 +622,8 @@ public class GathererMod implements PostInitializeSubscriber,
 		return "GathererMod/img/events/" + id + ".png";
 	}
 
-	private static String GetLocString(String name) {
-		return Gdx.files.internal("GathererMod/localization/" + name + ".json").readString(
+	private static String GetLocString(String locCode, String name) {
+		return Gdx.files.internal("GathererMod/localization/" + locCode + "/" + name + ".json").readString(
 				String.valueOf(StandardCharsets.UTF_8));
 	}
 

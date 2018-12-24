@@ -1,0 +1,180 @@
+[
+  {
+    "NAMES": [
+      "종류"
+    ],
+    "DESCRIPTION": "다른 이름, 색깔 또는 태그를 가진 카드들은 다른 종류로 취급합니다. 단 강화 수만 다른 카드는 동일하게 취급됩니다."
+  },
+  {
+    "PROPER_NAME": "1회용",
+    "NAMES": [
+      "1회용:",
+      "1회용"
+    ],
+    "DESCRIPTION": "전투에서 이 카드를 처음 사용 할 때에만 효과가 발동됩니다."
+  },
+  {
+    "PROPER_NAME": "2회용",
+    "NAMES": [
+      "2회용:",
+      "2회용"
+    ],
+    "DESCRIPTION": "전투에서 이 카드를 처음 2회 사용 할 때에만 효과는 발동됩니다. 사용하고 나면 1회용 이라고 표시됩니다."
+  },
+  {
+    "NAMES": [
+      "플라워"
+    ],
+    "DESCRIPTION": "이름에 #y플라워 가 포함된 카드들입니다. 강화를 3번 할 수 있고 3번째 강화는 특별합니다."
+  },
+  {
+    "PROPER_NAME": "LEP",
+    "NAMES": [
+      "lep"
+    ],
+    "DESCRIPTION": "기본적으로 적 전체에게 피해를 6 주는 소형 폭발 포션의 약자입니다."
+  },
+  {
+    "PROPER_NAME": "소형포션",
+    "NAMES": [
+      "소형포션"
+    ],
+    "DESCRIPTION": "포션 주머니에 추가되는 \"소형\" 버전 포션입니다."
+  },
+  {
+    "PROPER_NAME": "소형 화염 포션",
+    "NAMES": [
+      "소형 화염 포션",
+      "소형_화염_포션"
+    ],
+    "DESCRIPTION": "한 적에게 피해를 10 주는 #y소형포션 입니다."
+  },
+  {
+    "PROPER_NAME": "소형 중독 포션",
+    "NAMES": [
+      "소형 중독 포션",
+      "소형_중독_포션"
+    ],
+    "DESCRIPTION": "중독을 4 부여하는 #y소형포션 입니다."
+  },
+  {
+    "PROPER_NAME": "소형 방어도 포션",
+    "NAMES": [
+      "소형 방어도 포션",
+      "소형_방어도_포션"
+    ],
+    "DESCRIPTION": "방어도를 8 얻는 #y소형포션 입니다."
+  },
+  {
+    "PROPER_NAME": "소형 에너지 포션",
+    "NAMES": [
+      "소형 에너지 포션",
+      "소형_에너지_포션"
+    ],
+    "DESCRIPTION": "에너지를 1 주는 #y소형포션 입니다."
+  },
+  {
+    "PROPER_NAME": "소형 신속 포션",
+    "NAMES": [
+      "소형 신속 포션",
+      "소형_신속_포션"
+    ],
+    "DESCRIPTION": "카드를 2장 뽑는 #y소형포션 입니다."
+  },
+  {
+    "PROPER_NAME": "카드 등급",
+    "NAMES": [
+      "convert tooltip"
+    ],
+    "DESCRIPTION": "특별 = 파란색 배너 NL 희귀 = 금색 배너"
+  },
+  {
+    "PROPER_NAME": "글로우",
+    "NAMES": [
+      "글로우"
+    ],
+    "DESCRIPTION": "#y빛! 과 #y그림자! 의 효과를 올립니다. #y글로우 를 주지 않는 카드를 사용하면 사라집니다."
+  },
+  {
+    "PROPER_NAME": "연금술 시험",
+    "NAMES": [
+      "alchemy trial tooltip"
+    ],
+    "DESCRIPTION": "#r공격 - 소형 화염/폭발 포션 NL #g스킬 - 소형 방어도/에너지 포션 NL #b파워 - 소형 힘/민첩 포션 NL 기타 - 소형 약화/공포 포션"
+  },
+  {
+    "PROPER_NAME": "아이언클래드 카드",
+    "NAMES": [
+      "grow book tooltip 0"
+    ],
+    "DESCRIPTION": "전투장비, 파괴, 이중 타격 중 하나를 선택합니다. 업그레이드 시 포식이 선택지에 추가됩니다."
+  },
+  {
+    "PROPER_NAME": "사일런트 카드",
+    "NAMES": [
+      "grow book tooltip 1"
+    ],
+    "DESCRIPTION": "교살, 괜찮은 전략, 독 찌르기 중 하나를 선택합니다. 업그레이드 시 연금이 선택지에 추가됩니다."
+  },
+  {
+    "PROPER_NAME": "디펙트 Cards",
+    "NAMES": [
+      "grow book tooltip 2"
+    ],
+    "DESCRIPTION": "스택, 증기 장벽, 하나를 위한 모두 중 하나를 선택합니다. 업그레이드 시 탐색이 선택지에 추가됩니다."
+  },
+  {
+    "PROPER_NAME": "중첩시",
+    "NAMES": [
+      "bomberform tooltip"
+    ],
+    "DESCRIPTION": "#y폭탄마의 #y형상 여러 개를 사용하면 피해량 추가 효과는 중첩되나 매턴 얻는 LEP의 수는 1개 입니다. NL 또한, 이 추가 피해량은 #y가방 #y업그레이드 의 효과를 받지 않습니다."
+  },
+  {
+    "PROPER_NAME": "3번째 강화",
+    "NAMES": [
+      "flower whip tooltip"
+    ],
+    "DESCRIPTION": "3번째 #y강화 는 피해량 추가에 더해서 3회 공격하게 합니다."
+  },
+  {
+    "PROPER_NAME": "3번째 강화",
+    "NAMES": [
+      "flower falling tooltip"
+    ],
+    "DESCRIPTION": "3번째 #y강화 는 피해량 추가 대신 비용을 0으로 만들고 3의 체력 회복을 추가합니다."
+  },
+  {
+    "PROPER_NAME": "3번째 강화",
+    "NAMES": [
+      "flower shield tooltip"
+    ],
+    "DESCRIPTION": "3번째 #y강화 는 방어도 추가 대신 비용을 0으로 만듭니다."
+  },
+  {
+    "PROPER_NAME": "3번째 강화",
+    "NAMES": [
+      "flower beam tooltip"
+    ],
+    "DESCRIPTION": "3번째 #y강화 는 피해량 추가 대신 비용을 0으로 만듭니다."
+  },
+  {
+    "PROPER_NAME": "3번째 강화",
+    "NAMES": [
+      "flower power tooltip"
+    ],
+    "DESCRIPTION": "3번째 #y강화는 받는 해로운 효과 제거에 더하여 비용을 1로 만듭니다."
+  },
+  {
+    "NAMES": [
+      "구동"
+    ],
+    "DESCRIPTION": "매 전투 시작 시 발동하는 효과입니다."
+  },
+  {
+    "NAMES": [
+      "반환"
+    ],
+    "DESCRIPTION": "카드를 사용하는데 사용한 에너지를 반환 값 까지 돌려 받습니다."
+  }
+]

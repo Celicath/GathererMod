@@ -1,0 +1,103 @@
+{
+  "Gatherer:CentralizeAction": {
+    "TEXT": [
+      "Choose a Card; upgrade & add to your hand.",
+      "Choose two Cards; upgrade & add to your hand."
+    ]
+  },
+  "Gatherer:PotionSack": {
+    "TEXT": [
+      "포션 주머니는 3개의 소형포션을 담을 수 있습니다. 소형 포션은 이번 전투가 끝나면 사라집니다. 이 포션들은 #y장난감 #y비행기 의 효과를 받지 않습니다. NL #b드래그: 위치 옮기기 NL #b우클릭: 팝업창 위치 변경",
+      "포션 주머니"
+    ]
+  },
+  "Gatherer:SaveValuablesAction": {
+    "TEXT": [
+      "덱에 섞어 넣을 카드를 ",
+      "장 선택하십시오"
+    ]
+  },
+  "Gatherer:DiscardPileToTopOfDeckAction": {
+    "TEXT": [
+      "Choose a Card to Put on Top of Your Draw Pile."
+    ]
+  },
+  "Gatherer:BambuSwordAction": {
+    "TEXT": [
+      "사용할 카드를 선택하십시오"
+    ]
+  },
+  "Gatherer:TransmuteAction": {
+    "TEXT": [
+      "변환할 카드를 선택하십시오"
+    ]
+  },
+  "Gatherer:ExamineAction": {
+    "TEXT": [
+      "사용할 카드를 선택하십시오"
+    ]
+  },
+  "Gatherer:ScrollOfPurityAction": {
+    "TEXT": [
+      "Exhaust",
+      "Exhaust and Draw "
+    ]
+  },
+  "Gatherer:ScentOfRosmariAction": {
+    "TEXT": [
+      "보존할 카드를 선택하십시오"
+    ]
+  },
+  "Gatherer:EnchantAction": {
+    "TEXT": [
+      "인챈트할 카드를 선택하십시오"
+    ]
+  },
+  "Gatherer:ChooseLesserPotionAction": {
+    "TEXT": [
+      "재료 변경할 포션을 선택하십시오",
+      "얻을 2개의 포션을 선택하십시오"
+    ]
+  },
+  "Gatherer:ReplaceGrowBookAction": {
+    "TEXT": [
+      "그로우 북을 대체할 카드를 선택하십시오"
+    ]
+  },
+  "Gatherer:MindSearchAction": {
+    "TEXT": [
+      "(이 포션이 유용할 수 있어)",
+      "(피해를 줄이고 싶어)",
+      "(내 체력이 너무 낮아)",
+      "(장기적인 방어가 필요해)",
+      "(나에게 균형적 성장이 있어)",
+      "(사용할 카드가 많아)",
+      "(중첩되면 더 강해져)",
+      "(적들이 여럿 있어)",
+      "(이 포션으로 적을 죽일 수 있어)",
+      "(이 적을 빠르게 처치하자)",
+      "(매우 효과적이야)",
+      "(섀들이야!)",
+      "(나에게 독 숙련이 있어)",
+      "(파워가 필요해)",
+      "(장기적인 공격이 필요해)",
+      "(에너지가 많아)",
+      "(적이 너무 강해)",
+      "(손에 스킬 카드가 많아)",
+      "(손에 공격 카드가 많아)",
+      "(나에게 상쾌한 기분이 있어)",
+      "(나는 폭탄마야!)",
+      "(폭탄마의 형상을 사용했어!)",
+      "(폭발!)",
+      "(주황색 포션의 힘을 느껴보자!)",
+      "(이것만 보여!)"
+    ]
+  },
+  "Gatherer:ExcessPotionHandleAction": {
+    "TEXT": [
+      "포션 주머니 공간이 부족합니다. 이 포션을 사용하거나 버리십시오.",
+      "포션 주머니 공간이 부족합니다. 이 포션을 사용하거나 버리십시오.",
+      " 대상은 무작위로 정해집니다."
+    ]
+  }
+}

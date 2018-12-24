@@ -61,10 +61,10 @@ public class FlyingFruit extends CustomRelic implements CustomSavable<HashSet<St
 	@Override
 	public String getUpdatedDescription() {
 		if (exhaustedUniqueID == null || exhaustedUniqueID.isEmpty()) {
-			return DESCRIPTIONS[0] + AMOUNT;
+			return DESCRIPTIONS[0] + AMOUNT + DESCRIPTIONS[1];
 		} else {
 			boolean first = true;
-			StringBuilder result = new StringBuilder(DESCRIPTIONS[0] + AMOUNT + DESCRIPTIONS[1]);
+			StringBuilder result = new StringBuilder(DESCRIPTIONS[0] + AMOUNT + DESCRIPTIONS[1] + DESCRIPTIONS[2]);
 			for (String id : exhaustedUniqueID) {
 				if (!first) {
 					result.append(", ");

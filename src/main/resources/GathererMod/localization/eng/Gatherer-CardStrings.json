@@ -400,7 +400,7 @@
   },
   "Gatherer:BomberForm": {
     "NAME": "Bomber Form",
-    "DESCRIPTION": "At the start of your turn, gain a LEP. Any incoming Lesser_Potion becomes LEP, and raises future LEPs' damage by !M!."
+    "DESCRIPTION": "At the start of your turn, gain a LEP. All future Lesser_Potion becomes LEP and raises future LEPs' damage by !M!."
   },
   "Gatherer:FlowerPower": {
     "NAME": "Flower Power",
@@ -451,6 +451,9 @@
   },
   "Gatherer:SalvePotion": {
     "NAME": "Salve Potion",
-    "DESCRIPTION": "Considered as using a Potion. NL Heal !M! HP. NL Decrease this card's healing by 1 this combat."
+    "DESCRIPTION": "Considered as using a Potion. NL Heal !M! HP. NL Decrease this card's healing by 1 this combat.",
+    "EXTENDED_DESCRIPTION": [
+      "This card is deprecated."
+    ]
   }
 }

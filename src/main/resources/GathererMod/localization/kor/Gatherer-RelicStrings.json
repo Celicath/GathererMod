@@ -1,0 +1,65 @@
+{
+  "Gatherer:AlchemyBag": {
+    "NAME": "연금술 가방",
+    "FLAVOR": "계속 생성되는 포션의 힘이 깃든 신비한 가방.",
+    "DESCRIPTIONS": [
+      "전투 시작 시 무작위 소형포션 을 얻습니다."
+    ]
+  },
+  "Gatherer:MiracleBag": {
+    "NAME": "Miracle Bag",
+    "FLAVOR": "금지된 기술로 만들어 졌습니다.",
+    "DESCRIPTIONS": [
+      "( #y연금술 #y가방 과 교체되지 않음) NL 전투 시작 시 무작위 포션을 얻습니다. (일반 포션 슬롯으로)",
+      "#y연금술 #y가방 과 교체됩니다. NL 전투 시작 시 희귀 포션을 얻습니다. (일반 포션 슬롯으로)"
+    ]
+  },
+  "Gatherer:IronSlate": {
+    "NAME": "아이언 석판",
+    "FLAVOR": "아이언클래드의 길이 그려진 지도.",
+    "DESCRIPTIONS": [
+      "획득 시 #b2 개의 기본 타격 카드를 빨간 색으로 바꾸고 피해량을 #b2 추가합니다."
+    ]
+  },
+  "Gatherer:SilentSlate": {
+    "NAME": "사일런트 석판",
+    "FLAVOR": "사일런트의 길이 그려진 지도.",
+    "DESCRIPTIONS": [
+      "획득 시 #b2 개의 기본 방어 카드를 초록 색으로 바꾸고 방어도를 #b2 추가합니다."
+    ]
+  },
+  "Gatherer:FloralEgg": {
+    "NAME": "꽃무늬 알",
+    "FLAVOR": "아직 부화하지 않은 알이 꽃을 좋아한다는 소문이 있습니다.",
+    "DESCRIPTIONS": [
+      "획득 시 덱에 있는 모든 #y플라워 카드를 강화합니다."
+    ]
+  },
+  "Gatherer:Leftovers": {
+    "NAME": "여분의 물질",
+    "FLAVOR": "연금술사들은 먹고 남은 포션에서도 재료를 만들어낼 수 있습니다.",
+    "DESCRIPTIONS": [
+      "포션을 사용할 때마다 20%의 확률로 #y소형포션 을 얻습니다."
+    ]
+  },
+  "Gatherer:FlyingFruit": {
+    "NAME": "비행하는 과일",
+    "FLAVOR": "과일은 바나나처럼 날아간다.",
+    "DESCRIPTIONS": [
+      "획득 이후 #b1/3/6/10 #y종류 의 카드를 #y소멸 시킬 때 최대 체력을 #b",
+      " 상승시킵니다.",
+      " NL NL #yExhausted cards: NL "
+    ]
+  },
+  "Gatherer:ExplorersPath": {
+    "NAME": "모험가의 길",
+    "FLAVOR": "나쁜 길을 모험하는 것도 의미가 있습니다.",
+    "DESCRIPTIONS": [
+      "다음 2번의 전투 동안 매 턴 시작 시 [E] 를 추가로 얻습니다. NL 카드 보상 화면에서 이전 4주 동안의 선택률을 볼 수 있습니다. NL 가장 낮은 선택률을 가진 카드를 고르면 [E] 를 추가로 얻는 전투의 수가 1회 늘어납니다. NL 시너지: ",
+      "시너지",
+      "",
+      " 가 있으면, 가장 낮은 선택률을 가진 카드 뿐 아니라 2번 째로 낮은 카드를 선택해도 횟수가 늘어납니다."
+    ]
+  },
+  "Gatherer:Dummy": {}
+}

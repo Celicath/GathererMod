@@ -1,0 +1,170 @@
+{
+  "Gatherer:SpareBottle": {
+    "NAME": "여분의 병",
+    "DESCRIPTIONS": [
+      "#y포션 을 사용할 때마다, #y방어도를 #b",
+      " 얻고 무작위 적에게 피해를 #b",
+      " 줍니다."
+    ]
+  },
+  "Gatherer:DrawHalf": {
+    "NAME": "Draw Half",
+    "DESCRIPTIONS": [
+      "At the start of each turn, Draw 1 additional card with 50% probability."
+    ]
+  },
+  "Gatherer:NextNextTurnBlock": {
+    "NAME": "최종 성장",
+    "DESCRIPTIONS": [
+      "2턴 후에 #y방어도 를 #b",
+      " 얻습니다."
+    ]
+  },
+  "Gatherer:PoisonMastery": {
+    "NAME": "독 숙련",
+    "DESCRIPTIONS": [
+      "#y중독 의 피해량이 #b",
+      "% 증가합니다."
+    ]
+  },
+  "Gatherer:Pollute": {
+    "NAME": "오염",
+    "DESCRIPTIONS": [
+      "다음 턴에 적 전체에게 중독, 약화, 취약 을 #b",
+      " 부여합니다."
+    ]
+  },
+  "Gatherer:ScentOfRosmari": {
+    "NAME": "로즈마리의 향",
+    "DESCRIPTIONS": [
+      "다음 턴 시작 시 뽑을 카드 더미 또는 버린 카드 더미에서 ",
+      " 를 손으로 가져옵니다.",
+      " 와 ",
+      "장의 다른 카드를 손으로 가져옵니다."
+    ]
+  },
+  "Gatherer:GlowPower": {
+    "NAME": "글로우",
+    "DESCRIPTIONS": [
+      "#y빛! 과 #y그림자! 의 효과를 올립니다. #y글로우 를 주지 않는 카드를 사용하면 사라집니다."
+    ]
+  },
+  "Gatherer:ShadowPower": {
+    "NAME": "Power of Shadow",
+    "DESCRIPTIONS": [
+      "If you play Light! as the next card, it gains double Block."
+    ]
+  },
+  "Gatherer:VenomBarrier": {
+    "NAME": "맹독 장벽",
+    "DESCRIPTIONS": [
+      "이번 턴에 공격을 받을 때마다 공격한 대상에게 #y중독 을 #b",
+      " 부여합니다."
+    ]
+  },
+  "Gatherer:BalancedGrowth": {
+    "NAME": "균형적 성장",
+    "DESCRIPTIONS": [
+      "매 턴 시작 시 둘이 같아질 때까지 #y힘 또는 #y민첩 을 최대 #b",
+      " 까지 얻습니다."
+    ]
+  },
+  "Gatherer:Liquidism": {
+    "NAME": "포션 매니아",
+    "DESCRIPTIONS": [
+      "포션을 사용할 때마다 #y힘 또는 #y민첩 을 무작위로 #b",
+      " 얻습니다."
+    ]
+  },
+  "Gatherer:BomberForm": {
+    "NAME": "폭탄마의 형상",
+    "DESCRIPTIONS": [
+      "매 턴 시작 시 LEP를 얻습니다. 앞으로 추가되는 모든 소형포션 이 LEP가 되고 사용시 모든 LEP들의 피해량을 #b ",
+      " 증가시킵니다."
+    ]
+  },
+  "Gatherer:Exploding": {
+    "NAME": "폭발적",
+    "DESCRIPTIONS": [
+      "소형 폭발 포션의 피해량이 #b",
+      " 증가합니다."
+    ]
+  },
+  "Gatherer:FeelingFine": {
+    "NAME": "상쾌한 기분",
+    "DESCRIPTIONS": [
+      "이번 턴에 포션을 #b",
+      " 개 더 사용하면, 가진 모든 해로운 효과를 제거합니다.",
+      " 개 더 사용하면, 가진 모든 해로운 효과를 제거합니다."
+    ]
+  },
+  "Gatherer:Uplift": {
+    "NAME": "고양",
+    "DESCRIPTIONS": [
+      "매 턴 처음 사용하는 #b",
+      " 개의 비용이 2 이상인 카드가 #y반환 1 을 얻습니다."
+    ]
+  },
+  "Gatherer:DamageHalf": {
+    "NAME": "피해량 절반",
+    "DESCRIPTIONS": [
+      "이번 턴 공격의 피해량이 #b",
+      " 로 나뉩니다.",
+      "이번 턴의 피해량이 거의 0이 됩니다."
+    ]
+  },
+  "Gatherer:StoneFence": {
+    "NAME": "돌 울타리",
+    "DESCRIPTIONS": [
+      "매 턴 시작 시 #b",
+      " 개의 강화된 #y투척기 ",
+      "와 ",
+      " 개의 #y투척기 ",
+      "를 손으로 가져옵니다."
+    ]
+  },
+  "Gatherer:ColorfulGarden": {
+    "NAME": "다채로운 정원",
+    "DESCRIPTIONS": [
+      "매 턴 종료 시 이번 턴에 사용한 카드의 #y종류 하나 당 방어도를 #b",
+      " 얻습니다.",
+      " NL (현재 방어도: #b",
+      " )"
+    ]
+  },
+  "Gatherer:AlchemyTrial": {
+    "NAME": "연금술 시험",
+    "DESCRIPTIONS": [
+      "#b",
+      " 장의 카드를 더 사용하면, #b",
+      " 장의 카드를 더 사용하면, #b",
+      " 개의 #y소형포션 을 얻습니다. NL #r공격 - 소형 화염/폭발 포션 NL #g스킬 - 소형 방어도/에너지 포션 NL #b파워 - 소형 힘/민첩 포션 NL 기타 - 소형 약화/공포 포션"
+    ]
+  },
+  "Gatherer:UpgradeBag": {
+    "NAME": "가방 업그레이드",
+    "DESCRIPTIONS": [
+      "모든 소형포션 들의 효과가 #b",
+      "% 증가합니다.",
+      " NL #r(비활성화!)"
+    ]
+  },
+  "Gatherer:GrassKnot": {
+    "NAME": "풀묶기",
+    "DESCRIPTIONS": [
+      "내 턴이 끝날 때 #y보존 된 카드를 #b",
+      " 장까지 버리고 버린 카드 하나 당 방어도 #b",
+      " 와 가시 #b",
+      " 를 얻습니다."
+    ]
+  },
+  "Gatherer:RecipeChange": {
+    "NAME": "재료 변경",
+    "DESCRIPTIONS": [
+      "#y소형포션 을 얻을 때, #b",
+      "% 의 확률로 ",
+      "(으)로 바꿉니다."
+    ]
+  },
+  "Gatherer:Dummy": {}
+}

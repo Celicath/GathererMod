@@ -66,7 +66,7 @@
   },
   "Gatherer:MindSearchAction": {
     "TEXT": [
-      "(I want this potion without reason.)",
+      "(This potion might help me.)",
       "(I want to block damage.)",
       "(My health is low.)",
       "(I want some long term defense.)",
@@ -83,8 +83,8 @@
       "(I want some long term damage.)",
       "(I have enough energy.)",
       "(Enemy is too strong)",
-      "(I want some short term defense.)",
-      "(I want some short term power.)",
+      "(I have many skill cards.)",
+      "(I have many attack cards.)",
       "(I have Feeling Fine.)",
       "(I'm The BOMBER!)",
       "(I'm in Bomber Form!)",
