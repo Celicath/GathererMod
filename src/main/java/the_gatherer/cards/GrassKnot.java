@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.EquilibriumPower;
 import the_gatherer.GathererMod;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.powers.GrassKnotPower;
@@ -37,7 +36,6 @@ public class GrassKnot extends CustomCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EquilibriumPower(p, 1), 1));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GrassKnotPower(p, this.magicNumber), this.magicNumber));
 	}
 

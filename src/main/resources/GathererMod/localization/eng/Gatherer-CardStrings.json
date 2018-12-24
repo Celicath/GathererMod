@@ -426,8 +426,8 @@
   },
   "Gatherer:GrassKnot": {
     "NAME": "Grass Knot",
-    "DESCRIPTION": "Retain your hand this turn. At the end of your turn, discard up to !M! Retained card for 4 Block and 2 Thorns each.",
-    "UPGRADE_DESCRIPTION": "Retain your hand this turn. At the end of your turn, discard up to !M! Retained cards for 4 Block and 2 Thorns each."
+    "DESCRIPTION": "At the end of your turn, discard up to !M! Retained card for 5 Block and 2 Thorns each.",
+    "UPGRADE_DESCRIPTION": "At the end of your turn, discard up to !M! Retained cards for 5 Block and 2 Thorns each."
   },
   "Gatherer:PoisonMastery": {
     "NAME": "Poison Mastery",

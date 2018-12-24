@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import the_gatherer.GathererMod;
 import the_gatherer.powers.GrassKnotPower;
 
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ public class GrassKnotDiscardAction extends AbstractGameAction {
 	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("DiscardAction");
 	public static final String[] TEXT = uiStrings.TEXT;
 	private AbstractPlayer p;
-	private ArrayList<AbstractCard> alreadyPlanned = new ArrayList<>();
+	private ArrayList<AbstractCard> notRetaining = new ArrayList<>();
 
 	public GrassKnotDiscardAction(int amount) {
 		this.actionType = ActionType.CARD_MANIPULATION;
@@ -33,29 +32,44 @@ public class GrassKnotDiscardAction extends AbstractGameAction {
 				return;
 			}
 
-			if (this.p.hand.size() <= 0) {
+			for (AbstractCard c : this.p.hand.group) {
+				if (!c.retain) {
+					notRetaining.add(c);
+				}
+			}
+			if (this.notRetaining.size() == this.p.hand.group.size()) {
 				this.isDone = true;
 				return;
 			}
 
+			this.p.hand.group.removeAll(this.notRetaining);
 			AbstractDungeon.handCardSelectScreen.open(TEXT[0], this.amount, false, true, false, false, true);
-			AbstractDungeon.player.hand.applyPowers();
+			this.tickDuration();
+		} else {
+			if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
+				int num = AbstractDungeon.handCardSelectScreen.selectedCards.group.size();
+				for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
+					c.retain = false;
+					this.p.hand.moveToDiscardPile(c);
+					c.triggerOnManualDiscard();
+					GameActionManager.incrementDiscard(false);
+				}
+
+				GrassKnotPower.gainBlock(num);
+				this.returnCards();
+				AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
+				AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
+			}
+
 			this.tickDuration();
 		}
+	}
 
-		if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
-			int num = AbstractDungeon.handCardSelectScreen.selectedCards.size();
-			for (AbstractCard card : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
-				this.p.hand.moveToDiscardPile(card);
-				card.triggerOnManualDiscard();
-				GameActionManager.incrementDiscard(false);
-			}
-			GathererMod.logger.debug("NUM=" + num);
-			GrassKnotPower.gainBlock(num);
-
-			AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
+	private void returnCards() {
+		for (AbstractCard c : this.notRetaining) {
+			this.p.hand.addToTop(c);
 		}
 
-		this.tickDuration();
+		this.p.hand.refreshHandLayout();
 	}
 }

@@ -19,10 +19,8 @@ public class GrassKnotPower extends AbstractPower {
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-	public static final int BLOCK = 4;
+	public static final int BLOCK = 5;
 	public static final int THORNS = 2;
-
-	private boolean alreadyDiscarded;
 
 	public GrassKnotPower(AbstractCreature owner, int amount) {
 		this.name = NAME;
@@ -33,14 +31,12 @@ public class GrassKnotPower extends AbstractPower {
 		this.type = PowerType.BUFF;
 		this.isTurnBased = false;
 		this.img = new Texture(GathererMod.GetPowerPath(RAW_ID));
-		alreadyDiscarded = false;
+		this.priority = 20;
 	}
 
 	@Override
-	public void atEndOfRound() {
-		if (!alreadyDiscarded) {
-			alreadyDiscarded = true;
-
+	public void atEndOfTurn(boolean isPlayer) {
+		if (isPlayer) {
 			AbstractDungeon.actionManager.addToBottom(new GrassKnotDiscardAction(this.amount));
 		}
 	}

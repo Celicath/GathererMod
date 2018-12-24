@@ -1,7 +1,6 @@
 package the_gatherer.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.Sozu;
@@ -9,7 +8,6 @@ import the_gatherer.GathererMod;
 import the_gatherer.potions.LesserExplosivePotion;
 import the_gatherer.potions.SackPotion;
 import the_gatherer.powers.BomberFormPower;
-import the_gatherer.powers.ExplodingPower;
 import the_gatherer.powers.RecipeChangePower;
 
 
