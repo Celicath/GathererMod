@@ -520,11 +520,6 @@ public class GathererMod implements PostInitializeSubscriber,
 		logger.debug("receivePreMonsterTurn started.");
 		setLastPotionUsedThisTurn(null);
 
-/*		GrassKnotPower gkp = (GrassKnotPower) AbstractDungeon.player.getPower(GrassKnotPower.POWER_ID);
-		if (gkp != null) {
-			gkp.discardForBenefit();
-		}*/
-
 		logger.debug("receivePreMonsterTurn finished.");
 		return true;
 	}

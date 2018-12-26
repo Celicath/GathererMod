@@ -14,7 +14,7 @@ The Gatherer는 포션에 집중하는 캐릭터 입니다. 3개의 소형포션
 2. Slay the Spire의 설치 경로에 `mods`라는 이름의 폴더를 추가합니다.
 3. 최신 버전의 `BaseMod.jar` (https://github.com/daviscook477/BaseMod/releases)와 `StSLib.jar` (https://github.com/kiooeht/StSLib/releases)를 다운로드 하여, 이 `mods` 폴더에 넣습니다.
 4. 최신 버전의 `GathererMod.jar` (https://github.com/Celicath/GathererMod/releases)를 다운로드 하여 `mods` 폴더에 넣습니다.
-5. `ModTheSpire.jar`를 실행합니다.
+5. `MTS.cmd` 또는 `MTS.sh`를 실행합니다. Java8로 `ModTheSpire.jar`를 실행해도 됩니다.
 6. `BaseMod`, `StSLib`, `The Gatherer`의 체크박스를 선택하고 Play 버튼을 누릅니다.
 
 ## 게임 플레이
