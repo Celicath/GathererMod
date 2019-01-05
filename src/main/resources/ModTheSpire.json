@@ -6,9 +6,9 @@
   ],
   "credits": "MappyTheKat - Character art",
   "description": "Adds The Gatherer as a new playable character with 75 cards, 8 relics.\r\n- Requires Basemod, StSLib to run.\r\n\r\nv0.5.0\r\n- Potion Sack UI improvements\n- Character sellect button art (Finally!)\r\n- KOR localization\r\n- Buff: Bambu Sword, Frenzy, Snatch, Tree Growth, Wool Gloves, Duality, Echo of Nature, Feeling Fine, Grow Book, Stone Fence\r\n- Nerf: Convert, Misfortune, Glowing Plant, Venom Barrier, Bomber Form, Poison Mastery\r\n-Changed: Scherry Throw, Big Pouch, Recovery Herb, Uplift, Bomber Form\r\n- Bug Fix: Grass Hammer, Fruit Force(?), Upgrade Bag\r\n- Lucky Clover was replaced by Grass Knot\r\n- Now Ghost in a Jar is available for The Gatherer.\r\n\r\n- For more information, visit\r\nhttps://github.com/Celicath/GathererMod/releases",
-  "version": "0.5.0",
-  "sts_version": "12-20-2018",
-  "mts_version": "3.6.3",
+  "version": "0.5.1",
+  "sts_version": "01-03-2019",
+  "mts_version": "3.7.0",
   "dependencies": [
     "basemod",
     "stslib"
