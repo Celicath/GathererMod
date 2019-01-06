@@ -19,6 +19,7 @@ import the_gatherer.cards.Centralize;
 import the_gatherer.cards.Defend_Gatherer;
 import the_gatherer.cards.FlowerWhip;
 import the_gatherer.cards.Strike_Gatherer;
+import the_gatherer.modules.EnergyOrbGatherer;
 import the_gatherer.patches.AbstractPlayerEnum;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.relics.AlchemyBag;
@@ -42,11 +43,11 @@ public class TheGatherer extends CustomPlayer {
 			"GathererMod/img/character/gatherer/orb/layer2d.png",
 			"GathererMod/img/character/gatherer/orb/layer3d.png",
 			"GathererMod/img/character/gatherer/orb/layer4d.png",
-			"GathererMod/img/character/gatherer/orb/layer5d.png",
+			"GathererMod/img/character/gatherer/orb/layer5d.png"
 	};
 
 	public TheGatherer(String name, PlayerClass setClass) {
-		super(name, setClass, orbTextures, "GathererMod/img/character/gatherer/orb/vfx.png", (String) null, null);
+		super(name, setClass, new EnergyOrbGatherer(orbTextures, "GathererMod/img/character/gatherer/orb/vfx.png"), (String) null, null);
 
 		initializeClass(null, GathererMod.GATHERER_SHOULDER_2,
 				GathererMod.GATHERER_SHOULDER_1,
