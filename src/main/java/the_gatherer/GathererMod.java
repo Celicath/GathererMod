@@ -94,7 +94,7 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static HashSet<AbstractGameEffect> gainCardEffectToExhaust = new HashSet<>();
 
 	public static Properties gathererDefaults = new Properties();
-	public static int[] potionSackKeys = new int[]{KEY_I, KEY_O, KEY_P};
+	public static int[] potionSackKeys = new int[]{Input.Keys.I, Input.Keys.O, Input.Keys.P};
 	public static boolean potionSackPopupFlipped = false;
 
 	// Transmute & Enchant
@@ -166,6 +166,11 @@ public class GathererMod implements PostInitializeSubscriber,
 			potionSackKeys[0] = config.getInt("potionSackKey0");
 			potionSackKeys[1] = config.getInt("potionSackKey1");
 			potionSackKeys[2] = config.getInt("potionSackKey2");
+
+			if (potionSackKeys[0] == KEY_I && potionSackKeys[1] == KEY_O && potionSackKeys[2] == KEY_P) {
+				potionSackKeys = new int[]{Input.Keys.I, Input.Keys.O, Input.Keys.P};
+			}
+
 			potionSackPopupFlipped = config.getBool("potionSackPopupFlipped");
 		} catch (Exception e) {
 			e.printStackTrace();
