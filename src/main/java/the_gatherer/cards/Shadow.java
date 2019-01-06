@@ -27,9 +27,9 @@ public class Shadow extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.SPECIAL;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 9;
+	private static final int POWER = 8;
 	private static final int UPGRADE_BONUS = 3;
-	private static final int BONUS = 6;
+	private static final int BONUS = 2;
 
 	public Shadow() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -39,23 +39,31 @@ public class Shadow extends CustomCard {
 		this.baseMagicNumber = this.magicNumber;
 	}
 
-	private void applyGlowPower() {
+	private int applyGlowPower(int d) {
 		if (AbstractDungeon.player.hasPower(GlowPower.POWER_ID)) {
-			this.damage += this.magicNumber * AbstractDungeon.player.getPower(GlowPower.POWER_ID).amount;
-			this.isDamageModified = true;
+			d += this.magicNumber * AbstractDungeon.player.getPower(GlowPower.POWER_ID).amount;
 		}
+		return d;
 	}
 
 	@Override
 	public void applyPowers() {
+		int prev = baseDamage;
+		baseDamage = applyGlowPower(baseDamage);
 		super.applyPowers();
-		applyGlowPower();
+		this.baseDamage = prev;
+		if (this.baseDamage != this.damage)
+			this.isDamageModified = true;
 	}
 
 	@Override
 	public void calculateCardDamage(final AbstractMonster mo) {
+		int prev = baseDamage;
+		baseDamage = applyGlowPower(baseDamage);
 		super.calculateCardDamage(mo);
-		applyGlowPower();
+		this.baseDamage = prev;
+		if (this.baseDamage != this.damage)
+			this.isDamageModified = true;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

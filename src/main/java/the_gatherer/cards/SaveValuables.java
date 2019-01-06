@@ -17,27 +17,25 @@ public class SaveValuables extends CustomCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
-	private static final int COST = 1;
+	private static final int COST = 0;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final CardType TYPE = CardType.SKILL;
 	private static final CardColor COLOR = CardColorEnum.GATHERER_LIME;
 	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int BLOCK = 3;
 	private static final int POWER = 3;
 	private static final int UPGRADE_BONUS = 2;
 
 	public SaveValuables() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
-		this.baseBlock = BLOCK;
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new SaveValuablesAction(p, this.magicNumber, this.block));
+		AbstractDungeon.actionManager.addToBottom(new SaveValuablesAction(p, this.magicNumber));
 	}
 
 	public AbstractCard makeCopy() {

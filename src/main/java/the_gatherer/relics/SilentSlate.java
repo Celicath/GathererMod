@@ -18,7 +18,7 @@ public class SilentSlate extends CustomRelic {
 
 	public SilentSlate() {
 		super(ID, new Texture(GathererMod.GetRelicPath(RelicID)),
-				RelicTier.COMMON, LandingSound.SOLID);
+				RelicTier.SPECIAL, LandingSound.SOLID);
 	}
 
 	@Override

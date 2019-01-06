@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.relics.RunicPyramid;
 import the_gatherer.powers.GrassKnotPower;
 
 import java.util.ArrayList;
@@ -32,8 +33,10 @@ public class GrassKnotDiscardAction extends AbstractGameAction {
 				return;
 			}
 
+			boolean hasPR = p.hasRelic(RunicPyramid.ID);
+
 			for (AbstractCard c : this.p.hand.group) {
-				if (!c.retain) {
+				if (!c.retain && !hasPR || c.isEthereal) {
 					notRetaining.add(c);
 				}
 			}

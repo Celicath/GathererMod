@@ -30,7 +30,7 @@ public class SpareBottle extends AbstractTaggedCard {
 	private static final CardRarity RARITY = CardRarity.SPECIAL;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 3;
+	private static final int POWER = 4;
 	private static final int UPGRADE_BONUS = 2;
 
 	private static String[] tagStrings = new String[]{

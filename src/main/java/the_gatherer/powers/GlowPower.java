@@ -31,10 +31,12 @@ public class GlowPower extends AbstractPower {
 		this.img = new Texture(GathererMod.GetPowerPath(RAW_ID));
 	}
 
+	/*
 	@Override
 	public void onAfterCardPlayed(AbstractCard usedCard) {
 		if (!(usedCard instanceof GlowingPlant) && !(usedCard instanceof Light) && !(usedCard instanceof Shadow)) {
 			AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
 		}
 	}
+	*/
 }

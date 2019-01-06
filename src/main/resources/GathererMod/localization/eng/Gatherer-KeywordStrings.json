@@ -4,7 +4,7 @@
       "unique",
       "uniques"
     ],
-    "DESCRIPTION": "Cards with different name(except for upgrades), color or Tag are considered unique."
+    "DESCRIPTION": "Cards with different name(except for upgrades) are considered unique."
   },
   {
     "PROPER_NAME": "Once",
@@ -116,7 +116,7 @@
       "glow power",
       "glow_power"
     ],
-    "DESCRIPTION": "Boosts the effect of #yLight! and #yShadow. Wears off if you play a card which doesn't give you #yGlow #yPower."
+    "DESCRIPTION": "Boosts the effect of #yLight! and #yShadow."
   },
   {
     "PROPER_NAME": "Alchemy Trial",

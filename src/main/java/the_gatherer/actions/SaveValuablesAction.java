@@ -15,12 +15,10 @@ public class SaveValuablesAction extends AbstractGameAction {
 	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("Gatherer:SaveValuablesAction");
 	public static final String[] TEXT = uiStrings.TEXT;
 	private AbstractPlayer p;
-	int block;
 
-	public SaveValuablesAction(AbstractCreature source, int amount, int block) {
+	public SaveValuablesAction(AbstractCreature source, int amount) {
 		this.p = AbstractDungeon.player;
 		this.setValues(null, source, amount);
-		this.block = block;
 		this.actionType = ActionType.CARD_MANIPULATION;
 		this.duration = Settings.ACTION_DUR_FASTER;
 	}
@@ -40,9 +38,6 @@ public class SaveValuablesAction extends AbstractGameAction {
 				for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
 					this.p.discardPile.removeCard(c);
 					this.p.hand.moveToDeck(c, true);
-				}
-				for (int i = GathererMod.countUnique(AbstractDungeon.gridSelectScreen.selectedCards); i > 0; i--) {
-					AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block, true));
 				}
 				AbstractDungeon.gridSelectScreen.selectedCards.clear();
 			}

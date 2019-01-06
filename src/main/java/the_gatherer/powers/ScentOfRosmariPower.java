@@ -113,7 +113,7 @@ public class ScentOfRosmariPower extends AbstractPower {
 	public void atEndOfTurn(boolean isPlayer) {
 		if (isPlayer) {
 			for (AbstractCard c : AbstractDungeon.player.hand.group) {
-				if (cardList.contains(c)) {
+				if (!c.isEthereal && cardList.contains(c)) {
 					c.retain = true;
 				}
 			}

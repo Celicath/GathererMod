@@ -1,8 +1,8 @@
 {
   "Gatherer:CentralizeAction": {
     "TEXT": [
-      "Choose a Card; upgrade & add to your hand.",
-      "Choose two Cards; upgrade & add to your hand."
+      "손으로 가져오고 강화할 카드를 선택하십시오.",
+      "손으로 가져오고 강화할 카드를 모두 선택하십시오."
     ]
   },
   "Gatherer:PotionSack": {
@@ -96,7 +96,7 @@
   "Gatherer:ExcessPotionHandleAction": {
     "TEXT": [
       "포션 주머니 공간이 부족합니다. 이 포션을 사용하거나 버리십시오.",
-      "포션 주머니 공간이 부족합니다. 이 포션을 사용하거나 버리십시오.",
+      "포션 주머니 공간이 부족합니다. 이 포션들을 사용하거나 버리십시오.",
       " 대상은 무작위로 정해집니다."
     ]
   }

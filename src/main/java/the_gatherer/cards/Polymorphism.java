@@ -34,7 +34,7 @@ public class Polymorphism extends CustomCard {
 
 	private static final int POWER = 0;
 	private static final int UPGRADE_BONUS = 3;
-	private static final int DRAW = 2;
+	private static final int DRAW = 1;
 
 	public Polymorphism() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

@@ -116,7 +116,7 @@
   },
   "Gatherer:SaveValuables": {
     "NAME": "Save Valuables",
-    "DESCRIPTION": "Choose up to !M! cards from your discard pile. Shuffle them into your draw pile and gain !B! Block for each Unique card."
+    "DESCRIPTION": "Choose up to !M! cards from your discard pile. Shuffle them into your draw pile."
   },
   "Gatherer:TreeGrowth": {
     "NAME": "Tree Growth",
@@ -169,8 +169,8 @@
   },
   "Gatherer:Polymorphism": {
     "NAME": "Polymorphism",
-    "DESCRIPTION": "Deal damage equal to number of other cards in your hand. If they are all Unique, gain [E] and draw !M! cards.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to number of other cards in your hand +3. If they are all Unique, gain [E] and draw !M! cards.",
+    "DESCRIPTION": "Deal damage equal to number of other cards in your hand. If they are all Unique, gain [E] and draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to number of other cards in your hand +3. If they are all Unique, gain [E] and draw !M! card.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! Damage.)",
       " NL (Draw & !D! damage!)"
@@ -200,7 +200,7 @@
   },
   "Gatherer:WitheringStrike": {
     "NAME": "Withering Strike",
-    "DESCRIPTION": "Deal !D! damage. Enemy loses 1 Strength down to !M!."
+    "DESCRIPTION": "Deal !D! damage. Enemy loses 1 Strength."
   },
   "Gatherer:Duplicator": {
     "NAME": "Duplicator",
@@ -213,7 +213,7 @@
   },
   "Gatherer:GlowingPlant": {
     "NAME": "Glowing Plant",
-    "DESCRIPTION": "Draw !M! card. NL Gain 1 Glow_Power. NL When obtained, add a Light! and a Shadow! to your deck.",
+    "DESCRIPTION": "Draw !M! cards. NL Gain 1 Glow_Power. NL When obtained, add a Light! and a Shadow! to your deck.",
     "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Gain 1 Glow_Power. NL When obtained, add a Light! and a Shadow! to your deck."
   },
   "Gatherer:Light": {
@@ -235,11 +235,11 @@
   },
   "Gatherer:Nutrients": {
     "NAME": "Nutrients",
-    "DESCRIPTION": "Gain !B! Block. NL When obtained, upgrade ALL your Flower cards."
+    "DESCRIPTION": "Gain !B! Block. NL When obtained, Upgrade ALL your Flower cards."
   },
   "Gatherer:RecipeChange": {
     "NAME": "Recipe Change",
-    "DESCRIPTION": "Choose 1 from ALL Lesser_Potions. Replace all your current and 25% of future Lesser_Potions with it. Exhaust."
+    "DESCRIPTION": "Choose 1 from ALL Lesser_Potions. Replace all your Lesser_Potions with it. Exhaust."
   },
   "Gatherer:RecoveryHerb": {
     "NAME": "Recovery Herb",
@@ -316,8 +316,8 @@
   },
   "Gatherer:Uplift": {
     "NAME": "Uplift",
-    "DESCRIPTION": "The first card played each turn that costs 2 or more has Refund 1.",
-    "UPGRADE_DESCRIPTION": "The first !M! cards played each turn that costs 2 or more have Refund 1."
+    "DESCRIPTION": "Each turn, !M! card you play that costs 2 or more has Refund 1.",
+    "UPGRADE_DESCRIPTION": "Each turn, !M! cards you play that costs 2 or more has Refund 1."
   },
   "Gatherer:Bulldoze": {
     "NAME": "Bulldoze",
@@ -346,18 +346,18 @@
   },
   "Gatherer:HeartToFruit": {
     "NAME": "Heart to Fruit",
-    "DESCRIPTION": "Deal !D! damage. NL If this kills a non-minion enemy, raise your Max HP by !M!; doubled for Elites & Bosses. Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL If this kills a non-minion enemy, raise your Max HP by !M!. Exhaust."
   },
   "Gatherer:Photoscythe": {
     "NAME": "Photoscythe",
-    "DESCRIPTION": "Innate. Upgrade ALL your Flower cards for the rest of combat. Deal !M! damage for each of them. Exhaust.",
+    "DESCRIPTION": "Innate. Upgrade ALL your Flower cards for the combat. Deal damage equal to !M! X number of them. Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
   },
   "Gatherer:BlackTea": {
     "NAME": "Black Tea",
-    "DESCRIPTION": "Gain < !M! - Round > Strength. Startup: Gain a random Lesser Potion which Exhausts ALL Black Tea when used.",
+    "DESCRIPTION": "Gain < !M! - Round > Strength. Using any Potion Exhausts ALL Black Tea from your deck.",
     "EXTENDED_DESCRIPTION": [
       " NL (Gain ",
       " Strength.)"
@@ -392,8 +392,8 @@
   },
   "Gatherer:ScrollOfPurity": {
     "NAME": "Scroll of Purity",
-    "DESCRIPTION": "Unplayable. Whenever you use a Potion, draw !M! card and Exhaust up to !M! card.",
-    "UPGRADE_DESCRIPTION": "Unplayable. Whenever you use a Potion, draw !M! cards and Exhaust up to !M! cards.",
+    "DESCRIPTION": "Unplayable. Whenever you use a Potion, draw 1 card and Exhaust up to !M! card.",
+    "UPGRADE_DESCRIPTION": "Unplayable. Whenever you use a Potion, draw 1 card and Exhaust up to !M! cards.",
     "EXTENDED_DESCRIPTION": [
       "I can't play this card."
     ]

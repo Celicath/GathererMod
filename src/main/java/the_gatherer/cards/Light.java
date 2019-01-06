@@ -25,9 +25,9 @@ public class Light extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.SPECIAL;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 8;
+	private static final int POWER = 7;
 	private static final int UPGRADE_BONUS = 3;
-	private static final int BONUS = 5;
+	private static final int BONUS = 1;
 
 	public Light() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -37,23 +37,31 @@ public class Light extends CustomCard {
 		this.baseMagicNumber = this.magicNumber;
 	}
 
-	private void applyGlowPower() {
+	private int applyGlowPower(int b) {
 		if (AbstractDungeon.player.hasPower(GlowPower.POWER_ID)) {
-			this.block += this.magicNumber * AbstractDungeon.player.getPower(GlowPower.POWER_ID).amount;
-			this.isBlockModified = true;
+			b += this.magicNumber * AbstractDungeon.player.getPower(GlowPower.POWER_ID).amount;
 		}
+		return b;
 	}
 
 	@Override
 	public void applyPowers() {
+		int prev = baseBlock;
+		baseBlock = applyGlowPower(baseBlock);
 		super.applyPowers();
-		applyGlowPower();
+		this.baseBlock = prev;
+		if (this.baseBlock != this.block)
+			this.isBlockModified = true;
 	}
 
 	@Override
 	public void calculateCardDamage(final AbstractMonster mo) {
+		int prev = baseBlock;
+		baseBlock = applyGlowPower(baseBlock);
 		super.calculateCardDamage(mo);
-		applyGlowPower();
+		this.baseBlock = prev;
+		if (this.baseBlock != this.block)
+			this.isBlockModified = true;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

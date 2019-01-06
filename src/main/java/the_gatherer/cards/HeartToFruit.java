@@ -28,7 +28,7 @@ public class HeartToFruit extends CustomCard {
 
 	private static final int POWER = 17;
 	private static final int UPGRADE_BONUS = 5;
-	private static final int HP_GAIN = 4;
+	private static final int HP_GAIN = 3;
 	private static final int HP_BONUS = 1;
 
 	public HeartToFruit() {

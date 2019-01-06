@@ -46,7 +46,7 @@
   "Gatherer:GlowPower": {
     "NAME": "Glow Power",
     "DESCRIPTIONS": [
-      "Boosts the effect of #yLight! and #yShadow. Wears off if you play a card which doesn't give you #yGlow #yPower."
+      "Boosts the effect of #yLight! and #yShadow."
     ]
   },
   "Gatherer:ShadowPower": {

@@ -18,7 +18,7 @@ public class IronSlate extends CustomRelic {
 
 	public IronSlate() {
 		super(ID, new Texture(GathererMod.GetRelicPath(RelicID)),
-				RelicTier.COMMON, LandingSound.SOLID);
+				RelicTier.SPECIAL, LandingSound.SOLID);
 	}
 
 	@Override

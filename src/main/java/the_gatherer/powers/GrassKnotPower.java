@@ -42,8 +42,10 @@ public class GrassKnotPower extends AbstractPower {
 	}
 
 	public static void gainBlock(int num) {
-		AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, num * BLOCK));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ThornsPower(AbstractDungeon.player, num * THORNS), num * THORNS));
+		if (num > 0) {
+			AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, num * BLOCK));
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ThornsPower(AbstractDungeon.player, num * THORNS), num * THORNS));
+		}
 	}
 
 	@Override

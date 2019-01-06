@@ -45,9 +45,7 @@ public class WitheringStrike extends CustomCard {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m,
 				new DamageInfo(p, this.damage, this.damageTypeForTurn),
 				AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-		StrengthPower sp = (StrengthPower) m.getPower(StrengthPower.POWER_ID);
-		if (sp == null || sp.amount > this.magicNumber)
-			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new StrengthPower(m, -1), -1));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new StrengthPower(m, -1), -1));
 	}
 
 	public AbstractCard makeCopy() {

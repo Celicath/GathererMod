@@ -17,7 +17,7 @@ import the_gatherer.patches.CardColorEnum;
 import the_gatherer.patches.CustomTags;
 import the_gatherer.potions.SackPotion;
 
-public class BlackTea extends CustomCard implements StartupCard {
+public class BlackTea extends CustomCard {
 	private static final String RAW_ID = "BlackTea";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -38,16 +38,6 @@ public class BlackTea extends CustomCard implements StartupCard {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
-
-		this.tags.add(CustomTags.POTION_GEN);
-	}
-
-	@Override
-	public boolean atBattleStartPreDraw() {
-		SackPotion p = GathererMod.returnRandomLesserPotion();
-		p.setTag(SackPotion.SackPotionTag.BLACKTEA);
-		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(p, true));
-		return true;
 	}
 
 	@Override

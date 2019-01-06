@@ -30,23 +30,23 @@
   },
   "Gatherer:BambuSword": {
     "NAME": "대나무검",
-    "DESCRIPTION": "피해를 !D! 줍니다. 손에 있는 기본 타격/방어 카드를 비용 없이 사용합니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. 손에 있는 기본 타격/방어 카드 하나를 비용 없이 사용합니다."
   },
   "Gatherer:CarefulStrike": {
     "NAME": "꼼꼼한 타격",
-    "DESCRIPTION": "피해를 !D! 줍니다. 카드 1장을 뽑을 카드 더미 맨 위에 놓을 수 있습니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. 손에 있는 카드 1장을 뽑을 카드 더미 맨 위에 놓을 수 있습니다."
   },
   "Gatherer:CollectorsShot": {
     "NAME": "수집가의 공격",
-    "DESCRIPTION": "덱에 있는 카드의 종류 수의 1.5배 만큼 피해를 줍니다.",
-    "UPGRADE_DESCRIPTION": "덱에 있는 카드의 종류 수의 2배 만큼 피해를 줍니다.",
+    "DESCRIPTION": "덱에 있는 서로 다른 카드 수의 1.5배 만큼 피해를 줍니다.",
+    "UPGRADE_DESCRIPTION": "덱에 있는 서로 다른 카드 수의 2배 만큼 피해를 줍니다.",
     "EXTENDED_DESCRIPTION": [
       " NL (피해를 !D! 줍니다.)"
     ]
   },
   "Gatherer:DrugPower": {
     "NAME": "약물의 힘",
-    "DESCRIPTION": "피해를 !D! 줍니다. 이번 턴에 마지막으로 사용했던 포션의 효과를 다시 받습니다.",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이번 턴에 마지막으로 사용했던 포션의 효과를 다시 받습니다.",
     "EXTENDED_DESCRIPTION": [
       " NL (사용한 포션 없음)",
       " NL (사용한 포션: NL ",
@@ -83,7 +83,7 @@
   "Gatherer:TacticalStrike": {
     "NAME": "전략적 타격",
     "DESCRIPTION": "피해를 !D! 줍니다. NL 카드를 !M! 장 뽑습니다.",
-    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 카드를 !M! 장 뽑습니다. NL 턴 종료까지 힘을 !M! 얻습니다."
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 카드를 !M! 장 뽑습니다. NL 턴 종료까지 힘 을 !M! 얻습니다."
   },
   "Gatherer:BigPouch": {
     "NAME": "큰 주머니",
@@ -103,7 +103,7 @@
   },
   "Gatherer:GatherMaterial": {
     "NAME": "재료 모으기",
-    "DESCRIPTION": "뽑을 카드 더미 (없으면 버린 카드 더미) 에서 종류 가 다른 무작위 카드 !M! 장을 손으로 가져옵니다."
+    "DESCRIPTION": "뽑을 카드 더미 (없으면 버린 카드 더미) 에서 서로 다른 무작위 카드 !M! 장을 손으로 가져옵니다."
   },
   "Gatherer:Pollute": {
     "NAME": "오염",
@@ -116,10 +116,10 @@
   },
   "Gatherer:SaveValuables": {
     "NAME": "귀중품 보관",
-    "DESCRIPTION": "버린 카드 더미에서 !M! 장을 골라 뽑을 카드 더미에 섞어넣고, 카드의 종류 하나당 방어도를 !B! 얻습니다."
+    "DESCRIPTION": "버린 카드 더미에서 !M! 장을 골라 뽑을 카드 더미에 섞어 넣습니다."
   },
   "Gatherer:TreeGrowth": {
-    "NAME": "나무 성장",
+    "NAME": "나무 키우기",
     "DESCRIPTION": "다음 턴에 방어도를 !B! 얻습니다. NL 2턴 후에 방어도를 !M! 얻습니다."
   },
   "Gatherer:WoolGloves": {
@@ -144,7 +144,7 @@
   },
   "Gatherer:FlowerBeam": {
     "NAME": "플라워 빔",
-    "DESCRIPTION": "피해를 !D! 주고 적 전체에게 피해를 !D! 줍니다."
+    "DESCRIPTION": "대상에게 피해를 !D! 주고 적 전체에게 피해를 !D! 줍니다."
   },
   "Gatherer:FruitForce": {
     "NAME": "과일의 힘",
@@ -164,16 +164,16 @@
   },
   "Gatherer:OddSpoils": {
     "NAME": "특이한 전리품",
-    "DESCRIPTION": "피해를 !D! 줍니다. 내 덱에 없는 무작위 카드 !M! 장을 버린 카드 더미에 추가합니다. 사용하기 전까지 그 카드들의 비용이 0이 됩니다.",
+    "DESCRIPTION": "피해를 !D! 줍니다. 내 덱에 없는 무작위 카드 !M! 장을 버린 카드 더미에 추가합니다. 사용하기 전까지 그 카드의 비용이 0이 됩니다.",
     "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. 내 덱에 없는 무작위 카드 !M! 장을 버린 카드 더미에 추가합니다. 사용하기 전까지 그 카드들의 비용이 0이 됩니다."
   },
   "Gatherer:Polymorphism": {
     "NAME": "다형성",
-    "DESCRIPTION": "내 손에 있는 다른 카드의 수 만큼 피해를 줍니다. 손에 있는 카드의 종류 가 모두 다르면, [E] 를 얻고 카드를 !M! 장 뽑습니다.",
-    "UPGRADE_DESCRIPTION": "내 손에 있는 다른 카드의 수 +3만큼 피해를 줍니다. 손에 있는 카드의 종류 가 모두 다르면, [E] 를 얻고 카드를 !M! 장 뽑습니다.",
+    "DESCRIPTION": "내 손에 있는 다른 카드의 수 만큼 피해를 줍니다. 손에 있는 카드가 모두 다르면, [E] 를 얻고 카드를 !M! 장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "내 손에 있는 다른 카드의 수 +3만큼 피해를 줍니다. 손에 있는 카드가 모두 다르면, [E] 를 얻고 카드를 !M! 장 뽑습니다.",
     "EXTENDED_DESCRIPTION": [
       " NL (피해를 !D! 줍니다.)",
-      " NL (드로우 및 피해 !D! !)"
+      " NL (드로우 및 피해 !D! )"
     ]
   },
   "Gatherer:RottenStipe": {
@@ -200,7 +200,7 @@
   },
   "Gatherer:WitheringStrike": {
     "NAME": "약화 타격",
-    "DESCRIPTION": "피해를 !D! 줍니다. 대상의 힘 이 !M! 초과라면 대상은 힘 을 1 잃습니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. 대상은 힘 을 1 잃습니다."
   },
   "Gatherer:Duplicator": {
     "NAME": "복제기",
@@ -239,7 +239,7 @@
   },
   "Gatherer:RecipeChange": {
     "NAME": "재료 변경",
-    "DESCRIPTION": "모든 소형포션 중 하나를 선택합니다. 가지고 있는 모든 소형포션과 앞으로 추가될 소형포션 중 25%를 선택한 것으로 바꿉니다. 소멸"
+    "DESCRIPTION": "모든 소형포션 중 하나를 선택합니다. 가지고 있는 모든 소형포션 을 선택한 것으로 바꿉니다. 소멸"
   },
   "Gatherer:RecoveryHerb": {
     "NAME": "회복초",
@@ -251,12 +251,12 @@
   },
   "Gatherer:ScentOfRosmari": {
     "NAME": "로즈마리의 향",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. 보존 할 카드 !M! 장을 선택합니다. 만약 그들이 버려진다면, 다음 턴 시작에 내 손으로 가져옵니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. 보존 할 카드 !M! 장을 선택합니다. 만약 그들이 버려진다면, 다음 턴 시작시에 내 손으로 가져옵니다."
   },
   "Gatherer:ScrollOfWall": {
     "NAME": "벽의 스크롤",
-    "DESCRIPTION": "사용불가. 포션을 사용하면 보존 됩니다. 손에 있을 때 앞으로 추가되는 모든 상태이상 카드를 소멸시킵니다.",
-    "UPGRADE_DESCRIPTION": "사용불가. 포션을 사용하면 보존 됩니다. 손에 있을 때 추가되는 상태이상 카드를 소멸시키고 1의 판금 갑옷을 얻습니다.",
+    "DESCRIPTION": "사용불가. 포션을 사용하면 이번 턴에 보존 됩니다. 손에 있을 때 추가되는 상태이상 카드를 소멸시킵니다.",
+    "UPGRADE_DESCRIPTION": "사용불가. 포션을 사용하면 이번 턴에 보존 됩니다. 손에 있을 때 추가되는 상태이상 카드를 소멸시키고 1의 판금 갑옷을 얻습니다.",
     "EXTENDED_DESCRIPTION": [
       "이 카드는 사용할 수 없다.",
       "사용불가. 이번 턴에 보존 됩니다. 손에 있을 때 앞으로 추가되는 모든 상태이상 카드를 소멸시킵니다.",
@@ -292,8 +292,8 @@
   },
   "Gatherer:ColorfulGarden": {
     "NAME": "다채로운 정원",
-    "DESCRIPTION": "턴 종료 시 이번 턴에 사용한 카드의 종류 수만큼 방어도를 얻습니다.",
-    "UPGRADE_DESCRIPTION": "선천성 NL 턴 종료 시 이번 턴에 사용한 카드의 종류 수만큼 방어도를 얻습니다."
+    "DESCRIPTION": "턴 종료 시 이번 턴에 사용한 서로 다른 카드 수만큼 방어도를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "선천성 NL 턴 종료 시 이번 턴에 사용한 서로 다른 카드 수만큼 방어도를 얻습니다."
   },
   "Gatherer:FeelingFine": {
     "NAME": "상쾌한 기분",
@@ -316,12 +316,12 @@
   },
   "Gatherer:Uplift": {
     "NAME": "고양",
-    "DESCRIPTION": "매 턴 처음 사용하는 !M! 개의 비용이 2 이상인 카드가 반환 1 을 얻습니다.",
-    "UPGRADE_DESCRIPTION": "매 턴 처음 사용하는 !M! 개의 비용이 2 이상인 카드가 반환 1 을 얻습니다."
+    "DESCRIPTION": "매 턴 !M! 개의 비용이 2 이상인 카드가 에너지를 1 돌려줍니다.",
+    "UPGRADE_DESCRIPTION": "매 턴 !M! 개의 비용이 2 이상인 카드가 에너지를 1 돌려줍니다."
   },
   "Gatherer:Bulldoze": {
     "NAME": "땅고르기",
-    "DESCRIPTION": "버린 카드 더미에 있는 카드의 종류 !M! 개 마다 적 전체에게 피해를 !D! 줍니다.",
+    "DESCRIPTION": "버린 카드 더미에 있는 서로 다른 카드 !M! 개 마다 적 전체에게 피해를 !D! 줍니다.",
     "EXTENDED_DESCRIPTION": [
       " NL ( 버린 카드 더미에 있는 카드 종류: ",
       " 개)"
@@ -346,7 +346,7 @@
   },
   "Gatherer:HeartToFruit": {
     "NAME": "과일로 만들기",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 이 공격으로 하수인이 아닌 적을 죽이면 최대 체력이 !M! 증가합니다(엘리트와 보스 상대로는 2배). 소멸"
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이 공격으로 하수인이 아닌 적을 죽이면 최대 체력이 !M! 증가합니다. 소멸"
   },
   "Gatherer:Photoscythe": {
     "NAME": "빛의 낫",
@@ -357,7 +357,7 @@
   },
   "Gatherer:BlackTea": {
     "NAME": "홍차",
-    "DESCRIPTION": "< !M! - 라운드 > 만큼 힘 을 얻습니다. 구동: 무작위 소형포션을 얻습니다. 그 소형포션을 사용하면 모든 홍차가 소멸됩니다.",
+    "DESCRIPTION": "< !M! - 라운드 > 만큼 힘 을 얻습니다. 포션을 사용하면 모든 위치의 홍차가 소멸 됩니다.",
     "EXTENDED_DESCRIPTION": [
       " NL (힘을 ",
       " 얻습니다.)"
@@ -392,15 +392,15 @@
   },
   "Gatherer:ScrollOfPurity": {
     "NAME": "순수함의 스크롤",
-    "DESCRIPTION": "사용불가. 포션을 사용할 때마다 카드를 !M! 장 뽑고 !M! 장 까지의 카드를 선택해 소멸 시킵니다.",
-    "UPGRADE_DESCRIPTION": "사용불가. 포션을 사용할 때마다 카드를 !M! 장 뽑고 !M! 장 까지의 카드를 선택해 소멸 시킵니다.",
+    "DESCRIPTION": "사용불가. 포션을 사용할 때마다 카드를 1 장 뽑고 !M! 장 까지 카드를 선택해 소멸 시킵니다.",
+    "UPGRADE_DESCRIPTION": "사용불가. 포션을 사용할 때마다 카드를 1 장 뽑고 !M! 장 까지 카드를 선택해 소멸 시킵니다.",
     "EXTENDED_DESCRIPTION": [
       "이 카드는 사용할 수 없다."
     ]
   },
   "Gatherer:BomberForm": {
     "NAME": "폭탄마의 형상",
-    "DESCRIPTION": "매 턴 시작 시 LEP 를 얻습니다. 앞으로 추가되는 모든 소형포션 이 LEP 가 되고 사용시 모든 LEP 들의 피해량을 !M! 증가시킵니다."
+    "DESCRIPTION": "매 턴 시작 시 소폭포 를 얻습니다. 앞으로 추가되는 모든 소형포션 이 소폭포 가 되고 사용시 모든 소폭포 들의 피해량을 !M! 증가시킵니다."
   },
   "Gatherer:FlowerPower": {
     "NAME": "플라워 파워",
@@ -426,8 +426,8 @@
   },
   "Gatherer:GrassKnot": {
     "NAME": "풀묶기",
-    "DESCRIPTION": "매 턴 종료 시 보존된 카드를 !M! 장 까지 버리고 버린 카드 하나 당 방어도 5와 가시 2를 얻습니다.",
-    "UPGRADE_DESCRIPTION": "매 턴 종료 시 보존된 카드를 !M! 장 까지 버리고 버린 카드 하나 당 방어도 5와 가시 2를 얻습니다."
+    "DESCRIPTION": "매 턴 종료 시 보존 된 카드를 !M! 장 까지 버리고 버린 카드 하나 당 방어도 5와 가시 2를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "매 턴 종료 시 보존 된 카드를 !M! 장 까지 버리고 버린 카드 하나 당 방어도 5와 가시 2를 얻습니다."
   },
   "Gatherer:PoisonMastery": {
     "NAME": "독 숙련",
