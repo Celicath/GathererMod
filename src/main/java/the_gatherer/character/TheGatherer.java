@@ -11,6 +11,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.core.Settings.GameLanguage;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
@@ -83,9 +85,20 @@ public class TheGatherer extends CustomPlayer {
 	}
 
 	public CharSelectInfo getLoadout() {
+		String loc_name; // translated character name
+    	String loc_desc; // translated character description
+		if (Settings.language == GameLanguage.KOR){
+			loc_name = "\uc218\uc9d1\uac00"; //수집가
+			loc_desc = "\uc2e0\ube44\ud55c \uc7ac\ub8cc\ub4e4\uc744 \uc218\uc9d1\ud558\ub294 \ubc29\ub791\uc790\uc785\ub2c8\ub2e4. NL \ud3ec\uc158\uacfc \uc790\uc5f0\uc758 \ud798\uc5d0 \ub2a5\ud1b5\ud569\ub2c8\ub2e4.";
+			//신비한 재료들을 수집하는 방랑자입니다. NL 포션과 자연의 힘에 능통합니다.
+		} else {
+			loc_name = "The Gatherer";
+			loc_desc = "A wandering adventurer who gathers alchemy materials. NL Specialized in potion and nature power.";
+		}
+
 		return new CharSelectInfo(
-				"The Gatherer",
-				"A wandering adventurer who gathers alchemy materials. NL Specialized in potion and nature power.",
+				loc_name,
+				loc_desc,
 				START_HP,
 				START_HP,
 				0,
@@ -99,7 +112,13 @@ public class TheGatherer extends CustomPlayer {
 
 	@Override
 	public String getTitle(PlayerClass playerClass) {
-		return CLASS_NAME;
+		String loc_title;
+		if (Settings.language == GameLanguage.KOR){
+			loc_title = "\uc218\uc9d1\uac00"; //수집가
+		} else {
+			loc_title = "The Gatherer";
+		}
+		return loc_title;
 	}
 
 	@Override
