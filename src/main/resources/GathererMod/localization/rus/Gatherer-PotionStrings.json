@@ -1,0 +1,162 @@
+{
+  "Gatherer:LesserBlockPotion": {
+    "NAME": "Разбавленное Зелье Защиты",
+    "DESCRIPTIONS": [
+      "Даёт #b",
+      " #yЗащиты."
+    ]
+  },
+  "Gatherer:LesserDexterityPotion": {
+    "NAME": "Разбавленное Зелье Ловкости",
+    "DESCRIPTIONS": [
+      "Даёт #b",
+      " #yЛовкости."
+    ]
+  },
+  "Gatherer:LesserEnergyPotion": {
+    "NAME": "Разбавленное Зелье Энергии",
+    "DESCRIPTIONS": [
+      "Даёт #b",
+      " Энергии."
+    ]
+  },
+  "Gatherer:LesserEssenceOfSteel": {
+    "NAME": "Разбавленный Экстракт Стали",
+    "DESCRIPTIONS": [
+      "Даёт #b",
+      " #yПанциря."
+    ]
+  },
+  "Gatherer:LesserExplosivePotion": {
+    "NAME": "Разбавленное Взрывное Зелье",
+    "DESCRIPTIONS": [
+      "Наносит #b",
+      " урона ВСЕМ врагам."
+    ]
+  },
+  "Gatherer:LesserFearPotion": {
+    "NAME": "Разбавленное Зелье Ужаса",
+    "DESCRIPTIONS": [
+      "Накладывает #b",
+      " #yУязвимости."
+    ]
+  },
+  "Gatherer:LesserFirePotion": {
+    "NAME": "Разбавленное Огненное Зелье",
+    "DESCRIPTIONS": [
+      "Наносит #b",
+      " урона."
+    ]
+  },
+  "Gatherer:LesserLiquidBronze": {
+    "NAME": "Разбавленная Жидкая Бронза",
+    "DESCRIPTIONS": [
+      "Даёт #b",
+      " #yШипов."
+    ]
+  },
+  "Gatherer:LesserPoisonPotion": {
+    "NAME": "Разбавленное Зелье Отравления",
+    "DESCRIPTIONS": [
+      "Накладывает #b",
+      " #yЯда."
+    ]
+  },
+  "Gatherer:LesserPowerPotion": {
+    "NAME": "Разбавленное Зелье Таланта",
+    "DESCRIPTIONS": [
+      "Добавляет в руку #b",
+      " случайный #yТалант. В этом ходу он стоит #b0."
+    ]
+  },
+  "Gatherer:LesserRegenPotion": {
+    "NAME": "Разбавленное Зелье Регенерации",
+    "DESCRIPTIONS": [
+      "Даёт #b",
+      " #yРегенерации."
+    ]
+  },
+  "Gatherer:LesserStrengthPotion": {
+    "NAME": "Разбавленное Зелье Силы",
+    "DESCRIPTIONS": [
+      "Даёт #b",
+      " #yСилы."
+    ]
+  },
+  "Gatherer:LesserSpeedPotion": {
+    "NAME": "Разбавленное Зелье Скорости",
+    "DESCRIPTIONS": [
+      "Даёт #b",
+      " #yЛовкости. Отнимает #b",
+      " #yЛовкости в конце хода."
+    ]
+  },
+  "Gatherer:LesserSteroidPotion": {
+    "NAME": "Разбавленные Стероиды",
+    "DESCRIPTIONS": [
+      "Даёт #b",
+      " #yСилы. Отнимает #b",
+      " #yСилы в конце хода."
+    ]
+  },
+  "Gatherer:LesserSwiftPotion": {
+    "NAME": "Разбавленное Зелье Скорости",
+    "DESCRIPTIONS": [
+      "Вы берёте #b",
+      " карты."
+    ]
+  },
+  "Gatherer:LesserWeakPotion": {
+    "NAME": "Разбавленное Зелье Слабости",
+    "DESCRIPTIONS": [
+      "Накладывает #b",
+      " #yСлабости."
+    ]
+  },
+  "Gatherer:RecoveryPotion": {
+    "NAME": "Зелье Восстановления",
+    "DESCRIPTIONS": [
+      "Восполняет #b",
+      "% недостающих ОЗ."
+    ]
+  },
+  "Gatherer:RecoveryPotionPlus": {
+    "NAME": "Зелье Восстановления+",
+    "DESCRIPTIONS": [
+      "Восполняет #b",
+      "% недостающих ОЗ."
+    ]
+  },
+  "Gatherer:RetainPotion": {
+    "NAME": "Зелье Сохранения",
+    "DESCRIPTIONS": [
+      "Вы Оставляете карты в конце вашего хода."
+    ]
+  },
+  "Gatherer:BlackTeaTag": {
+    "NAME": "Метка <Чёрный Чай>",
+    "DESCRIPTIONS": [
+      "Сжигает ВСЕ карты Чёрный Чай при использовании."
+    ]
+  },
+  "Gatherer:PlaceHolderPotion": {
+    "NAME": "PlaceHolder",
+    "DESCRIPTIONS": [
+      "Just a placeholder for implementing potion-based things."
+    ]
+  },
+  "Gatherer:LesserAttackPotion": {
+    "NAME": "Разбавленное Зелье Атаки",
+    "DESCRIPTIONS": [
+      "Добавляет в руку #b",
+      " случайную #yАтаку. В этом ходу она стоит #b0."
+    ]
+  },
+  "Gatherer:LesserSkillPotion": {
+    "NAME": "Разбавленное Зелье Навыка",
+    "DESCRIPTIONS": [
+      "Добавляет в руку #b",
+      " случайный #yНавык. В этом ходу он стоит #b0."
+    ]
+  }
+}

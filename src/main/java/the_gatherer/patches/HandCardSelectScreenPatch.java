@@ -28,6 +28,7 @@ public class HandCardSelectScreenPatch {
 				if (c != null) {
 					if (GathererMod.enchantAmount > 0) {
 						__instance.upgradePreviewCard = c.makeStatEquivalentCopy();
+						GathererMod.logger.debug(c.magicNumber);
 						EnchantAction.doEnchant(__instance.upgradePreviewCard, GathererMod.enchantAmount);
 					} else {
 						GathererMod.transmuteAnimTimer -= Gdx.graphics.getDeltaTime();
@@ -49,7 +50,7 @@ public class HandCardSelectScreenPatch {
 			if (GathererMod.enchantAmount > 0) {
 				__instance.upgradePreviewCard.isDamageModified = true;
 				__instance.upgradePreviewCard.isBlockModified = false;
-				__instance.upgradePreviewCard.isMagicNumberModified = false;
+				__instance.upgradePreviewCard.isMagicNumberModified = true;
 				__instance.upgradePreviewCard.isCostModified = true;
 			}
 		}

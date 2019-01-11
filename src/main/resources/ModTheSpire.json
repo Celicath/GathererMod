@@ -5,9 +5,9 @@
     "Celicath"
   ],
   "credits": "MappyTheKat - Character art",
-  "description": "Adds The Gatherer as a new playable character with 75 cards, 6 relics.\n\nv0.6.0\n- Fixed bug where you could softlock in the Excess Potions screen\n- Fixed energy symbol oddity on the bottom left\n- Potion Sack keyboard input: changed the default from some strange keys to I,O,P\n- Balance change: Spare Bottle, Recipe Change, Black Tea, Scroll of Purity, Glowing Plant, Withering Strike, Save Valuables, Polymorphism\n- 2 common relics Iron Slate & Silent Slate are no longer available.\n- Some improvements to KOR localization\n\nVisit https://steamcommunity.com/sharedfiles/filedetails/changelog/1611788501 for full change notes.\n\nGithub release (https://github.com/Celicath/GathererMod/releases) can be deprecated soon, so consider moving to Steam Workshop version.",
-  "version": "0.6.0",
-  "sts_version": "01-03-2019",
+  "description": "Adds The Gatherer as a new playable character with 75 cards, 6 relics.\n\nv0.6.0\n- Fixed bug where you could softlock in the Excess Potions screen\n- Fixed energy symbol oddity on the bottom left\n- Potion Sack keyboard input: changed the default from some strange keys to I,O,P\n- Balance change: Spare Bottle, Recipe Change, Black Tea, Scroll of Purity, Glowing Plant, Withering Strike, Save Valuables, Polymorphism\n- 2 common relics Iron Slate & Silent Slate are no longer available.\n- Some improvements to KOR localization\n\nv0.6.1\n- Add RUS localization (Jedi)\n- KOR localization to gatherer's name and (Katinor)\n- Buff: Flower Falling, Enchant\n- Nerf: Frenzy, Withering Strike, Overflowing\n- Change: Gather Material\n\nVisit https://steamcommunity.com/sharedfiles/filedetails/changelog/1611788501 for full change notes.\n\nGithub release (https://github.com/Celicath/GathererMod/releases) can be deprecated soon, so consider moving to Steam Workshop version.",
+  "version": "0.6.1",
+  "sts_version": "01-10-2019",
   "mts_version": "3.7.0",
   "dependencies": [
     "basemod",

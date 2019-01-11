@@ -28,15 +28,14 @@ public class WitheringStrike extends CustomCard {
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 8;
+	private static final int POWER = 7;
 	private static final int UPGRADE_BONUS = 3;
-	private static final int THRESHOLD = -2;
-	private static final int THRESHOLD_BONUS = -1;
+	private static final int MAGIC = 1;
 
 	public WitheringStrike() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseDamage = POWER;
-		this.baseMagicNumber = THRESHOLD;
+		this.baseMagicNumber = MAGIC;
 		this.magicNumber = this.baseMagicNumber;
 		this.tags.add(CardTags.STRIKE);
 	}
@@ -45,7 +44,7 @@ public class WitheringStrike extends CustomCard {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m,
 				new DamageInfo(p, this.damage, this.damageTypeForTurn),
 				AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new StrengthPower(m, -1), -1));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber));
 	}
 
 	public AbstractCard makeCopy() {
@@ -56,7 +55,6 @@ public class WitheringStrike extends CustomCard {
 		if (!upgraded) {
 			upgradeName();
 			this.upgradeDamage(UPGRADE_BONUS);
-			this.upgradeMagicNumber(THRESHOLD_BONUS);
 		}
 	}
 }

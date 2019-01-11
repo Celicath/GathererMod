@@ -294,7 +294,7 @@ public class GathererMod implements PostInitializeSubscriber,
 	public void receiveEditCharacters() {
 		logger.debug("receiveEditCharacters started.");
 		BaseMod.addCharacter(
-				new TheGatherer(TheGatherer.CLASS_NAME, AbstractPlayerEnum.THE_GATHERER),
+				new TheGatherer(TheGatherer.charStrings.NAMES[1], AbstractPlayerEnum.THE_GATHERER),
 				GATHERER_BUTTON,
 				GATHERER_PORTRAIT,
 				AbstractPlayerEnum.THE_GATHERER);
@@ -436,6 +436,8 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static String getLocCode() {
 		if (Settings.language == Settings.GameLanguage.KOR) {
 			return "kor";
+		} else if (Settings.language == Settings.GameLanguage.RUS) {
+			return "rus";
 		} else {
 			return "eng";
 		}
@@ -466,6 +468,9 @@ public class GathererMod implements PostInitializeSubscriber,
 		// EventStrings
 		String eventStrings = GetLocString(loc, "Gatherer-EventStrings");
 		BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
+		// CharacterStrings
+		String characterStrings = GetLocString(loc, "Gatherer-CharacterStrings");
+		BaseMod.loadCustomStrings(CharacterStrings.class, characterStrings);
 
 		logger.debug("receiveEditStrings finished.");
 	}

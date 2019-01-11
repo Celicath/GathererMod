@@ -91,7 +91,7 @@
     ]
   },
   "Gatherer:FeelingFine": {
-    "NAME": "FeelingFine",
+    "NAME": "Feeling Fine",
     "DESCRIPTIONS": [
       "If you use #b",
       " more Potion this turn, remove all of your debuffs.",
@@ -102,7 +102,7 @@
     "NAME": "Uplift",
     "DESCRIPTIONS": [
       "The first #b",
-      " cards played each turn that costs 2 or more has Refund #b"
+      " cards played each turn that costs 2 or more has Refund 1."
     ]
   },
   "Gatherer:DamageHalf": {
@@ -116,9 +116,9 @@
   "Gatherer:StoneFence": {
     "NAME": "Stone Fence",
     "DESCRIPTIONS": [
-      "At the start of your turn, add ",
+      "At the start of your turn, add #b",
       " upgraded #yThrower(s) ",
-      "and ",
+      "and #b",
       " #yThrower(s) ",
       "to your hand."
     ]
@@ -144,7 +144,7 @@
   "Gatherer:UpgradeBag": {
     "NAME": "Bag Upgraded",
     "DESCRIPTIONS": [
-      "Your Potions in the Sack are ",
+      "Your Potions in the Sack are #b",
       "% more Potent.",
       " NL #r(Deactivated!)"
     ]

@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import the_gatherer.GathererMod;
+import the_gatherer.cards.MiningStrike;
 
 import java.util.ArrayList;
 
@@ -79,6 +80,16 @@ public class EnchantAction extends AbstractGameAction {
 	public static void doEnchant(AbstractCard c, int amount) {
 		c.updateCost(1);
 		c.baseDamage += amount;
+		if (c.baseMagicNumber != -1) {
+			int delta = 1;
+			if (c instanceof MiningStrike) {
+				delta = -1;
+				if (c.baseMagicNumber + delta <= 0)
+					delta = 0;
+			}
+			c.baseMagicNumber += delta;
+			c.magicNumber = c.baseMagicNumber;
+		}
 		c.superFlash();
 	}
 

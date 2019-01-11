@@ -34,7 +34,7 @@ public class UpliftPower extends AbstractPower {
 
 	@Override
 	public void updateDescription() {
-		this.description = DESCRIPTIONS[0] + this.amount;
+		this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
 	}
 
 	@Override

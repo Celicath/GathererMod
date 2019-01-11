@@ -103,7 +103,7 @@
   },
   "Gatherer:GatherMaterial": {
     "NAME": "Gather Material",
-    "DESCRIPTION": "Put !M! random Unique cards from your draw or discard pile into your hand."
+    "DESCRIPTION": "Put !M! random card from your draw pile into your hand. Prioritizes cards not already in your hand."
   },
   "Gatherer:Pollute": {
     "NAME": "Pollute",
@@ -200,7 +200,7 @@
   },
   "Gatherer:WitheringStrike": {
     "NAME": "Withering Strike",
-    "DESCRIPTION": "Deal !D! damage. Enemy loses 1 Strength."
+    "DESCRIPTION": "Deal !D! damage. Enemy loses !M! Strength."
   },
   "Gatherer:Duplicator": {
     "NAME": "Duplicator",
@@ -209,7 +209,7 @@
   },
   "Gatherer:Enchant": {
     "NAME": "Enchant",
-    "DESCRIPTION": "Choose a Strike card from your hand. It costs 1 more and deals !M! more damage for the rest of combat."
+    "DESCRIPTION": "Choose a Strike in your hand to give it Cost + 1, Damage + !M! and boosts special effect if it has."
   },
   "Gatherer:GlowingPlant": {
     "NAME": "Glowing Plant",
@@ -387,13 +387,13 @@
   },
   "Gatherer:Overflowing": {
     "NAME": "Overflowing",
-    "DESCRIPTION": " Gain [E] [E] [E]. NL Energy is conserved for the next turn. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "  Gain [E] [E] [E] [E]. NL Energy is conserved for the next turn. NL Exhaust."
+    "DESCRIPTION": " Gain [E] [E] [E]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "  Gain [E] [E] [E]. NL Energy is conserved for the next turn. NL Exhaust."
   },
   "Gatherer:ScrollOfPurity": {
     "NAME": "Scroll of Purity",
-    "DESCRIPTION": "Unplayable. Whenever you use a Potion, draw 1 card and Exhaust up to !M! card.",
-    "UPGRADE_DESCRIPTION": "Unplayable. Whenever you use a Potion, draw 1 card and Exhaust up to !M! cards.",
+    "DESCRIPTION": "Unplayable. NL Whenever you use a Potion, draw 1 card and Exhaust up to !M! card.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL Whenever you use a Potion, draw 1 card and Exhaust up to !M! cards.",
     "EXTENDED_DESCRIPTION": [
       "I can't play this card."
     ]

@@ -1,0 +1,66 @@
+{
+  "Gatherer:AlchemyBag": {
+    "NAME": "Сумка алхимика",
+    "FLAVOR": "A mysterious bag with the power of recurring potions.",
+    "DESCRIPTIONS": [
+      "Даёт #b1 случайное Разбавленное зелье в начале каждого боя."
+    ]
+  },
+  "Gatherer:MiracleBag": {
+    "NAME": "Сумка чудес",
+    "FLAVOR": "Created with forbidden technology.",
+    "DESCRIPTIONS": [
+      "#rНе заменяет #yСумку #yАлхимика. NL В начале каждого боя даёт #b1 случайное  зелье (в обычные места для зелий)",
+      "Заменяет #yСумку #yАлхимика. NL В начале каждого боя даёт #b1 случайное #yРедкое зелье (в обычные места для зелий)"
+    ]
+  },
+  "Gatherer:IronSlate": {
+    "NAME": "Стальная плита",
+    "FLAVOR": "A map to follow the Ironclad's path.",
+    "DESCRIPTIONS": [
+      "При подборе данной реликвии #b2 базовых Удара меняют цвет на красный и получают #b2 дополнительных урона."
+    ]
+  },
+  "Gatherer:SilentSlate": {
+    "NAME": "Плита Безмолвной",
+    "FLAVOR": "A map to follow the Silent's path.",
+    "DESCRIPTIONS": [
+      "При подборе данной реликвии #b2 базовых Обороны меняют цвет на зелёный и получают #b2 дополнительных #yЗащиты."
+    ]
+  },
+  "Gatherer:FloralEgg": {
+    "NAME": "Цветочное яйцо",
+    "FLAVOR": "Eggs like flowers. Or they are eggs like flowers",
+    "DESCRIPTIONS": [
+      "Подбор данной реликвии улучшает ВСЕ #yЦветочные карты в колоде."
+    ]
+  },
+  "Gatherer:Leftovers": {
+    "NAME": "Остатки",
+    "FLAVOR": "How alchemists make new material from leftovers is a mystery.",
+    "DESCRIPTIONS": [
+      "Когда вы используете зелье, даёт случайное #yРазбавленное зелье с 20% шансом."
+    ]
+  },
+  "Gatherer:FlyingFruit": {
+    "NAME": "Летучий Фрукт",
+    "FLAVOR": "Fruit flies like a banana.",
+    "DESCRIPTIONS": [
+      "После подбора данной реликвии, когда вы #yСжигаете #b1/3/6/10 #yУникальных карт , увеличивает Макс. ОЗ на ",
+      ".",
+      " NL NL Карт #yсожжено: NL "
+    ]
+  },
+  "Gatherer:ExplorersPath": {
+    "NAME": "Тропа исследователя",
+    "FLAVOR": "Sometimes it's worth to explore the worst path.",
+    "DESCRIPTIONS": [
+      "Даёт [E] в начале вашего хода если в данной реликвии есть хотя бы #b1 заряд. NL (При подборе получает #b2 заряда и теряет #b1 в конце каждого боя.) NL На экране выбора карт отображает частоту выбора карт за последние #b4 недели. NL Выбор карты с наименьшей частотой выбора добавляет  #b1 заряд. NL Синергия: ",
+      "Синергия",
+      "Если у вас есть ",
+      ", можно выбрать одну из двух карт с меньшей частотой выбора."
+    ]
+  },
+  "Gatherer:Dummy": {}
+}
+

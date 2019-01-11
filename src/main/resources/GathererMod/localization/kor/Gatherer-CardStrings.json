@@ -103,7 +103,7 @@
   },
   "Gatherer:GatherMaterial": {
     "NAME": "재료 모으기",
-    "DESCRIPTION": "뽑을 카드 더미 (없으면 버린 카드 더미) 에서 서로 다른 무작위 카드 !M! 장을 손으로 가져옵니다."
+    "DESCRIPTION": "뽑을 카드 더미에서 무작위 카드 !M! 장을 손으로 가져옵니다. 내 손에 없는 카드를 우선으로 가져옵니다."
   },
   "Gatherer:Pollute": {
     "NAME": "오염",
@@ -200,7 +200,7 @@
   },
   "Gatherer:WitheringStrike": {
     "NAME": "약화 타격",
-    "DESCRIPTION": "피해를 !D! 줍니다. 대상은 힘 을 1 잃습니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. 대상은 힘 을 !M! 잃습니다."
   },
   "Gatherer:Duplicator": {
     "NAME": "복제기",
@@ -209,7 +209,7 @@
   },
   "Gatherer:Enchant": {
     "NAME": "인챈트",
-    "DESCRIPTION": "손에서 타격 카드를 하나 선택합니다. 이번 전투 동안 그 카드의 비용이 1, 피해량이 !M! 증가합니다."
+    "DESCRIPTION": "손에서 타격 카드를 하나 선택하여 비용 + 1, 피해량 + !M! 을 주고 특수 효과를 (있다면) 강화합니다."
   },
   "Gatherer:GlowingPlant": {
     "NAME": "빛나는 식물",
@@ -387,8 +387,8 @@
   },
   "Gatherer:Overflowing": {
     "NAME": "넘쳐흐름",
-    "DESCRIPTION": "[E] [E] [E] 를 얻습니다. 이번 턴 종료시 에너지가 사라지지 않습니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "[E] [E] [E] [E] 를 얻습니다. 이번 턴 종료시 에너지가 사라지지 않습니다. NL 소멸"
+    "DESCRIPTION": " [E] [E] [E] 를 얻습니다. NL 소멸",
+    "UPGRADE_DESCRIPTION": " [E] [E] [E] 를 얻습니다. 이번 턴 종료시 에너지가 사라지지 않습니다. NL 소멸"
   },
   "Gatherer:ScrollOfPurity": {
     "NAME": "순수함의 스크롤",

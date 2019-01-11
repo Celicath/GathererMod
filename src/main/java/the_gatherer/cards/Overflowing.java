@@ -28,7 +28,6 @@ public class Overflowing extends CustomCard {
 	private static final CardTarget TARGET = CardTarget.SELF;
 
 	private static final int POWER = 3;
-	private static final int UPGRADE_BONUS = 1;
 
 	public Overflowing() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -39,7 +38,9 @@ public class Overflowing extends CustomCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.magicNumber));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ConservePower(p, 1), 1));
+		if (upgraded) {
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ConservePower(p, 1), 1));
+		}
 	}
 
 	public AbstractCard makeCopy() {
@@ -49,7 +50,6 @@ public class Overflowing extends CustomCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeMagicNumber(UPGRADE_BONUS);
 			rawDescription = UPGRADE_DESCRIPTION;
 			initializeDescription();
 		}

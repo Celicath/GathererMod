@@ -23,15 +23,31 @@ public class GatherMaterialAction extends AbstractGameAction {
 
 	public void update() {
 		if (this.duration == Settings.ACTION_DUR_MED) {
+			HashSet<String> uniquesHand = new HashSet<>();
 			HashSet<String> uniques = new HashSet<>();
 			CardGroup moveFromDrawToHand = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-			CardGroup moveFromDiscardToHand = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 			CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
+			for (AbstractCard c : this.p.hand.group) {
+				uniquesHand.add(GathererMod.getUniqueID(c));
+			}
 			for (AbstractCard c : this.p.drawPile.group) {
 				tmp.addToRandomSpot(c);
 			}
 			tmp.shuffle();
+
+			// first: Pick cards not in your hand
+			for (int i = 0; uniques.size() < this.amount && i < tmp.size(); ++i) {
+				AbstractCard card = tmp.getNCardFromTop(i);
+				if (!uniquesHand.contains(GathererMod.getUniqueID(card))) {
+					uniquesHand.add(GathererMod.getUniqueID(card));
+					uniques.add(GathererMod.getUniqueID(card));
+					moveFromDrawToHand.addToBottom(card);
+				}
+			}
+			tmp.group.removeAll(moveFromDrawToHand.group);
+
+			// second: Pick unique cards
 			for (int i = 0; uniques.size() < this.amount && i < tmp.size(); ++i) {
 				AbstractCard card = tmp.getNCardFromTop(i);
 				if (!uniques.contains(GathererMod.getUniqueID(card))) {
@@ -39,20 +55,12 @@ public class GatherMaterialAction extends AbstractGameAction {
 					moveFromDrawToHand.addToBottom(card);
 				}
 			}
+			tmp.group.removeAll(moveFromDrawToHand.group);
 
-			if (this.amount > uniques.size()) {
-				tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-				for (AbstractCard c : this.p.discardPile.group) {
-					tmp.addToRandomSpot(c);
-				}
-				tmp.shuffle();
-				for (int i = 0; uniques.size() < this.amount && i < tmp.size(); ++i) {
-					AbstractCard card = tmp.getNCardFromTop(i);
-					if (!uniques.contains(GathererMod.getUniqueID(card))) {
-						uniques.add(GathererMod.getUniqueID(card));
-						moveFromDiscardToHand.addToBottom(card);
-					}
-				}
+			// final: Pick any card
+			for (int i = 0; i < tmp.size(); ++i) {
+				AbstractCard card = tmp.getNCardFromTop(i);
+				moveFromDrawToHand.addToBottom(card);
 			}
 
 			for (int i = 0; i < moveFromDrawToHand.size(); i++) {
@@ -62,26 +70,6 @@ public class GatherMaterialAction extends AbstractGameAction {
 					this.p.createHandIsFullDialog();
 				} else {
 					this.p.drawPile.moveToHand(card, this.p.drawPile);
-				}
-			}
-
-
-			for (int i = 0; i < moveFromDiscardToHand.size(); i++) {
-				AbstractCard card = moveFromDiscardToHand.getNCardFromTop(i);
-				if (this.p.hand.size() == BaseMod.MAX_HAND_SIZE) {
-					this.p.createHandIsFullDialog();
-				} else {
-					card.unhover();
-					card.lighten(true);
-					card.setAngle(0.0F);
-					card.drawScale = 0.12F;
-					card.targetDrawScale = 0.75F;
-					card.current_x = CardGroup.DISCARD_PILE_X;
-					card.current_y = CardGroup.DISCARD_PILE_Y;
-					this.p.discardPile.removeCard(card);
-					AbstractDungeon.player.hand.addToTop(card);
-					AbstractDungeon.player.hand.refreshHandLayout();
-					AbstractDungeon.player.hand.applyPowers();
 				}
 			}
 

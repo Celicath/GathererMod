@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.core.Settings.GameLanguage;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
+import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import the_gatherer.GathererMod;
 import the_gatherer.cards.Centralize;
@@ -29,10 +30,11 @@ import the_gatherer.relics.AlchemyBag;
 import java.util.ArrayList;
 
 public class TheGatherer extends CustomPlayer {
+	public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString("TheGatherer");
+
 	public static final int ENERGY_PER_TURN = 3;
 	public static final int START_HP = 72;
 	public static final int START_GOLD = 99;
-	public static final String CLASS_NAME = "The Gatherer";
 
 	public static final String[] orbTextures = {
 			"GathererMod/img/character/gatherer/orb/layer1.png",
@@ -85,20 +87,9 @@ public class TheGatherer extends CustomPlayer {
 	}
 
 	public CharSelectInfo getLoadout() {
-		String loc_name; // translated character name
-    	String loc_desc; // translated character description
-		if (Settings.language == GameLanguage.KOR){
-			loc_name = "\uc218\uc9d1\uac00"; //수집가
-			loc_desc = "\uc2e0\ube44\ud55c \uc7ac\ub8cc\ub4e4\uc744 \uc218\uc9d1\ud558\ub294 \ubc29\ub791\uc790\uc785\ub2c8\ub2e4. NL \ud3ec\uc158\uacfc \uc790\uc5f0\uc758 \ud798\uc5d0 \ub2a5\ud1b5\ud569\ub2c8\ub2e4.";
-			//신비한 재료들을 수집하는 방랑자입니다. NL 포션과 자연의 힘에 능통합니다.
-		} else {
-			loc_name = "The Gatherer";
-			loc_desc = "A wandering adventurer who gathers alchemy materials. NL Specialized in potion and nature power.";
-		}
-
 		return new CharSelectInfo(
-				loc_name,
-				loc_desc,
+				getLocalizedCharacterName(),
+				charStrings.TEXT[0],
 				START_HP,
 				START_HP,
 				0,
@@ -112,13 +103,7 @@ public class TheGatherer extends CustomPlayer {
 
 	@Override
 	public String getTitle(PlayerClass playerClass) {
-		String loc_title;
-		if (Settings.language == GameLanguage.KOR){
-			loc_title = "\uc218\uc9d1\uac00"; //수집가
-		} else {
-			loc_title = "The Gatherer";
-		}
-		return loc_title;
+		return charStrings.NAMES[0];
 	}
 
 	@Override
@@ -159,12 +144,12 @@ public class TheGatherer extends CustomPlayer {
 
 	@Override
 	public String getLocalizedCharacterName() {
-		return CLASS_NAME;
+		return charStrings.NAMES[1];
 	}
 
 	@Override
 	public AbstractPlayer newInstance() {
-		return new TheGatherer(CLASS_NAME, AbstractPlayerEnum.THE_GATHERER);
+		return new TheGatherer(this.name, AbstractPlayerEnum.THE_GATHERER);
 	}
 
 	@Override
