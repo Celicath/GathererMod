@@ -38,8 +38,8 @@
   },
   "Gatherer:CollectorsShot": {
     "NAME": "Collector's Shot",
-    "DESCRIPTION": "Deal damage equal to 1.5 times the number of Unique cards in your deck.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to 2 times the number of Unique cards in your deck.",
+    "DESCRIPTION": "Deal damage equal to 1.5 times the number of Unique cards with no duplicates in your deck.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to 2 times the number of Unique cards with no duplicates in your deck.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]

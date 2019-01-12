@@ -713,6 +713,20 @@ public class GathererMod implements PostInitializeSubscriber,
 		return ids.size();
 	}
 
+	public static int countUniqueWithSingleCopy(Iterable<AbstractCard> group) {
+		HashSet<String> ids = new HashSet<>();
+		HashSet<String> idsDup = new HashSet<>();
+		for (AbstractCard c : group) {
+			String uid = getUniqueID(c);
+			if (ids.contains(uid)) {
+				idsDup.add(uid);
+			} else {
+				ids.add(uid);
+			}
+		}
+		return ids.size() - idsDup.size();
+	}
+
 	public static void ActivatePotionUseEffects(AbstractPotion p, boolean disableToyOrnithopter) {
 		for (AbstractRelic relic : AbstractDungeon.player.relics) {
 			if (!disableToyOrnithopter || relic.relicId != ToyOrnithopter.ID) {

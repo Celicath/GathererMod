@@ -15,7 +15,6 @@ import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.screens.select.HandCardSelectScreen;
-import the_gatherer.GathererMod;
 import the_gatherer.actions.ExcessPotionHandleAction;
 import the_gatherer.modules.PotionSackPopUp;
 import the_gatherer.potions.SackPotion;

@@ -38,8 +38,8 @@
   },
   "Gatherer:CollectorsShot": {
     "NAME": "수집가의 공격",
-    "DESCRIPTION": "덱에 있는 서로 다른 카드 수의 1.5배 만큼 피해를 줍니다.",
-    "UPGRADE_DESCRIPTION": "덱에 있는 서로 다른 카드 수의 2배 만큼 피해를 줍니다.",
+    "DESCRIPTION": "덱에 1장만 있는 카드 수의 1.5배 만큼 피해를 줍니다.",
+    "UPGRADE_DESCRIPTION": "덱에 1장만 있는 카드 수의 2배 만큼 피해를 줍니다.",
     "EXTENDED_DESCRIPTION": [
       " NL (피해를 !D! 줍니다.)"
     ]

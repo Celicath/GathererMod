@@ -1,7 +1,6 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
-import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,10 +11,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import the_gatherer.GathererMod;
-import the_gatherer.actions.ObtainLesserPotionAction;
 import the_gatherer.patches.CardColorEnum;
-import the_gatherer.patches.CustomTags;
-import the_gatherer.potions.SackPotion;
 
 public class BlackTea extends CustomCard {
 	private static final String RAW_ID = "BlackTea";

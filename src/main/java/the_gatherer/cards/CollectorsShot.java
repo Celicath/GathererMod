@@ -48,7 +48,7 @@ public class CollectorsShot extends CustomCard {
 	private void updateDamage() {
 		if (AbstractDungeon.player != null) {
 			int temp = this.baseDamage;
-			this.baseDamage = GathererMod.countUnique(AbstractDungeon.player.masterDeck) * (upgraded ? 4 : 3) / 2;
+			this.baseDamage = GathererMod.countUniqueWithSingleCopy(AbstractDungeon.player.masterDeck.group) * (upgraded ? 4 : 3) / 2;
 			if (this.baseDamage != temp) {
 				this.rawDescription = (upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION) + EXTENDED_DESCRIPTION[0];
 				this.initializeDescription();
