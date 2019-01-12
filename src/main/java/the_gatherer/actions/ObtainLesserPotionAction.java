@@ -1,17 +1,28 @@
 package the_gatherer.actions;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.Sozu;
+import com.megacrit.cardcrawl.vfx.SpeechBubble;
 import the_gatherer.GathererMod;
+import the_gatherer.modules.PotionSackPopUp;
 import the_gatherer.potions.LesserExplosivePotion;
 import the_gatherer.potions.SackPotion;
 import the_gatherer.powers.BomberFormPower;
 import the_gatherer.powers.RecipeChangePower;
 
+import java.util.ArrayList;
+
 
 public class ObtainLesserPotionAction extends AbstractGameAction {
+	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("Gatherer:ObtainLesserPotionAction");
+	public static final String[] TEXT = uiStrings.TEXT;
 	private SackPotion potion;
 	private boolean allowRecipeChange;
 
@@ -38,7 +49,19 @@ public class ObtainLesserPotionAction extends AbstractGameAction {
 					}
 				}
 				if (!GathererMod.potionSack.addPotion(this.potion)) {
-					AbstractDungeon.actionManager.addToBottom(new ExcessPotionHandleAction(potion));
+					AbstractDungeon.effectList.add(new SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 1.8f,
+							TEXT[0] + this.potion.name + TEXT[1], true));
+
+					ArrayList<AbstractMonster> tmp = new ArrayList<>();
+					for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+						if (!m.halfDead && !m.isDying && !m.isEscaping) {
+							tmp.add(m);
+						}
+					}
+					if (tmp.size() > 0) {
+						AbstractCreature target = tmp.get(MathUtils.random(0, tmp.size() - 1));
+						PotionSackPopUp.usePotionInSack(target, potion);
+					}
 				}
 			}
 		}

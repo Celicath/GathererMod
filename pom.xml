@@ -61,7 +61,7 @@
                         <phase>package</phase>
                         <configuration>
                             <target>
-                                <copy file="target/GathererMod.jar" tofile="../bin/mods/GathererMod.jar"/>
+                                <copy file="target/GathererMod.jar" tofile="D:\Steam\steamapps\common\SlayTheSpire\mods\GathererMod.jar"/>
                             </target>
                         </configuration>
                         <goals>

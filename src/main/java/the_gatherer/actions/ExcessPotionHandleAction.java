@@ -28,7 +28,8 @@ public class ExcessPotionHandleAction extends AbstractGameAction {
 		} else {
 			GathererMod.excessPotionHandleScreen.open();
 		}
-		this.isDone = true;
-		this.tickDuration();
+		if (AbstractDungeon.handCardSelectScreen != GathererMod.excessPotionHandleScreen) {
+			this.isDone = true;
+		}
 	}
 }
