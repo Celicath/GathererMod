@@ -18,9 +18,9 @@
   "Gatherer:BottleCollector": {
     "NAME": "Сборщик Бутылок",
     "DESCRIPTIONS": [
-      "\"Look at my collections, stranger!\" NL A strange-looking maniac shouts behind hundreds of bottles. NL NL \"If ya show me potion @Card,@ I'll spare one.\" NL NL He adds one more suspicious thing. NL \"More #yRare card you pick, #yrarer bottle I give.\"",
-      "\"Thank you thank you!\" NL The collector seems to be excited too much. NL NL \"Now, I want to #rexperiment, ya wanna participate?\" NL NL You leave without responding.",
-      "You don't bother, and run away without looking back."
+      "\"Посмотри, что у меня есть, путник!\" NL Вас окликивает нелепо-выглядящий маньяк, стоящий за сотнями различных бутылок. NL NL Дай мне @карту@ @Зелья,@ и я дам тебе одну из своих красавиц! NL NL Подумав немного, он добавляет: NL \"Чем лучше #yредкость твоей Карту, тем #yлучше получишь Бутылку!\"",
+      "\"Спасибо спасибо!\" NL Сборщик выглядит черезчур взволновано. NL NL \"А теперь я проведу небольшой эксперимент... Хочешь поучаствовать?\" NL NL Но вы молча уходите.",
+      "Вы не доверяете странно выглядящему незнакомцу и убегаете без оглядки."
     ],
     "OPTIONS": [
       "[Отдать карту] Отдайте карту, создающую Зелье. #gПолучите #gЗапасную #gБутылку.",

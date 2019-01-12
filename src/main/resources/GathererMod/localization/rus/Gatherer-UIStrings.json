@@ -59,6 +59,12 @@
       "Выберите и получите 2 Зелья"
     ]
   },
+  "Gatherer:ObtainLesserPotionAction": {
+	"TEXT": [
+      "В Сумке нет места! Давай используем ",
+      "."
+    ]
+  },
   "Gatherer:ReplaceGrowBookAction": {
     "TEXT": [
       "Выберите карту, которая заменит Книгу Роста"
