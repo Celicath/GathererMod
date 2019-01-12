@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import the_gatherer.GathererMod;
 import the_gatherer.cards.MiningStrike;
+import the_gatherer.cards.WitheringStrike;
 
 import java.util.ArrayList;
 
@@ -89,6 +90,10 @@ public class EnchantAction extends AbstractGameAction {
 			}
 			c.baseMagicNumber += delta;
 			c.magicNumber = c.baseMagicNumber;
+			if (c instanceof WitheringStrike && WitheringStrike.EXTENDED_DESCRIPTION != null) {
+				c.rawDescription = WitheringStrike.EXTENDED_DESCRIPTION[0];
+				c.initializeDescription();
+			}
 		}
 		c.superFlash();
 	}

@@ -23,6 +23,7 @@ public class WitheringStrike extends CustomCard {
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.GATHERER_LIME;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
