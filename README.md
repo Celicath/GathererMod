@@ -44,4 +44,4 @@ As a goal, The Gatherer will have similar quality as official characters. The po
 
 ## Contacts
 - Celicath@gmail.com
-- Celicath#3192 at Discord
+- celicath#3192 at Discord
