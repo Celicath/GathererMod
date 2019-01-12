@@ -58,7 +58,7 @@ public class GatherMaterialAction extends AbstractGameAction {
 			tmp.group.removeAll(moveFromDrawToHand.group);
 
 			// final: Pick any card
-			for (int i = 0; i < tmp.size(); ++i) {
+			for (int i = 0; moveFromDrawToHand.size() < this.amount && i < tmp.size(); ++i) {
 				AbstractCard card = tmp.getNCardFromTop(i);
 				moveFromDrawToHand.addToBottom(card);
 			}
