@@ -49,4 +49,4 @@ v1.0이 되기 전에 약간의 밸런스 변화와 게임 내 애니메이션�
 
 ## 연락처
 - Celicath@gmail.com
-- Celicath#3192 @ Discord
+- celicath#3192 @ Discord
