@@ -729,7 +729,7 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	public static void ActivatePotionUseEffects(AbstractPotion p, boolean disableToyOrnithopter) {
 		for (AbstractRelic relic : AbstractDungeon.player.relics) {
-			if (!disableToyOrnithopter || relic.relicId != ToyOrnithopter.ID) {
+			if (!disableToyOrnithopter || relic.relicId.equals(ToyOrnithopter.ID)) {
 				relic.onUsePotion();
 			}
 		}
