@@ -34,7 +34,7 @@
   },
   "Gatherer:CarefulStrike": {
     "NAME": "Careful Strike",
-    "DESCRIPTION": "Deal !D! damage. You may put !M! card on top of your deck."
+    "DESCRIPTION": "Deal !D! damage. Put up to !M! card on top of your deck."
   },
   "Gatherer:CollectorsShot": {
     "NAME": "Collector's Shot",
@@ -87,7 +87,7 @@
   },
   "Gatherer:BigPouch": {
     "NAME": "Big Pouch",
-    "DESCRIPTION": "Draw !M! Cards. Gain Block equal to total cost of your cards in hand."
+    "DESCRIPTION": "Draw !M! Cards. Gain Block equal to the total cost of your cards in hand."
   },
   "Gatherer:Convert": {
     "NAME": "Convert",
@@ -144,7 +144,7 @@
   },
   "Gatherer:FlowerBeam": {
     "NAME": "Flower Beam",
-    "DESCRIPTION": "Deal !D! damage, then deal !D! damage to ALL enemies."
+    "DESCRIPTION": "Deal !D! damage to the target, then deal !D! damage to ALL enemies."
   },
   "Gatherer:FruitForce": {
     "NAME": "Fruit Force",
@@ -170,7 +170,7 @@
   "Gatherer:Polymorphism": {
     "NAME": "Polymorphism",
     "DESCRIPTION": "Deal damage equal to number of other cards in your hand. If they are all Unique, gain [E] and draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to number of other cards in your hand +3. If they are all Unique, gain [E] and draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to number of other cards in your hand. If they are all Unique, gain [E] and draw !M! cards.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! Damage.)",
       " NL (Draw & !D! damage!)"
@@ -243,7 +243,7 @@
   },
   "Gatherer:RecoveryHerb": {
     "NAME": "Recovery Herb",
-    "DESCRIPTION": "Considered as using a Potion. Heals !M! % of your missing HP. NL Exhaust.",
+    "DESCRIPTION": "Considered as using a Potion. Heal !M! % of your missing HP. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Heals ",
       " HP.)"
@@ -287,8 +287,7 @@
   },
   "Gatherer:BalancedGrowth": {
     "NAME": "Balanced Growth",
-    "DESCRIPTION": "At the start of your turn, gain 1 Strength or Dexterity until they are equal.",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, gain 1 Strength or Dexterity until they are equal."
+    "DESCRIPTION": "At the start of your turn, gain up to !M! Strength or Dexterity until they are equal."
   },
   "Gatherer:ColorfulGarden": {
     "NAME": "Colorful Garden",
@@ -400,7 +399,7 @@
   },
   "Gatherer:BomberForm": {
     "NAME": "Bomber Form",
-    "DESCRIPTION": "At the start of your turn, gain a LEP. All future Lesser_Potions become LEP and raise all LEPs' damage by !M!."
+    "DESCRIPTION": "At the start of your turn, gain a LEP. All future Lesser_Potions become LEP and raise all LEPs' damage by !M! when used."
   },
   "Gatherer:FlowerPower": {
     "NAME": "Flower Power",
@@ -424,15 +423,20 @@
       " NL (Deals !D! damage.)"
     ]
   },
-  "Gatherer:GrassKnot": {
-    "NAME": "Grass Knot",
-    "DESCRIPTION": "At the end of your turn, discard up to !M! Retained card for 5 Block and 2 Thorns each.",
-    "UPGRADE_DESCRIPTION": "At the end of your turn, discard up to !M! Retained cards for 5 Block and 2 Thorns each."
-  },
   "Gatherer:PoisonMastery": {
     "NAME": "Poison Mastery",
     "DESCRIPTION": "Gain a Lesser_Poison_Potion. NL Poison damage is increased by 100%."
   },
+  "Gatherer:AromaProtection": {
+    "NAME": "Aroma Protection",
+    "DESCRIPTION": "Gain !B! Block. Add a Dazed to your discard pile."
+  },
+  "Gatherer:LuckyClover": {
+    "NAME": "Lucky Clover",
+    "DESCRIPTION": "Gain 1 Dexterity for each Flower cards in your deck.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Gain 1 Dexterity for each Flower cards in your deck."
+  },
+
   "Gatherer:FlowerSuffix": {
     "NAME": "FlowerSuffix",
     "DESCRIPTION": "Description suffix for Flower cards.",
@@ -455,5 +459,13 @@
     "EXTENDED_DESCRIPTION": [
       "This card is deprecated."
     ]
-  }
+  },
+  "Gatherer:GrassKnot": {
+    "NAME": "Grass Knot",
+    "DESCRIPTION": "At the end of your turn, discard up to !M! Retained card for 5 Block and 2 Thorns each.",
+    "UPGRADE_DESCRIPTION": "At the end of your turn, discard up to !M! Retained cards for 5 Block and 2 Thorns each."
+  },
+  "EXTENDED_DESCRIPTION": [
+    "This card is deprecated."
+  ]
 }

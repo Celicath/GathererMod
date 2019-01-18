@@ -18,21 +18,23 @@
     "NAME": "Iron Slate",
     "FLAVOR": "A map to follow the Ironclad's path.",
     "DESCRIPTIONS": [
-      "Upon pick up, #b2 of your Strikes change color to red and gain #b2 damage."
+      "Upon pick up, #b2 of your Strikes change color to red and gain #b2 damage.",
+      "This relic is deprecated."
     ]
   },
   "Gatherer:SilentSlate": {
     "NAME": "Silent Slate",
     "FLAVOR": "A map to follow the Silent's path.",
     "DESCRIPTIONS": [
-      "Upon pick up, #b2 of your Defends change color to green and gain #b2 #yBlock."
+      "Upon pick up, #b2 of your Defends change color to green and gain #b2 #yBlock.",
+      "This relic is deprecated."
     ]
   },
   "Gatherer:FloralEgg": {
     "NAME": "Floral Egg",
     "FLAVOR": "Eggs like flowers. Or they are eggs like flowers",
     "DESCRIPTIONS": [
-      "Upon pick up, upgrade ALL your #yFlower cards."
+      "Upon pick up, upgrade ALL your #yFlower cards. Whenever you add a Flower card to your deck, it is Upgraded."
     ]
   },
   "Gatherer:Leftovers": {
@@ -55,10 +57,18 @@
     "NAME": "Explorer's Path",
     "FLAVOR": "Sometimes it's worth to explore the worst path.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn for the next #b2 combats. NL You can now see the pick ratio of cards for the past 4 weeks in the reward screen. NL Choose the lowest-picked card to regain #b1 charge. NL Synergy: ",
+      "Gain [E] at the start of your turn for the next #b3 combats. NL You can now see the pick ratio of cards for the past 4 weeks in the reward screen. NL Choose the lowest-picked card to gain [E] for #b1 more combat. NL Synergy: ",
       "Synergy",
       "If you have the ",
       ", you can choose one of the 2 lowest-picked card for a charge."
+    ]
+  },
+  "Gatherer:MistGenerator": {
+    "NAME": "Mist Generator",
+    "FLAVOR": "The mist can be deadly for some creatures.",
+    "DESCRIPTIONS": [
+      "The amount of Enemy's Poison is not reduced each turn if #b",
+      " or less."
     ]
   },
   "Gatherer:Dummy": {}

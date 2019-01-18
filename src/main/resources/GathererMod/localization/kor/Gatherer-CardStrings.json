@@ -34,7 +34,7 @@
   },
   "Gatherer:CarefulStrike": {
     "NAME": "꼼꼼한 타격",
-    "DESCRIPTION": "피해를 !D! 줍니다. 손에 있는 카드 1장을 뽑을 카드 더미 맨 위에 놓을 수 있습니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. 손에서 카드를 !M! 장까지 선택해 뽑을 카드 더미 맨 위에 놓습니다."
   },
   "Gatherer:CollectorsShot": {
     "NAME": "수집가의 공격",
@@ -126,8 +126,8 @@
     "NAME": "양모 장갑",
     "DESCRIPTION": "방어도를 !B! 얻습니다.",
     "EXTENDED_DESCRIPTION": [
-      " NL 2회용: 카드를 3 장 뽑고 3장 버립니다.",
-      " NL 1회용: 카드를 3 장 뽑고 3장 버립니다.",
+      " NL 2회용: 카드를 3장 뽑고 3장 버립니다.",
+      " NL 1회용: 카드를 3장 뽑고 3장 버립니다.",
       " NL [#D0C8D0]1회용 [#D0C8D0]능력이 [#D0C8D0]이미 [#D0C8D0]사용되었습니다."
     ]
   },
@@ -170,7 +170,7 @@
   "Gatherer:Polymorphism": {
     "NAME": "다형성",
     "DESCRIPTION": "내 손에 있는 다른 카드의 수 만큼 피해를 줍니다. 손에 있는 카드가 모두 다르면, [E] 를 얻고 카드를 !M! 장 뽑습니다.",
-    "UPGRADE_DESCRIPTION": "내 손에 있는 다른 카드의 수 +3만큼 피해를 줍니다. 손에 있는 카드가 모두 다르면, [E] 를 얻고 카드를 !M! 장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "내 손에 있는 다른 카드의 수 만큼 피해를 줍니다. 손에 있는 카드가 모두 다르면, [E] 를 얻고 카드를 !M! 장 뽑습니다.",
     "EXTENDED_DESCRIPTION": [
       " NL (피해를 !D! 줍니다.)",
       " NL (드로우 및 피해 !D! )"
@@ -287,8 +287,7 @@
   },
   "Gatherer:BalancedGrowth": {
     "NAME": "균형적 성장",
-    "DESCRIPTION": "매 턴 시작 시 둘이 같아질 때까지 힘 또는 민첩 을 1 얻습니다.",
-    "UPGRADE_DESCRIPTION": "선천성 NL 매 턴 시작 시 둘이 같아질 때까지 힘 또는 민첩 을 1 얻습니다."
+    "DESCRIPTION": "매 턴 시작 시 둘이 같아질 때까지 힘 또는 민첩 을 최대 !M! 얻습니다."
   },
   "Gatherer:ColorfulGarden": {
     "NAME": "다채로운 정원",
@@ -424,15 +423,20 @@
       " NL (피해를 !D! 줍니다.)"
     ]
   },
-  "Gatherer:GrassKnot": {
-    "NAME": "풀묶기",
-    "DESCRIPTION": "매 턴 종료 시 보존 된 카드를 !M! 장 까지 버리고 버린 카드 하나 당 방어도 5와 가시 2를 얻습니다.",
-    "UPGRADE_DESCRIPTION": "매 턴 종료 시 보존 된 카드를 !M! 장 까지 버리고 버린 카드 하나 당 방어도 5와 가시 2를 얻습니다."
-  },
   "Gatherer:PoisonMastery": {
     "NAME": "독 숙련",
     "DESCRIPTION": "소형_중독_포션 을 얻습니다. NL 중독의 피해량이 100% 증가합니다."
   },
+  "Gatherer:AromaProtection": {
+    "NAME": "아로마의 보호",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 버린 카드 더미에 어지러움 카드를 1장 추가합니다."
+  },
+  "Gatherer:LuckyClover": {
+    "NAME": "행운의 클로버",
+    "DESCRIPTION": "덱에 있는 플라워 카드 수 만큼 민첩 을 얻습니다.",
+    "UPGRADE_DESCRIPTION": "선천성 NL 덱에 있는 플라워 카드 수 만큼 민첩 을 얻습니다."
+  },
+
   "Gatherer:FlowerSuffix": {
     "NAME": "FlowerSuffix",
     "DESCRIPTION": "Description suffix for Flower cards.",
@@ -452,6 +456,14 @@
   "Gatherer:SalvePotion": {
     "NAME": "Salve Potion",
     "DESCRIPTION": "Considered as using a Potion. NL 체력을 !M! 회복합니다. NL Decrease this card's healing by 1 this combat.",
+    "EXTENDED_DESCRIPTION": [
+      "This card is deprecated."
+    ]
+  },
+  "Gatherer:GrassKnot": {
+    "NAME": "풀묶기",
+    "DESCRIPTION": "매 턴 종료 시 보존 된 카드를 !M! 장 까지 버리고 버린 카드 하나 당 방어도 5와 가시 2를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "매 턴 종료 시 보존 된 카드를 !M! 장 까지 버리고 버린 카드 하나 당 방어도 5와 가시 2를 얻습니다.",
     "EXTENDED_DESCRIPTION": [
       "This card is deprecated."
     ]
