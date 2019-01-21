@@ -154,7 +154,7 @@ public class PotionSack {
 			if (InputHelper.justReleasedClickLeft) {
 				moveState = 0;
 			} else {
-				float x = Math.min(Math.max(InputHelper.mX + dx, 0.04f * Settings.WIDTH), 0.6f * Settings.WIDTH);
+				float x = Math.min(Math.max(InputHelper.mX + dx, 0.05f * Settings.WIDTH), 0.95f * Settings.WIDTH);
 				float y = Math.min(Math.max(InputHelper.mY + dy, 0.3f * Settings.HEIGHT), 0.8f * Settings.HEIGHT);
 
 				if ((startx - InputHelper.mX) * (startx - InputHelper.mX) + (starty - InputHelper.mY) * (starty - InputHelper.mY) > 64) {

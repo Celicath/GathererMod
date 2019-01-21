@@ -436,7 +436,6 @@
     "DESCRIPTION": "Gain 1 Dexterity for each Flower cards in your deck.",
     "UPGRADE_DESCRIPTION": "Innate. NL Gain 1 Dexterity for each Flower cards in your deck."
   },
-
   "Gatherer:FlowerSuffix": {
     "NAME": "FlowerSuffix",
     "DESCRIPTION": "Description suffix for Flower cards.",
@@ -463,9 +462,9 @@
   "Gatherer:GrassKnot": {
     "NAME": "Grass Knot",
     "DESCRIPTION": "At the end of your turn, discard up to !M! Retained card for 5 Block and 2 Thorns each.",
-    "UPGRADE_DESCRIPTION": "At the end of your turn, discard up to !M! Retained cards for 5 Block and 2 Thorns each."
-  },
-  "EXTENDED_DESCRIPTION": [
-    "This card is deprecated."
-  ]
+    "UPGRADE_DESCRIPTION": "At the end of your turn, discard up to !M! Retained cards for 5 Block and 2 Thorns each.",
+    "EXTENDED_DESCRIPTION": [
+      "This card is deprecated."
+    ]
+  }
 }

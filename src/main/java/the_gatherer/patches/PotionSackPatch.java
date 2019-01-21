@@ -16,14 +16,6 @@ public class PotionSackPatch {
 		}
 	}
 
-	@SpirePatch(clz = AbstractPlayer.class, method = "render")
-	public static class Render {
-		@SpireInsertPatch(locator = RenderLocator.class)
-		public static void Insert(AbstractPlayer __instance, SpriteBatch sb) {
-			GathererMod.potionSack.render(sb);
-		}
-	}
-
 	private static class RenderLocator extends SpireInsertLocator {
 		@Override
 		public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {

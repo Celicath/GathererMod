@@ -627,6 +627,10 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	@Override
 	public void receiveRender(SpriteBatch sb) {
+		if (AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
+				AbstractDungeon.overlayMenu != null && AbstractDungeon.overlayMenu.combatPanelsShown) {
+			GathererMod.potionSack.render(sb);
+		}
 	}
 
 	@Override
