@@ -103,7 +103,7 @@
   },
   "Gatherer:GatherMaterial": {
     "NAME": "Gather Material",
-    "DESCRIPTION": "Put !M! random card from your draw pile into your hand. Prioritizes cards not already in your hand."
+    "DESCRIPTION": "Put !M! random cards from your draw pile into your hand. Prioritizes cards not already in your hand."
   },
   "Gatherer:Pollute": {
     "NAME": "Pollute",
@@ -251,7 +251,7 @@
   },
   "Gatherer:ScentOfRosmari": {
     "NAME": "Scent of Rosmari",
-    "DESCRIPTION": "Gain !B! Block. Choose !M! cards to Retain. If they end up discarded, return them to your hand next turn."
+    "DESCRIPTION": "Gain !B! Block. Choose !M! cards. Return them to your hand from your deck next turn."
   },
   "Gatherer:ScrollOfWall": {
     "NAME": "Scroll Of Wall",
@@ -429,12 +429,15 @@
   },
   "Gatherer:AromaProtection": {
     "NAME": "Aroma Protection",
-    "DESCRIPTION": "Gain !B! Block. Add a Dazed to your discard pile."
+    "DESCRIPTION": "Gain !B! Block. NL Add a Dazed to your discard pile."
   },
   "Gatherer:LuckyClover": {
     "NAME": "Lucky Clover",
     "DESCRIPTION": "Gain 1 Dexterity for each Flower cards in your deck.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Gain 1 Dexterity for each Flower cards in your deck."
+    "UPGRADE_DESCRIPTION": "Innate. NL Gain 1 Dexterity for each Flower cards in your deck.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gains !M! Dexterity.)"
+    ]
   },
   "Gatherer:FlowerSuffix": {
     "NAME": "FlowerSuffix",

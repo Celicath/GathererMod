@@ -251,7 +251,7 @@
   },
   "Gatherer:ScentOfRosmari": {
     "NAME": "로즈마리의 향",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. 보존 할 카드 !M! 장을 선택합니다. 만약 그들이 버려진다면, 다음 턴 시작시에 내 손으로 가져옵니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. 다음 턴 시작 시 덱에서 손으로 가져올 카드를 !M! 장 선택합니다."
   },
   "Gatherer:ScrollOfWall": {
     "NAME": "벽의 스크롤",
@@ -434,7 +434,10 @@
   "Gatherer:LuckyClover": {
     "NAME": "행운의 클로버",
     "DESCRIPTION": "덱에 있는 플라워 카드 수 만큼 민첩 을 얻습니다.",
-    "UPGRADE_DESCRIPTION": "선천성 NL 덱에 있는 플라워 카드 수 만큼 민첩 을 얻습니다."
+    "UPGRADE_DESCRIPTION": "선천성 NL 덱에 있는 플라워 카드 수 만큼 민첩 을 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      " NL ( 민첩 을 !M! 얻습니다.)"
+    ]
   },
 
   "Gatherer:FlowerSuffix": {

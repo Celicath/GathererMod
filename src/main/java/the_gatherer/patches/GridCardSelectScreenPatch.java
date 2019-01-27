@@ -23,8 +23,6 @@ public class GridCardSelectScreenPatch {
 				if (hoveredCard != null && (cardChanged || !(__instance.upgradePreviewCard instanceof SpareBottle))) {
 					__instance.upgradePreviewCard = SpareBottle.makeTransformedCopy(hoveredCard);
 					__instance.upgradePreviewCard.drawScale = 0.875F;
-
-					GathererMod.logger.debug("Changed to Spare Bottle.");
 				}
 			}
 		}

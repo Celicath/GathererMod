@@ -39,7 +39,7 @@ public class ReplaceGrowBookAction extends AbstractGameAction {
 				AbstractCard[] cards = GathererMod.growBookContent.get(growBookChar);
 				for (int i = 0; i < (upgraded ? 4 : 3); i++) {
 					AbstractCard c = cards[i].makeCopy();
-					if (upgraded && i < 3)
+					if (upgraded)
 						c.upgrade();
 					group.addToTop(c);
 				}

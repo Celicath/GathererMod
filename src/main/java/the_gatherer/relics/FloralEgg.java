@@ -7,6 +7,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.FrozenEgg2;
+import com.megacrit.cardcrawl.relics.MoltenEgg2;
+import com.megacrit.cardcrawl.relics.ToxicEgg2;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import the_gatherer.GathererMod;
@@ -39,6 +42,22 @@ public class FloralEgg extends CustomRelic {
 					}
 					c.upgrade();
 				}
+			}
+		}
+	}
+
+	public void onObtainCard(AbstractCard c) {
+		if (c.hasTag(CustomTags.FLOWER)) {
+			int times = 1;
+			if (c.type == AbstractCard.CardType.ATTACK && AbstractDungeon.player.hasRelic(MoltenEgg2.ID) ||
+					c.type == AbstractCard.CardType.SKILL && AbstractDungeon.player.hasRelic(ToxicEgg2.ID) ||
+					c.type == AbstractCard.CardType.POWER && AbstractDungeon.player.hasRelic(FrozenEgg2.ID)
+			) {
+				times = 2;
+			}
+			times -= c.timesUpgraded;
+			for (int i = 0; i < times; i++) {
+				c.upgrade();
 			}
 		}
 	}

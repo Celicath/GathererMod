@@ -27,6 +27,7 @@ public class BalancedGrowth extends CustomCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
 	private static final int POWER = 1;
+	private static final int UPGRADE_BONUS = 1;
 
 	public BalancedGrowth() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -45,9 +46,7 @@ public class BalancedGrowth extends CustomCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			this.isInnate = true;
-			this.rawDescription = UPGRADE_DESCRIPTION;
-			this.initializeDescription();
+			this.upgradeMagicNumber(UPGRADE_BONUS);
 		}
 	}
 }

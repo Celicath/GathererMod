@@ -35,8 +35,7 @@ public class CursedBlade extends AbstractNumberedCard implements OnObtainEffect 
 
 	private static final int POWER = 30;
 	private static final int UPGRADE_BONUS = 5;
-	private static final int MAGIC = 30;
-	private static final int MAGIC_BONUS = 5;
+	private static final int MAGIC = 15;
 
 	public CursedBlade() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -79,7 +78,6 @@ public class CursedBlade extends AbstractNumberedCard implements OnObtainEffect 
 		if (!this.upgraded) {
 			this.upgradeName();
 			this.upgradeDamage(UPGRADE_BONUS);
-			this.upgradeMagicNumber(MAGIC_BONUS);
 			updateDescription();
 		}
 	}

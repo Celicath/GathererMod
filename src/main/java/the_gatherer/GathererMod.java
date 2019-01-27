@@ -17,13 +17,13 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.blue.Stack;
 import com.megacrit.cardcrawl.cards.blue.*;
 import com.megacrit.cardcrawl.cards.green.*;
 import com.megacrit.cardcrawl.cards.red.*;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -54,6 +54,7 @@ import the_gatherer.modules.ModLabeledButton;
 import the_gatherer.modules.PotionSack;
 import the_gatherer.patches.AbstractPlayerEnum;
 import the_gatherer.patches.CardColorEnum;
+import the_gatherer.patches.CustomTags;
 import the_gatherer.potions.*;
 import the_gatherer.powers.PoisonMasteryPower;
 import the_gatherer.powers.StoneFencePower;
@@ -72,7 +73,8 @@ public class GathererMod implements PostInitializeSubscriber,
 		OnStartBattleSubscriber, OnPowersModifiedSubscriber,
 		PostPotionUseSubscriber, PostObtainCardSubscriber,
 		PostBattleSubscriber, OnCardUseSubscriber, RenderSubscriber,
-		PreMonsterTurnSubscriber, PostUpdateSubscriber, PostEnergyRechargeSubscriber {
+		PreMonsterTurnSubscriber, PostUpdateSubscriber, PostEnergyRechargeSubscriber,
+		PostCreateStartingDeckSubscriber {
 
 	public static final Logger logger = LogManager.getLogger(GathererMod.class.getName());
 
@@ -107,6 +109,10 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	// Drug Power
 	public static AbstractPotion lastPotionUsedThisTurn = null;
+
+	// Type Count
+	public static int uniqueWithSingleCopyCount = -1;
+	public static int flowerCount = -1;
 
 	// Excess Potion
 	public static ExcessPotionHandleScreen excessPotionHandleScreen = null;
@@ -326,13 +332,13 @@ public class GathererMod implements PostInitializeSubscriber,
 		logger.debug("receiveEditRelics started.");
 		BaseMod.addRelicToCustomPool(new AlchemyBag(), CardColorEnum.GATHERER_LIME);
 		BaseMod.addRelicToCustomPool(new MiracleBag(), CardColorEnum.GATHERER_LIME);
-		BaseMod.addRelicToCustomPool(new IronSlate(), CardColorEnum.GATHERER_LIME);
-		BaseMod.addRelicToCustomPool(new SilentSlate(), CardColorEnum.GATHERER_LIME);
+		//BaseMod.addRelicToCustomPool(new IronSlate(), CardColorEnum.GATHERER_LIME);
+		//BaseMod.addRelicToCustomPool(new SilentSlate(), CardColorEnum.GATHERER_LIME);
 		BaseMod.addRelicToCustomPool(new FloralEgg(), CardColorEnum.GATHERER_LIME);
 		BaseMod.addRelicToCustomPool(new Leftovers(), CardColorEnum.GATHERER_LIME);
 		BaseMod.addRelicToCustomPool(new FlyingFruit(), CardColorEnum.GATHERER_LIME);
 		BaseMod.addRelicToCustomPool(new ExplorersPath(), CardColorEnum.GATHERER_LIME);
-		//BaseMod.addRelicToCustomPool(new ExplorersTrail(), CardColorEnum.GATHERER_LIME);
+		BaseMod.addRelicToCustomPool(new MistGenerator(), CardColorEnum.GATHERER_LIME);
 		logger.debug("receiveEditRelics finished.");
 	}
 
@@ -348,6 +354,7 @@ public class GathererMod implements PostInitializeSubscriber,
 
 		cards.add(new AcidicSpray());
 		cards.add(new AlchemyTrial());
+		cards.add(new AromaProtection());
 		cards.add(new BalancedGrowth());
 		cards.add(new BambuSword());
 		cards.add(new BigPouch());
@@ -379,13 +386,13 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new Glitched());
 		cards.add(new GlowingPlant());
 		cards.add(new GrassHammer());
-		cards.add(new GrassKnot());
 		cards.add(new GrowBook());
 		cards.add(new HeartToFruit());
 		cards.add(new Herbalism());
 		cards.add(new Light());
 		cards.add(new Liquidism());
-		cards.add(new MindSearch());
+		cards.add(new Liquidism());
+		cards.add(new LuckyClover());
 		cards.add(new MiningStrike());
 		cards.add(new Misfortune());
 		cards.add(new Nutrients());
@@ -568,33 +575,7 @@ public class GathererMod implements PostInitializeSubscriber,
 			}
 		}
 
-		ArrayList<AbstractCard> handCopy = new ArrayList<>();
-		for (AbstractCard c : AbstractDungeon.player.hand.group) {
-			if (c instanceof BlackTea) {
-				handCopy.add(c);
-			}
-		}
-		ArrayList<AbstractCard> deckCopy = new ArrayList<>();
-		for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
-			if (c instanceof BlackTea) {
-				deckCopy.add(c);
-			}
-		}
-		ArrayList<AbstractCard> discardCopy = new ArrayList<>();
-		for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
-			if (c instanceof BlackTea) {
-				discardCopy.add(c);
-			}
-		}
-		for (AbstractCard c : handCopy) {
-			AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.hand));
-		}
-		for (AbstractCard c : deckCopy) {
-			AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile));
-		}
-		for (AbstractCard c : discardCopy) {
-			AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.discardPile));
-		}
+		AbstractDungeon.player.hand.applyPowers();
 
 		ScrollOfPurity.exhaustCount = 0;
 		if (AbstractDungeon.player.hand != null) {
@@ -623,6 +604,35 @@ public class GathererMod implements PostInitializeSubscriber,
 			}
 			bottleCollector = false;
 		}
+		if (uniqueWithSingleCopyCount == -1 || flowerCount == -1) {
+			updateTypeCount();
+		}
+	}
+
+	public static void updateTypeCount() {
+		if (AbstractDungeon.player != null) {
+			flowerCount = 0;
+			HashSet<String> ids = new HashSet<>();
+			HashSet<String> idsDup = new HashSet<>();
+			for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+				String uid = getUniqueID(c);
+				if (ids.contains(uid)) {
+					idsDup.add(uid);
+				} else {
+					ids.add(uid);
+				}
+
+				if (c.hasTag(CustomTags.FLOWER)) {
+					flowerCount++;
+				}
+			}
+			uniqueWithSingleCopyCount = ids.size() - idsDup.size();
+		}
+	}
+
+	@Override
+	public void receivePostCreateStartingDeck(AbstractPlayer.PlayerClass chosenClass, CardGroup addCardsToMe) {
+		updateTypeCount();
 	}
 
 	@Override
@@ -637,6 +647,8 @@ public class GathererMod implements PostInitializeSubscriber,
 	public void receivePostObtainCard(AbstractCard card) {
 		if (card instanceof OnObtainEffect)
 			((OnObtainEffect) card).onObtain();
+		logger.debug("COUNT_TEST = " + AbstractDungeon.player.masterDeck.group.size());
+		updateTypeCount();
 	}
 
 	@Override
@@ -715,20 +727,6 @@ public class GathererMod implements PostInitializeSubscriber,
 			ids.add(getUniqueID(c));
 		}
 		return ids.size();
-	}
-
-	public static int countUniqueWithSingleCopy(Iterable<AbstractCard> group) {
-		HashSet<String> ids = new HashSet<>();
-		HashSet<String> idsDup = new HashSet<>();
-		for (AbstractCard c : group) {
-			String uid = getUniqueID(c);
-			if (ids.contains(uid)) {
-				idsDup.add(uid);
-			} else {
-				ids.add(uid);
-			}
-		}
-		return ids.size() - idsDup.size();
 	}
 
 	public static void ActivatePotionUseEffects(AbstractPotion p, boolean disableToyOrnithopter) {

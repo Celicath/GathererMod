@@ -14,13 +14,7 @@ public class LoadCardPatch {
 	public static class GetCopy {
 		@SpireInsertPatch(rloc = 14, localvars = {"retVal"})
 		public static void Insert(String key, int upgradeTime, int misc, AbstractCard retVal) {
-			if (retVal.cardID.equals(Strike_Red.ID)) {
-				GathererMod.logger.info("Strike_RED");
-				retVal.baseDamage += retVal.misc;
-			} else if (retVal.cardID.equals(Defend_Green.ID)) {
-				GathererMod.logger.info("Defend_Green");
-				retVal.baseBlock += retVal.misc;
-			} else if (retVal instanceof AbstractTaggedCard) {
+			if (retVal instanceof AbstractTaggedCard) {
 				((AbstractTaggedCard) retVal).setTag(retVal.misc);
 			}
 		}

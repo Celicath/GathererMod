@@ -32,15 +32,14 @@ public class Polymorphism extends CustomCard {
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 0;
-	private static final int UPGRADE_BONUS = 3;
-	private static final int DRAW = 1;
+	private static final int POWER = 1;
+	private static final int UPGRADE_BONUS = 1;
 
 	public Polymorphism() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-		this.baseDamage = POWER;
-		this.baseMagicNumber = DRAW;
+		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
+		this.baseDamage = 0;
 	}
 
 	private void calculateDamage() {
@@ -61,9 +60,9 @@ public class Polymorphism extends CustomCard {
 		this.isDamageModified = true;
 
 		if (isActivated()) {
-			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
+			this.rawDescription = (upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION) + EXTENDED_DESCRIPTION[1];
 		} else {
-			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
+			this.rawDescription = (upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION) + EXTENDED_DESCRIPTION[0];
 		}
 		this.initializeDescription();
 	}
@@ -74,6 +73,7 @@ public class Polymorphism extends CustomCard {
 		calculateDamage();
 		super.calculateCardDamage(mo);
 		this.baseDamage = temp;
+		this.isDamageModified = true;
 	}
 
 	private boolean isActivated() {
@@ -98,7 +98,7 @@ public class Polymorphism extends CustomCard {
 				new DamageInfo(p, this.damage, this.damageTypeForTurn),
 				AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 
-		this.rawDescription = DESCRIPTION;
+		this.rawDescription = upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION;
 		this.initializeDescription();
 	}
 
@@ -109,7 +109,7 @@ public class Polymorphism extends CustomCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			this.upgradeDamage(UPGRADE_BONUS);
+			this.upgradeMagicNumber(UPGRADE_BONUS);
 			this.rawDescription = UPGRADE_DESCRIPTION;
 			this.initializeDescription();
 		}

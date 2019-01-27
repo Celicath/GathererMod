@@ -53,7 +53,7 @@ public class MiningStrike extends CustomCard {
 		if (!upgraded) {
 			upgradeName();
 			this.upgradeDamage(UPGRADE_BONUS);
-			this.upgradeMagicNumber(DIV_BONUS);
+			this.upgradeMagicNumber(Math.max(DIV_BONUS, 5 - this.baseMagicNumber));
 		}
 	}
 }

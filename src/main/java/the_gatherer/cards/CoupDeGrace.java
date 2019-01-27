@@ -26,7 +26,7 @@ public class CoupDeGrace extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.RARE;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 10;
+	private static final int POWER = 12;
 	private static final int UPGRADE_BONUS = 4;
 
 	public CoupDeGrace() {

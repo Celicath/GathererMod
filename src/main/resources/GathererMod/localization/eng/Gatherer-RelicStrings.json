@@ -34,7 +34,7 @@
     "NAME": "Floral Egg",
     "FLAVOR": "Eggs like flowers. Or they are eggs like flowers",
     "DESCRIPTIONS": [
-      "Upon pick up, upgrade ALL your #yFlower cards. Whenever you add a Flower card to your deck, it is Upgraded."
+      "Upon pick up, #yupgrade ALL your #yFlower cards. Whenever you add a Flower card to your deck, it is #yUpgraded."
     ]
   },
   "Gatherer:Leftovers": {

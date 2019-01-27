@@ -3,6 +3,7 @@ package the_gatherer.relics;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import the_gatherer.GathererMod;
@@ -21,9 +22,8 @@ public class MiracleBag extends CustomRelic {
 
 	@Override
 	public void obtain() {
-		// Code from The-Mystic-Project.
 		if (AbstractDungeon.player.hasRelic(AlchemyBag.ID)) {
-			this.counter = 1;
+			this.counter = -1;
 			for (int i = 0; i < AbstractDungeon.player.relics.size(); ++i) {
 				if (AbstractDungeon.player.relics.get(i).relicId.equals(AlchemyBag.ID)) {
 					instantObtain(AbstractDungeon.player, i, true);
@@ -31,15 +31,23 @@ public class MiracleBag extends CustomRelic {
 				}
 			}
 		} else {
-			this.counter = 0;
+			this.counter = -2;
 			super.obtain();
 		}
 	}
 
 	@Override
+	public void setCounter(int i) {
+		super.setCounter(i);
+		description = getUpdatedDescription();
+		tips.clear();
+		tips.add(new PowerTip(name, description));
+	}
+
+	@Override
 	public void atBattleStart() {
 		AbstractPotion p;
-		if (this.counter == 1)
+		if (this.counter == -1)
 			p = AbstractDungeon.returnRandomPotion(AbstractPotion.PotionRarity.RARE, false);
 		else p = AbstractDungeon.returnRandomPotion();
 		AbstractDungeon.player.obtainPotion(p);
@@ -47,8 +55,11 @@ public class MiracleBag extends CustomRelic {
 
 	@Override
 	public String getUpdatedDescription() {
+		if (this.counter == 1)
+			this.counter = -1;
+		else this.counter = -2;
 		try {
-			if (this.counter == 1 || AbstractDungeon.player.hasRelic(AlchemyBag.ID))
+			if (this.counter == -1 || AbstractDungeon.player.hasRelic(AlchemyBag.ID))
 				return DESCRIPTIONS[1];
 			else return DESCRIPTIONS[0];
 		} catch (NullPointerException npe) {

@@ -34,7 +34,7 @@ public class DrugPower extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 12;
+	private static final int POWER = 14;
 	private static final int UPGRADE_BONUS = 4;
 
 	public DrugPower() {

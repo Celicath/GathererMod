@@ -85,7 +85,7 @@ public class EnchantAction extends AbstractGameAction {
 			int delta = 1;
 			if (c instanceof MiningStrike) {
 				delta = -1;
-				if (c.baseMagicNumber + delta <= 0)
+				if (c.baseMagicNumber + delta < 5)
 					delta = 0;
 			}
 			c.baseMagicNumber += delta;

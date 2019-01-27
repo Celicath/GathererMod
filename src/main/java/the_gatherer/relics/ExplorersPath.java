@@ -37,7 +37,7 @@ public class ExplorersPath extends CustomRelic {
 
 	@Override
 	public void onEquip() {
-		for (int i = 0; i < 2; i++)
+		for (int i = 0; i < 3; i++)
 			chooseCorrectly();
 	}
 

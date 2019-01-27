@@ -1,4 +1,4 @@
-package the_gatherer.relics;
+package the_gatherer.relics.deprecated;
 
 import basemod.abstracts.CustomRelic;
 import basemod.helpers.BaseModCardTags;

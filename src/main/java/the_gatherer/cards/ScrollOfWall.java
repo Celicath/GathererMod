@@ -53,7 +53,7 @@ public class ScrollOfWall extends CustomCard implements OnUsePotionEffect {
 
 	@Override
 	public void atTurnStart() {
-		updateDescription();
+		applyPowers();
 	}
 
 	public AbstractCard makeCopy() {
@@ -75,6 +75,18 @@ public class ScrollOfWall extends CustomCard implements OnUsePotionEffect {
 			this.rawDescription = upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION;
 		}
 		initializeDescription();
+	}
+
+	public void applyPowers() {
+		super.applyPowers();
+		boolean nowRetain = GathererMod.lastPotionUsedThisTurn != null;
+		if (retain != nowRetain) {
+			if (nowRetain) {
+				this.flash();
+			}
+			retain = nowRetain;
+		}
+		updateDescription();
 	}
 
 	@Override

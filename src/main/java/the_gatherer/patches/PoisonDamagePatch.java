@@ -5,10 +5,12 @@ import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.unique.PoisonLoseHpAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import javassist.CtBehavior;
 import the_gatherer.GathererMod;
 import the_gatherer.powers.PoisonMasteryPower;
+import the_gatherer.relics.MistGenerator;
 
 public class PoisonDamagePatch {
 	@SpirePatch(clz = PoisonLoseHpAction.class, method = "update")
@@ -23,6 +25,24 @@ public class PoisonDamagePatch {
 		@Override
 		public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
 			Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractCreature.class, "damage");
+			return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+		}
+	}
+
+	@SpirePatch(clz = PoisonLoseHpAction.class, method = "update")
+	public static class MistGenPatch {
+		@SpireInsertPatch(locator = MistGenLocator.class, localvars = {"p"})
+		public static void Insert(PoisonLoseHpAction __instance, AbstractPower p) {
+			if (p.amount <= MistGenerator.AMOUNT && AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(MistGenerator.ID)) {
+				p.amount++;
+			}
+		}
+	}
+
+	private static class MistGenLocator extends SpireInsertLocator {
+		@Override
+		public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+			Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractPower.class, "amount");
 			return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
 		}
 	}

@@ -28,13 +28,15 @@ public class CollectorsShot extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
+	int count = -1;
+
 	public CollectorsShot() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-		updateDamage();
+		updateDamage(true);
 	}
 
 	public void applyPowers() {
-		updateDamage();
+		updateDamage(true);
 		super.applyPowers();
 	}
 
@@ -42,14 +44,20 @@ public class CollectorsShot extends CustomCard {
 	public void update() {
 		super.update();
 
-		updateDamage();
+		if (count != GathererMod.uniqueWithSingleCopyCount) {
+			updateDamage(false);
+		}
 	}
 
-	private void updateDamage() {
+	private void updateDamage(boolean always) {
+		if (GathererMod.uniqueWithSingleCopyCount == -1) {
+			GathererMod.updateTypeCount();
+		}
 		if (AbstractDungeon.player != null) {
+			count = GathererMod.uniqueWithSingleCopyCount;
 			int temp = this.baseDamage;
-			this.baseDamage = GathererMod.countUniqueWithSingleCopy(AbstractDungeon.player.masterDeck.group) * (upgraded ? 4 : 3) / 2;
-			if (this.baseDamage != temp) {
+			this.baseDamage = count * (upgraded ? 4 : 3) / 2;
+			if (this.baseDamage != temp || always) {
 				this.rawDescription = (upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION) + EXTENDED_DESCRIPTION[0];
 				this.initializeDescription();
 			}
@@ -69,7 +77,7 @@ public class CollectorsShot extends CustomCard {
 			this.upgradeName();
 			this.rawDescription = UPGRADE_DESCRIPTION;
 			this.initializeDescription();
-			updateDamage();
+			updateDamage(true);
 		}
 	}
 }
