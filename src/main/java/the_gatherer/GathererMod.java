@@ -17,6 +17,7 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.blue.Stack;
@@ -573,6 +574,34 @@ public class GathererMod implements PostInitializeSubscriber,
 			if (r instanceof OnUsePotionEffect) {
 				((OnUsePotionEffect) r).onUsePotion(p);
 			}
+		}
+
+		ArrayList<AbstractCard> handCopy = new ArrayList<>();
+		for (AbstractCard c : AbstractDungeon.player.hand.group) {
+			if (c instanceof BlackTea) {
+				handCopy.add(c);
+			}
+		}
+		ArrayList<AbstractCard> deckCopy = new ArrayList<>();
+		for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
+			if (c instanceof BlackTea) {
+				deckCopy.add(c);
+			}
+		}
+		ArrayList<AbstractCard> discardCopy = new ArrayList<>();
+		for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
+			if (c instanceof BlackTea) {
+				discardCopy.add(c);
+			}
+		}
+		for (AbstractCard c : handCopy) {
+			AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.hand));
+		}
+		for (AbstractCard c : deckCopy) {
+			AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile));
+		}
+		for (AbstractCard c : discardCopy) {
+			AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.discardPile));
 		}
 
 		AbstractDungeon.player.hand.applyPowers();
