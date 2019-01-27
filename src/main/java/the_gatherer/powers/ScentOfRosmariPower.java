@@ -108,15 +108,4 @@ public class ScentOfRosmariPower extends AbstractPower {
 
 		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
 	}
-
-	@Override
-	public void atEndOfTurn(boolean isPlayer) {
-		if (isPlayer) {
-			for (AbstractCard c : AbstractDungeon.player.hand.group) {
-				if (!c.isEthereal && cardList.contains(c)) {
-					c.retain = true;
-				}
-			}
-		}
-	}
 }
