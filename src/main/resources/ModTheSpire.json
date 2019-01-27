@@ -5,9 +5,9 @@
     "Celicath"
   ],
   "credits": "MappyTheKat - Character art\nJedi - RUS translation",
-  "description": "Adds The Gatherer as a new playable character with 75 cards, 6 relics.\n\nv0.7.0\n",
+  "description": "Adds The Gatherer as a new playable character with 75 cards, 6 relics.\n\nv0.7.0 (2019-01-27)\n- 2 new cards, 1 card removed (Grass Knot)\n- Fixed bug where where Potion Sack was not visible when you play as certain characters(ex. Playable Snecko)\n- Fixed minor bugs, reduced file size, fixed potential performance issues\n- Balance pass\n\nVisit https://steamcommunity.com/sharedfiles/filedetails/changelog/1611788501 for full change notes.",
   "version": "0.7.0",
-  "sts_version": "01-17-2019",
+  "sts_version": "01-24-2019",
   "mts_version": "3.7.0",
   "dependencies": [
     "basemod",
