@@ -50,11 +50,13 @@ public class LuckyClover extends CustomCard {
 		if (GathererMod.flowerCount == -1) {
 			GathererMod.updateTypeCount();
 		}
-		if (this.baseMagicNumber != GathererMod.flowerCount) {
-			this.baseMagicNumber = GathererMod.flowerCount;
-			this.magicNumber = this.baseMagicNumber;
-			this.rawDescription = (upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION) + EXTENDED_DESCRIPTION[0];
-			this.initializeDescription();
+		if (AbstractDungeon.player != null) {
+			if (this.baseMagicNumber != GathererMod.flowerCount || always) {
+				this.baseMagicNumber = GathererMod.flowerCount;
+				this.magicNumber = this.baseMagicNumber;
+				this.rawDescription = (upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION) + EXTENDED_DESCRIPTION[0];
+				this.initializeDescription();
+			}
 		}
 	}
 

@@ -40,9 +40,6 @@ public class UpgradeBag extends CustomCard {
 
 		tooltips = new ArrayList<>();
 		tooltips.add(new Glitched());
-		AbstractCard glitchedPlus = new Glitched();
-		glitchedPlus.upgrade();
-		tooltips.add(glitchedPlus);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -65,6 +62,10 @@ public class UpgradeBag extends CustomCard {
 			upgradeName();
 			this.rawDescription = UPGRADE_DESCRIPTION;
 			this.initializeDescription();
+
+			for (AbstractCard c : tooltips) {
+				c.upgrade();
+			}
 		}
 	}
 

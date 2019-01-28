@@ -67,7 +67,7 @@
     "NAME": "Mist Generator",
     "FLAVOR": "The mist can be deadly for some creatures.",
     "DESCRIPTIONS": [
-      "The amount of Enemy's Poison is not reduced each turn if #b",
+      "The amount of enemy's Poison is not reduced each turn if #b",
       " or less."
     ]
   },

@@ -251,7 +251,7 @@
   },
   "Gatherer:ScentOfRosmari": {
     "NAME": "Scent of Rosmari",
-    "DESCRIPTION": "Gain !B! Block. Choose !M! cards. Return them to your hand from your deck next turn."
+    "DESCRIPTION": "Gain !B! Block. Choose !M! cards from your hand. Next turn, return them to your hand from your deck."
   },
   "Gatherer:ScrollOfWall": {
     "NAME": "Scroll Of Wall",
