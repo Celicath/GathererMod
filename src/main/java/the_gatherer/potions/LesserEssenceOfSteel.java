@@ -8,7 +8,9 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import javafx.util.Pair;
 import the_gatherer.GathererMod;
+import the_gatherer.actions.ChooseLesserPotionAction;
 import the_gatherer.patches.PotionRarityEnum;
 
 public class LesserEssenceOfSteel extends SackPotion {
@@ -46,5 +48,27 @@ public class LesserEssenceOfSteel extends SackPotion {
 	@Override
 	public int getBasePotency() {
 		return 2;
+	}
+
+	@Override
+	public Pair<Integer, String> getMindSearchResult() {
+		int weight = 1;
+		String thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[0];
+
+		int highest = 1;
+		if (ChooseLesserPotionAction.eliteOrBoss > 0) {
+			highest = 3 + ChooseLesserPotionAction.eliteOrBoss * 2;
+			weight += highest;
+			thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[3];
+		}
+		if (AbstractDungeon.player.hasPower(PlatedArmorPower.POWER_ID)) {
+			int now = AbstractDungeon.player.getPower(PlatedArmorPower.POWER_ID).amount * 3;
+			weight += now;
+			if (now >= highest) {
+				thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[6];
+			}
+		}
+
+		return new Pair<>(weight, thought);
 	}
 }

@@ -10,7 +10,9 @@ import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.PoisonPower;
+import javafx.util.Pair;
 import the_gatherer.GathererMod;
+import the_gatherer.actions.ChooseLesserPotionAction;
 import the_gatherer.patches.PotionRarityEnum;
 
 public class LesserPoisonPotion extends SackPotion {
@@ -47,5 +49,22 @@ public class LesserPoisonPotion extends SackPotion {
 	@Override
 	public int getBasePotency() {
 		return 4;
+	}
+
+	@Override
+	public Pair<Integer, String> getMindSearchResult() {
+		int weight = 1;
+		String thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[0];
+
+		weight += ChooseLesserPotionAction.maxPoison;
+		if (ChooseLesserPotionAction.maxPoison >= 2) {
+			thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[6];
+		}
+		if (ChooseLesserPotionAction.poisonMastery) {
+			weight += 14;
+			thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[12];
+		}
+
+		return new Pair<>(weight, thought);
 	}
 }

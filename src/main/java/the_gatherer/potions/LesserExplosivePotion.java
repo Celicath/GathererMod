@@ -13,7 +13,9 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.vfx.combat.ExplosionSmallEffect;
+import javafx.util.Pair;
 import the_gatherer.GathererMod;
+import the_gatherer.actions.ChooseLesserPotionAction;
 import the_gatherer.patches.PotionRarityEnum;
 import the_gatherer.powers.BomberFormPower;
 import the_gatherer.powers.ExplodingPower;
@@ -81,5 +83,22 @@ public class LesserExplosivePotion extends SackPotion {
 			}
 		}
 		return base;
+	}
+
+	@Override
+	public Pair<Integer, String> getMindSearchResult() {
+		int weight = 1;
+		String thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[0];
+
+		if (ChooseLesserPotionAction.enemyCount > 1) {
+			weight += ChooseLesserPotionAction.enemyCount * 2;
+			thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[7];
+		}
+		if (ChooseLesserPotionAction.lowestEnemyHP <= getPotency()) {
+			weight += 12;
+			thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[8];
+		}
+
+		return new Pair<>(weight, thought);
 	}
 }

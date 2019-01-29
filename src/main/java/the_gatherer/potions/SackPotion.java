@@ -7,7 +7,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
+import javafx.util.Pair;
 import the_gatherer.GathererMod;
+import the_gatherer.actions.ChooseLesserPotionAction;
 import the_gatherer.cards.BlackTea;
 import the_gatherer.modules.PotionSack;
 
@@ -114,5 +116,9 @@ public abstract class SackPotion extends CustomPotion {
 		SackPotion sp = (SackPotion) this.makeCopy();
 		sp.setTag(this.tag);
 		return sp;
+	}
+
+	public Pair<Integer, String> getMindSearchResult() {
+		return new Pair<>(1, ChooseLesserPotionAction.MIND_SEARCH_TEXT[0]);
 	}
 }

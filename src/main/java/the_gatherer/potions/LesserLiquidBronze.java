@@ -11,7 +11,9 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import javafx.util.Pair;
 import the_gatherer.GathererMod;
+import the_gatherer.actions.ChooseLesserPotionAction;
 import the_gatherer.patches.PotionRarityEnum;
 
 public class LesserLiquidBronze extends SackPotion {
@@ -50,5 +52,26 @@ public class LesserLiquidBronze extends SackPotion {
 	@Override
 	public int getBasePotency() {
 		return 2;
+	}
+
+	@Override
+	public Pair<Integer, String> getMindSearchResult() {
+		int weight = 1;
+		String thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[0];
+
+		weight += 4 * ChooseLesserPotionAction.enemyAttackCount;
+		if (ChooseLesserPotionAction.enemyAttackCount >= 3) {
+			thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[10];
+		}
+		if (ChooseLesserPotionAction.isBook) {
+			weight += 10;
+			thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[10];
+		}
+		if (ChooseLesserPotionAction.isBYRD) {
+			weight += 25;
+			thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[11];
+		}
+
+		return new Pair<>(weight, thought);
 	}
 }

@@ -12,7 +12,9 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
+import javafx.util.Pair;
 import the_gatherer.GathererMod;
+import the_gatherer.actions.ChooseLesserPotionAction;
 import the_gatherer.patches.PotionRarityEnum;
 
 public class LesserDexterityPotion extends SackPotion {
@@ -50,5 +52,22 @@ public class LesserDexterityPotion extends SackPotion {
 	@Override
 	public int getBasePotency() {
 		return 1;
+	}
+
+	@Override
+	public Pair<Integer, String> getMindSearchResult() {
+		int weight = 1;
+		String thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[0];
+
+		if (ChooseLesserPotionAction.skillCount > 0) {
+			thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[3];
+			weight += ChooseLesserPotionAction.skillCount;
+		}
+		if (ChooseLesserPotionAction.balancedGrowth) {
+			thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[4];
+			weight += 8;
+		}
+
+		return new Pair<>(weight, thought);
 	}
 }

@@ -398,6 +398,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new Liquidism());
 		cards.add(new Liquidism());
 		cards.add(new LuckyClover());
+		cards.add(new MindSearch());
 		cards.add(new MiningStrike());
 		cards.add(new Misfortune());
 		cards.add(new Nutrients());

@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import javafx.util.Pair;
 import the_gatherer.GathererMod;
 import the_gatherer.cards.BalancedGrowth;
 import the_gatherer.cards.FeelingFine;
@@ -48,6 +49,25 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 	private boolean upgraded;
 
 	public static ArrayList<SackPotion> potionList;
+
+	// These values can used in getMindSearchResult() of SackPotion.
+	// You don't NEED to use these; feel free to use your own calculations.
+	public static int enemyCount;
+	public static int enemyAttackCount;
+	public static int unweakenedDamage;
+	public static int totalDamage;
+	public static int lowestEnemyHP;
+	public static boolean nonVulnerable;
+	public static int maxPoison;
+	public static boolean isBYRD;
+	public static boolean isBook;
+	public static int skillCount;
+	public static int attackCount;
+	public static int totalCost;
+	public static boolean poisonMastery;
+	public static boolean feelingFine;
+	public static boolean balancedGrowth;
+	public static int eliteOrBoss;
 
 	static {
 		for (int i = 0; i < MIND_SEARCH_TEXT.length; i++) {
@@ -111,217 +131,109 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 							group.addToTop(new LesserPotionOption(sp, sp.description));
 						}
 					} else {
-						for (SackPotion sp : potionList) {
-							int enemyCount = 0;
-							int enemyAttackCount = 0;
-							int unweakenedDamage = 0;
-							int totalDamage = 0;
-							int lowestEnemyHP = 999;
-							boolean nonVulnerable = false;
-							int maxPoison = 0;
-							boolean isBYRD = false;
-							boolean isBook = false;
+						enemyCount = 0;
+						enemyAttackCount = 0;
+						unweakenedDamage = 0;
+						totalDamage = 0;
+						lowestEnemyHP = 999;
+						nonVulnerable = false;
+						maxPoison = 0;
+						isBYRD = false;
+						isBook = false;
+						skillCount = 0;
+						attackCount = 0;
+						totalCost = 0;
+						poisonMastery = p.hasPower(PoisonMasteryPower.POWER_ID);
+						feelingFine = p.hasPower(FeelingFinePower.POWER_ID);
+						balancedGrowth = p.hasPower(BalancedGrowthPower.POWER_ID);
+						eliteOrBoss = 0;
 
-							int eliteOrBoss = 0;
+						for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+							if (!m.halfDead && !m.isDying && !m.isEscaping) {
+								enemyCount++;
 
-							for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-								if (!m.halfDead && !m.isDying && !m.isEscaping) {
-									enemyCount++;
+								if (m.id.equals(Byrd.ID))
+									isBYRD = true;
+								else if (m.id.equals(BookOfStabbing.ID))
+									isBook = true;
+								if (m.type == AbstractMonster.EnemyType.ELITE)
+									eliteOrBoss = 1;
+								else if (m.type == AbstractMonster.EnemyType.BOSS)
+									eliteOrBoss = 2;
 
-									if (m.id.equals(Byrd.ID))
-										isBYRD = true;
-									else if (m.id.equals(BookOfStabbing.ID))
-										isBook = true;
-									if (m.type == AbstractMonster.EnemyType.ELITE)
-										eliteOrBoss = 1;
-									else if (m.type == AbstractMonster.EnemyType.BOSS)
-										eliteOrBoss = 2;
-
-									if (!m.hasPower(VulnerablePower.POWER_ID)) {
-										nonVulnerable = true;
+								if (!m.hasPower(VulnerablePower.POWER_ID)) {
+									nonVulnerable = true;
+								}
+								if (m.hasPower(PoisonPower.POWER_ID)) {
+									int amt = m.getPower(PoisonPower.POWER_ID).amount;
+									if (amt > maxPoison)
+										maxPoison = amt;
+								}
+								if (m.intent == AbstractMonster.Intent.ATTACK || m.intent == AbstractMonster.Intent.ATTACK_BUFF || m.intent == AbstractMonster.Intent.ATTACK_DEBUFF || m.intent == AbstractMonster.Intent.ATTACK_DEFEND) {
+									int damage = (int) ReflectionHacks.getPrivate(m, AbstractMonster.class, "intentBaseDmg");
+									int mult = 1;
+									if ((boolean) ReflectionHacks.getPrivate(m, AbstractMonster.class, "isMultiDmg")) {
+										mult = (int) ReflectionHacks.getPrivate(m, AbstractMonster.class, "intentMultiAmt");
 									}
-									if (m.hasPower(PoisonPower.POWER_ID)) {
-										int amt = m.getPower(PoisonPower.POWER_ID).amount;
-										if (amt > maxPoison)
-											maxPoison = amt;
-									}
-									if (m.intent == AbstractMonster.Intent.ATTACK || m.intent == AbstractMonster.Intent.ATTACK_BUFF || m.intent == AbstractMonster.Intent.ATTACK_DEBUFF || m.intent == AbstractMonster.Intent.ATTACK_DEFEND) {
-										int damage = (int) ReflectionHacks.getPrivate(m, AbstractMonster.class, "intentBaseDmg");
-										int mult = 1;
-										if ((boolean) ReflectionHacks.getPrivate(m, AbstractMonster.class, "isMultiDmg")) {
-											mult = (int) ReflectionHacks.getPrivate(m, AbstractMonster.class, "intentMultiAmt");
-										}
-										damage *= mult;
-										enemyAttackCount += mult;
+									damage *= mult;
+									enemyAttackCount += mult;
 
-										totalDamage += damage;
-										if (!m.hasPower(WeakPower.POWER_ID) && unweakenedDamage < damage) {
-											unweakenedDamage = damage;
-										}
-									}
-									if (lowestEnemyHP > m.currentHealth + m.currentBlock) {
-										lowestEnemyHP = m.currentHealth + m.currentBlock;
+									totalDamage += damage;
+									if (!m.hasPower(WeakPower.POWER_ID) && unweakenedDamage < damage) {
+										unweakenedDamage = damage;
 									}
 								}
+								if (lowestEnemyHP > m.currentHealth + m.currentBlock) {
+									lowestEnemyHP = m.currentHealth + m.currentBlock;
+								}
 							}
+						}
 
-							int skillCount = 0;
-							int attackCount = 0;
-							int totalCost = 0;
-							boolean poisonMastery = p.hasPower(PoisonMasteryPower.POWER_ID);
-							boolean feelingFine = p.hasPower(FeelingFinePower.POWER_ID);
-							boolean balancedGrowth = p.hasPower(BalancedGrowthPower.POWER_ID);
-							for (AbstractCard c : p.hand.group) {
-								if (c.type == AbstractCard.CardType.SKILL) skillCount++;
-								else if (c.type == AbstractCard.CardType.ATTACK) attackCount++;
+						for (AbstractCard c : p.hand.group) {
+							if (c.type == AbstractCard.CardType.SKILL) skillCount++;
+							else if (c.type == AbstractCard.CardType.ATTACK) attackCount++;
 
-								totalCost += c.costForTurn;
-								if (c instanceof PoisonMastery)
-									poisonMastery = true;
-								else if (c instanceof FeelingFine)
-									feelingFine = true;
-								else if (c instanceof BalancedGrowth)
-									balancedGrowth = true;
-							}
-							for (AbstractCard c : p.drawPile.group) {
-								if (c instanceof PoisonMastery)
-									poisonMastery = true;
-								else if (c instanceof FeelingFine)
-									feelingFine = true;
-								else if (c instanceof BalancedGrowth)
-									balancedGrowth = true;
-							}
+							totalCost += c.costForTurn;
+							if (c instanceof PoisonMastery)
+								poisonMastery = true;
+							else if (c instanceof FeelingFine)
+								feelingFine = true;
+							else if (c instanceof BalancedGrowth)
+								balancedGrowth = true;
+						}
+						for (AbstractCard c : p.drawPile.group) {
+							if (c instanceof PoisonMastery)
+								poisonMastery = true;
+							else if (c instanceof FeelingFine)
+								feelingFine = true;
+							else if (c instanceof BalancedGrowth)
+								balancedGrowth = true;
+						}
 
-							int weight = 1;
+						for (SackPotion sp : potionList) {
+							Pair<Integer, String> result = sp.getMindSearchResult();
+							int weight = result.getKey();
+							String thought = result.getValue();
+
 							int highest = weight;
-							String thought = MIND_SEARCH_TEXT[0];
 
 							if (sp instanceof LesserBlockPotion) {
-								int now = totalDamage - p.currentBlock;
-								if (now > 0) {
-									thought = MIND_SEARCH_TEXT[1];
-									weight += Math.min(now, 8);
-								}
-								if (p.currentHealth <= p.maxHealth / 5) {
-									thought = MIND_SEARCH_TEXT[2];
-									weight += 10;
-								}
 							} else if (sp instanceof LesserDexterityPotion) {
-								if (skillCount > 0) {
-									thought = MIND_SEARCH_TEXT[3];
-									weight += skillCount;
-								}
-								if (balancedGrowth) {
-									thought = MIND_SEARCH_TEXT[4];
-									weight += 8;
-								}
 							} else if (sp instanceof LesserEnergyPotion) {
-								weight += totalCost * 2;
-								if (totalCost >= 4) {
-									thought = MIND_SEARCH_TEXT[5];
-								}
+
 							} else if (sp instanceof LesserEssenceOfSteel) {
-								if (eliteOrBoss > 0) {
-									highest = 3 + eliteOrBoss * 2;
-									weight += highest;
-									thought = MIND_SEARCH_TEXT[3];
-								}
-								if (p.hasPower(PlatedArmorPower.POWER_ID)) {
-									int now = p.getPower(PlatedArmorPower.POWER_ID).amount * 3;
-									weight += now;
-									if (now >= highest) {
-										thought = MIND_SEARCH_TEXT[6];
-									}
-								}
 							} else if (sp instanceof LesserExplosivePotion) {
-								if (enemyCount > 1) {
-									weight += enemyCount * 2;
-									thought = MIND_SEARCH_TEXT[7];
-								}
-								if (lowestEnemyHP <= sp.getPotency()) {
-									weight += 12;
-									thought = MIND_SEARCH_TEXT[8];
-								}
+
 							} else if (sp instanceof LesserFearPotion) {
-								if (enemyCount == 1 && nonVulnerable) {
-									weight += eliteOrBoss * 3 + 4;
-									thought = MIND_SEARCH_TEXT[9];
-								}
 							} else if (sp instanceof LesserFirePotion) {
-								weight++;
-								if (lowestEnemyHP <= sp.getPotency()) {
-									weight += 14;
-									thought = MIND_SEARCH_TEXT[8];
-								}
 							} else if (sp instanceof LesserLiquidBronze) {
-								weight += 4 * enemyAttackCount;
-								if (enemyAttackCount >= 3) {
-									thought = MIND_SEARCH_TEXT[10];
-								}
-								if (isBook) {
-									weight += 10;
-									thought = MIND_SEARCH_TEXT[10];
-								}
-								if (isBYRD) {
-									weight += 25;
-									thought = MIND_SEARCH_TEXT[11];
-								}
 							} else if (sp instanceof LesserPoisonPotion) {
-								weight += maxPoison;
-								if (maxPoison >= 2) {
-									thought = MIND_SEARCH_TEXT[6];
-								}
-								if (poisonMastery) {
-									weight += 14;
-									thought = MIND_SEARCH_TEXT[12];
-								}
 							} else if (sp instanceof LesserPowerPotion) {
-								if (eliteOrBoss > 0) {
-									weight += eliteOrBoss * 3 + 5;
-									thought = MIND_SEARCH_TEXT[13];
-								}
 							} else if (sp instanceof LesserSpeedPotion) {
-								if (skillCount > 0) {
-									thought = MIND_SEARCH_TEXT[17];
-									weight += skillCount * 2;
-								}
-								if (feelingFine) {
-									thought = MIND_SEARCH_TEXT[19];
-									weight += 12;
-								}
 							} else if (sp instanceof LesserSteroidPotion) {
-								if (attackCount > 0) {
-									thought = MIND_SEARCH_TEXT[18];
-									weight += attackCount * 2;
-								}
-								if (feelingFine) {
-									thought = MIND_SEARCH_TEXT[19];
-									weight += 12;
-								}
 							} else if (sp instanceof LesserStrengthPotion) {
-								if (attackCount > 0) {
-									thought = MIND_SEARCH_TEXT[14];
-									weight += attackCount;
-								}
-								if (balancedGrowth) {
-									thought = MIND_SEARCH_TEXT[4];
-									weight += 8;
-								}
 							} else if (sp instanceof LesserSwiftPotion) {
-								weight += EnergyPanel.totalCount * 4;
-								if (EnergyPanel.totalCount > 1) {
-									thought = MIND_SEARCH_TEXT[15];
-								}
 							} else if (sp instanceof LesserWeakPotion) {
-								if (eliteOrBoss > 0) {
-									weight += eliteOrBoss * 3 + 2;
-									thought = MIND_SEARCH_TEXT[16];
-								}
-								weight += unweakenedDamage / 4;
-								if (unweakenedDamage >= 20) {
-									weight += 2;
-									thought = MIND_SEARCH_TEXT[16];
-								}
 							}
 							if (!upgraded) {
 								weight += 2;

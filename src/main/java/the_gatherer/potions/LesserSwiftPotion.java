@@ -6,7 +6,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import javafx.util.Pair;
 import the_gatherer.GathererMod;
+import the_gatherer.actions.ChooseLesserPotionAction;
 import the_gatherer.patches.PotionRarityEnum;
 
 public class LesserSwiftPotion extends SackPotion {
@@ -41,5 +44,18 @@ public class LesserSwiftPotion extends SackPotion {
 	@Override
 	public int getBasePotency() {
 		return 2;
+	}
+
+	@Override
+	public Pair<Integer, String> getMindSearchResult() {
+		int weight = 1;
+		String thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[0];
+
+		weight += EnergyPanel.totalCount * 4;
+		if (EnergyPanel.totalCount > 1) {
+			thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[15];
+		}
+
+		return new Pair<>(weight, thought);
 	}
 }

@@ -12,7 +12,9 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import javafx.util.Pair;
 import the_gatherer.GathererMod;
+import the_gatherer.actions.ChooseLesserPotionAction;
 import the_gatherer.patches.PotionRarityEnum;
 
 public class LesserSteroidPotion extends SackPotion {
@@ -52,5 +54,22 @@ public class LesserSteroidPotion extends SackPotion {
 	@Override
 	public int getBasePotency() {
 		return 3;
+	}
+
+	@Override
+	public Pair<Integer, String> getMindSearchResult() {
+		int weight = 1;
+		String thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[0];
+
+		if (ChooseLesserPotionAction.attackCount > 0) {
+			thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[18];
+			weight += ChooseLesserPotionAction.attackCount * 2;
+		}
+		if (ChooseLesserPotionAction.feelingFine) {
+			thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[19];
+			weight += 12;
+		}
+
+		return new Pair<>(weight, thought);
 	}
 }
