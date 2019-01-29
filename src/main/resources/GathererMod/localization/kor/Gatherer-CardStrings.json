@@ -251,7 +251,7 @@
   },
   "Gatherer:ScentOfRosmari": {
     "NAME": "로즈마리의 향",
-    "DESCRIPTION": "방어도 를 !B! 얻습니다. NL 다음 턴에 덱에서 손으로 가져올 카드를 손에서 !M! 장 선택합니다."
+    "DESCRIPTION": "방어도 를 !B! 얻습니다. NL 보존 할 카드를 !M! 장 선택합니다. 이들 중 버려진 카드는 다음 턴 시작 시 손으로 가져옵니다."
   },
   "Gatherer:ScrollOfWall": {
     "NAME": "벽의 스크롤",
