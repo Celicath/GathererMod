@@ -427,7 +427,7 @@
     "NAME": "Мастерство яда",
     "DESCRIPTION": "Даёт Малое_Зелье_Отравления. NL Урон от Яда повышен на 100%."
   },
-    "Gatherer:AromaProtection": {
+  "Gatherer:AromaProtection": {
     "NAME": "Ароматный Барьер",
     "DESCRIPTION": "Даёт !B! Защиты. Добавляет Головокружение в стопку сброса."
   },
@@ -466,9 +466,9 @@
     "NAME": "Травяной узелок",
     "DESCRIPTION": "В конце хода вы можете сбросить до !M! Оставленной карты. NL Каждая такая карта даёт 5 Защиты и 2 Шипов.",
     "UPGRADE_DESCRIPTION": "В конце хода вы можете сбросить до !M! Оставленных карт. NL Каждая такая карта даёт 5 Защиты и 2 Шипов.",
-	"EXTENDED_DESCRIPTION": [
-    "This card is deprecated."
-  ]
+    "EXTENDED_DESCRIPTION": [
+      "This card is deprecated."
+    ]
   }
 }
 

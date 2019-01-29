@@ -60,7 +60,7 @@
     ]
   },
   "Gatherer:ObtainLesserPotionAction": {
-	"TEXT": [
+    "TEXT": [
       "В Сумке нет места! Давай используем ",
       "."
     ]

@@ -1,12 +1,9 @@
 package the_gatherer.patches;
 
-import com.evacipated.cardcrawl.modthespire.lib.*;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.SoulGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.vfx.FastCardObtainEffect;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
-import javassist.CtBehavior;
 import the_gatherer.GathererMod;
 import the_gatherer.modules.CaseMod;
 import the_gatherer.relics.ExplorersPath;

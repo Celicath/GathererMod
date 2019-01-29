@@ -35,6 +35,7 @@ import com.megacrit.cardcrawl.potions.BloodPotion;
 import com.megacrit.cardcrawl.potions.GhostInAJar;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
+import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.ToyOrnithopter;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -115,8 +116,11 @@ public class GathererMod implements PostInitializeSubscriber,
 	public static int uniqueWithSingleCopyCount = -1;
 	public static int flowerCount = -1;
 
-	// Excess Potion
+	// Excess Potion (Not used now)
 	public static ExcessPotionHandleScreen excessPotionHandleScreen = null;
+
+	// Potion RNG
+	public static Random lesserPotionObtainRNG = new Random();
 
 	public static void setLastPotionUsedThisTurn(AbstractPotion p) {
 		logger.debug("Last potion used: " + (p == null ? "null" : p.name));
@@ -503,6 +507,9 @@ public class GathererMod implements PostInitializeSubscriber,
 	@Override
 	public void receiveOnBattleStart(AbstractRoom room) {
 		logger.debug("receiveOnBattleStart started.");
+
+		lesserPotionObtainRNG = new Random(Settings.seed, AbstractDungeon.cardRandomRng.counter + AbstractDungeon.floorNum * 100);
+
 		playedCardsCombat = new HashSet<>();
 		potionSack.removeAllPotions();
 		potionSack.hide();
@@ -545,7 +552,6 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	@Override
 	public void receivePowersModified() {
-		logger.debug("receivePowersModified started.");
 		for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
 			PoisonPower pp = (PoisonPower) monster.getPower(PoisonPower.POWER_ID);
 			if (pp != null) {
@@ -565,7 +571,6 @@ public class GathererMod implements PostInitializeSubscriber,
 				}
 			}
 		}
-		logger.debug("receivePowersModified finished.");
 	}
 
 	@Override
@@ -717,7 +722,7 @@ public class GathererMod implements PostInitializeSubscriber,
 	}
 
 	public static SackPotion returnRandomLesserPotion() {
-		SackPotion sp = lesserPotionPool.get(AbstractDungeon.potionRng.random.nextInt(lesserPotionPool.size()));
+		SackPotion sp = lesserPotionPool.get(lesserPotionObtainRNG.random.nextInt(lesserPotionPool.size()));
 		return (SackPotion) sp.makeCopy();
 	}
 

@@ -1,6 +1,5 @@
 package the_gatherer.actions;
 
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -49,7 +48,7 @@ public class ObtainLesserPotionAction extends AbstractGameAction {
 					}
 				}
 				if (!GathererMod.potionSack.addPotion(this.potion)) {
-					AbstractDungeon.effectList.add(new SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 1.8f,
+					AbstractDungeon.effectList.add(new SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0f,
 							TEXT[0] + this.potion.name + TEXT[1], true));
 
 					ArrayList<AbstractMonster> tmp = new ArrayList<>();
@@ -59,7 +58,7 @@ public class ObtainLesserPotionAction extends AbstractGameAction {
 						}
 					}
 					if (tmp.size() > 0) {
-						AbstractCreature target = tmp.get(MathUtils.random(0, tmp.size() - 1));
+						AbstractCreature target = tmp.get(AbstractDungeon.cardRandomRng.random(tmp.size() - 1));
 						PotionSackPopUp.usePotionInSack(target, potion);
 					}
 				}

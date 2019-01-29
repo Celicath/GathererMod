@@ -17,6 +17,7 @@ public class DeckChangeHook {
 			}
 		}
 	}
+
 	@SpirePatch(clz = NoteForYourself.class, method = "buttonEffect")
 	public static class NoteForYourselfPatch {
 		public static void Postfix(NoteForYourself __instance, int buttonPressed) {
@@ -25,6 +26,7 @@ public class DeckChangeHook {
 			}
 		}
 	}
+
 	@SpirePatch(clz = CardCrawlGame.class, method = "loadPlayerSave")
 	public static class LoadPatch {
 		public static void Postfix(CardCrawlGame CardCrawlGame, AbstractPlayer p) {
