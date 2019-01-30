@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import javassist.CtBehavior;
 import the_gatherer.GathererMod;
+import the_gatherer.actions.ActivateExhaustEffectsAction;
 import the_gatherer.cards.ScrollOfWall;
 
 public class ScrollOfWallPatch {
@@ -51,17 +52,7 @@ public class ScrollOfWallPatch {
 		}
 
 		public static void exhaustIncomingCard(AbstractGameEffect age, AbstractCard c) {
-			GathererMod.logger.debug("EXHAUST");
-			for (AbstractRelic r : AbstractDungeon.player.relics) {
-				r.onExhaust(c);
-			}
-
-			for (AbstractPower p : AbstractDungeon.player.powers) {
-				p.onExhaust(c);
-			}
-
-			c.triggerOnExhaust();
-
+			AbstractDungeon.actionManager.addToTop(new ActivateExhaustEffectsAction(c));
 			c.unhover();
 			c.untip();
 			c.stopGlowing();

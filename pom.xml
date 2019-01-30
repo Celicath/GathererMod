@@ -3,11 +3,11 @@
 
     <groupId>gatherermod</groupId>
     <artifactId>gatherermod</artifactId>
-    <version>v0.7.3</version>
+    <version>v0.7.4</version>
     <packaging>jar</packaging>
 
     <name>GathererMod</name>
-    <description>Adds a new character called The Gatherer, who is all-out for potions.</description>
+    <description>Adds a new character called The Gatherer, who focuses on lesser potions and adaptation.</description>
 
     <dependencies>
         <dependency>

@@ -14,18 +14,17 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.city.BookOfStabbing;
 import com.megacrit.cardcrawl.monsters.city.Byrd;
 import com.megacrit.cardcrawl.potions.PotionSlot;
-import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import javafx.util.Pair;
 import the_gatherer.GathererMod;
 import the_gatherer.cards.BalancedGrowth;
 import the_gatherer.cards.FeelingFine;
 import the_gatherer.cards.LesserPotionOption;
 import the_gatherer.cards.PoisonMastery;
-import the_gatherer.potions.*;
+import the_gatherer.potions.LesserExplosivePotion;
+import the_gatherer.potions.SackPotion;
 import the_gatherer.powers.BalancedGrowthPower;
 import the_gatherer.powers.BomberFormPower;
 import the_gatherer.powers.FeelingFinePower;
@@ -215,26 +214,6 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 							int weight = result.getKey();
 							String thought = result.getValue();
 
-							int highest = weight;
-
-							if (sp instanceof LesserBlockPotion) {
-							} else if (sp instanceof LesserDexterityPotion) {
-							} else if (sp instanceof LesserEnergyPotion) {
-
-							} else if (sp instanceof LesserEssenceOfSteel) {
-							} else if (sp instanceof LesserExplosivePotion) {
-
-							} else if (sp instanceof LesserFearPotion) {
-							} else if (sp instanceof LesserFirePotion) {
-							} else if (sp instanceof LesserLiquidBronze) {
-							} else if (sp instanceof LesserPoisonPotion) {
-							} else if (sp instanceof LesserPowerPotion) {
-							} else if (sp instanceof LesserSpeedPotion) {
-							} else if (sp instanceof LesserSteroidPotion) {
-							} else if (sp instanceof LesserStrengthPotion) {
-							} else if (sp instanceof LesserSwiftPotion) {
-							} else if (sp instanceof LesserWeakPotion) {
-							}
 							if (!upgraded) {
 								weight += 2;
 							}
