@@ -434,7 +434,7 @@
   "Gatherer:LuckyClover": {
     "NAME": "행운의 클로버",
     "DESCRIPTION": "덱에 있는 플라워 카드 수 만큼 민첩 을 얻습니다.",
-    "UPGRADE_DESCRIPTION": "선천성 NL 덱에 있는 플라워 카드 수 만큼 민첩 을 얻습니다.",
+    "UPGRADE_DESCRIPTION": "덱에 있는 플라워 카드 수 만큼 민첩 을 얻습니다.",
     "EXTENDED_DESCRIPTION": [
       " NL ( 민첩 을 !M! 얻습니다.)"
     ]

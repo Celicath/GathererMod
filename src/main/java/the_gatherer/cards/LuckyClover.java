@@ -18,7 +18,7 @@ public class LuckyClover extends CustomCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
-	private static final int COST = 1;
+	private static final int COST = 2;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
@@ -26,6 +26,7 @@ public class LuckyClover extends CustomCard {
 	private static final CardColor COLOR = CardColorEnum.GATHERER_LIME;
 	private static final CardRarity RARITY = CardRarity.RARE;
 	private static final CardTarget TARGET = CardTarget.SELF;
+	private static final int NEW_COST = 1;
 
 	int count = -1;
 
@@ -47,7 +48,8 @@ public class LuckyClover extends CustomCard {
 			GathererMod.updateTypeCount();
 		}
 		if (AbstractDungeon.player != null) {
-			if (this.baseMagicNumber != GathererMod.flowerCount || always) {
+			if (count != GathererMod.flowerCount || always) {
+				count = GathererMod.flowerCount;
 				this.baseMagicNumber = GathererMod.flowerCount;
 				this.magicNumber = this.baseMagicNumber;
 				this.rawDescription = (upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION) + EXTENDED_DESCRIPTION[0];
@@ -74,7 +76,7 @@ public class LuckyClover extends CustomCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
-			this.isInnate = true;
+			this.upgradeBaseCost(NEW_COST);
 			this.rawDescription = UPGRADE_DESCRIPTION;
 			this.initializeDescription();
 			updatePower(true);

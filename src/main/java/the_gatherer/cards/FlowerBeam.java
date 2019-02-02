@@ -56,9 +56,28 @@ public class FlowerBeam extends CustomCard {
 		AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_MAGIC_BEAM_SHORT", 0.5F));
 		AbstractDungeon.actionManager.addToBottom(new VFXAction(new BorderFlashEffect(Color.SKY)));
 		AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmallLaserEffect(m.hb.cX, m.hb.cY, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.3F));
-		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+		DamageInfo info = new DamageInfo(p, this.baseDamage, this.damageTypeForTurn);
+		info.applyPowers(p, m);
+		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, info, AbstractGameAction.AttackEffect.NONE));
 		AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlowerBeamFollowUpEffect(m.hb.cX, m.hb.cY), FlowerBeamFollowUpEffect.EFFECT_DUR_CARD));
 		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+	}
+
+	@Override
+	public void calculateCardDamage(AbstractMonster mo) {
+		int before = this.damage;
+		super.calculateCardDamage(mo);
+
+		int aliveMonsters = 0;
+		for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+			if ((!m.isDying) && (m.currentHealth > 0)) {
+				aliveMonsters++;
+			}
+		}
+
+		if (aliveMonsters != 1) {
+			this.damage = before;
+		}
 	}
 
 	@Override
