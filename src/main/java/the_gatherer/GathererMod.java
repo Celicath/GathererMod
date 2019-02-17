@@ -582,34 +582,6 @@ public class GathererMod implements PostInitializeSubscriber,
 			}
 		}
 
-		ArrayList<AbstractCard> handCopy = new ArrayList<>();
-		for (AbstractCard c : AbstractDungeon.player.hand.group) {
-			if (c instanceof BlackTea) {
-				handCopy.add(c);
-			}
-		}
-		ArrayList<AbstractCard> deckCopy = new ArrayList<>();
-		for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
-			if (c instanceof BlackTea) {
-				deckCopy.add(c);
-			}
-		}
-		ArrayList<AbstractCard> discardCopy = new ArrayList<>();
-		for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
-			if (c instanceof BlackTea) {
-				discardCopy.add(c);
-			}
-		}
-		for (AbstractCard c : handCopy) {
-			AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.hand));
-		}
-		for (AbstractCard c : deckCopy) {
-			AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile));
-		}
-		for (AbstractCard c : discardCopy) {
-			AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.discardPile));
-		}
-
 		AbstractDungeon.player.hand.applyPowers();
 
 		ScrollOfPurity.exhaustCount = 0;

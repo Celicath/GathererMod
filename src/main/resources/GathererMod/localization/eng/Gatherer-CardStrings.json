@@ -61,7 +61,7 @@
   },
   "Gatherer:Frenzy": {
     "NAME": "Frenzy",
-    "DESCRIPTION": "Deal !D! damage. Apply !M! Vulnerable. Add 2 Dazed to your discard pile."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Add 2 Dazed to your discard pile."
   },
   "Gatherer:GrassHammer": {
     "NAME": "Grass Hammer",
@@ -226,8 +226,8 @@
   },
   "Gatherer:Herbalism": {
     "NAME": "Herbalism",
-    "DESCRIPTION": "Gain [E] for each card in your hand that costs 2 or more.",
-    "UPGRADE_DESCRIPTION": "Gain [E] for each card in your hand that costs 2 or more. If there's none, gain [E]",
+    "DESCRIPTION": "Gain [E] for each card in your hand that costs 2 or more, to a maximum of 2 energy.",
+    "UPGRADE_DESCRIPTION": "Gain [E] for each card in your hand that costs 2 or more.",
     "EXTENDED_DESCRIPTION": [
       " NL (Gain ",
       " energy.)"
@@ -356,11 +356,7 @@
   },
   "Gatherer:BlackTea": {
     "NAME": "Black Tea",
-    "DESCRIPTION": "Gain < !M! - Round > Strength. Using any Potion Exhausts ALL Black Tea from your deck.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Gain ",
-      " Strength.)"
-    ]
+    "DESCRIPTION": "Gain !M! Strength. NL Lose 1 Dexterity. NL Startup: Gain a random Lesser Potion."
   },
   "Gatherer:Examine": {
     "NAME": "Examine",

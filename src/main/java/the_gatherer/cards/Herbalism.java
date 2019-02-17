@@ -28,6 +28,7 @@ public class Herbalism extends CustomCard {
 	private static final CardTarget TARGET = CardTarget.SELF;
 
 	private static final int THRESHOLD = 2;
+	private static final int UNUPGRADE_MAX = 2;
 
 	public Herbalism() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -41,8 +42,8 @@ public class Herbalism extends CustomCard {
 				this.baseMagicNumber++;
 			}
 		}
-		if (upgraded && this.baseMagicNumber == 0)
-			this.baseMagicNumber = 1;
+		if (!upgraded && this.baseMagicNumber > UNUPGRADE_MAX)
+			this.baseMagicNumber = UNUPGRADE_MAX;
 		this.magicNumber = this.baseMagicNumber;
 		super.applyPowers();
 

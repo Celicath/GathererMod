@@ -23,7 +23,7 @@ public class FlowerPower extends CustomCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
-	private static final int COST = 2;
+	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final CardType TYPE = CardType.POWER;
@@ -32,6 +32,7 @@ public class FlowerPower extends CustomCard {
 	private static final CardTarget TARGET = CardTarget.SELF;
 
 	private static final int MAGIC = 2;
+	private static final int NEW_COST = 0;
 
 	public FlowerPower() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -84,7 +85,7 @@ public class FlowerPower extends CustomCard {
 		if (timesUpgraded < 3) {
 			++this.timesUpgraded;
 			if (timesUpgraded == 3)
-				this.upgradeBaseCost(1);
+				this.upgradeBaseCost(NEW_COST);
 			this.upgraded = true;
 			this.name = NAME + "+" + this.timesUpgraded;
 			this.initializeTitle();

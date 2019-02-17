@@ -26,7 +26,7 @@ public class AromaProtection extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 11;
+	private static final int POWER = 12;
 	private static final int UPGRADE_BONUS = 4;
 
 	public AromaProtection() {

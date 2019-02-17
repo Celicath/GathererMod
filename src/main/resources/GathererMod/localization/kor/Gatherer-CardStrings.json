@@ -226,8 +226,8 @@
   },
   "Gatherer:Herbalism": {
     "NAME": "약초학",
-    "DESCRIPTION": "내 손에 있는 비용이 2 이상인 카드 하나당 [E] 를 얻습니다.",
-    "UPGRADE_DESCRIPTION": "내 손에 있는 비용이 2 이상인 카드 하나당 [E] 를 얻습니다. 하나도 없다면 [E] 를 얻습니다.",
+    "DESCRIPTION": "내 손에 있는 비용이 2 이상인 카드 하나당 [E] 를 최대 2까지 얻습니다.",
+    "UPGRADE_DESCRIPTION": "내 손에 있는 비용이 2 이상인 카드 하나당 [E] 를 얻습니다.",
     "EXTENDED_DESCRIPTION": [
       " NL (에너지를 ",
       " 얻습니다.)"
@@ -356,11 +356,7 @@
   },
   "Gatherer:BlackTea": {
     "NAME": "홍차",
-    "DESCRIPTION": "< !M! - 라운드 > 만큼 힘 을 얻습니다. 포션을 사용하면 모든 위치의 홍차가 소멸 됩니다.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (힘을 ",
-      " 얻습니다.)"
-    ]
+    "DESCRIPTION": "힘 을 !M! 얻습니다. NL 민첩 을 1 잃습니다. NL 구동: 무작위 소형포션 을 얻습니다."
   },
   "Gatherer:Examine": {
     "NAME": "조사",
