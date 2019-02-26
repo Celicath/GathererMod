@@ -17,7 +17,6 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.blue.Stack;
@@ -738,7 +737,7 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	public static void ActivatePotionUseEffects(AbstractPotion p, boolean disableToyOrnithopter) {
 		for (AbstractRelic relic : AbstractDungeon.player.relics) {
-			if (!disableToyOrnithopter || relic.relicId.equals(ToyOrnithopter.ID)) {
+			if (!disableToyOrnithopter || !relic.relicId.equals(ToyOrnithopter.ID)) {
 				relic.onUsePotion();
 			}
 		}
