@@ -2,9 +2,7 @@ package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
-import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -15,11 +13,12 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ObtainLesserPotionAction;
+import the_gatherer.interfaces.MyStartupCard;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.patches.CustomTags;
 import the_gatherer.potions.SackPotion;
 
-public class BlackTea extends CustomCard implements StartupCard {
+public class BlackTea extends CustomCard implements MyStartupCard {
 	private static final String RAW_ID = "BlackTea";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -33,8 +32,8 @@ public class BlackTea extends CustomCard implements StartupCard {
 	private static final CardRarity RARITY = CardRarity.RARE;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 3;
-	private static final int UPGRADE_BONUS = 1;
+	private static final int POWER = 4;
+	private static final int NEW_COST = 0;
 
 	public BlackTea() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -45,7 +44,7 @@ public class BlackTea extends CustomCard implements StartupCard {
 	}
 
 	@Override
-	public boolean atBattleStartPreDraw() {
+	public boolean myAtBattleStartPreDraw() {
 		SackPotion p = GathererMod.returnRandomLesserPotion();
 		AbstractDungeon.actionManager.addToBottom(new ObtainLesserPotionAction(p, true));
 		return true;
@@ -67,7 +66,7 @@ public class BlackTea extends CustomCard implements StartupCard {
 		if (!this.upgraded) {
 			this.upgradeName();
 
-			this.upgradeMagicNumber(UPGRADE_BONUS);
+			this.upgradeBaseCost(NEW_COST);
 		}
 	}
 }

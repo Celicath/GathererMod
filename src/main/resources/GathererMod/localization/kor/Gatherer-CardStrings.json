@@ -356,7 +356,7 @@
   },
   "Gatherer:BlackTea": {
     "NAME": "홍차",
-    "DESCRIPTION": "힘 을 !M! 얻습니다. NL 민첩 을 1 잃습니다. NL 구동: 무작위 소형포션 을 얻습니다."
+    "DESCRIPTION": "힘 을 !M! 얻습니다. NL 민첩 을 1 잃습니다. NL 개전: 무작위 소형포션 을 얻습니다."
   },
   "Gatherer:Examine": {
     "NAME": "조사",

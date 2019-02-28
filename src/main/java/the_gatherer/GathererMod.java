@@ -40,6 +40,7 @@ import com.megacrit.cardcrawl.relics.ToyOrnithopter;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import the_gatherer.actions.ScrollOfPurityFollowUpAction;
@@ -47,6 +48,7 @@ import the_gatherer.cards.*;
 import the_gatherer.cards.Helper.AbstractNumberedCard;
 import the_gatherer.cards.Helper.AbstractTaggedCard;
 import the_gatherer.character.TheGatherer;
+import the_gatherer.interfaces.MyStartupCard;
 import the_gatherer.interfaces.OnObtainEffect;
 import the_gatherer.interfaces.OnUsePotionEffect;
 import the_gatherer.interfaces.PostObtainCardSubscriber;
@@ -509,6 +511,21 @@ public class GathererMod implements PostInitializeSubscriber,
 		logger.debug("receiveOnBattleStart started.");
 
 		lesserPotionObtainRNG = new Random(Settings.seed, AbstractDungeon.cardRandomRng.counter + AbstractDungeon.floorNum * 100);
+		CardGroup[] cardGroups = new CardGroup[]{
+				AbstractDungeon.player.drawPile,
+				AbstractDungeon.player.hand,
+				AbstractDungeon.player.discardPile,
+				AbstractDungeon.player.exhaustPile
+		};
+		for (CardGroup cardGroup : cardGroups) {
+			for (AbstractCard c : cardGroup.group) {
+				if (c instanceof MyStartupCard) {
+					if (((MyStartupCard) c).myAtBattleStartPreDraw()) {
+						AbstractDungeon.effectList.add(0, new ShowCardBrieflyEffect(c.makeStatEquivalentCopy()));
+					}
+				}
+			}
+		}
 
 		playedCardsCombat = new HashSet<>();
 		potionSack.removeAllPotions();
