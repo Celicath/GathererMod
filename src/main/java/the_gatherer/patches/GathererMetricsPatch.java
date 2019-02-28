@@ -18,7 +18,7 @@ public class GathererMetricsPatch {
 
 		public static void Prefix(Metrics __instance, @ByRef String[] url, String fileName) {
 			if (AbstractDungeon.player.chosenClass == AbstractPlayerEnum.THE_GATHERER) {
-				url[0] = "http://35.185.169.207:13007/upload";
+				url[0] = "http://35.185.169.207:14007/upload";
 			}
 		}
 	}
