@@ -18,15 +18,6 @@ public class MistGenerator extends CustomRelic {
 	}
 
 	@Override
-	public void atBattleStart() {
-		AbstractPotion p;
-		if (this.counter == 1)
-			p = AbstractDungeon.returnRandomPotion(AbstractPotion.PotionRarity.RARE, false);
-		else p = AbstractDungeon.returnRandomPotion();
-		AbstractDungeon.player.obtainPotion(p);
-	}
-
-	@Override
 	public String getUpdatedDescription() {
 		return DESCRIPTIONS[0] + AMOUNT + DESCRIPTIONS[1];
 	}

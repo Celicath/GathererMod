@@ -5,8 +5,8 @@
     "Celicath"
   ],
   "credits": "MappyTheKat - Character art\nJedi - RUS translation",
-  "description": "Adds The Gatherer as a new playable character with 75 cards, 6 relics.\n\nv0.8.0 (2019-03-01)\n- Fixed bug where Toy Ornithoper healed you when you use Lesser Potions.\n- Aroma Protection: Block increased 11(15) -> 12(16)\n- Herbalism\n  - Unupgraded Herbalism now gives maximum of 2 energy.\n  - Upgrade Herbalism no longer gives you energy when there's no 2+ cost card in your hand.\n- Flower Power: Cost reduced by 1 on all upgrade levels; now costs 1 normally and 0 when fully upgraded\n- Black Tea: Rework - Cost 1(0). Gain 4 Strength. Lose 1 Dexterity. Startup: Gain a random Lesser Potion.\n- Pick Ratio for Explorer's Path updated.\n\nVisit https://steamcommunity.com/sharedfiles/filedetails/changelog/1611788501 for full change notes.",
-"version": "0.8.0",
+  "description": "Adds The Gatherer as a new playable character with 75 cards, 7 relics.\n\nv0.8.0 (2019-03-01)\n- Fixed bug where Toy Ornithoper healed you when you use Lesser Potions.\n- Aroma Protection: Block increased 11(15) -> 12(16)\n- Herbalism\n  - Unupgraded Herbalism now gives maximum of 2 energy.\n  - Upgrade Herbalism no longer gives you energy when there's no 2+ cost card in your hand.\n- Flower Power: Cost reduced by 1 on all upgrade levels; now costs 1 normally and 0 when fully upgraded\n- Black Tea: Rework - Cost 1(0). Gain 4 Strength. Lose 1 Dexterity. Startup: Gain a random Lesser Potion.\n- Pick Ratio for Explorer's Path updated.\n\nv0.8.1 (2019-03-01)\n- Fixed bug where Mist Generator was giving you a rare potion each combat.\n\nVisit https://steamcommunity.com/sharedfiles/filedetails/changelog/1611788501 for full change notes.",
+  "version": "0.8.1",
   "sts_version": "01-23-2019",
   "mts_version": "3.7.0",
   "dependencies": [
