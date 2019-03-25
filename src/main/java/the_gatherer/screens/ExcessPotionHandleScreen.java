@@ -189,7 +189,7 @@ public class ExcessPotionHandleScreen extends HandCardSelectScreen {
 
 	@Override
 	public void render(SpriteBatch sb) {
-		sb.setColor(Color.WHITE);
+		sb.setColor(Color.WHITE.cpy());
 
 		FontHelper.renderFontCentered(sb, FontHelper.buttonLabelFont, this.message, Settings.WIDTH / 2.0f, Settings.HEIGHT - 180.0F * Settings.scale, Settings.CREAM_COLOR);
 
@@ -214,7 +214,7 @@ public class ExcessPotionHandleScreen extends HandCardSelectScreen {
 		}
 
 		// Renders the name of the potion
-		FontHelper.renderFontLeft(sb, FontHelper.tipBodyFont, potion.name, potion.posX + textXOffset, potion.posY + textYOffset, Color.WHITE);
+		FontHelper.renderFontLeft(sb, FontHelper.tipBodyFont, potion.name, potion.posX + textXOffset, potion.posY + textYOffset, Color.WHITE.cpy());
 
 		int i = 0;
 		for (Hitbox hb : hbs) {
@@ -238,9 +238,9 @@ public class ExcessPotionHandleScreen extends HandCardSelectScreen {
 				if (potion.isThrown) {
 					label = THROW_LABEL;
 				}
-				FontHelper.renderFontCentered(sb, FontHelper.topPanelAmountFont, label, hbs[0].cX, hbs[0].cY + dy, Color.WHITE);
+				FontHelper.renderFontCentered(sb, FontHelper.topPanelAmountFont, label, hbs[0].cX, hbs[0].cY + dy, Color.WHITE.cpy());
 			} else {
-				FontHelper.renderFontCentered(sb, FontHelper.topPanelAmountFont, DISCARD_LABEL, hbs[1].cX, hbs[1].cY + dy, Color.WHITE);
+				FontHelper.renderFontCentered(sb, FontHelper.topPanelAmountFont, DISCARD_LABEL, hbs[1].cX, hbs[1].cY + dy, Color.WHITE.cpy());
 			}
 			i++;
 		}

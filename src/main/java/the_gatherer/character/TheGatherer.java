@@ -116,7 +116,7 @@ public class TheGatherer extends CustomPlayer {
 
 	@Override
 	public Color getCardTrailColor() {
-		return Color.LIME;
+		return Color.LIME.cpy();
 	}
 
 	@Override
@@ -157,7 +157,7 @@ public class TheGatherer extends CustomPlayer {
 
 	@Override
 	public Color getSlashAttackColor() {
-		return Color.LIME;
+		return Color.LIME.cpy();
 	}
 
 	@Override
@@ -167,7 +167,7 @@ public class TheGatherer extends CustomPlayer {
 
 	@Override
 	public Color getCardRenderColor() {
-		return Color.LIME;
+		return Color.LIME.cpy();
 	}
 
 	@Override

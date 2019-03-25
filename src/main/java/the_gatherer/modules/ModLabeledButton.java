@@ -31,7 +31,7 @@ public class ModLabeledButton implements IUIElement {
 
 	@Override
 	public void render(SpriteBatch sb) {
-		text.color = (toggle.hb.hovered ? Color.YELLOW : Settings.CREAM_COLOR);
+		text.color = (toggle.hb.hovered ? Color.YELLOW.cpy() : Settings.CREAM_COLOR);
 
 		toggle.render(sb);
 		text.render(sb);

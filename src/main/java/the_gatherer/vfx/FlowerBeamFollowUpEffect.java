@@ -85,7 +85,7 @@ public class FlowerBeamFollowUpEffect extends AbstractGameEffect {
 
 	@Override
 	public void render(SpriteBatch sb) {
-		sb.setColor(Color.WHITE);
+		sb.setColor(Color.WHITE.cpy());
 		for (int i = 0; i < curPos.size(); i++) {
 			switch (frames.get(i)) {
 				case 0:

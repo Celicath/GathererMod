@@ -151,7 +151,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		CaseMod.subscribe(this);
 
 		BaseMod.addColor(CardColorEnum.GATHERER_LIME,
-				Color.LIME, Color.LIME, Color.LIME, Color.LIME, Color.LIME, Color.LIME, Color.LIME,
+				Color.LIME.cpy(), Color.LIME.cpy(), Color.LIME.cpy(), Color.LIME.cpy(), Color.LIME.cpy(), Color.LIME.cpy(), Color.LIME.cpy(),
 				"GathererMod/img/cardui/512/bg_attack_lime.png",
 				"GathererMod/img/cardui/512/bg_skill_lime.png",
 				"GathererMod/img/cardui/512/bg_power_lime.png",

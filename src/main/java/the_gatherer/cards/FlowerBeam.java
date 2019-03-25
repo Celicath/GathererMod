@@ -54,7 +54,7 @@ public class FlowerBeam extends CustomCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_MAGIC_BEAM_SHORT", 0.5F));
-		AbstractDungeon.actionManager.addToBottom(new VFXAction(new BorderFlashEffect(Color.SKY)));
+		AbstractDungeon.actionManager.addToBottom(new VFXAction(new BorderFlashEffect(Color.SKY.cpy())));
 		AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmallLaserEffect(m.hb.cX, m.hb.cY, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.3F));
 		DamageInfo info = new DamageInfo(p, this.baseDamage, this.damageTypeForTurn);
 		info.applyPowers(p, m);

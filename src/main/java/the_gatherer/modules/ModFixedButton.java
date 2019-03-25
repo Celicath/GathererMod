@@ -51,9 +51,9 @@ public class ModFixedButton implements IUIElement {
 
 	public void render(SpriteBatch sb) {
 		if (this.hb.hovered) {
-			sb.setColor(Color.CYAN);
+			sb.setColor(Color.CYAN.cpy());
 		} else {
-			sb.setColor(Color.WHITE);
+			sb.setColor(Color.WHITE.cpy());
 		}
 		sb.draw(texture, x, y, w * Settings.scale, h * Settings.scale);
 		hb.render(sb);

@@ -313,7 +313,7 @@ public class PotionSackPopUp {
 
 	public void render(SpriteBatch sb) {
 		if (!this.isHidden) {
-			sb.setColor(Color.WHITE);
+			sb.setColor(Color.WHITE.cpy());
 			sb.draw(ImageMaster.POTION_UI_SHADOW, this.x - RAW_W / 2.0F, this.y - RAW_H / 2.0F, RAW_W / 2.0F, RAW_H / 2.0F, RAW_W, RAW_H, Settings.scale, Settings.scale, 0.0F, 0, 0, RAW_W, RAW_H, false, potionSackPopupFlipped);
 			sb.draw(ImageMaster.POTION_UI_BG, this.x - RAW_W / 2.0F, this.y - RAW_H / 2.0F, RAW_W / 2.0F, RAW_H / 2.0F, RAW_W, RAW_H, Settings.scale, Settings.scale, 0.0F, 0, 0, RAW_W, RAW_H, false, potionSackPopupFlipped);
 			if (this.hbTop.hovered || highlightTop) {
@@ -325,7 +325,7 @@ public class PotionSackPopUp {
 			sb.draw(ImageMaster.POTION_UI_OVERLAY, this.x - RAW_W / 2.0F, this.y - RAW_H / 2.0F, RAW_W / 2.0F, RAW_H / 2.0F, RAW_W, RAW_H, Settings.scale, Settings.scale, 0.0F, 0, 0, RAW_W, RAW_H, false, potionSackPopupFlipped);
 			Color c = Settings.CREAM_COLOR;
 			if (!this.potion.canUse() || AbstractDungeon.isScreenUp) {
-				c = Color.GRAY;
+				c = Color.GRAY.cpy();
 			}
 
 			if (this.potion instanceof FruitJuice) {
@@ -344,7 +344,7 @@ public class PotionSackPopUp {
 			}
 
 			FontHelper.renderFontCenteredWidth(sb, FontHelper.topPanelInfoFont, label, this.x, this.y + (potionSackPopupFlipped ? -35.0F : 55.0F) * Settings.scale, c);
-			FontHelper.renderFontCenteredWidth(sb, FontHelper.topPanelInfoFont, DISCARD_LABEL, this.x, this.y + (potionSackPopupFlipped ? 22.0F : -2.0f) * Settings.scale, Color.SALMON);
+			FontHelper.renderFontCenteredWidth(sb, FontHelper.topPanelInfoFont, DISCARD_LABEL, this.x, this.y + (potionSackPopupFlipped ? 22.0F : -2.0f) * Settings.scale, Color.SALMON.cpy());
 			this.hbTop.render(sb);
 			this.hbBot.render(sb);
 			if (this.hbTop.hovered) {
