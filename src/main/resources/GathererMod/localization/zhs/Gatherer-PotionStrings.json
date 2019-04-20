@@ -1,0 +1,162 @@
+{
+  "Gatherer:LesserBlockPotion": {
+    "NAME": "次级格挡药水",
+    "DESCRIPTIONS": [
+      "获得 #b",
+      " 点 #y格挡 。"
+    ]
+  },
+  "Gatherer:LesserDexterityPotion": {
+    "NAME": "次级敏捷药水",
+    "DESCRIPTIONS": [
+      "获得 #b",
+      " 点 #y敏捷 。"
+    ]
+  },
+  "Gatherer:LesserEnergyPotion": {
+    "NAME": "次级能量药水",
+    "DESCRIPTIONS": [
+      "获得 #b",
+      " 点能量。"
+    ]
+  },
+  "Gatherer:LesserEssenceOfSteel": {
+    "NAME": "次级钢之精华",
+    "DESCRIPTIONS": [
+      "获得 #b",
+      " 层 #y多层护甲 。"
+    ]
+  },
+  "Gatherer:LesserExplosivePotion": {
+    "NAME": "次级爆炸药水",
+    "DESCRIPTIONS": [
+      "对所有敌人造成 #b",
+      " 点伤害。"
+    ]
+  },
+  "Gatherer:LesserFearPotion": {
+    "NAME": "次级恐惧药水",
+    "DESCRIPTIONS": [
+      "给予 #b",
+      " 层 #y易伤 。"
+    ]
+  },
+  "Gatherer:LesserFirePotion": {
+    "NAME": "次级火焰药水",
+    "DESCRIPTIONS": [
+      "造成 #b",
+      " 点伤害。"
+    ]
+  },
+  "Gatherer:LesserLiquidBronze": {
+    "NAME": "次级流动铜液",
+    "DESCRIPTIONS": [
+      "获得 #b",
+      " 点 #y荆棘 。"
+    ]
+  },
+  "Gatherer:LesserPoisonPotion": {
+    "NAME": "次级毒药水",
+    "DESCRIPTIONS": [
+      "给予 #b",
+      " 层 #y中毒 。"
+    ]
+  },
+  "Gatherer:LesserPowerPotion": {
+    "NAME": "次级能力药水",
+    "DESCRIPTIONS": [
+      "向你的手牌加入 #b",
+      " 随机 #y能力 牌，在本回合耗能变为 #b0 。"
+    ]
+  },
+  "Gatherer:LesserRegenPotion": {
+    "NAME": "次级再生药水",
+    "DESCRIPTIONS": [
+      "获得 #b",
+      " 层 #y再生 。",
+    ]
+  },
+  "Gatherer:LesserStrengthPotion": {
+    "NAME": "次级力量药水",
+    "DESCRIPTIONS": [
+      "获得 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "Gatherer:LesserSpeedPotion": {
+    "NAME": "次级速度药水",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " 点 #y敏捷 。在你的回合结束时，失去 #b",
+      " 点 #y敏捷 。"
+    ]
+  },
+  "Gatherer:LesserSteroidPotion": {
+    "NAME": "次级类固醇药水",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " 点 #y力量 。在你的回合结束时，失去 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "Gatherer:LesserSwiftPotion": {
+    "NAME": "次级迅捷药水",
+    "DESCRIPTIONS": [
+      "抽 #b",
+      " 张牌。"
+    ]
+  },
+  "Gatherer:LesserWeakPotion": {
+    "NAME": "次级虚弱药水",
+    "DESCRIPTIONS": [
+      "给予 #b",
+      " 层 #y虚弱 。"
+    ]
+  },
+  "Gatherer:RecoveryPotion": {
+    "NAME": "回复药水",
+    "DESCRIPTIONS": [
+      "回复 #b",
+      "% 已失去的生命。"
+    ]
+  },
+  "Gatherer:RecoveryPotionPlus": {
+    "NAME": "回复药水+",
+    "DESCRIPTIONS": [
+      "回复 #b",
+      "% 已失去的生命。"
+    ]
+  },
+  "Gatherer:RetainPotion": {
+    "NAME": "保留药水",
+    "DESCRIPTIONS": [
+      "在本回合保留你的手牌"
+    ]
+  },
+  "Gatherer:BlackTeaTag": {
+    "NAME": "<红茶> 标签",
+    "DESCRIPTIONS": [
+      "Exhausts ALL Black Tea when used."
+    ]
+  },
+  "Gatherer:PlaceHolderPotion": {
+    "NAME": "空位",
+    "DESCRIPTIONS": [
+      "只是一个药水栏空位。"
+    ]
+  },
+  "Gatherer:LesserAttackPotion": {
+    "NAME": "次级攻击药水",
+    "DESCRIPTIONS": [
+      "向你的手牌加入 #b",
+      " 随机 #y攻击 牌，在本回合耗能变为 #b0 。"
+    ]
+  },
+  "Gatherer:LesserSkillPotion": {
+    "NAME": "次级技能药水",
+    "DESCRIPTIONS": [
+      "向你的手牌加入 #b",
+      " 随机 #y技能 牌，在本回合耗能变为 #b0 。"
+    ]
+  }
+}

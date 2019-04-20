@@ -1,0 +1,109 @@
+{
+  "Gatherer:CentralizeAction": {
+    "TEXT": [
+      "选择一张牌： 升级 并加入你的手牌。.",
+      "选择两张牌： 升级 并加入你的手牌。"
+    ]
+  },
+  "Gatherer:PotionSack": {
+    "TEXT": [
+      "你小袋里面的药水只能携带3瓶，并且不能保留其他战斗中。 #y玩具扑翼飞机 也不能因这里的药水而起效。 NL #b拖拽： 移动位置  NL #b右键：垂直翻转",
+      "小袋"
+    ]
+  },
+  "Gatherer:SaveValuablesAction": {
+    "TEXT": [
+      "选择 ",
+      " 张牌加入你的牌组。"
+    ]
+  },
+  "Gatherer:DiscardPileToTopOfDeckAction": {
+    "TEXT": [
+      "选择一张牌放到你的抽牌堆顶部。"
+    ]
+  },
+  "Gatherer:BambuSwordAction": {
+    "TEXT": [
+      "打出"
+    ]
+  },
+  "Gatherer:TransmuteAction": {
+    "TEXT": [
+      "变化"
+    ]
+  },
+  "Gatherer:ExamineAction": {
+    "TEXT": [
+      "打出"
+    ]
+  },
+  "Gatherer:ScrollOfPurityAction": {
+    "TEXT": [
+      "消耗",
+      "消耗并抽 "
+    ]
+  },
+  "Gatherer:ScentOfRosmariAction": {
+    "TEXT": [
+      "超级保留"
+    ]
+  },
+  "Gatherer:EnchantAction": {
+    "TEXT": [
+      "附魔"
+    ]
+  },
+  "Gatherer:ChooseLesserPotionAction": {
+    "TEXT": [
+      "选择哪瓶药水作为原型",
+      "选择两瓶药水以获得"
+    ]
+  },
+  "Gatherer:ReplaceGrowBookAction": {
+    "TEXT": [
+      "选择替换成长之数的牌： "
+    ]
+  },
+  "Gatherer:MindSearchAction": {
+    "TEXT": [
+      "(这瓶药水可能会有帮助。)",
+      "(我想挡掉伤害。)",
+      "(我的血量有点少啊。)",
+      "(我想要能长期的防御。)",
+      "(我现在已经均衡成长了)",
+      "(我有好多牌啊。)",
+      "(这个留着更好。)",
+      "(这里有好几个敌人啊。)",
+      "(我能用这个击杀一名敌人。)",
+      "(让我们快速击杀这名敌人。)",
+      "(太有效了。)",
+      "(他们是异鸟！)",
+      "(我精通毒药。)",
+      "(我想要一些能力。)",
+      "(我想要能长期的攻击。)",
+      "(我有充足的能量。)",
+      "(敌人太强了。)",
+      "(我已经有很多技能牌了。)",
+      "(我已经有很多攻击牌了。)",
+      "(我感觉好多了。)",
+      "(我是轰炸机！)",
+      "(我在爆炸形态！)",
+      "(爆炸吧！)",
+      "(我看见了爆炸的威力！)",
+      "(我只能看见这个！)"
+    ]
+  },
+  "Gatherer:ExcessPotionHandleAction": {
+    "TEXT": [
+      "使用或丢弃这个溢出了的药水。",
+      "使用或丢弃这些溢出了的药水。",
+      " 随机选择目标."
+    ]
+  },
+  "Gatherer:ObtainLesserPotionAction": {
+    "TEXT": [
+      "我的小袋满了！用掉 ",
+      "吧。"
+    ]
+  }
+}
