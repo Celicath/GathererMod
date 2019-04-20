@@ -9,8 +9,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class ActivateExhaustEffectsAction extends AbstractGameAction {
-	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("Gatherer:BambuSwordAction");
-	public static final String[] TEXT = uiStrings.TEXT;
 	AbstractCard c;
 
 	public ActivateExhaustEffectsAction(AbstractCard c) {

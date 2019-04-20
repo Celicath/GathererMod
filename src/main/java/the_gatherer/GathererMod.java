@@ -162,10 +162,6 @@ public class GathererMod implements PostInitializeSubscriber,
 				"GathererMod/img/cardui/1024/card_lime_orb.png",
 				"GathererMod/img/cardui/512/card_lime_small_orb.png");
 
-		gathererDefaults.setProperty("phoenixStart", "FALSE");
-		gathererDefaults.setProperty("contentSharing", "TRUE");
-		gathererDefaults.setProperty("contentSharing_potions", "TRUE");
-		gathererDefaults.setProperty("overheatedBETA", "FALSE");
 		loadConfig();
 
 		logger.debug("Constructor finished.");
