@@ -70,7 +70,7 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 
 	static {
 		for (int i = 0; i < MIND_SEARCH_TEXT.length; i++) {
-			MIND_SEARCH_TEXT[i] = MIND_SEARCH_TEXT[i].replaceAll("(?<=\\s|^)(?=\\S)", "[#f8e8a0]");
+			MIND_SEARCH_TEXT[i] = MIND_SEARCH_TEXT[i].replaceAll("(?<=\\s|^)(\\S+)(?=\\s|$)", "[#f8e8a0]$1[]");
 		}
 	}
 
