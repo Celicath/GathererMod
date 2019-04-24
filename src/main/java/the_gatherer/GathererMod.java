@@ -75,7 +75,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		EditStringsSubscriber, SetUnlocksSubscriber, EditKeywordsSubscriber,
 		OnStartBattleSubscriber, OnPowersModifiedSubscriber,
 		PostPotionUseSubscriber, PostObtainCardSubscriber,
-		PostBattleSubscriber, OnCardUseSubscriber, RenderSubscriber,
+		PostBattleSubscriber, OnCardUseSubscriber,
 		PreMonsterTurnSubscriber, PostUpdateSubscriber, PostEnergyRechargeSubscriber,
 		PostCreateStartingDeckSubscriber {
 
@@ -662,14 +662,6 @@ public class GathererMod implements PostInitializeSubscriber,
 	@Override
 	public void receivePostCreateStartingDeck(AbstractPlayer.PlayerClass chosenClass, CardGroup addCardsToMe) {
 		updateTypeCount();
-	}
-
-	@Override
-	public void receiveRender(SpriteBatch sb) {
-		if (AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
-				AbstractDungeon.overlayMenu != null && AbstractDungeon.overlayMenu.combatPanelsShown) {
-			GathererMod.potionSack.render(sb);
-		}
 	}
 
 	@Override

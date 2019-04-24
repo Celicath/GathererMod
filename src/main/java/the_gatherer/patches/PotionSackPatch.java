@@ -1,33 +1,27 @@
 package the_gatherer.patches;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.evacipated.cardcrawl.modthespire.lib.*;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.ui.panels.TopPanel;
-import javassist.CtBehavior;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import the_gatherer.GathererMod;
 
 public class PotionSackPatch {
 	@SpirePatch(clz = AbstractPlayer.class, method = "combatUpdate")
-	public static class Update {
+	public static class PotionSaceUpdatePatch {
 		@SpirePostfixPatch
 		public static void Postfix(AbstractPlayer __instance) {
 			GathererMod.potionSack.update();
 		}
 	}
 
-	private static class RenderLocator extends SpireInsertLocator {
-		@Override
-		public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
-			Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractPlayer.class, "renderHealth");
-			return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
-		}
-	}
-
-	@SpirePatch(clz = TopPanel.class, method = "render")
-	public static class UiRender {
+	@SpirePatch(clz = EnergyPanel.class, method = "renderOrb")
+	public static class PotionSackRenderPatch {
 		@SpirePrefixPatch
-		public static void Prefix(TopPanel __instance, SpriteBatch sb) {
+		public static void Prefix(EnergyPanel __instance, SpriteBatch sb) {
+			GathererMod.potionSack.render(sb);
 			GathererMod.potionSack.potionUi.render(sb);
 		}
 	}
