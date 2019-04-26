@@ -732,7 +732,7 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	public static String getUniqueID(AbstractCard c) {
 		if (c instanceof AbstractTaggedCard) {
-			return c.cardID + " " + ((AbstractTaggedCard) c).getTagName(c.misc);
+			return c.cardID + "|Tag=" + c.misc;
 		} else {
 			return c.cardID;
 		}
