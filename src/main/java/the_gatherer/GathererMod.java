@@ -275,13 +275,13 @@ public class GathererMod implements PostInitializeSubscriber,
 		potionSack = new PotionSack();
 		excessPotionHandleScreen = new ExcessPotionHandleScreen();
 
-		addGrowBookContent("Iron", new AbstractCard[]{
+		addGrowBookContent(GrowBook.EXTENDED_DESCRIPTION[7], new AbstractCard[]{
 				new Armaments(), new Havoc(), new TwinStrike(), new Feed()
 		});
-		addGrowBookContent("Silent", new AbstractCard[]{
+		addGrowBookContent(GrowBook.EXTENDED_DESCRIPTION[8], new AbstractCard[]{
 				new Choke(), new WellLaidPlans(), new PoisonedStab(), new Alchemize()
 		});
-		addGrowBookContent("Defect", new AbstractCard[]{
+		addGrowBookContent(GrowBook.EXTENDED_DESCRIPTION[9], new AbstractCard[]{
 				new Stack(), new SteamBarrier(), new AllForOne(), new Seek()
 		});
 

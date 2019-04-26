@@ -22,7 +22,12 @@
   },
   "Gatherer:SpareBottle": {
     "NAME": "Spare Bottle",
-    "DESCRIPTION": "Whenever you use a Potion, gain !M! Block and deal !M! damage to a random enemy."
+    "DESCRIPTION": "Whenever you use a Potion, gain !M! Block and deal !M! damage to a random enemy.",
+    "EXTENDED_DESCRIPTION": [
+      "Norm",
+      "Silv",
+      "Gold"
+    ]
   },
   "Gatherer:AcidicSpray": {
     "NAME": "Acidic Spray",
@@ -135,7 +140,9 @@
     "NAME": "Duality",
     "DESCRIPTION": "Deal !D! damage. Retain. When Retained, its tag switches between <ATK> and <DEF>.",
     "EXTENDED_DESCRIPTION": [
-      "Gain !B! Block. Retain. When Retained, its tag switches between <ATK> and <DEF>."
+      "Gain !B! Block. Retain. When Retained, its tag switches between <ATK> and <DEF>.",
+      "ATK",
+      "DEF"
     ]
   },
   "Gatherer:EchoOfNature": {
@@ -184,7 +191,8 @@
       " NL Apply !M! Weak.",
       " NL Apply !M! Vulnerable.",
       " NL Apply !M! Poison.",
-      " NL [#C0B0C0](Each [#D0C8D0]Rotten [#D0C8D0]Stipe [#D0C8D0]has [#D0C8D0]randomly [#D0C8D0]chosen [#D0C8D0]damage [#D0C8D0]and [#D0C8D0]debuff.)"
+      " NL [#C0B0C0](Each [#D0C8D0]Rotten [#D0C8D0]Stipe [#D0C8D0]has [#D0C8D0]randomly [#D0C8D0]chosen [#D0C8D0]damage [#D0C8D0]and [#D0C8D0]debuff.)",
+      "T"
     ]
   },
   "Gatherer:SealedBomb": {
@@ -372,7 +380,10 @@
       " NL After playing 1 more time, permanently replace this with",
       " an Ironclad card.",
       " a Silent card.",
-      " a Defect card."
+      " a Defect card.",
+      "Iron",
+      "Silent",
+      "Defect"
     ]
   },
   "Gatherer:MindSearch": {

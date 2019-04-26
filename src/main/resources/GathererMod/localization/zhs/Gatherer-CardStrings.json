@@ -22,7 +22,12 @@
   },
   "Gatherer:SpareBottle": {
     "NAME": "备用药瓶",
-    "DESCRIPTION": "每当你使用了一瓶药水，获得 !M! 点 格挡 并对随机一名敌人造成 !M! 点伤害。"
+    "DESCRIPTION": "每当你使用了一瓶药水，获得 !M! 点 格挡 并对随机一名敌人造成 !M! 点伤害。",
+    "EXTENDED_DESCRIPTION": [
+      "Norm",
+      "Silv",
+      "Gold"
+    ]
   },
   "Gatherer:AcidicSpray": {
     "NAME": "酸性喷雾",
@@ -135,7 +140,9 @@
     "NAME": "二元",
     "DESCRIPTION": "造成 !D! 点伤害。 保留 。 当 保留 时，他的属性在 <ATK> 和 <DEF> 之间切换。",
     "EXTENDED_DESCRIPTION": [
-      "获得 !B! 点 格挡 。 保留 。 当 保留 时，他的属性在 <ATK> 和 <DEF> 之间切换。"
+      "获得 !B! 点 格挡 。 保留 。 当 保留 时，他的属性在 <ATK> 和 <DEF> 之间切换。",
+      "ATK",
+      "DEF"
     ]
   },
   "Gatherer:EchoOfNature": {
@@ -184,7 +191,8 @@
       " NL 给予 !M! 层 虚弱 。",
       " NL 给予 !M! 层 易伤 。",
       " NL 给予 !M! 层 中毒 。",
-      " NL （每张 腐朽菌柄 ，将会随机选择伤害或是不良状态。）"
+      " NL （每张 腐朽菌柄 ，将会随机选择伤害或是不良状态。）",
+      "T"
     ]
   },
   "Gatherer:SealedBomb": {
@@ -372,7 +380,10 @@
       " NL 打出 1 次后，永久替换为 ",
       " 一张铁甲战士牌。",
       " 一张静默猎手牌。",
-      " 一张故障机器人牌。"
+      " 一张故障机器人牌。",
+      "Iron",
+      "Silent",
+      "Defect"
     ]
   },
   "Gatherer:MindSearch": {

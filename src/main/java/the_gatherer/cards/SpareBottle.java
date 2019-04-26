@@ -25,6 +25,7 @@ public class SpareBottle extends AbstractTaggedCard {
 	};
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final CardType TYPE = CardType.POWER;
 	private static final CardColor COLOR = CardColorEnum.GATHERER_LIME;
 	private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -32,12 +33,6 @@ public class SpareBottle extends AbstractTaggedCard {
 
 	private static final int POWER = 4;
 	private static final int UPGRADE_BONUS = 2;
-
-	private static String[] tagStrings = new String[]{
-			"<Norm>",
-			"<Silv>",
-			"<Gold>"
-	};
 
 	@Override
 	public void setTag(int tag) {
@@ -57,7 +52,7 @@ public class SpareBottle extends AbstractTaggedCard {
 	public String getTagName(int tag) {
 		if (tag < 0)
 			return "<?>";
-		return tagStrings[tag];
+		return "<" + EXTENDED_DESCRIPTION[tag] + ">";
 	}
 
 	public SpareBottle() {

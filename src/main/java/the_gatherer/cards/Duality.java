@@ -69,9 +69,9 @@ public class Duality extends AbstractTaggedCard {
 	public String getTagName(int tag) {
 		switch (tag) {
 			case 0:
-				return "<ATK>";
+				return "<" + EXTENDED_DESCRIPTION[1] + ">";
 			case 1:
-				return "<DEF>";
+				return "<" + EXTENDED_DESCRIPTION[2] + ">";
 			default:
 				return "<?>";
 		}
