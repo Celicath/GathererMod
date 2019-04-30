@@ -83,8 +83,8 @@ public class FlowerBeam extends CustomCard {
 	@Override
 	public void initializeDescription() {
 		super.initializeDescription();
-		if (!keywords.contains("flower beam tooltip")) {
-			keywords.add("flower beam tooltip");
+		if (!keywords.contains("gatherer:flower beam tooltip")) {
+			keywords.add("gatherer:flower beam tooltip");
 		}
 	}
 

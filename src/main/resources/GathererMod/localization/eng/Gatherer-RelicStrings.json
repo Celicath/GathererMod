@@ -3,7 +3,7 @@
     "NAME": "Alchemy Bag",
     "FLAVOR": "A mysterious bag with the power of recurring potions.",
     "DESCRIPTIONS": [
-      "At the start of each combat, gain a random Lesser Potion."
+      "At the start of each combat, gain a random #ygatherer:Lesser_Potion."
     ]
   },
   "Gatherer:MiracleBag": {
@@ -34,21 +34,21 @@
     "NAME": "Floral Egg",
     "FLAVOR": "Eggs like flowers. Or they are eggs like flowers",
     "DESCRIPTIONS": [
-      "Upon pick up, #yupgrade ALL your #yFlower cards. Whenever you add a Flower card to your deck, it is #yUpgraded."
+      "Upon pick up, #yupgrade ALL your #ygatherer:Flower cards. Whenever you add a #ygatherer:Flower card to your deck, it is #yUpgraded."
     ]
   },
   "Gatherer:Leftovers": {
     "NAME": "Leftovers",
     "FLAVOR": "How alchemists make new material from leftovers is a mystery.",
     "DESCRIPTIONS": [
-      "Whenever you use a Potion, gain a random #yLesser_Potion with #b20% chance."
+      "Whenever you use a Potion, gain a random #ygatherer:Lesser_Potion with #b20% chance."
     ]
   },
   "Gatherer:FlyingFruit": {
     "NAME": "Flying Fruit",
     "FLAVOR": "Fruit flies like a banana.",
     "DESCRIPTIONS": [
-      "When you #yExhaust #b1/3/6/10 #yUnique cards after picking this up, raise your Max HP by #b",
+      "When you #yExhaust #b1/3/6/10 #ygatherer:Unique cards after picking this up, raise your Max HP by #b",
       ".",
       " NL NL #yExhausted cards: NL "
     ]
@@ -67,7 +67,7 @@
     "NAME": "Mist Generator",
     "FLAVOR": "The mist can be deadly for some creatures.",
     "DESCRIPTIONS": [
-      "The amount of enemy's Poison is not reduced each turn if #b",
+      "The amount of enemy's #yPoison is not reduced each turn if #b",
       " or less."
     ]
   },

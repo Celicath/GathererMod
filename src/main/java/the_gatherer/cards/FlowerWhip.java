@@ -48,8 +48,8 @@ public class FlowerWhip extends CustomCard {
 	@Override
 	public void initializeDescription() {
 		super.initializeDescription();
-		if (!keywords.contains("flower whip tooltip")) {
-			keywords.add("flower whip tooltip");
+		if (!keywords.contains("gatherer:flower whip tooltip")) {
+			keywords.add("gatherer:flower whip tooltip");
 		}
 	}
 

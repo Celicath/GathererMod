@@ -52,8 +52,8 @@ public class FlowerFalling extends CustomCard {
 	@Override
 	public void initializeDescription() {
 		super.initializeDescription();
-		if (!keywords.contains("flower falling tooltip")) {
-			keywords.add("flower falling tooltip");
+		if (!keywords.contains("gatherer:flower falling tooltip")) {
+			keywords.add("gatherer:flower falling tooltip");
 		}
 	}
 

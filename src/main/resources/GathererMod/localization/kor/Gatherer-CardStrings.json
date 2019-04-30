@@ -15,9 +15,9 @@
     "NAME": "중앙집중",
     "DESCRIPTION": "뽑을 카드 더미에서 카드를 2장 선택해 가져옵니다.",
     "EXTENDED_DESCRIPTION": [
-      " NL 2회용: 그 카드들을 강화 합니다. 안되면 손의 무작위 카드를 대신 강화 합니다.",
-      " NL 1회용: 그 카드들을 강화 합니다. 안되면 손의 무작위 카드를 대신 강화 합니다.",
-      " NL [#D0C8D0]1회용 [#D0C8D0]능력이 [#D0C8D0]이미 [#D0C8D0]사용되었습니다."
+      " NL gatherer:2회용: 그 카드들을 강화 합니다. 안되면 손의 무작위 카드를 대신 강화 합니다.",
+      " NL gatherer:1회용: 그 카드들을 강화 합니다. 안되면 손의 무작위 카드를 대신 강화 합니다.",
+      " NL gatherer:1회용 [#D0C8D0]능력이 [#D0C8D0]이미 [#D0C8D0]사용되었습니다."
     ]
   },
   "Gatherer:SpareBottle": {
@@ -31,7 +31,7 @@
   },
   "Gatherer:AcidicSpray": {
     "NAME": "산성 스프레이",
-    "DESCRIPTION": "피해를 !D! 줍니다. 적이 가진 해로운 효과 하나당 피해를 !D! 줍니다. NL 약화 를 !M! 부여합니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 적이 가진 해로운 효과 하나당 피해를 !D! 줍니다. NL 약화 를 !M! 부여합니다."
   },
   "Gatherer:BambuSword": {
     "NAME": "대나무검",
@@ -80,9 +80,9 @@
     "NAME": "가로채기",
     "DESCRIPTION": "피해를 !D! 줍니다.",
     "EXTENDED_DESCRIPTION": [
-      " NL 2회용: 무작위 소형포션 을 얻습니다.",
-      " NL 1회용: 무작위 소형포션 을 얻습니다.",
-      " NL [#D0C8D0]1회용 [#D0C8D0]능력이 [#D0C8D0]이미 [#D0C8D0]사용되었습니다."
+      " NL gatherer:2회용: 무작위 gatherer:소형포션 을 얻습니다.",
+      " NL gatherer:1회용: 무작위 gatherer:소형포션 을 얻습니다.",
+      " NL gatherer:1회용 [#D0C8D0]능력이 [#D0C8D0]이미 [#D0C8D0]사용되었습니다."
     ]
   },
   "Gatherer:TacticalStrike": {
@@ -100,7 +100,7 @@
   },
   "Gatherer:EnergyBasket": {
     "NAME": "에너지 상자",
-    "DESCRIPTION": "소형_에너지_포션 !M! 개를 얻습니다. NL 보존 NL 소멸"
+    "DESCRIPTION": "gatherer:소형_에너지_포션 !M! 개를 얻습니다. NL 보존 NL 소멸"
   },
   "Gatherer:FlowerShield": {
     "NAME": "플라워 실드",
@@ -116,8 +116,8 @@
   },
   "Gatherer:QuickSynthesis": {
     "NAME": "재빠른 합성",
-    "DESCRIPTION": "무작위 소형포션 을 얻습니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "카드를 1 장 뽑습니다. NL 무작위 소형포션 을 얻습니다. NL 소멸"
+    "DESCRIPTION": "무작위 gatherer:소형포션 을 얻습니다. NL 소멸",
+    "UPGRADE_DESCRIPTION": "카드를 1 장 뽑습니다. NL 무작위 gatherer:소형포션 을 얻습니다. NL 소멸"
   },
   "Gatherer:SaveValuables": {
     "NAME": "귀중품 보관",
@@ -131,9 +131,9 @@
     "NAME": "양모 장갑",
     "DESCRIPTION": "방어도 를 !B! 얻습니다.",
     "EXTENDED_DESCRIPTION": [
-      " NL 2회용: 카드를 3장 뽑고 3장 버립니다.",
-      " NL 1회용: 카드를 3장 뽑고 3장 버립니다.",
-      " NL [#D0C8D0]1회용 [#D0C8D0]능력이 [#D0C8D0]이미 [#D0C8D0]사용되었습니다."
+      " NL gatherer:2회용: 카드를 3장 뽑고 3장 버립니다.",
+      " NL gatherer:1회용: 카드를 3장 뽑고 3장 버립니다.",
+      " NL gatherer:1회용 [#D0C8D0]능력이 [#D0C8D0]이미 [#D0C8D0]사용되었습니다."
     ]
   },
   "Gatherer:Duality": {
@@ -166,8 +166,8 @@
   },
   "Gatherer:Misfortune": {
     "NAME": "병상첨병",
-    "DESCRIPTION": "피해를 !D! 줍니다. 적에게 이미 있는 해로운 효과를 부여하는 소형포션 을 !M! 개까지 얻습니다.",
-    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. 적에게 이미 있는 해로운 효과를 부여하는 소형포션 을 !M! 개까지 얻습니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. 적에게 이미 있는 해로운 효과를 부여하는 gatherer:소형포션 을 !M! 개까지 얻습니다.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. 적에게 이미 있는 해로운 효과를 부여하는 gatherer:소형포션 을 !M! 개까지 얻습니다."
   },
   "Gatherer:OddSpoils": {
     "NAME": "특이한 전리품",
@@ -213,8 +213,8 @@
   },
   "Gatherer:Duplicator": {
     "NAME": "복제기",
-    "DESCRIPTION": "내가 가진 소형포션 들의 효과를 모두 받습니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "내가 가진 소형포션 들의 효과를 모두 받습니다."
+    "DESCRIPTION": "내가 가진 gatherer:소형포션 들의 효과를 모두 받습니다. NL 소멸",
+    "UPGRADE_DESCRIPTION": "내가 가진 gatherer:소형포션 들의 효과를 모두 받습니다."
   },
   "Gatherer:Enchant": {
     "NAME": "인챈트",
@@ -222,16 +222,16 @@
   },
   "Gatherer:GlowingPlant": {
     "NAME": "빛나는 식물",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 글로우 를 1 얻습니다. NL 이 카드를 얻을 때 빛! 과 그림자! 를 같이 얻습니다.",
-    "UPGRADE_DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 글로우 를 1 얻습니다. NL 이 카드를 얻을 때 빛! 과 그림자! 를 같이 얻습니다."
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL gatherer:글로우 를 1 얻습니다. NL 이 카드를 얻을 때 빛! 과 그림자! 를 같이 얻습니다.",
+    "UPGRADE_DESCRIPTION": "카드를 !M! 장 뽑습니다. NL gatherer:글로우 를 1 얻습니다. NL 이 카드를 얻을 때 빛! 과 그림자! 를 같이 얻습니다."
   },
   "Gatherer:Light": {
     "NAME": "빛!",
-    "DESCRIPTION": "방어도 를 !B! 얻습니다. 글로우 의 !M! 배 만큼 방어도 가 증가합니다. NL 글로우 를 1 얻습니다."
+    "DESCRIPTION": "방어도 를 !B! 얻습니다. gatherer:글로우 의 !M! 배 만큼 방어도 가 증가합니다. NL gatherer:글로우 를 1 얻습니다."
   },
   "Gatherer:Shadow": {
     "NAME": "그림자!",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 글로우 의 !M! 배 만큼 피해량이 증가합니다. NL 글로우 를 1 얻습니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL gatherer:글로우 의 !M! 배 만큼 피해량이 증가합니다. NL gatherer:글로우 를 1 얻습니다."
   },
   "Gatherer:Herbalism": {
     "NAME": "약초학",
@@ -244,11 +244,11 @@
   },
   "Gatherer:Nutrients": {
     "NAME": "영양분",
-    "DESCRIPTION": "방어도 를 !B! 얻습니다. NL 이 카드를 얻을 때 덱에 있는 모든 플라워 카드를 강화 합니다."
+    "DESCRIPTION": "방어도 를 !B! 얻습니다. NL 이 카드를 얻을 때 덱에 있는 모든 gatherer:플라워 카드를 강화 합니다."
   },
   "Gatherer:RecipeChange": {
     "NAME": "재료 변경",
-    "DESCRIPTION": "모든 소형포션 중 하나를 선택합니다. 가지고 있는 모든 소형포션 을 선택한 것으로 바꿉니다. 소멸"
+    "DESCRIPTION": "모든 gatherer:소형포션 중 하나를 선택합니다. 가지고 있는 모든 gatherer:소형포션 을 선택한 것으로 바꿉니다. 소멸"
   },
   "Gatherer:RecoveryHerb": {
     "NAME": "회복초",
@@ -274,12 +274,12 @@
   },
   "Gatherer:SmartManeuver": {
     "NAME": "전술적 움직임",
-    "DESCRIPTION": "대상이 이번 턴에 절반의 피해를 줍니다. 소형_신속_포션 을 얻습니다.",
-    "UPGRADE_DESCRIPTION": "대상이 이번 턴에 절반의 피해를 줍니다. 소형_신속_포션 을 얻습니다. NL 보존"
+    "DESCRIPTION": "대상이 이번 턴에 절반의 피해를 줍니다. gatherer:소형_신속_포션 을 얻습니다.",
+    "UPGRADE_DESCRIPTION": "대상이 이번 턴에 절반의 피해를 줍니다. gatherer:소형_신속_포션 을 얻습니다. NL 보존"
   },
   "Gatherer:Solidify": {
     "NAME": "굳히기",
-    "DESCRIPTION": "방어도 를 !B! 얻습니다. 방어도 가 !M! 이상 이라면, 5 감소시키고 소형_방어도_포션 을 얻습니다."
+    "DESCRIPTION": "방어도 를 !B! 얻습니다. 방어도 가 !M! 이상 이라면, 5 감소시키고 gatherer:소형_방어도_포션 을 얻습니다."
   },
   "Gatherer:Transmute": {
     "NAME": "변환",
@@ -292,7 +292,7 @@
   },
   "Gatherer:AlchemyTrial": {
     "NAME": "연금술 시험",
-    "DESCRIPTION": "10장의 카드를 사용할 때마다 10번째 카드에 따른 소형포션 을 얻습니다."
+    "DESCRIPTION": "10장의 카드를 사용할 때마다 10번째 카드에 따른 gatherer:소형포션 을 얻습니다."
   },
   "Gatherer:BalancedGrowth": {
     "NAME": "균형적 성장",
@@ -315,8 +315,8 @@
   },
   "Gatherer:UpgradeBag": {
     "NAME": "가방 업그레이드",
-    "DESCRIPTION": "결함 카드를 뽑을 카드 더미에 넣고 섞습니다. 모든 소형포션 의 효과가 100% 증가합니다.",
-    "UPGRADE_DESCRIPTION": "결함+ 카드를 버린 카드 더미에 추가합니다. 모든 소형포션 의 효과가 100% 증가합니다."
+    "DESCRIPTION": "결함 카드를 뽑을 카드 더미에 넣고 섞습니다. 모든 gatherer:소형포션 의 효과가 100% 증가합니다.",
+    "UPGRADE_DESCRIPTION": "결함+ 카드를 버린 카드 더미에 추가합니다. 모든 gatherer:소형포션 의 효과가 100% 증가합니다."
   },
   "Gatherer:Glitched": {
     "NAME": "결함",
@@ -343,14 +343,14 @@
     "NAME": "저주받은 검",
     "DESCRIPTION": "피해를 !D! 줍니다.",
     "EXTENDED_DESCRIPTION": [
-      " NL 2회용: 이번 턴에만 힘 을 !M! 감소시킵니다. 이 카드를 얻을 때 [#FF6563]규칙 [#FF6563]준수 [#FF6563]저주를 [#FF6563]받습니다.",
-      " NL 1회용: 이번 턴에만 힘 을 !M! 감소시킵니다. 이 카드를 얻을 때 [#FF6563]규칙 [#FF6563]준수 [#FF6563]저주를 [#FF6563]받습니다.",
-      " NL [#D0C8D0]1회용 [#D0C8D0]능력이 [#D0C8D0]이미 [#D0C8D0]사용되었습니다. 이 카드를 얻을 때 [#FF6563]규칙 [#FF6563]준수 [#FF6563]저주를 [#FF6563]받습니다."
+      " NL gatherer:2회용: 이번 턴에만 힘 을 !M! 감소시킵니다. 이 카드를 얻을 때 [#FF6563]규칙 [#FF6563]준수 [#FF6563]저주를 [#FF6563]받습니다.",
+      " NL gatherer:1회용: 이번 턴에만 힘 을 !M! 감소시킵니다. 이 카드를 얻을 때 [#FF6563]규칙 [#FF6563]준수 [#FF6563]저주를 [#FF6563]받습니다.",
+      " NL gatherer:1회용 [#D0C8D0]능력이 [#D0C8D0]이미 [#D0C8D0]사용되었습니다. 이 카드를 얻을 때 [#FF6563]규칙 [#FF6563]준수 [#FF6563]저주를 [#FF6563]받습니다."
     ]
   },
   "Gatherer:FlamingBottle": {
     "NAME": "화염병",
-    "DESCRIPTION": "피해를 !D! 줍니다. 소형_화염_포션 을 얻습니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. gatherer:소형_화염_포션 을 얻습니다."
   },
   "Gatherer:HeartToFruit": {
     "NAME": "과일로 만들기",
@@ -358,14 +358,14 @@
   },
   "Gatherer:Photoscythe": {
     "NAME": "빛의 낫",
-    "DESCRIPTION": "선천성. 모든 플라워 카드들을 전투가 끝날 때까지 강화합니다. 플라워 카드 수의 !M! 배 만큼 피해를 줍니다. 소멸",
+    "DESCRIPTION": "선천성. 모든 gatherer:플라워 카드들을 전투가 끝날 때까지 강화합니다. gatherer:플라워 카드 수의 !M! 배 만큼 피해를 줍니다. 소멸",
     "EXTENDED_DESCRIPTION": [
       " NL (피해를 !D! 줍니다.)"
     ]
   },
   "Gatherer:BlackTea": {
     "NAME": "홍차",
-    "DESCRIPTION": "힘 을 !M! 얻습니다. NL 민첩 을 1 잃습니다. NL 개전: 무작위 소형포션 을 얻습니다."
+    "DESCRIPTION": "힘 을 !M! 얻습니다. NL 민첩 을 1 잃습니다. NL 개전: 무작위 gatherer:소형포션 을 얻습니다."
   },
   "Gatherer:Examine": {
     "NAME": "조사",
@@ -389,8 +389,8 @@
   },
   "Gatherer:MindSearch": {
     "NAME": "마음 검색",
-    "DESCRIPTION": "현재 상황에 맞는 무작위 소형포션 이 4개 제시됩니다. 이 중 2개를 선택하여 가집니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "현재 상황에 잘 맞는 무작위 소형포션 이 4개 제시됩니다. 이 중 2개를 선택하여 가집니다. NL 보존. 소멸"
+    "DESCRIPTION": "현재 상황에 맞는 무작위 gatherer:소형포션 이 4개 제시됩니다. 이 중 2개를 선택하여 가집니다. NL 소멸",
+    "UPGRADE_DESCRIPTION": "현재 상황에 잘 맞는 무작위 gatherer:소형포션 이 4개 제시됩니다. 이 중 2개를 선택하여 가집니다. NL 보존. 소멸"
   },
   "Gatherer:Overflowing": {
     "NAME": "넘쳐흐름",
@@ -407,7 +407,7 @@
   },
   "Gatherer:BomberForm": {
     "NAME": "폭탄마의 형상",
-    "DESCRIPTION": "매 턴 시작 시 소폭포 를 얻습니다. 앞으로 추가되는 모든 소형포션 이 소폭포 가 되고 사용시 모든 소폭포 들의 피해량을 !M! 증가시킵니다."
+    "DESCRIPTION": "매 턴 시작 시 gatherer:소폭포 를 얻습니다. 앞으로 추가되는 모든 gatherer:소형포션 이 gatherer:소폭포 가 되고 사용시 모든 gatherer:소폭포 들의 피해량을 !M! 증가시킵니다."
   },
   "Gatherer:FlowerPower": {
     "NAME": "플라워 파워",
@@ -433,7 +433,7 @@
   },
   "Gatherer:PoisonMastery": {
     "NAME": "독 숙련",
-    "DESCRIPTION": "소형_중독_포션 을 얻습니다. NL 중독의 피해량이 100% 증가합니다."
+    "DESCRIPTION": "gatherer:소형_중독_포션 을 얻습니다. NL 중독의 피해량이 100% 증가합니다."
   },
   "Gatherer:AromaProtection": {
     "NAME": "아로마의 보호",
@@ -441,8 +441,8 @@
   },
   "Gatherer:LuckyClover": {
     "NAME": "행운의 클로버",
-    "DESCRIPTION": "덱에 있는 플라워 카드 수 만큼 민첩 을 얻습니다.",
-    "UPGRADE_DESCRIPTION": "덱에 있는 플라워 카드 수 만큼 민첩 을 얻습니다.",
+    "DESCRIPTION": "덱에 있는 gatherer:플라워 카드 수 만큼 민첩 을 얻습니다.",
+    "UPGRADE_DESCRIPTION": "덱에 있는 gatherer:플라워 카드 수 만큼 민첩 을 얻습니다.",
     "EXTENDED_DESCRIPTION": [
       " NL ( 민첩 을 !M! 얻습니다.)"
     ]

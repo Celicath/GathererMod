@@ -12,7 +12,6 @@ import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -505,8 +504,7 @@ public class GathererMod implements PostInitializeSubscriber,
 
 		if (keywords != null) {
 			for (Keyword keyword : keywords) {
-				// TODO: change this to unique keywords
-				BaseMod.addKeyword(keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+				BaseMod.addKeyword("gatherer", keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
 			}
 		}
 		logger.debug("receiveEditKeywords finished.");

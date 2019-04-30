@@ -90,7 +90,7 @@ public class GrowBook extends AbstractTaggedCard {
 	public void initializeDescription() {
 		super.initializeDescription();
 		if (this.misc / TRANSFORM_PLAYS >= 0) {
-			keywords.add("grow book tooltip " + this.misc / TRANSFORM_PLAYS);
+			keywords.add("gatherer:grow book tooltip " + this.misc / TRANSFORM_PLAYS);
 		}
 	}
 

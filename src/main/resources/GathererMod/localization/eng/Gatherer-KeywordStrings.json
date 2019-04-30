@@ -4,21 +4,19 @@
       "unique",
       "uniques"
     ],
-    "DESCRIPTION": "Cards with different name(except for upgrades) are considered unique."
+    "DESCRIPTION": "Cards with different name (except for upgrades) are considered unique."
   },
   {
     "PROPER_NAME": "Once",
     "NAMES": [
-      "once:",
-      "once_"
+      "once"
     ],
     "DESCRIPTION": "Only activates when you play this card first time in the combat. Displays used up after one use."
   },
   {
     "PROPER_NAME": "Twice",
     "NAMES": [
-      "twice:",
-      "twice_"
+      "twice"
     ],
     "DESCRIPTION": "Only activates for the first two times you play this card in combat. Displays as Once after one use."
   },
@@ -39,9 +37,11 @@
   {
     "PROPER_NAME": "Lesser Potion",
     "NAMES": [
-      "Lesser Potion",
+      "lesser potion",
       "lesser_potion",
-      "lesser_potions"
+      "lesser",
+      "potion",
+      "potions"
     ],
     "DESCRIPTION": "A \"Lesser\" version of regular potion which is always gained to your Sack."
   },

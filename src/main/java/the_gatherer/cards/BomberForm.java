@@ -43,8 +43,8 @@ public class BomberForm extends CustomCard {
 	@Override
 	public void initializeDescription() {
 		super.initializeDescription();
-		if (!keywords.contains("bomberform tooltip")) {
-			keywords.add("bomberform tooltip");
+		if (!keywords.contains("gatherer:bomberform tooltip")) {
+			keywords.add("gatherer:bomberform tooltip");
 		}
 	}
 

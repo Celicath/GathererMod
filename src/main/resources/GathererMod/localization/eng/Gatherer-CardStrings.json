@@ -15,9 +15,9 @@
     "NAME": "Centralize",
     "DESCRIPTION": "Fetch !M! cards from your draw pile.",
     "EXTENDED_DESCRIPTION": [
-      " NL Twice_: Upgrade !M! random cards in hand; Fetched cards get priority.",
-      " NL Once_: Upgrade !M! random cards in hand; Fetched cards get priority.",
-      " NL [#D0C8D0]Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
+      " NL gatherer:Twice: Upgrade !M! random cards in hand; Fetched cards get priority.",
+      " NL gatherer:Once: Upgrade !M! random cards in hand; Fetched cards get priority.",
+      " NL gatherer:Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
     ]
   },
   "Gatherer:SpareBottle": {
@@ -39,12 +39,12 @@
   },
   "Gatherer:CarefulStrike": {
     "NAME": "Careful Strike",
-    "DESCRIPTION": "Deal !D! damage. Put up to !M! card on top of your deck."
+    "DESCRIPTION": "Deal !D! damage. Put up to !M! card on top of your draw pile."
   },
   "Gatherer:CollectorsShot": {
     "NAME": "Collector's Shot",
-    "DESCRIPTION": "Deal damage equal to 1.5 times the number of Unique cards with no duplicates in your deck.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to 2 times the number of Unique cards with no duplicates in your deck.",
+    "DESCRIPTION": "Deal damage equal to 1.5 times the number of gatherer:Unique cards with no duplicates in your deck.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to 2 times the number of gatherer:Unique cards with no duplicates in your deck.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -80,9 +80,9 @@
     "NAME": "Snatch",
     "DESCRIPTION": "Deal !D! Damage.",
     "EXTENDED_DESCRIPTION": [
-      " NL Twice_: NL Gain a random Lesser_Potion.",
-      " NL Once_: Gain a random Lesser_Potion.",
-      " NL [#D0C8D0]Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
+      " NL gatherer:Twice: NL Gain a random gatherer:Lesser gatherer:Potion.",
+      " NL gatherer:Once: Gain a random gatherer:Lesser gatherer:Potion.",
+      " NL gatherer:Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
     ]
   },
   "Gatherer:TacticalStrike": {
@@ -100,7 +100,7 @@
   },
   "Gatherer:EnergyBasket": {
     "NAME": "Energy Basket",
-    "DESCRIPTION": "Gain !M! Lesser_Energy_Potions. NL Retain. NL Exhaust."
+    "DESCRIPTION": "Gain !M! gatherer:Lesser_Energy_Potions. NL Retain. NL Exhaust."
   },
   "Gatherer:FlowerShield": {
     "NAME": "Flower Shield",
@@ -116,8 +116,8 @@
   },
   "Gatherer:QuickSynthesis": {
     "NAME": "Quick Synthesis",
-    "DESCRIPTION": "Gain !M! random Lesser_Potion. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Gain !M! random Lesser_Potion. NL Exhaust."
+    "DESCRIPTION": "Gain !M! random gatherer:Lesser gatherer:Potion. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Gain !M! random gatherer:Lesser gatherer:Potion. NL Exhaust."
   },
   "Gatherer:SaveValuables": {
     "NAME": "Save Valuables",
@@ -131,9 +131,9 @@
     "NAME": "Wool Gloves",
     "DESCRIPTION": "Gain !B! Block.",
     "EXTENDED_DESCRIPTION": [
-      " NL Twice_: Draw 3 cards, then discard 3 cards.",
-      " NL Once_: Draw 3 cards, then discard 3 cards.",
-      " NL [#D0C8D0]Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
+      " NL gatherer:Twice: Draw 3 cards, then discard 3 cards.",
+      " NL gatherer:Once: Draw 3 cards, then discard 3 cards.",
+      " NL gatherer:Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
     ]
   },
   "Gatherer:Duality": {
@@ -166,8 +166,8 @@
   },
   "Gatherer:Misfortune": {
     "NAME": "Misfortune",
-    "DESCRIPTION": "Deal !D! damage. Gain up to !M! Lesser_Potion with debuff effect that the enemy already has.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. Gain up to !M! Lesser_Potions with debuff effect that the enemy already has."
+    "DESCRIPTION": "Deal !D! damage. Gain up to !M! gatherer:Lesser gatherer:Potion with debuff effect that the enemy already has.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Gain up to !M! gatherer:Lesser gatherer:Potions with debuff effect that the enemy already has."
   },
   "Gatherer:OddSpoils": {
     "NAME": "Odd Spoils",
@@ -176,8 +176,8 @@
   },
   "Gatherer:Polymorphism": {
     "NAME": "Polymorphism",
-    "DESCRIPTION": "Deal damage equal to number of other cards in your hand. If they are all Unique, gain [E] and draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to number of other cards in your hand. If they are all Unique, gain [E] and draw !M! cards.",
+    "DESCRIPTION": "Deal damage equal to number of other cards in your hand. If they are all gatherer:Unique, gain [E] and draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to number of other cards in your hand. If they are all gatherer:Unique, gain [E] and draw !M! cards.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! Damage.)",
       " NL (Draw & !D! damage!)"
@@ -213,8 +213,8 @@
   },
   "Gatherer:Duplicator": {
     "NAME": "Duplicator",
-    "DESCRIPTION": "Gain effects of all your Lesser_Potions. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain effects of all your Lesser_Potions."
+    "DESCRIPTION": "Gain effects of all your gatherer:Lesser gatherer:Potions. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain effects of all your gatherer:Lesser gatherer:Potions."
   },
   "Gatherer:Enchant": {
     "NAME": "Enchant",
@@ -222,16 +222,16 @@
   },
   "Gatherer:GlowingPlant": {
     "NAME": "Glowing Plant",
-    "DESCRIPTION": "Draw !M! cards. NL Gain 1 Glow_Power. NL When obtained, add a Light! and a Shadow! to your deck.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Gain 1 Glow_Power. NL When obtained, add a Light! and a Shadow! to your deck."
+    "DESCRIPTION": "Draw !M! cards. NL Gain 1 gatherer:Glow_Power. NL When obtained, add a Light! and a Shadow! to your deck.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Gain 1 gatherer:Glow_Power. NL When obtained, add a Light! and a Shadow! to your deck."
   },
   "Gatherer:Light": {
     "NAME": "Light!",
-    "DESCRIPTION": "Gain !B! Block. NL Block is increased by !M! for each Glow_Power. NL Gain 1 Glow_Power."
+    "DESCRIPTION": "Gain !B! Block. NL Block is increased by !M! for each gatherer:Glow_Power. NL Gain 1 gatherer:Glow_Power."
   },
   "Gatherer:Shadow": {
     "NAME": "Shadow!",
-    "DESCRIPTION": "Deal !D! damage. NL Damage is increased by !M! for each Glow_Power. NL Gain 1 Glow_Power."
+    "DESCRIPTION": "Deal !D! damage. NL Damage is increased by !M! for each gatherer:Glow_Power. NL Gain 1 gatherer:Glow_Power."
   },
   "Gatherer:Herbalism": {
     "NAME": "Herbalism",
@@ -244,11 +244,11 @@
   },
   "Gatherer:Nutrients": {
     "NAME": "Nutrients",
-    "DESCRIPTION": "Gain !B! Block. NL When obtained, Upgrade ALL your Flower cards."
+    "DESCRIPTION": "Gain !B! Block. NL When obtained, Upgrade ALL your gatherer:Flower cards."
   },
   "Gatherer:RecipeChange": {
     "NAME": "Recipe Change",
-    "DESCRIPTION": "Choose 1 from ALL Lesser_Potions. Replace all your Lesser_Potions with it. Exhaust."
+    "DESCRIPTION": "Choose 1 from ALL gatherer:Lesser gatherer:Potions. Replace all your gatherer:Lesser gatherer:Potions with it. Exhaust."
   },
   "Gatherer:RecoveryHerb": {
     "NAME": "Recovery Herb",
@@ -274,12 +274,12 @@
   },
   "Gatherer:SmartManeuver": {
     "NAME": "Smart Maneuver",
-    "DESCRIPTION": "Enemy deals half damage this turn. Gain a Lesser_Swift_Potion.",
-    "UPGRADE_DESCRIPTION": "Enemy deals half damage this turn. Gain a Lesser_Swift_Potion. NL Retain."
+    "DESCRIPTION": "Enemy deals half damage this turn. Gain a gatherer:Lesser_Swift_Potion.",
+    "UPGRADE_DESCRIPTION": "Enemy deals half damage this turn. Gain a gatherer:Lesser_Swift_Potion. NL Retain."
   },
   "Gatherer:Solidify": {
     "NAME": "Solidify",
-    "DESCRIPTION": "Gain !B! Block. If you have !M! or more Block, reduce it by 5 and gain a Lesser_Block_Potion."
+    "DESCRIPTION": "Gain !B! Block. If you have !M! or more Block, reduce it by 5 and gain a gatherer:Lesser_Block_Potion."
   },
   "Gatherer:Transmute": {
     "NAME": "Transmute",
@@ -292,7 +292,7 @@
   },
   "Gatherer:AlchemyTrial": {
     "NAME": "Alchemy Trial",
-    "DESCRIPTION": "Whenever you play 10 cards, gain a Lesser Potion depending on the 10th card played."
+    "DESCRIPTION": "Whenever you play 10 cards, gain a gatherer:Lesser gatherer:Potion depending on the 10th card played."
   },
   "Gatherer:BalancedGrowth": {
     "NAME": "Balanced Growth",
@@ -300,8 +300,8 @@
   },
   "Gatherer:ColorfulGarden": {
     "NAME": "Colorful Garden",
-    "DESCRIPTION": "At the end of your turn, gain !M! Block per Unique card you played this turn.",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the end of your turn, gain !M! Block per Unique card you played this turn."
+    "DESCRIPTION": "At the end of your turn, gain !M! Block per gatherer:Unique card you played this turn.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the end of your turn, gain !M! Block per gatherer:Unique card you played this turn."
   },
   "Gatherer:FeelingFine": {
     "NAME": "Feeling Fine",
@@ -315,8 +315,8 @@
   },
   "Gatherer:UpgradeBag": {
     "NAME": "Upgrade Bag",
-    "DESCRIPTION": "Shuffle a Glitched in your deck. Your Lesser Potions are 100% more potent.",
-    "UPGRADE_DESCRIPTION": "Add a Glitched+ in your discard pile. Your Lesser Potions are 100% more potent."
+    "DESCRIPTION": "Shuffle a Glitched in your deck. Your gatherer:Lesser gatherer:Potions are 100% more potent.",
+    "UPGRADE_DESCRIPTION": "Add a Glitched+ in your discard pile. Your gatherer:Lesser gatherer:Potions are 100% more potent."
   },
   "Gatherer:Glitched": {
     "NAME": "Glitched",
@@ -329,10 +329,10 @@
   },
   "Gatherer:Bulldoze": {
     "NAME": "Bulldoze",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies for every !M! Unique cards in your discard pile.",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies for every !M! gatherer:Unique cards in your discard pile.",
     "EXTENDED_DESCRIPTION": [
       " NL ( ",
-      " Unique cards in discard pile.)"
+      " gatherer:Unique cards in discard pile.)"
     ]
   },
   "Gatherer:CoupDeGrace": {
@@ -343,14 +343,14 @@
     "NAME": "Cursed Blade",
     "DESCRIPTION": "Deal !D! damage.",
     "EXTENDED_DESCRIPTION": [
-      " NL Twice_: Enemy loses !M! Strength this turn. When Obtained, become [#FF6563]Cursed [#FF6563]- [#FF6563]Normality.",
-      " NL Once_: Enemy loses !M! Strength this turn. When Obtained, become [#FF6563]Cursed [#FF6563]- [#FF6563]Normality.",
-      " NL [#D0C8D0]Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up. When Obtained, become [#FF6563]Cursed [#FF6563]- [#FF6563]Normality."
+      " NL gatherer:Twice: Enemy loses !M! Strength this turn. When Obtained, become [#FF6563]Cursed [#FF6563]- [#FF6563]Normality.",
+      " NL gatherer:Once: Enemy loses !M! Strength this turn. When Obtained, become [#FF6563]Cursed [#FF6563]- [#FF6563]Normality.",
+      " NL gatherer:Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up. When Obtained, become [#FF6563]Cursed [#FF6563]- [#FF6563]Normality."
     ]
   },
   "Gatherer:FlamingBottle": {
     "NAME": "Flaming Bottle",
-    "DESCRIPTION": "Deal !D! damage. Gain a Lesser_Fire_Potion."
+    "DESCRIPTION": "Deal !D! damage. Gain a gatherer:Lesser_Fire_Potion."
   },
   "Gatherer:HeartToFruit": {
     "NAME": "Heart to Fruit",
@@ -358,14 +358,14 @@
   },
   "Gatherer:Photoscythe": {
     "NAME": "Photoscythe",
-    "DESCRIPTION": "Innate. Upgrade ALL your Flower cards for the combat. Deal damage equal to !M! X number of them. Exhaust.",
+    "DESCRIPTION": "Innate. Upgrade ALL your gatherer:Flower cards for the combat. Deal damage equal to !M! X number of them. Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
   },
   "Gatherer:BlackTea": {
     "NAME": "Black Tea",
-    "DESCRIPTION": "Gain !M! Strength. NL Lose 1 Dexterity. NL Startup: Gain a random Lesser Potion."
+    "DESCRIPTION": "Gain !M! Strength. NL Lose 1 Dexterity. NL Startup: Gain a random gatherer:Lesser gatherer:Potion."
   },
   "Gatherer:Examine": {
     "NAME": "Examine",
@@ -389,8 +389,8 @@
   },
   "Gatherer:MindSearch": {
     "NAME": "Mind Search",
-    "DESCRIPTION": "Choose 2 out of 4 Lesser_Potions to gain with the help of Gatherer's thought. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose 2 out of 4 Lesser_Potions to gain with great help of Gatherer's thought. NL Retain. Exhaust."
+    "DESCRIPTION": "Choose 2 out of 4 gatherer:Lesser gatherer:Potions to gain with the help of Gatherer's thought. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose 2 out of 4 gatherer:Lesser gatherer:Potions to gain with great help of Gatherer's thought. NL Retain. Exhaust."
   },
   "Gatherer:Overflowing": {
     "NAME": "Overflowing",
@@ -407,7 +407,7 @@
   },
   "Gatherer:BomberForm": {
     "NAME": "Bomber Form",
-    "DESCRIPTION": "At the start of your turn, gain a LEP. All future Lesser_Potions become LEP and raise all LEPs' damage by !M! when used."
+    "DESCRIPTION": "At the start of your turn, gain a gatherer:LEP. All future gatherer:Lesser gatherer:Potions become gatherer:LEP and raise all gatherer:LEPs' damage by !M! when used."
   },
   "Gatherer:FlowerPower": {
     "NAME": "Flower Power",
@@ -433,7 +433,7 @@
   },
   "Gatherer:PoisonMastery": {
     "NAME": "Poison Mastery",
-    "DESCRIPTION": "Gain a Lesser_Poison_Potion. NL Poison damage is increased by 100%."
+    "DESCRIPTION": "Gain a gatherer:Lesser_Poison_Potion. NL Poison damage is increased by 100%."
   },
   "Gatherer:AromaProtection": {
     "NAME": "Aroma Protection",
@@ -441,8 +441,8 @@
   },
   "Gatherer:LuckyClover": {
     "NAME": "Lucky Clover",
-    "DESCRIPTION": "Gain 1 Dexterity for each Flower cards in your deck.",
-    "UPGRADE_DESCRIPTION": "Gain 1 Dexterity for each Flower cards in your deck.",
+    "DESCRIPTION": "Gain 1 Dexterity for each gatherer:Flower cards in your deck.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Dexterity for each gatherer:Flower cards in your deck.",
     "EXTENDED_DESCRIPTION": [
       " NL (Gains !M! Dexterity.)"
     ]
