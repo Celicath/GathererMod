@@ -192,7 +192,8 @@
       " NL Apply !M! Vulnerable.",
       " NL Apply !M! Poison.",
       " NL [#C0B0C0](Each [#D0C8D0]Rotten [#D0C8D0]Stipe [#D0C8D0]has [#D0C8D0]randomly [#D0C8D0]chosen [#D0C8D0]damage [#D0C8D0]and [#D0C8D0]debuff.)",
-      "T"
+      "T",
+      ""
     ]
   },
   "Gatherer:SealedBomb": {
