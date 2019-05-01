@@ -21,12 +21,12 @@
     ]
   },
   "Gatherer:SpareBottle": {
-    "NAME": "备用药瓶",
+    "NAME": "空瓶",
     "DESCRIPTION": "每当你使用了一瓶药水，获得 !M! 点 格挡 并对随机一名敌人造成 !M! 点伤害。",
     "EXTENDED_DESCRIPTION": [
-      "Norm",
-      "Silv",
-      "Gold"
+      "铜",
+      "银", 
+      "金" 
     ]
   },
   "Gatherer:AcidicSpray": {
@@ -60,7 +60,7 @@
     ]
   },
   "Gatherer:FlowerFalling": {
-    "NAME": "花落",
+    "NAME": "落花",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 回复 !M! 生命。 NL 消耗 。"
   },
@@ -91,7 +91,7 @@
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 抽 !M! 张牌。 NL 直到回合结束前，获得 !M! 点 力量 。"
   },
   "Gatherer:BigPouch": {
-    "NAME": "大号口袋",
+    "NAME": "大号腰包",
     "DESCRIPTION": "抽 !M! 张牌。 获得等于手牌中所有牌能耗之和的 格挡 。"
   },
   "Gatherer:Convert": {
@@ -120,7 +120,7 @@
     "UPGRADE_DESCRIPTION": "抽 1 张牌。获得 !M! 瓶随机 次级药水 。 NL 消耗 。"
   },
   "Gatherer:SaveValuables": {
-    "NAME": "珍藏",
+    "NAME": "节约",
     "DESCRIPTION": "从弃牌堆中选择 !M! 张牌，将他们洗入你的抽牌堆。"
   },
   "Gatherer:TreeGrowth": {
@@ -138,11 +138,11 @@
   },
   "Gatherer:Duality": {
     "NAME": "二元",
-    "DESCRIPTION": "造成 !D! 点伤害。 保留 。 当 保留 时，他的属性在 <ATK> 和 <DEF> 之间切换。",
+    "DESCRIPTION": "造成 !D! 点伤害。 保留 。 当 保留 时，他的属性在 <攻击> 和 <攻击> 之间切换。",
     "EXTENDED_DESCRIPTION": [
-      "获得 !B! 点 格挡 。 保留 。 当 保留 时，他的属性在 <ATK> 和 <DEF> 之间切换。",
-      "ATK",
-      "DEF"
+      "获得 !B! 点 格挡 。 保留 。 当 保留 时，他的属性在 <攻击> 和 <防御> 之间切换。",
+      "攻击",
+      "防御"
     ]
   },
   "Gatherer:EchoOfNature": {
@@ -192,7 +192,7 @@
       " NL 给予 !M! 层 易伤 。",
       " NL 给予 !M! 层 中毒 。",
       " NL （每张 腐朽菌柄 ，将会随机选择伤害或是不良状态。）",
-      "T",
+      "型号：",
       ""
     ]
   },
@@ -273,7 +273,7 @@
     ]
   },
   "Gatherer:SmartManeuver": {
-    "NAME": "智能机动",
+    "NAME": "机敏躲避",
     "DESCRIPTION": "本回合内，一名敌人造成的伤害减半。 获得一瓶 次级迅捷药水 。",
     "UPGRADE_DESCRIPTION": "本回合内，一名敌人造成的伤害减半。 获得一瓶 次级迅捷药水 。 NL 保留 。"
   },
@@ -314,7 +314,7 @@
     "UPGRADE_DESCRIPTION": "固有。 NL 每当你使用药水，随机获得 1 点 力量 或 敏捷 。"
   },
   "Gatherer:UpgradeBag": {
-    "NAME": "升级背包",
+    "NAME": "升级腰包",
     "DESCRIPTION": "将一张 差错 加入你的 牌组。 你的 次级药水 效果提升 100% 。",
     "UPGRADE_DESCRIPTION": "将一张 差错+ 加入你的弃牌堆。 你的 次级药水 效果提升 100% 。"
   },
@@ -323,7 +323,7 @@
     "DESCRIPTION": "保留 。 NL 当他在你的手牌时，升级腰包效果失效。 NL 消耗 。"
   },
   "Gatherer:Uplift": {
-    "NAME": "振奋",
+    "NAME": "亢奋",
     "DESCRIPTION": "你每回合打出的前 !M! 张耗能大于等于 2 的牌， 回馈  1 。",
     "UPGRADE_DESCRIPTION": "你每回合打出的前 !M! 张耗能大于等于 2 的牌， 回馈  1 。"
   },
@@ -373,24 +373,24 @@
   },
   "Gatherer:GrowBook": {
     "NAME": "成长之书",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 打出 3 次后，永久替换为一张 <?> 牌。 NL  消耗 。",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 打出 3 次后，永久替换为一张  <?>  牌。 NL  消耗 。",
     "EXTENDED_DESCRIPTION": [
       "获得 !B! 点 格挡 。消耗 。",
       " NL 打出 3 次后，永久替换为 ",
       " NL 打出 2 次后，永久替换为 ",
       " NL 打出 1 次后，永久替换为 ",
-      " 一张铁甲战士牌。",
-      " 一张静默猎手牌。",
-      " 一张故障机器人牌。",
-      "Iron",
-      "Silent",
-      "Defect"
+      " 一张 铁甲战士牌 。",
+      " 一张 静默猎手牌 。",
+      " 一张 故障机器人牌 。",
+      "战士",
+      "猎手",
+      "机器人"
     ]
   },
   "Gatherer:MindSearch": {
     "NAME": "思考搜索",
-    "DESCRIPTION": "从 4 瓶 次级药水 中选择获得 2 瓶，采集者将会根据的她的判断帮你。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": " 保留 。从 4 瓶 次级药水 中选择获得 2 瓶，采集者将会根据的她的判断帮你。  消耗 。"
+    "DESCRIPTION": "从 4 瓶 次级药水 中选择获得 2 瓶，采集者会描述药水的使用场合。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": " 保留 。从 4 瓶 次级药水 中选择获得 2 瓶，采集者会描述药水的使用场合。 NL 消耗 。"
   },
   "Gatherer:Overflowing": {
     "NAME": "溢出",
