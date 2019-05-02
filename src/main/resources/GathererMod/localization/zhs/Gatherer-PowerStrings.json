@@ -1,0 +1,170 @@
+{
+  "Gatherer:SpareBottle": {
+    "NAME": "空置药瓶",
+    "DESCRIPTIONS": [
+      "每当你使用一瓶 #y药水 ，获得 #b",
+      " 点 #y格挡 并对随机一名敌人造成 #b",
+      " 点伤害。"
+    ]
+  },
+  "Gatherer:DrawHalf": {
+    "NAME": "硬币抽牌",
+    "DESCRIPTIONS": [
+      "每回合开始时，你有50%的概率额外多抽 1 张牌。"
+    ]
+  },
+  "Gatherer:NextNextTurnBlock": {
+    "NAME": "成熟生长",
+    "DESCRIPTIONS": [
+      "在2个回合后，获得 #b",
+      " 点 #y格挡 。"
+    ]
+  },
+  "Gatherer:PoisonMastery": {
+    "NAME": "毒药专精",
+    "DESCRIPTIONS": [
+      "中毒的伤害提高 #b",
+      "%。"
+    ]
+  },
+  "Gatherer:Pollute": {
+    "NAME": "污染",
+    "DESCRIPTIONS": [
+      "在下一个回合，给予所有敌人 ",
+      " 层 y中毒 ，y虚弱 和 #y易伤 。"
+    ]
+  },
+  "Gatherer:ScentOfRosmari": {
+    "NAME": "迷迭香",
+    "DESCRIPTIONS": [
+      "你的下一个回合开始时，将 ",
+      " 从抽牌堆或弃牌堆加入到你的手牌。",
+      " 和 ",
+      " 张其他牌从抽牌堆或弃牌堆加入到你的手牌。"
+    ]
+  },
+  "Gatherer:GlowPower": {
+    "NAME": "生长能力",
+    "DESCRIPTIONS": [
+      "提高了 #y光照！ 和 #y阴影！ 的效果。"
+    ]
+  },
+  "Gatherer:ShadowPower": {
+    "NAME": "阴影",
+    "DESCRIPTIONS": [
+      "如果你下张牌打出的是 光照！ ，那张牌的获得的格挡是双倍。"
+    ]
+  },
+  "Gatherer:VenomBarrier": {
+    "NAME": "毒液屏障",
+    "DESCRIPTIONS": [
+      "受到攻击时，给予攻击者 #b",
+      " 层 中毒 。"
+    ]
+  },
+  "Gatherer:BalancedGrowth": {
+    "NAME": "均衡生长",
+    "DESCRIPTIONS": [
+      "每回合开始时，最多获得 #b",
+      " 点 #y力量 或 #y敏捷 直到他们相等。"
+    ]
+  },
+  "Gatherer:Liquidism": {
+    "NAME": "液化",
+    "DESCRIPTIONS": [
+      "每当你使用药水，随机获得 #b",
+      " 点 #y力量 或 #y敏捷 。"
+    ]
+  },
+  "Gatherer:BomberForm": {
+    "NAME": "轰炸形态",
+    "DESCRIPTIONS": [
+      "在每回合开始时，获得一瓶 次级爆炸药水。 所有将来的 次级药水 都会变成 次级爆炸药水 。每次使用，提高所有的 次级爆炸药水 #b",
+      " 点伤害。"
+    ]
+  },
+  "Gatherer:Exploding": {
+    "NAME": "爆破",
+    "DESCRIPTIONS": [
+      "你的次级爆炸药水提高 #b",
+      " 点伤害。"
+    ]
+  },
+  "Gatherer:FeelingFine": {
+    "NAME": "感觉良好",
+    "DESCRIPTIONS": [
+      "本回合内，你再使用 #b",
+      " 瓶 药水 ，移除你身上的所有负面效果。",
+      " 瓶 药水 ，移除你身上的所有负面效果。"
+    ]
+  },
+  "Gatherer:Uplift": {
+    "NAME": "振奋",
+    "DESCRIPTIONS": [
+      "你每回合打出的前 #b",
+      " 张耗能大于等于 2 的牌， 回馈  1 。"
+    ]
+  },
+  "Gatherer:DamageHalf": {
+    "NAME": "半伤",
+    "DESCRIPTIONS": [
+      "本回合内，从 #y攻击者 受到的伤害除以 #b",
+      " 。",
+      "本回合内，从 #y攻击者 受到的伤害最多为 0 。"
+    ]
+  },
+  "Gatherer:StoneFence": {
+    "NAME": "石篱笆",
+    "DESCRIPTIONS": [
+      "你的回合开始时，将 #b",
+      " 张已升级的 #y投掷者 加入你的手牌。 ",
+      " 和 #b",
+      " 张 #y投掷者 加入你的手牌。",
+      ""
+    ]
+  },
+  "Gatherer:ColorfulGarden": {
+    "NAME": "多彩花园",
+    "DESCRIPTIONS": [
+      "你的回合结束时，本回合每打出一张 独一 牌，获得 #b",
+      " 点 格挡 。",
+      " NL （目前获得 #b",
+      " 点格挡。）"
+    ]
+  },
+  "Gatherer:AlchemyTrial": {
+    "NAME": "炼金术试验",
+    "DESCRIPTIONS": [
+      "如果你再打出 #b",
+      " 张牌，获得 #b",
+      " 张牌，获得 #b",
+      " 瓶 #y次级药水. NL #r攻击 - 次级火焰或爆炸药水 NL #g技能 - 次级格挡或能量药水 NL #b能力 - 次级力量或敏捷药水 NL 其他 - 次级虚弱或恐惧药水"
+    ]
+  },
+  "Gatherer:UpgradeBag": {
+    "NAME": "升级小袋",
+    "DESCRIPTIONS": [
+      "你小袋中的药水药效提高 #b",
+      "% 。",
+      " NL #r（禁用！）"
+    ]
+  },
+  "Gatherer:GrassKnot": {
+    "NAME": "草绳结",
+    "DESCRIPTIONS": [
+      "你的回合结束时，最多丢弃 #b",
+      " 张被 #y保留 了的牌，每张获得 #b",
+      " 点 #y格挡 和 #b",
+      " 层 #y荆棘 。"
+    ]
+  },
+  "Gatherer:RecipeChange": {
+    "NAME": "更改配方",
+    "DESCRIPTIONS": [
+      "每当你获得了一瓶 #y次级药水 ，替换为一瓶 ",
+      " 。提升 #b",
+      "% 的效果。"
+    ]
+  },
+  "Gatherer:Dummy": {}
+}

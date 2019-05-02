@@ -5,9 +5,11 @@ import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import the_gatherer.GathererMod;
+import the_gatherer.cards.Helper.AbstractTaggedCard;
 
 import java.util.HashSet;
 
@@ -71,7 +73,22 @@ public class FlyingFruit extends CustomRelic implements CustomSavable<HashSet<St
 				} else {
 					first = false;
 				}
-				result.append(GathererMod.stripPrefix(id));
+
+				try {
+					int index = id.indexOf("|Tag=");
+					if (index >= 0) {
+						AbstractCard c = CardLibrary.getCard(id.substring(0, index)).makeCopy();
+						AbstractTaggedCard atc = (AbstractTaggedCard) c;
+						atc.setTag(Integer.parseInt(id.substring(index + 5)));
+						result.append(atc.name);
+					} else {
+						AbstractCard c = CardLibrary.getCard(id);
+						result.append(c.name);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					result.append(GathererMod.stripPrefix(id));
+				}
 			}
 			return result.toString();
 		}

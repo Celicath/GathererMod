@@ -12,7 +12,6 @@ import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -75,7 +74,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		EditStringsSubscriber, SetUnlocksSubscriber, EditKeywordsSubscriber,
 		OnStartBattleSubscriber, OnPowersModifiedSubscriber,
 		PostPotionUseSubscriber, PostObtainCardSubscriber,
-		PostBattleSubscriber, OnCardUseSubscriber, RenderSubscriber,
+		PostBattleSubscriber, OnCardUseSubscriber,
 		PreMonsterTurnSubscriber, PostUpdateSubscriber, PostEnergyRechargeSubscriber,
 		PostCreateStartingDeckSubscriber {
 
@@ -162,10 +161,6 @@ public class GathererMod implements PostInitializeSubscriber,
 				"GathererMod/img/cardui/1024/card_lime_orb.png",
 				"GathererMod/img/cardui/512/card_lime_small_orb.png");
 
-		gathererDefaults.setProperty("phoenixStart", "FALSE");
-		gathererDefaults.setProperty("contentSharing", "TRUE");
-		gathererDefaults.setProperty("contentSharing_potions", "TRUE");
-		gathererDefaults.setProperty("overheatedBETA", "FALSE");
 		loadConfig();
 
 		logger.debug("Constructor finished.");
@@ -279,13 +274,13 @@ public class GathererMod implements PostInitializeSubscriber,
 		potionSack = new PotionSack();
 		excessPotionHandleScreen = new ExcessPotionHandleScreen();
 
-		addGrowBookContent("Iron", new AbstractCard[]{
+		addGrowBookContent(GrowBook.EXTENDED_DESCRIPTION[7], new AbstractCard[]{
 				new Armaments(), new Havoc(), new TwinStrike(), new Feed()
 		});
-		addGrowBookContent("Silent", new AbstractCard[]{
+		addGrowBookContent(GrowBook.EXTENDED_DESCRIPTION[8], new AbstractCard[]{
 				new Choke(), new WellLaidPlans(), new PoisonedStab(), new Alchemize()
 		});
-		addGrowBookContent("Defect", new AbstractCard[]{
+		addGrowBookContent(GrowBook.EXTENDED_DESCRIPTION[9], new AbstractCard[]{
 				new Stack(), new SteamBarrier(), new AllForOne(), new Seek()
 		});
 
@@ -452,55 +447,64 @@ public class GathererMod implements PostInitializeSubscriber,
 			return "kor";
 		} else if (Settings.language == Settings.GameLanguage.RUS) {
 			return "rus";
+		} else if (Settings.language == Settings.GameLanguage.ZHS) {
+			return "zhs";
 		} else {
 			return "eng";
 		}
 	}
 
-
 	@Override
 	public void receiveEditStrings() {
-		logger.debug("receiveEditStrings started.");
+		logger.info("Begin editing strings");
 
-		String loc = getLocCode();
+		loadLocStrings("eng");
+		loadLocStrings(getLocCode());
 
+		logger.info("Done editing strings");
+	}
+
+	private void loadLocStrings(String lang) {
 		// RelicStrings
-		String relicStrings = GetLocString(loc, "Gatherer-RelicStrings");
+		String relicStrings = GetLocString(lang, "Gatherer-RelicStrings");
 		BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
 		// CardStrings
-		String cardStrings = GetLocString(loc, "Gatherer-CardStrings");
+		String cardStrings = GetLocString(lang, "Gatherer-CardStrings");
 		BaseMod.loadCustomStrings(CardStrings.class, cardStrings);
 		// PotionStrings
-		String potionStrings = GetLocString(loc, "Gatherer-PotionStrings");
+		String potionStrings = GetLocString(lang, "Gatherer-PotionStrings");
 		BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
 		// PowerStrings
-		String powerStrings = GetLocString(loc, "Gatherer-PowerStrings");
+		String powerStrings = GetLocString(lang, "Gatherer-PowerStrings");
 		BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
 		// UIStrings
-		String uiStrings = GetLocString(loc, "Gatherer-UIStrings");
+		String uiStrings = GetLocString(lang, "Gatherer-UIStrings");
 		BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
 		// EventStrings
-		String eventStrings = GetLocString(loc, "Gatherer-EventStrings");
+		String eventStrings = GetLocString(lang, "Gatherer-EventStrings");
 		BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
 		// CharacterStrings
-		String characterStrings = GetLocString(loc, "Gatherer-CharacterStrings");
+		String characterStrings = GetLocString(lang, "Gatherer-CharacterStrings");
 		BaseMod.loadCustomStrings(CharacterStrings.class, characterStrings);
-
-		logger.debug("receiveEditStrings finished.");
 	}
 
 	@Override
 	public void receiveEditKeywords() {
 		logger.debug("receiveEditKeywords started.");
-		Gson gson = new Gson();
-		String loc = getLocCode();
 
-		String json = GetLocString(loc, "Gatherer-KeywordStrings");
+		loadLocKeywords("eng");
+		loadLocKeywords(getLocCode());
+	}
+
+	void loadLocKeywords(String lang) {
+		Gson gson = new Gson();
+
+		String json = GetLocString(lang, "Gatherer-KeywordStrings");
 		Keyword[] keywords = gson.fromJson(json, Keyword[].class);
 
 		if (keywords != null) {
 			for (Keyword keyword : keywords) {
-				BaseMod.addKeyword(keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+				BaseMod.addKeyword("gatherer", keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
 			}
 		}
 		logger.debug("receiveEditKeywords finished.");
@@ -659,14 +663,6 @@ public class GathererMod implements PostInitializeSubscriber,
 	}
 
 	@Override
-	public void receiveRender(SpriteBatch sb) {
-		if (AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
-				AbstractDungeon.overlayMenu != null && AbstractDungeon.overlayMenu.combatPanelsShown) {
-			GathererMod.potionSack.render(sb);
-		}
-	}
-
-	@Override
 	public void receivePostObtainCard(AbstractCard card) {
 		if (card instanceof OnObtainEffect)
 			((OnObtainEffect) card).onObtain();
@@ -734,7 +730,7 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	public static String getUniqueID(AbstractCard c) {
 		if (c instanceof AbstractTaggedCard) {
-			return c.cardID + " " + ((AbstractTaggedCard) c).getTagName(c.misc);
+			return c.cardID + "|Tag=" + c.misc;
 		} else {
 			return c.cardID;
 		}

@@ -48,8 +48,8 @@ public class FlowerPower extends CustomCard {
 	@Override
 	public void initializeDescription() {
 		super.initializeDescription();
-		if (!keywords.contains("flower power tooltip")) {
-			keywords.add("flower power tooltip");
+		if (!keywords.contains("gatherer:flower power tooltip")) {
+			keywords.add("gatherer:flower power tooltip");
 		}
 	}
 

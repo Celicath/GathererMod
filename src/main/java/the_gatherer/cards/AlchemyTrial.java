@@ -35,7 +35,7 @@ public class AlchemyTrial extends CustomCard {
 	@Override
 	public void initializeDescription() {
 		super.initializeDescription();
-		keywords.add("alchemy trial tooltip");
+		keywords.add("gatherer:alchemy trial tooltip");
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

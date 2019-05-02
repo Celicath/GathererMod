@@ -74,7 +74,7 @@ public class RottenStipe extends AbstractTaggedCard {
 	@Override
 	public String getTagName(int tag) {
 		if (tag == -1) return "";
-		else return "<T" + tag + ">";
+		else return "<" + EXTENDED_DESCRIPTION[5] + tag + EXTENDED_DESCRIPTION[6] + ">";
 	}
 
 	public RottenStipe() {

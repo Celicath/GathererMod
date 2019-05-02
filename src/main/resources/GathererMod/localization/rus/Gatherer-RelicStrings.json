@@ -3,7 +3,7 @@
     "NAME": "Сумка алхимика",
     "FLAVOR": "A mysterious bag with the power of recurring potions.",
     "DESCRIPTIONS": [
-      "Даёт #b1 случайное #yМалое зелье в начале каждого боя."
+      "Даёт #b1 случайное #ygatherer:Малое_зелье в начале каждого боя."
     ]
   },
   "Gatherer:MiracleBag": {
@@ -34,21 +34,21 @@
     "NAME": "Цветочное яйцо",
     "FLAVOR": "Eggs like flowers. Or they are eggs like flowers",
     "DESCRIPTIONS": [
-      "Подбор данной реликвии #yулучшает ВСЕ #yЦветочные карты в колоде. #yУлучшает добавляемые в колоду #yЦветочные карты."
+      "Подбор данной реликвии #yулучшает ВСЕ #ygatherer:Цветочные карты в колоде. #yУлучшает добавляемые в колоду #ygatherer:Цветочные карты."
     ]
   },
   "Gatherer:Leftovers": {
     "NAME": "Остатки",
     "FLAVOR": "How alchemists make new material from leftovers is a mystery.",
     "DESCRIPTIONS": [
-      "Когда вы используете любое зелье, даёт с #b20% шансом случайное #yМалое зелье."
+      "Когда вы используете любое зелье, даёт с #b20% шансом случайное #ygatherer:Малое_зелье."
     ]
   },
   "Gatherer:FlyingFruit": {
     "NAME": "Летучий Фрукт",
     "FLAVOR": "Fruit flies like a banana.",
     "DESCRIPTIONS": [
-      "После подбора данной реликвии, когда вы #yСжигаете #b1/3/6/10 #yУникальных карт, повышает Макс. ОЗ на #b",
+      "После подбора данной реликвии, когда вы #yСжигаете #b1/3/6/10 #ygatherer:Уникальных карт, повышает Макс. ОЗ на #b",
       ".",
       " NL NL Карт #yсожжено: NL "
     ]

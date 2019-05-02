@@ -42,8 +42,8 @@ public class FlowerShield extends CustomCard {
 	@Override
 	public void initializeDescription() {
 		super.initializeDescription();
-		if (!keywords.contains("flower shield tooltip")) {
-			keywords.add("flower shield tooltip");
+		if (!keywords.contains("gatherer:flower shield tooltip")) {
+			keywords.add("gatherer:flower shield tooltip");
 		}
 	}
 

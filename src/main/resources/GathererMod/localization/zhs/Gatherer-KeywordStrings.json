@@ -1,0 +1,175 @@
+[
+  {
+    "NAMES": [
+      "独一"
+    ],
+    "DESCRIPTION": "除了升级外，名字不同的牌被视为 独一 。"
+  },
+  {
+    "PROPER_NAME": "一次",
+    "NAMES": [
+      "一次"
+    ],
+    "DESCRIPTION": "仅在战斗第一次被打出时生效。使用后显示失效。"
+  },
+  {
+    "PROPER_NAME": "两次",
+    "NAMES": [
+      "两次"
+    ],
+    "DESCRIPTION": "仅在战斗前二次被打出时生效。使用后显示失效。"
+  },
+  {
+    "NAMES": [
+      "花朵"
+    ],
+    "DESCRIPTION": "所有名字带有 #y花朵 的牌。他们能被升级 3 次。第 3 次升级的效果不同、"
+  },
+  {
+    "PROPER_NAME": "次级爆炸药水",
+    "NAMES": [
+      "次级爆炸药水"
+    ],
+    "DESCRIPTION": "使用时能对所有敌人造成 6 点伤害的一种 #y次级药水 。"
+  },
+  {
+    "PROPER_NAME":"次级药水",
+    "NAMES": [
+      "次级药水"
+    ],
+    "DESCRIPTION": "一种可以放到你的小袋里的“次级”药水。"
+  },
+  {
+    "PROPER_NAME": "次级火焰药水",
+    "NAMES": [
+      "次级火焰药水"
+    ],
+    "DESCRIPTION": "使用时能对一名敌人造成 10 点伤害的一种 #y次级药水 。"
+  },
+  {
+    "PROPER_NAME": "次级毒药水",
+    "NAMES": [
+      "次级毒药水"
+    ],
+    "DESCRIPTION": "使用时能给予一名敌人 4 层中毒的一种 #y次级药水 。"
+  },
+  {
+    "PROPER_NAME": "次级格挡药水",
+    "NAMES": [
+      "次级格挡药水"
+    ],
+    "DESCRIPTION": "使用时能获得 8 点格挡的一种 #y次级药水 。"
+  },
+  {
+    "PROPER_NAME": "次级虚弱药水",
+    "NAMES": [
+      "次级虚弱药水"
+    ],
+    "DESCRIPTION": "使用时能给予一名敌人 2 层虚弱的一种 #y次级药水 。"
+  },
+  {
+    "PROPER_NAME": "次级恐惧药水",
+    "NAMES": [
+      "次级恐惧药水"
+    ],
+    "DESCRIPTION": "使用时能给予一名敌人 2 层易伤的一种 #y次级药水 。"
+  },
+  {
+    "PROPER_NAME": "次级能量药水",
+    "NAMES": [
+      "次级能量药水"
+    ],
+    "DESCRIPTION": "使用时能获得1点能量的一种 #y次级药水 。"
+  },
+  {
+    "PROPER_NAME": "次级迅捷药水",
+    "NAMES": [
+      "次级迅捷药水"
+    ],
+    "DESCRIPTION": "使用时能抽 2 张牌的一种 #y次级药水 。"
+  },
+  {
+    "PROPER_NAME": "卡牌稀有度",
+    "NAMES": [
+      "convert tooltip"
+    ],
+    "DESCRIPTION": "罕见牌 = 蓝色 NL 稀有牌 = 金色 "
+  },
+  {
+    "PROPER_NAME": "生长能力",
+    "NAMES": [
+      "生长能力"
+    ],
+    "DESCRIPTION": "加强牌 #y光照！ 和 #y阴影！ 的效果。"
+  },
+  {
+    "PROPER_NAME": "炼金试验",
+    "NAMES": [
+      "alchemy trial tooltip"
+    ],
+    "DESCRIPTION": "#r攻击 - 次级火焰或爆炸药水 NL #g技能 - 次级格挡或能量药水 NL #b能力 - 次级力量或敏捷药水 NL 其他 - 次级虚弱或恐惧药水"
+  },
+  {
+    "PROPER_NAME": "铁甲战士牌",
+    "NAMES": [
+      "grow book tooltip 0"
+    ],
+    "DESCRIPTION": "从 武装 、 破灭 或 双重打击 中选择一张。 如果本牌已升级，将 狂宴 加入选项。"
+  },
+  {
+    "PROPER_NAME": "静默猎手牌",
+    "NAMES": [
+      "grow book tooltip 1"
+    ],
+    "DESCRIPTION": "从 勒脖 、 计划妥当 或 带毒刺击 中选择一张。 如果本牌已升级，将 炼制药水 加入选项。 "
+  },
+  {
+    "PROPER_NAME": "故障机器人牌",
+    "NAMES": [
+      "grow book tooltip 2"
+    ],
+    "DESCRIPTION": "从 堆栈 、 蒸汽护壁 或 万物一心 中选择一张。如果本牌已升级，将 搜寻 加入选项。"
+  },
+  {
+    "PROPER_NAME": "叠加",
+    "NAMES": [
+      "bomberform tooltip"
+    ],
+    "DESCRIPTION": "如果你打出了多张 #y轰炸形态 ，伤害叠加。但你每回合只能获得 1 瓶 #y次级爆炸药水 。 NL 同时，增加的伤害不会被 #y升级背包 加倍。"
+  },
+  {
+    "PROPER_NAME": "三次升级",
+    "NAMES": [
+      "flower whip tooltip"
+    ],
+    "DESCRIPTION": "第三次 #y升级 让攻击次数变为3以提升伤害。"
+  },
+  {
+    "PROPER_NAME": "三次升级",
+    "NAMES": [
+      "flower falling tooltip"
+    ],
+    "DESCRIPTION": "第三次 #y升级 让这张牌能耗变为 0 并回复 3 生命而不是增加伤害。"
+  },
+  {
+    "PROPER_NAME": "三次升级",
+    "NAMES": [
+      "flower shield tooltip"
+    ],
+    "DESCRIPTION": "第三次 #y升级 让这张牌能耗变为 0 而不是增加格挡。"
+  },
+  {
+    "PROPER_NAME": "三次升级",
+    "NAMES": [
+      "flower beam tooltip"
+    ],
+    "DESCRIPTION": "第三次 #y升级 让这张牌能耗变为 1 而不是增加伤害"
+  },
+  {
+    "PROPER_NAME": "三次升级",
+    "NAMES": [
+      "flower power tooltip"
+    ],
+    "DESCRIPTION": "第三次 #y升级 让这张牌能耗变为 1 以移除一个负面效果。"
+  }
+]

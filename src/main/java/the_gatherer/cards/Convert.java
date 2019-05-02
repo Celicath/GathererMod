@@ -54,7 +54,7 @@ public class Convert extends CustomCard {
 	@Override
 	public void initializeDescription() {
 		super.initializeDescription();
-		keywords.add("convert tooltip");
+		keywords.add("gatherer:convert tooltip");
 	}
 
 	public AbstractCard makeCopy() {

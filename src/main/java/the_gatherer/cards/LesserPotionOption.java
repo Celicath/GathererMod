@@ -19,21 +19,43 @@ public class LesserPotionOption extends CustomCard {
 	public LesserPotionOption(SackPotion p, String description) {
 		super(ID, p.name, IMG, -2, description, CardType.SKILL, CardColor.COLORLESS, CardRarity.SPECIAL, CardTarget.NONE);
 		this.potion = p;
-		this.potion.scale = this.drawScale * 1.5f;
+		this.potion.scale = Settings.scale * this.drawScale * 1.6f;
 
-		this.rawDescription = this.rawDescription.replace("#b", "[#87ceeb]");
-		this.rawDescription = this.rawDescription.replace("#g", "[#7fff00]");
-		this.rawDescription = this.rawDescription.replace("#r", "[#ff6563]");
-		this.rawDescription = this.rawDescription.replace("#y", "[#efc851]");
+		StringBuilder newText = new StringBuilder();
+		boolean first = true;
+		for (String derp : rawDescription.split(" ")) {
+			if (first) first = false;
+			else newText.append(' ');
+			if ((derp.length() > 0) && (derp.charAt(0) == '#')) {
+				switch (derp.charAt(1)) {
+					case 'r':
+						derp = "[#ff6563]" + derp.substring(2) + "[]";
+						break;
+					case 'g':
+						derp = "[#7fff00]" + derp.substring(2) + "[]";
+						break;
+					case 'b':
+						derp = "[#87ceeb]" + derp.substring(2) + "[]";
+						break;
+					case 'y':
+						derp = "[#efc851]" + derp.substring(2) + "[]";
+						break;
+				}
+				newText.append(derp);
+			} else {
+				newText.append(derp);
+			}
+		}
+		rawDescription = newText.toString();
 		this.initializeDescription();
 	}
 
 	@Override
 	public void update() {
 		super.update();
-		this.potion.scale = this.drawScale * 1.5f;
+		this.potion.scale = Settings.scale * this.drawScale * 1.6f;
 		potion.posX = this.current_x;
-		potion.posY = this.current_y + 50 * Settings.scale * this.potion.scale;
+		potion.posY = this.current_y + Settings.scale * this.drawScale * 80;
 	}
 
 	@Override
