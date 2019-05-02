@@ -15,18 +15,18 @@
     "NAME": "汇聚",
     "DESCRIPTION": "从你的抽牌堆 取出 !M! 张牌。",
     "EXTENDED_DESCRIPTION": [
-      " NL gatherer:两次 : 将手牌中的随机 !M! 张牌升级，取出优先执行。",
-      " NL gatherer:一次 : 将手牌中的随机 !M! 张牌升级，取出优先执行。",
+      " NL 两次 : 将手牌中的随机 !M! 张牌升级，取出优先执行。",
+      " NL 一次 : 将手牌中的随机 !M! 张牌升级，取出优先执行。",
       " NL 获得本牌时， 被诅咒 - 凡庸 。"
     ]
   },
   "Gatherer:SpareBottle": {
-    "NAME": "备用药瓶",
+    "NAME": "空瓶",
     "DESCRIPTION": "每当你使用了一瓶药水，获得 !M! 点 格挡 并对随机一名敌人造成 !M! 点伤害。",
     "EXTENDED_DESCRIPTION": [
-      "Norm",
-      "Silv",
-      "Gold"
+      "铜",
+      "银", 
+      "金" 
     ]
   },
   "Gatherer:AcidicSpray": {
@@ -43,8 +43,8 @@
   },
   "Gatherer:CollectorsShot": {
     "NAME": "采集者射击",
-    "DESCRIPTION": "只有当你的牌组中没有重复牌才能打出。造成等于 1.5 倍 gatherer:独一 牌数量的伤害。",
-    "UPGRADE_DESCRIPTION": "只有当你的牌组中没有重复牌才能打出。造成等于 2 倍 gatherer:独一 牌数量的伤害。",
+    "DESCRIPTION": "只有当你的牌组中没有重复牌才能打出。造成等于 1.5 倍 独一 牌数量的伤害。",
+    "UPGRADE_DESCRIPTION": "只有当你的牌组中没有重复牌才能打出。造成等于 2 倍 独一 牌数量的伤害。",
     "EXTENDED_DESCRIPTION": [
       " NL （造成 !D! 点伤害）"
     ]
@@ -60,7 +60,7 @@
     ]
   },
   "Gatherer:FlowerFalling": {
-    "NAME": "花落",
+    "NAME": "落花",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 回复 !M! 生命。 NL 消耗 。"
   },
@@ -80,8 +80,8 @@
     "NAME": "抢夺",
     "DESCRIPTION": "造成 !D! 点伤害。",
     "EXTENDED_DESCRIPTION": [
-      " NL gatherer:两次 ： 获得随机一瓶次级药水。",
-      " NL gatherer:一次 ： 获得随机一瓶次级药水",
+      " NL 两次 ： 获得随机一瓶次级药水。",
+      " NL 一次 ： 获得随机一瓶次级药水",
        " NL 获得本牌时， 被诅咒 - 凡庸 。 。"
     ]
   },
@@ -91,7 +91,7 @@
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 抽 !M! 张牌。 NL 直到回合结束前，获得 !M! 点 力量 。"
   },
   "Gatherer:BigPouch": {
-    "NAME": "大号口袋",
+    "NAME": "大号腰包",
     "DESCRIPTION": "抽 !M! 张牌。 获得等于手牌中所有牌能耗之和的 格挡 。"
   },
   "Gatherer:Convert": {
@@ -100,7 +100,7 @@
   },
   "Gatherer:EnergyBasket": {
     "NAME": "能量药篮",
-    "DESCRIPTION": "保留 。 NL 获得 !M! 瓶 gatherer:次级能量药水 。 NL 消耗 。"
+    "DESCRIPTION": "保留 。 NL 获得 !M! 瓶 次级能量药水 。 NL 消耗 。"
   },
   "Gatherer:FlowerShield": {
     "NAME": "花朵护盾",
@@ -116,11 +116,11 @@
   },
   "Gatherer:QuickSynthesis": {
     "NAME": "快速合成",
-    "DESCRIPTION": "获得 !M! 瓶随机 gatherer:次级药水 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "抽 1 张牌。获得 !M! 瓶随机 gatherer:次级药水 。 NL 消耗 。"
+    "DESCRIPTION": "获得 !M! 瓶随机 次级药水 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "抽 1 张牌。获得 !M! 瓶随机 次级药水 。 NL 消耗 。"
   },
   "Gatherer:SaveValuables": {
-    "NAME": "珍藏",
+    "NAME": "节约",
     "DESCRIPTION": "从弃牌堆中选择 !M! 张牌，将他们洗入你的抽牌堆。"
   },
   "Gatherer:TreeGrowth": {
@@ -131,18 +131,18 @@
     "NAME": "羊毛手套",
     "DESCRIPTION": "获得 !B! 点 格挡 。",
     "EXTENDED_DESCRIPTION": [
-      " NL gatherer:两次 ：抽 3 张牌并丢弃 3 张牌。",
-      " NL gatherer:一次 ：抽 3 张牌并丢弃 3 张牌。",
+      " NL 两次 ：抽 3 张牌并丢弃 3 张牌。",
+      " NL 一次 ：抽 3 张牌并丢弃 3 张牌。",
        " NL 获得本牌时， 被诅咒 - 凡庸 。 。"
     ]
   },
   "Gatherer:Duality": {
     "NAME": "二元",
-    "DESCRIPTION": "造成 !D! 点伤害。 保留 。 当 保留 时，他的属性在 <ATK> 和 <DEF> 之间切换。",
+    "DESCRIPTION": "造成 !D! 点伤害。 保留 。 当 保留 时，他的属性在 <攻击> 和 <防御> 之间切换。",
     "EXTENDED_DESCRIPTION": [
-      "获得 !B! 点 格挡 。 保留 。 当 保留 时，他的属性在 <ATK> 和 <DEF> 之间切换。",
-      "ATK",
-      "DEF"
+      "获得 !B! 点 格挡 。 保留 。 当 保留 时，他的属性在 <攻击> 和 <防御> 之间切换。",
+      "攻击",
+      "防御"
     ]
   },
   "Gatherer:EchoOfNature": {
@@ -166,8 +166,8 @@
   },
   "Gatherer:Misfortune": {
     "NAME": "厄运",
-    "DESCRIPTION": "造成 !D! 点伤害。 最多获得 !M! 瓶敌人已有的一种负面效果的 gatherer:次级药水 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 最多获得 !M! 瓶敌人已有的一种负面效果的 gatherer:次级药水 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 最多获得 !M! 瓶敌人已有的一种负面效果的 次级药水 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 最多获得 !M! 瓶敌人已有的一种负面效果的 次级药水 。"
   },
   "Gatherer:OddSpoils": {
     "NAME": "零星赃物",
@@ -176,8 +176,8 @@
   },
   "Gatherer:Polymorphism": {
     "NAME": "多态",
-    "DESCRIPTION": "造成手牌中其他牌数量的伤害。如果全部是 gatherer:独一 ，获得 [E] 并抽 !M! 张牌。",
-    "UPGRADE_DESCRIPTION": "造成手牌中其他牌数量的伤害。如果全部是 gatherer:独一 ，获得 [E] 并抽 !M! 张牌。",
+    "DESCRIPTION": "造成手牌中其他牌数量的伤害。如果全部是 独一 ，获得 [E] 并抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "造成手牌中其他牌数量的伤害。如果全部是 独一 ，获得 [E] 并抽 !M! 张牌。",
     "EXTENDED_DESCRIPTION": [
       " NL （造成 !D! 点伤害）",
       " NL （抽牌并造成 !D! 点伤害！）"
@@ -192,8 +192,8 @@
       " NL 给予 !M! 层 易伤 。",
       " NL 给予 !M! 层 中毒 。",
       " NL （每张 腐朽菌柄 ，将会随机选择伤害或是不良状态。）",
-      "T",
-      ""
+      "",
+	  "号"
     ]
   },
   "Gatherer:SealedBomb": {
@@ -213,8 +213,8 @@
   },
   "Gatherer:Duplicator": {
     "NAME": "复制",
-    "DESCRIPTION": "获得你所有 gatherer:次级药水 的效果。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "获得你所有 gatherer:次级药水 的效果。"
+    "DESCRIPTION": "获得你所有 次级药水 的效果。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得你所有 次级药水 的效果。"
   },
   "Gatherer:Enchant": {
     "NAME": "附魔",
@@ -222,16 +222,16 @@
   },
   "Gatherer:GlowingPlant": {
     "NAME": "发光植物",
-    "DESCRIPTION": "抽 !M! 张牌。 NL 获得 1 层 gatherer:生长能力 。 NL 获得本牌时，将一张 光照！和 阴影！ 加入你的牌组。",
-    "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 获得 1 层 gatherer:生长能力 。 NL 获得本牌时，将一张 光照！和 阴影！ 加入你的牌组。"
+    "DESCRIPTION": "抽 !M! 张牌。 NL 获得 1 层 生长能力 。 NL 获得本牌时，将一张 光照！和 阴影！ 加入你的牌组。",
+    "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 获得 1 层 生长能力 。 NL 获得本牌时，将一张 光照！和 阴影！ 加入你的牌组。"
   },
   "Gatherer:Light": {
     "NAME": "光照！",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 每有一层 gatherer:生长能力 ，增加 !M! 点 格挡 。 NL 获得 1 层 gatherer:生长能力 。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 每有一层 生长能力 ，增加 !M! 点 格挡 。 NL 获得 1 层 生长能力 。"
   },
   "Gatherer:Shadow": {
     "NAME": "阴影！",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 每有一层 gatherer:生长能力 ，提高 !M! 点伤害。 NL 获得 1 层 gatherer:生长能力 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 每有一层 生长能力 ，提高 !M! 点伤害。 NL 获得 1 层 生长能力 。"
   },
   "Gatherer:Herbalism": {
     "NAME": "草药学",
@@ -244,11 +244,11 @@
   },
   "Gatherer:Nutrients": {
     "NAME": "营养",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得本牌时，升级你所有的 gatherer:花朵 牌。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得本牌时，升级你所有的 花朵 牌。"
   },
   "Gatherer:RecipeChange": {
     "NAME": "更改配方",
-    "DESCRIPTION": "从全部的 gatherer:次级药水 中选择一瓶，将所有的 gatherer:次级药水 替换为它。 NL 消耗 。"
+    "DESCRIPTION": "从全部的 次级药水 中选择一瓶，将所有的 次级药水 替换为它。 NL 消耗 。"
   },
   "Gatherer:RecoveryHerb": {
     "NAME": "恢复药草",
@@ -273,13 +273,13 @@
     ]
   },
   "Gatherer:SmartManeuver": {
-    "NAME": "智能机动",
-    "DESCRIPTION": "本回合内，一名敌人造成的伤害减半。 获得一瓶 gatherer:次级迅捷药水 。",
-    "UPGRADE_DESCRIPTION": "本回合内，一名敌人造成的伤害减半。 获得一瓶 gatherer:次级迅捷药水 。 NL 保留 。"
+    "NAME": "机敏躲避",
+    "DESCRIPTION": "本回合内，一名敌人造成的伤害减半。 获得一瓶 次级迅捷药水 。",
+    "UPGRADE_DESCRIPTION": "本回合内，一名敌人造成的伤害减半。 获得一瓶 次级迅捷药水 。 NL 保留 。"
   },
   "Gatherer:Solidify": {
     "NAME": "凝固",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 如果你拥有或超过 !M! 点 格挡  ，降低 5 点并获得一瓶 gatherer:次级格挡药水 。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 如果你拥有或超过 !M! 点 格挡  ，降低 5 点并获得一瓶 次级格挡药水 。"
   },
   "Gatherer:Transmute": {
     "NAME": "蜕变",
@@ -292,7 +292,7 @@
   },
   "Gatherer:AlchemyTrial": {
     "NAME": "炼金试验",
-    "DESCRIPTION": "每当你打出 10 张牌时，根据第 10 张打出的牌的属性获得一瓶 gatherer:次级药水 。"
+    "DESCRIPTION": "每当你打出 10 张牌时，根据第 10 张打出的牌的属性获得一瓶 次级药水 。"
   },
   "Gatherer:BalancedGrowth": {
     "NAME": "均衡生长",
@@ -300,8 +300,8 @@
   },
   "Gatherer:ColorfulGarden": {
     "NAME": "多彩花园",
-    "DESCRIPTION": "你的回合结束时，本回合每打出一张 gatherer:独一 牌，获得 !M! 点 格挡 。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 你的回合结束时，本回合每打出一张 gatherer:独一 牌，获得 !M! 点 格挡 。"
+    "DESCRIPTION": "你的回合结束时，本回合每打出一张 独一 牌，获得 !M! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 你的回合结束时，本回合每打出一张 独一 牌，获得 !M! 点 格挡 。"
   },
   "Gatherer:FeelingFine": {
     "NAME": "感觉良好",
@@ -314,25 +314,25 @@
     "UPGRADE_DESCRIPTION": "固有。 NL 每当你使用药水，随机获得 1 点 力量 或 敏捷 。"
   },
   "Gatherer:UpgradeBag": {
-    "NAME": "升级背包",
-    "DESCRIPTION": "将一张 差错 加入你的 牌组。 你的 gatherer:次级药水 效果提升 100% 。",
-    "UPGRADE_DESCRIPTION": "将一张 差错+ 加入你的弃牌堆。 你的 gatherer:次级药水 效果提升 100% 。"
+    "NAME": "升级腰包",
+    "DESCRIPTION": "将一张 差错 加入你的 牌组。 你的 次级药水 效果提升 100% 。",
+    "UPGRADE_DESCRIPTION": "将一张 差错+ 加入你的弃牌堆。 你的 次级药水 效果提升 100% 。"
   },
   "Gatherer:Glitched": {
     "NAME": "差错",
     "DESCRIPTION": "保留 。 NL 当他在你的手牌时，升级腰包效果失效。 NL 消耗 。"
   },
   "Gatherer:Uplift": {
-    "NAME": "振奋",
+    "NAME": "亢奋",
     "DESCRIPTION": "你每回合打出的前 !M! 张耗能大于等于 2 的牌， 回馈  1 。",
     "UPGRADE_DESCRIPTION": "你每回合打出的前 !M! 张耗能大于等于 2 的牌， 回馈  1 。"
   },
   "Gatherer:Bulldoze": {
     "NAME": "碾压",
-    "DESCRIPTION": "你的弃牌堆每有 !M! 张 gatherer:独一 牌，对所有敌人造成 !D! 点伤害。",
+    "DESCRIPTION": "你的弃牌堆每有 !M! 张 独一 牌，对所有敌人造成 !D! 点伤害。",
     "EXTENDED_DESCRIPTION": [
       " NL （弃牌堆有 ",
-      " 张 gatherer:独一 牌。)"
+      " 张 独一 牌。)"
     ]
   },
   "Gatherer:CoupDeGrace": {
@@ -343,14 +343,14 @@
     "NAME": "诅咒之剑",
     "DESCRIPTION": "造成 !D! 点伤害。获得本牌时，被诅咒 - 凡庸 。",
     "EXTENDED_DESCRIPTION": [
-      " NL gatherer:两次 ： 敌人本回合失去 !M! 点 力量 。 ",
-      " NL gatherer:一次 ： 敌人本回合失去 !M! 点 力量 。 ",
-      " NL gatherer:一次 的效果已触发。" 
+      " NL 两次 ： 敌人本回合失去 !M! 点 力量 。 ",
+      " NL 一次 ： 敌人本回合失去 !M! 点 力量 。 ",
+      " NL 一次 的效果已触发。" 
     ]
   },
   "Gatherer:FlamingBottle": {
     "NAME": "燃烧瓶",
-    "DESCRIPTION": "造成 !D! 点伤害。 获得一瓶 gatherer:次级火焰药水 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 获得一瓶 次级火焰药水 。"
   },
   "Gatherer:HeartToFruit": {
     "NAME": "水果之心",
@@ -358,39 +358,39 @@
   },
   "Gatherer:Photoscythe": {
     "NAME": "光细胞",
-    "DESCRIPTION": "固有。 本场战斗升级你所有的 gatherer:花朵 牌。 每 升级 一张 gatherer:花朵 牌，造成 !M! 点伤害。 NL 消耗 。",
+    "DESCRIPTION": "固有。 本场战斗升级你所有的 花朵 牌。 每 升级 一张 花朵 牌，造成 !M! 点伤害。 NL 消耗 。",
     "EXTENDED_DESCRIPTION": [
       " NL （造成 !D! 点伤害）"
     ]
   },
   "Gatherer:BlackTea": {
     "NAME": "红茶",
-    "DESCRIPTION": "获得 !M! 点 力量 。 NL 失去 1 点 敏捷 。 NL 起动 ：获得随机一瓶 gatherer:次级药水 。"
+    "DESCRIPTION": "获得 !M! 点 力量 。 NL 失去 1 点 敏捷 。 NL 起动 ：获得随机一瓶 次级药水 。"
   },
   "Gatherer:Examine": {
     "NAME": "检查",
-    "DESCRIPTION": "检视你抽牌堆顶部的 !M! 张牌。 你可以选择打出一张或丢弃全部。 "
+    "DESCRIPTION": "检视你抽牌堆顶部的 !M! 张牌。 你可以选择打出一张并丢弃其他牌。 "
   },
   "Gatherer:GrowBook": {
     "NAME": "成长之书",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 打出 3 次后，永久替换为一张 <?> 牌。 NL  消耗 。",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 打出 3 次后，永久替换为一张  <?>  牌。 NL  消耗 。",
     "EXTENDED_DESCRIPTION": [
       "获得 !B! 点 格挡 。消耗 。",
       " NL 打出 3 次后，永久替换为 ",
       " NL 打出 2 次后，永久替换为 ",
       " NL 打出 1 次后，永久替换为 ",
-      " 一张铁甲战士牌。",
-      " 一张静默猎手牌。",
-      " 一张故障机器人牌。",
-      "Iron",
-      "Silent",
-      "Defect"
+      " 一张 铁甲战士 牌 。",
+      " 一张 静默猎手 牌 。",
+      " 一张 故障机器人 牌 。",
+      "战士",
+      "猎手",
+      "机器人"
     ]
   },
   "Gatherer:MindSearch": {
     "NAME": "思考搜索",
-    "DESCRIPTION": "从 4 瓶 gatherer:次级药水 中选择获得 2 瓶，采集者将会根据的她的判断帮你。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": " 保留 。从 4 瓶 gatherer:次级药水 中选择获得 2 瓶，采集者将会根据的她的判断帮你。  消耗 。"
+    "DESCRIPTION": "从 4 瓶 次级药水 中选择获得 2 瓶，采集者会描述药水的使用场合。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": " 保留 。从 4 瓶 次级药水 中选择获得 2 瓶，采集者会描述药水的使用场合。 NL 消耗 。"
   },
   "Gatherer:Overflowing": {
     "NAME": "溢出",
@@ -407,7 +407,7 @@
   },
   "Gatherer:BomberForm": {
     "NAME": "轰炸形态",
-    "DESCRIPTION": "你的回合开始时，获得一瓶 gatherer:次级爆炸药水 。所有将来的 gatherer:次级药水 都会变成 gatherer:次级爆炸药水 。每次使用，提高所有的 gatherer:次级爆炸药水  !M! 点伤害。"
+    "DESCRIPTION": "你的回合开始时，获得一瓶 次级爆炸药水 。所有将来的 次级药水 都会变成 次级爆炸药水 。每次使用，提高所有的 次级爆炸药水  !M! 点伤害。"
   },
   "Gatherer:FlowerPower": {
     "NAME": "花朵之力",
@@ -433,7 +433,7 @@
   },
   "Gatherer:PoisonMastery": {
     "NAME": "毒药专精",
-    "DESCRIPTION": "获得一瓶 gatherer:次级毒药水 。 NL 中毒伤害提高 100% 。"
+    "DESCRIPTION": "获得一瓶 次级毒药水 。 NL 中毒伤害提高 100% 。"
   },
   "Gatherer:AromaProtection": {
     "NAME": "芳香保护",
@@ -441,8 +441,8 @@
   },
   "Gatherer:LuckyClover": {
     "NAME": "四叶草",
-    "DESCRIPTION": "你的牌组每有一张 gatherer:花朵 牌，获得 1 点 敏捷 。",
-    "UPGRADE_DESCRIPTION": "你的牌组每有一张 gatherer:花朵 牌，获得 1 点 敏捷 。",
+    "DESCRIPTION": "你的牌组每有一张 花朵 牌，获得 1 点 敏捷 。",
+    "UPGRADE_DESCRIPTION": "你的牌组每有一张 花朵 牌，获得 1 点 敏捷 。",
     "EXTENDED_DESCRIPTION": [
       " NL （获得 !M! 点 敏捷 。)"
     ]

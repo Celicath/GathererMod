@@ -99,7 +99,7 @@
     ]
   },
   "Gatherer:Uplift": {
-    "NAME": "振奋",
+    "NAME": "亢奋",
     "DESCRIPTIONS": [
       "你每回合打出的前 #b",
       " 张耗能大于等于 2 的牌， 回馈  1 。"
