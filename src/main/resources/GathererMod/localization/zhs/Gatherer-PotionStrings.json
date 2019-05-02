@@ -86,7 +86,7 @@
   "Gatherer:LesserSpeedPotion": {
     "NAME": "次级速度药水",
     "DESCRIPTIONS": [
-      "Gain #b",
+      "获得 #b",
       " 点 #y敏捷 。在你的回合结束时，失去 #b",
       " 点 #y敏捷 。"
     ]
@@ -94,7 +94,7 @@
   "Gatherer:LesserSteroidPotion": {
     "NAME": "次级类固醇药水",
     "DESCRIPTIONS": [
-      "Gain #b",
+      "获得 #b",
       " 点 #y力量 。在你的回合结束时，失去 #b",
       " 点 #y力量 。"
     ]
