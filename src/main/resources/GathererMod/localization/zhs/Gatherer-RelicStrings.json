@@ -32,7 +32,7 @@
   },
   "Gatherer:FloralEgg": {
     "NAME": "花朵之蛋",
-    "FLAVOR": "与其说是这枚蛋像花朵，不如说是花朵蛋"",
+    "FLAVOR": "与其说是这枚蛋像花朵，不如说是花朵蛋。",
     "DESCRIPTIONS": [
       "拾起时， #y升级 你全部的 #ygatherer:花朵 牌。每当你获得 #ygatherer:花朵 牌 时，将其 #y升级 。"
     ]
