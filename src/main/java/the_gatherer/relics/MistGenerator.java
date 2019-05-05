@@ -10,7 +10,7 @@ import the_gatherer.GathererMod;
 public class MistGenerator extends CustomRelic {
 	private static final String RelicID = "MistGenerator";
 	public static final String ID = GathererMod.makeID(RelicID);
-	public static final int AMOUNT = 5;
+	public static final int AMOUNT = 8;
 
 	public MistGenerator() {
 		super(ID, new Texture(GathererMod.GetRelicPath(RelicID)),

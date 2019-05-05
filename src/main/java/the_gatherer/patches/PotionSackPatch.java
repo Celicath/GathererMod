@@ -19,8 +19,8 @@ public class PotionSackPatch {
 
 	@SpirePatch(clz = EnergyPanel.class, method = "renderOrb")
 	public static class PotionSackRenderPatch {
-		@SpirePrefixPatch
-		public static void Prefix(EnergyPanel __instance, SpriteBatch sb) {
+		@SpirePostfixPatch
+		public static void Postfix(EnergyPanel __instance, SpriteBatch sb) {
 			GathererMod.potionSack.render(sb);
 			GathererMod.potionSack.potionUi.render(sb);
 		}

@@ -433,7 +433,8 @@
   },
   "Gatherer:PoisonMastery": {
     "NAME": "Poison Mastery",
-    "DESCRIPTION": "Gain a gatherer:Lesser_Poison_Potion. NL Poison damage is increased by 100%."
+    "DESCRIPTION": "Gain a gatherer:Lesser_Poison_Potion. NL Poison damage is increased by 100%.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Gain a gatherer:Lesser_Poison_Potion. NL Poison damage is increased by 100%."
   },
   "Gatherer:AromaProtection": {
     "NAME": "Aroma Protection",

@@ -432,7 +432,7 @@ public class GathererMod implements PostInitializeSubscriber,
 
 		for (CustomCard card : cards) {
 			BaseMod.addCard(card);
-			UnlockTracker.unlockCard(card.cardID);
+			//UnlockTracker.unlockCard(card.cardID);
 		}
 		logger.debug("receiveEditCards finished.");
 	}
@@ -666,7 +666,6 @@ public class GathererMod implements PostInitializeSubscriber,
 	public void receivePostObtainCard(AbstractCard card) {
 		if (card instanceof OnObtainEffect)
 			((OnObtainEffect) card).onObtain();
-		logger.debug("COUNT_TEST = " + AbstractDungeon.player.masterDeck.group.size());
 		updateTypeCount();
 	}
 

@@ -45,7 +45,7 @@ public class PotionSack {
 
 	private static final int width = 240;
 	private static final int height = 100;
-	private static final float above = 200.0f;
+	private static final float above = 250.0f;
 
 	private int moveState = 0;
 	private float dx;
@@ -196,7 +196,6 @@ public class PotionSack {
 					}
 				}
 				if (potency != potionPotency) {
-					logger.debug("potencyChanged : " + potionPotency + " > " + potency);
 					potionPotency = potency;
 					if (ubp != null) {
 						ubp.activated = (potency != 0);

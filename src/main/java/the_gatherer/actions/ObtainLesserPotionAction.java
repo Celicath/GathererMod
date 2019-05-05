@@ -48,7 +48,7 @@ public class ObtainLesserPotionAction extends AbstractGameAction {
 					}
 				}
 				if (!GathererMod.potionSack.addPotion(this.potion)) {
-					AbstractDungeon.effectList.add(new SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0f,
+					AbstractDungeon.effectList.add(new SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.5f,
 							TEXT[0] + this.potion.name + TEXT[1], true));
 
 					ArrayList<AbstractMonster> tmp = new ArrayList<>();

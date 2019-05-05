@@ -433,7 +433,8 @@
   },
   "Gatherer:PoisonMastery": {
     "NAME": "독 숙련",
-    "DESCRIPTION": "gatherer:소형_중독_포션 을 얻습니다. NL 중독의 피해량이 100% 증가합니다."
+    "DESCRIPTION": "gatherer:소형_중독_포션 을 얻습니다. NL 중독의 피해량이 100% 증가합니다.",
+    "UPGRADE_DESCRIPTION": "선천성 NL gatherer:소형_중독_포션 을 얻습니다. NL 중독의 피해량이 100% 증가합니다."
   },
   "Gatherer:AromaProtection": {
     "NAME": "아로마의 보호",

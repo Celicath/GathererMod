@@ -24,7 +24,7 @@ public class GathererOnlyEventPatch {
 		public static void Postfix(AbstractDungeon dungeon) {
 			if (AbstractDungeon.player.chosenClass == AbstractPlayerEnum.THE_GATHERER) {
 				AbstractDungeon.specialOneTimeEventList.add(BottleCollector.ID);
-				GathererMod.logger.debug("BattleCollector Event Added!");
+				GathererMod.logger.debug("BottleCollector Event Added!");
 			}
 		}
 	}

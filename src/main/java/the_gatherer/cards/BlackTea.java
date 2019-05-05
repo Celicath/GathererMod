@@ -1,7 +1,6 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
-import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -32,8 +31,8 @@ public class BlackTea extends CustomCard implements MyStartupCard {
 	private static final CardRarity RARITY = CardRarity.RARE;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 4;
-	private static final int NEW_COST = 0;
+	private static final int POWER = 3;
+	private static final int UPGRADE_BONUS = 1;
 
 	public BlackTea() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -66,7 +65,7 @@ public class BlackTea extends CustomCard implements MyStartupCard {
 		if (!this.upgraded) {
 			this.upgradeName();
 
-			this.upgradeBaseCost(NEW_COST);
+			this.upgradeMagicNumber(UPGRADE_BONUS);
 		}
 	}
 }

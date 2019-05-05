@@ -28,7 +28,6 @@ public class HandCardSelectScreenPatch {
 				if (c != null) {
 					if (GathererMod.enchantAmount > 0) {
 						__instance.upgradePreviewCard = c.makeStatEquivalentCopy();
-						GathererMod.logger.debug(c.magicNumber);
 						EnchantAction.doEnchant(__instance.upgradePreviewCard, GathererMod.enchantAmount);
 					} else {
 						GathererMod.transmuteAnimTimer -= Gdx.graphics.getDeltaTime();

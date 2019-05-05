@@ -27,8 +27,8 @@ public class SealedBomb extends CustomCard implements OnUsePotionEffect {
 	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 40;
-	private static final int UPGRADE_BONUS = 8;
+	private static final int POWER = 50;
+	private static final int UPGRADE_BONUS = 10;
 
 	public SealedBomb() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

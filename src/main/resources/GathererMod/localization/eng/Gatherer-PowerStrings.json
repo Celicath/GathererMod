@@ -23,7 +23,7 @@
   "Gatherer:PoisonMastery": {
     "NAME": "Poison Mastery",
     "DESCRIPTIONS": [
-      "Poison damage is increased by #b",
+      "#yPoison damage is increased by #b",
       "%."
     ]
   },
@@ -31,7 +31,7 @@
     "NAME": "Pollute",
     "DESCRIPTIONS": [
       "Next turn, Apply ",
-      " Poison, Weak and Vulnerable to ALL enemies."
+      " #yPoison, #yWeak and #yVulnerable to ALL enemies."
     ]
   },
   "Gatherer:ScentOfRosmari": {

@@ -28,7 +28,7 @@ public class MiningStrike extends CustomCard {
 
 	private static final int POWER = 10;
 	private static final int UPGRADE_BONUS = 3;
-	private static final int DIV = 12;
+	private static final int DIV = 10;
 	private static final int DIV_BONUS = -2;
 
 	public MiningStrike() {

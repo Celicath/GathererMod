@@ -55,7 +55,7 @@ public class TheGatherer extends CustomPlayer {
 				GathererMod.GATHERER_SHOULDER_2,
 				GathererMod.GATHERER_SHOULDER_1,
 				GathererMod.GATHERER_CORPSE,
-				getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
+				getLoadout(), 10.0F, 0.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
 
 		//this.loadAnimation("GathererMod/img/character/gatherer/idle/skeleton.atlas", "GathererMod/img/character/gatherer/idle/skeleton.json", 1.0f);
 		//AnimationState.TrackEntry e = this.state.setAnimation(0, "idle", true);
