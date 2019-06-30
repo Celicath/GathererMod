@@ -5,8 +5,8 @@
     "Celicath"
   ],
   "credits": "Rita-Bernstein - Character art, ZHS translation\nMappyTheKat - Old character splash art\nJedi - RUS translation",
-  "description": "Adds The Gatherer as a new playable character with 75 cards, 7 relics.\n\nv0.9.0 (2019-05-05)\nRita-Bernstein kindly gave me the new art for the character and 3 relics! Also, ZHS translation is added.\n\nBug fixes/Improvements\n- Fixed potential issue where some objects look semi-transparent.\n- Potion Sack UI no longer appears on top of screens like HandSelectScreen.\n- Now uses unique Keyword system the Basemod. This allows the following:\n  - Flower keyword no longer clashes with Florist mod.\n  - \"unique\" text from Defect's Compile Driver is no longer highlighted with gatherer's keyword.\n  - Fixes more keyword clash problem with existing/future mods that i'm unaware of.\n\nCard Changes\n- Mining Strike now gives plated armor per 10(8) unblocked damage. (was 12(10))\n- Sealed Bomb damage increased 40(48) -> 50(60)\n- Feeling Fine Cost increased 0(0) -> 1(0)\n- Upgraded Feeling Fine no longer has Innate.\n- Black Tea Cost increased 1(0) -> 1(1)\n- Black Tea Strength decreased 4(4) -> 3(4)\n\nRelic Changes\n- Mist Generator now stops poison from decreasing when the enemy has 8 or less poison. (was 5)\n\nVisit https://steamcommunity.com/sharedfiles/filedetails/changelog/1611788501 for full change notes.",
-  "version": "0.9.0",
+  "description": "Adds The Gatherer as a new playable character with 75 cards, 7 relics.\n\nv0.9.1 (2019-06-30)\nFixed Potion Sack crash from July patch.\n\nVisit https://steamcommunity.com/sharedfiles/filedetails/changelog/1611788501 for full change notes.",
+  "version": "0.9.1",
   "sts_version": "01-23-2019",
   "mts_version": "3.7.0",
   "dependencies": [

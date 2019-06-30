@@ -21,16 +21,15 @@ public class Glitched extends CustomCard {
 	private static final int COST = 3;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final CardType TYPE = CardType.STATUS;
-	private static final CardColor COLOR = CardColorEnum.GATHERER_LIME;
-	private static final CardRarity RARITY = CardRarity.SPECIAL;
+	private static final CardColor COLOR = CardColor.COLORLESS;
+	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int NEW_COST = 2;
+	private static final int NEW_COST = 1;
 
 	public Glitched() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
-		this.baseBlock = 0;
 		this.rawDescription = DESCRIPTION;
 		this.initializeDescription();
 		AlwaysRetainField.alwaysRetain.set(this, true);

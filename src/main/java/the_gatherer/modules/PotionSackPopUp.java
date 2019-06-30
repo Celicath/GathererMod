@@ -2,6 +2,7 @@ package the_gatherer.modules;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Bezier;
 import com.badlogic.gdx.math.Interpolation;
@@ -11,11 +12,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.GameCursor;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.events.shrines.WeMeetAgain;
-import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.Hitbox;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.helpers.TipHelper;
+import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
@@ -37,6 +34,11 @@ public class PotionSackPopUp {
 	public static final String THROW_LABEL = TEXT[0];
 	public static final String DRINK_LABEL = TEXT[1];
 	public static final String DISCARD_LABEL = TEXT[2];
+
+	public static Texture OLD_POTION_BG = ImageMaster.loadImage("GathererMod/img/ui/OldPotionBG.png");
+	public static Texture OLD_POTION_MID = ImageMaster.loadImage("GathererMod/img/ui/OldPotionMid.png");
+	public static Texture OLD_POTION_TOP = ImageMaster.loadImage("GathererMod/img/ui/OldPotionTop.png");
+
 	public int slot;
 	public AbstractPotion potion;
 	public boolean isHidden = true;
@@ -60,6 +62,9 @@ public class PotionSackPopUp {
 	private AbstractMonster hoveredMonster = null;
 	private boolean autoTargetFirst = false;
 	private boolean highlightTop = false;
+
+	private Color topHoverColor = new Color(0.5F, 0.9F, 1.0F, 0.0F);
+	private Color botHoverColor = new Color(1.0F, 0.4F, 0.3F, 0.0F);
 
 	public PotionSackPopUp() {
 		for (int i = 0; i < this.points.length; ++i) {
@@ -313,29 +318,31 @@ public class PotionSackPopUp {
 
 	public void render(SpriteBatch sb) {
 		if (!this.isHidden) {
-			sb.setColor(Color.WHITE.cpy());
-			sb.draw(ImageMaster.POTION_UI_SHADOW, this.x - RAW_W / 2.0F, this.y - RAW_H / 2.0F, RAW_W / 2.0F, RAW_H / 2.0F, RAW_W, RAW_H, Settings.scale, Settings.scale, 0.0F, 0, 0, RAW_W, RAW_H, false, potionSackPopupFlipped);
-			sb.draw(ImageMaster.POTION_UI_BG, this.x - RAW_W / 2.0F, this.y - RAW_H / 2.0F, RAW_W / 2.0F, RAW_H / 2.0F, RAW_W, RAW_H, Settings.scale, Settings.scale, 0.0F, 0, 0, RAW_W, RAW_H, false, potionSackPopupFlipped);
+			// I copied this from PotionPopup in the base game. If you bitch about not doing .cpy() here then just go fuck yourself.
+			sb.setColor(Color.WHITE);
+			sb.draw(OLD_POTION_BG, this.x - RAW_W / 2.0F, this.y - RAW_H / 2.0F, RAW_W / 2.0F, RAW_H / 2.0F, RAW_W, RAW_H, Settings.scale, Settings.scale, 0.0F, 0, 0, RAW_W, RAW_H, false, potionSackPopupFlipped);
+
 			if (this.hbTop.hovered || highlightTop) {
-				sb.draw(ImageMaster.POTION_UI_TOP, this.x - RAW_W / 2.0F, this.y - RAW_H / 2.0F, RAW_W / 2.0F, RAW_H / 2.0F, RAW_W, RAW_H, Settings.scale, Settings.scale, 0.0F, 0, 0, RAW_W, RAW_H, false, potionSackPopupFlipped);
-			} else if (this.hbBot.hovered) {
-				sb.draw(ImageMaster.POTION_UI_MID, this.x - RAW_W / 2.0F, this.y - RAW_H / 2.0F, RAW_W / 2.0F, RAW_H / 2.0F, RAW_W, RAW_H, Settings.scale, Settings.scale, 0.0F, 0, 0, RAW_W, RAW_H, false, potionSackPopupFlipped);
+				this.topHoverColor.a = 0.5F;
+			} else {
+				this.topHoverColor.a = MathHelper.fadeLerpSnap(this.topHoverColor.a, 0.0F);
+			}
+			if (this.hbBot.hovered) {
+				this.botHoverColor.a = 0.5F;
+			} else {
+				this.botHoverColor.a = MathHelper.fadeLerpSnap(this.botHoverColor.a, 0.0F);
 			}
 
-			sb.draw(ImageMaster.POTION_UI_OVERLAY, this.x - RAW_W / 2.0F, this.y - RAW_H / 2.0F, RAW_W / 2.0F, RAW_H / 2.0F, RAW_W, RAW_H, Settings.scale, Settings.scale, 0.0F, 0, 0, RAW_W, RAW_H, false, potionSackPopupFlipped);
+			sb.setBlendFunction(770, 1);
+			sb.setColor(this.topHoverColor);
+			sb.draw(OLD_POTION_TOP, this.x - RAW_W / 2.0F, this.y - RAW_H / 2.0F, RAW_W / 2.0F, RAW_H / 2.0F, RAW_W, RAW_H, Settings.scale, Settings.scale, 0.0F, 0, 0, RAW_W, RAW_H, false, potionSackPopupFlipped);
+			sb.setColor(this.botHoverColor);
+			sb.draw(OLD_POTION_MID, this.x - RAW_W / 2.0F, this.y - RAW_H / 2.0F, RAW_W / 2.0F, RAW_H / 2.0F, RAW_W, RAW_H, Settings.scale, Settings.scale, 0.0F, 0, 0, RAW_W, RAW_H, false, potionSackPopupFlipped);
+			sb.setBlendFunction(770, 771);
+
 			Color c = Settings.CREAM_COLOR;
 			if (!this.potion.canUse() || AbstractDungeon.isScreenUp) {
-				c = Color.GRAY.cpy();
-			}
-
-			if (this.potion instanceof FruitJuice) {
-				if (AbstractDungeon.getCurrRoom().event != null) {
-					if (!(AbstractDungeon.getCurrRoom().event instanceof WeMeetAgain)) {
-						c = Settings.CREAM_COLOR;
-					}
-				} else {
-					c = Settings.CREAM_COLOR;
-				}
+				c = Color.GRAY;
 			}
 
 			String label = DRINK_LABEL;

@@ -56,9 +56,11 @@ public class FloralEgg extends CustomRelic {
 				times = 2;
 			}
 			times -= c.timesUpgraded;
+			if (times < 1) times = 1;
 			for (int i = 0; i < times; i++) {
 				c.upgrade();
 			}
+			this.flash();
 		}
 	}
 

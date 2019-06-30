@@ -80,7 +80,7 @@
     "NAME": "Snatch",
     "DESCRIPTION": "Deal !D! Damage.",
     "EXTENDED_DESCRIPTION": [
-      " NL gatherer:Twice: NL Gain a random gatherer:Lesser gatherer:Potion.",
+      " NL gatherer:Twice: Gain a random gatherer:Lesser gatherer:Potion.",
       " NL gatherer:Once: Gain a random gatherer:Lesser gatherer:Potion.",
       " NL gatherer:Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up."
     ]
