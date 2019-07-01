@@ -2,15 +2,12 @@ package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
-import the_gatherer.patches.CardColorEnum;
 
 public class Glitched extends CustomCard {
 	private static final String RAW_ID = "Glitched";
@@ -25,7 +22,7 @@ public class Glitched extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int NEW_COST = 1;
+	private static final int NEW_COST = 2;
 
 	public Glitched() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -42,14 +39,6 @@ public class Glitched extends CustomCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-	}
-
-	public void triggerWhenDrawn() {
-		if (AbstractDungeon.player.hasPower("Evolve") && !AbstractDungeon.player.hasPower("No Draw")) {
-			AbstractDungeon.player.getPower("Evolve").flash();
-			AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, AbstractDungeon.player.getPower("Evolve").amount));
-		}
-
 	}
 
 	public AbstractCard makeCopy() {
