@@ -68,8 +68,8 @@
     "NAME": "광포",
     "DESCRIPTION": "피해를 !D! 줍니다. NL 취약 을 !M! 부여합니다. NL 버린 카드 더미에 어지러움 카드를 2장 추가합니다."
   },
-  "Gatherer:GrassHammer": {
-    "NAME": "풀망치",
+  "Gatherer:FragileHammer": {
+    "NAME": "유리 망치",
     "DESCRIPTION": "피해를 !D! 줍니다. 대상이 아닌 무작위 적에게 피해를 !M! 줍니다."
   },
   "Gatherer:ScherryThrow": {
@@ -100,7 +100,7 @@
   },
   "Gatherer:EnergyBasket": {
     "NAME": "에너지 상자",
-    "DESCRIPTION": "gatherer:소형_에너지_포션 !M! 개를 얻습니다. NL 보존 NL 소멸"
+    "DESCRIPTION": "gatherer:소형\u00a0에너지\u00a0포션 !M! 개를 얻습니다. NL 보존 NL 소멸"
   },
   "Gatherer:FlowerShield": {
     "NAME": "플라워 실드",
@@ -200,8 +200,8 @@
     "NAME": "봉인된 폭탄",
     "DESCRIPTION": "피해를 !D! 줍니다. NL 손에 있을 때, 포션을 사용하면 이번 전투 동안 비용이 1 감소합니다."
   },
-  "Gatherer:StarFruit": {
-    "NAME": "스타프루트",
+  "Gatherer:PotentialSlash": {
+    "NAME": "잠재력",
     "DESCRIPTION": "내 잃은 체력의 절반 + !M! 만큼 피해를 줍니다.",
     "EXTENDED_DESCRIPTION": [
       " NL (피해를 !D! 줍니다.)"
@@ -222,16 +222,15 @@
   },
   "Gatherer:GlowingPlant": {
     "NAME": "빛나는 식물",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL gatherer:글로우 를 1 얻습니다. NL 이 카드를 얻을 때 빛! 과 그림자! 를 같이 얻습니다.",
-    "UPGRADE_DESCRIPTION": "카드를 !M! 장 뽑습니다. NL gatherer:글로우 를 1 얻습니다. NL 이 카드를 얻을 때 빛! 과 그림자! 를 같이 얻습니다."
+    "DESCRIPTION": "예측 !M! NL 이 카드를 얻을 때 *빛! 과 *그림자! 를 같이 얻습니다."
   },
   "Gatherer:Light": {
     "NAME": "빛!",
-    "DESCRIPTION": "방어도 를 !B! 얻습니다. gatherer:글로우 의 !M! 배 만큼 방어도 가 증가합니다. NL gatherer:글로우 를 1 얻습니다."
+    "DESCRIPTION": "방어도 를 !B! 얻습니다. NL 카드를 1장 뽑습니다. NL 손에 있는 모든 *그림자! 의 피해량이 !M! 증가합니다."
   },
   "Gatherer:Shadow": {
     "NAME": "그림자!",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL gatherer:글로우 의 !M! 배 만큼 피해량이 증가합니다. NL gatherer:글로우 를 1 얻습니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 카드를 1장 뽑습니다. NL 손에 있는 모든 *빛! 의 방어도가 !M! 증가합니다."
   },
   "Gatherer:Herbalism": {
     "NAME": "약초학",
@@ -274,17 +273,17 @@
   },
   "Gatherer:SmartManeuver": {
     "NAME": "전술적 움직임",
-    "DESCRIPTION": "대상이 이번 턴에 절반의 피해를 줍니다. gatherer:소형_신속_포션 을 얻습니다.",
-    "UPGRADE_DESCRIPTION": "대상이 이번 턴에 절반의 피해를 줍니다. gatherer:소형_신속_포션 을 얻습니다. NL 보존"
+    "DESCRIPTION": "대상이 이번 턴에 절반의 피해를 줍니다. gatherer:소형\u00a0신속\u00a0포션 을 얻습니다.",
+    "UPGRADE_DESCRIPTION": "대상이 이번 턴에 절반의 피해를 줍니다. gatherer:소형\u00a0신속\u00a0포션 을 얻습니다. NL 보존"
   },
   "Gatherer:Solidify": {
-    "NAME": "굳히기",
-    "DESCRIPTION": "방어도 를 !B! 얻습니다. 방어도 가 !M! 이상 이라면, 5 감소시키고 gatherer:소형_방어도_포션 을 얻습니다."
+    "NAME": "결정화",
+    "DESCRIPTION": "포션 주머니가 가득 찰 때 까지 반복: 방어도를 !M! 사용하여 gatherer:소형\u00a0방어도\u00a0포션 을 얻습니다."
   },
   "Gatherer:Transmute": {
     "NAME": "변환",
-    "DESCRIPTION": "손에 있는 카드 1장을 변환 시킵니다. 이번 턴 동안 그 카드의 비용이 0 이 됩니다.",
-    "UPGRADE_DESCRIPTION": "손에 있는 카드 1장을 변환 시킵니다. 그 카드는 강화 되고 이번 턴 동안 비용이 0 이 됩니다."
+    "DESCRIPTION": "손에 있는 카드 1장을 변화 시킵니다. 이번 턴 동안 그 카드의 비용이 0 이 됩니다.",
+    "UPGRADE_DESCRIPTION": "손에 있는 카드 1장을 변화 시킵니다. 그 카드는 강화 되고 이번 턴 동안 비용이 0 이 됩니다."
   },
   "Gatherer:VenomBarrier": {
     "NAME": "맹독 장벽",
@@ -315,8 +314,8 @@
   },
   "Gatherer:UpgradeBag": {
     "NAME": "가방 업그레이드",
-    "DESCRIPTION": "결함 카드를 뽑을 카드 더미에 넣고 섞습니다. 모든 gatherer:소형포션 의 효과가 100% 증가합니다.",
-    "UPGRADE_DESCRIPTION": "결함+ 카드를 버린 카드 더미에 추가합니다. 모든 gatherer:소형포션 의 효과가 100% 증가합니다."
+    "DESCRIPTION": "*결함 카드를 뽑을 카드 더미에 섞어 넣습니다. 모든 gatherer:소형포션 의 효과가 100% 증가합니다.",
+    "UPGRADE_DESCRIPTION": "*결함+ 카드를 버린 카드 더미에 추가합니다. 모든 gatherer:소형포션 의 효과가 100% 증가합니다."
   },
   "Gatherer:Glitched": {
     "NAME": "결함",
@@ -324,8 +323,8 @@
   },
   "Gatherer:Uplift": {
     "NAME": "고양",
-    "DESCRIPTION": "매 턴 !M! 개의 비용이 2 이상인 카드가 에너지를 1 돌려줍니다.",
-    "UPGRADE_DESCRIPTION": "매 턴 !M! 개의 비용이 2 이상인 카드가 에너지를 1 돌려줍니다."
+    "DESCRIPTION": "매 턴 처음으로 사용하는 !M! 장의 비용 2 이상인 카드가 에너지를 1 돌려줍니다.",
+    "UPGRADE_DESCRIPTION": "매 턴 처음으로 사용하는 !M! 장의 비용 2 이상인 카드가 에너지를 1 돌려줍니다."
   },
   "Gatherer:Bulldoze": {
     "NAME": "땅고르기",
@@ -335,9 +334,9 @@
       " 개)"
     ]
   },
-  "Gatherer:CoupDeGrace": {
-    "NAME": "마무리일격",
-    "DESCRIPTION": "피해를 !D! 줍니다. 대상의 현재 체력이 나보다 적다면 1번이 아니라 2번 공격합니다."
+  "Gatherer:FinishingStrike": {
+    "NAME": "마무리 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. 대상의 체력이 나보다 적다면 1번이 아니라 2번 공격합니다."
   },
   "Gatherer:CursedBlade": {
     "NAME": "저주받은 검",
@@ -350,11 +349,11 @@
   },
   "Gatherer:FlamingBottle": {
     "NAME": "화염병",
-    "DESCRIPTION": "피해를 !D! 줍니다. gatherer:소형_화염_포션 을 얻습니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. gatherer:소형\u00a0화염\u00a0포션 을 얻습니다."
   },
   "Gatherer:HeartToFruit": {
     "NAME": "과일로 만들기",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 이 공격으로 하수인이 아닌 적을 죽이면 최대 체력이 !M! 증가합니다. 소멸"
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 치명타라면, 최대 체력이 !M! 증가합니다. 소멸"
   },
   "Gatherer:Photoscythe": {
     "NAME": "빛의 낫",
@@ -365,7 +364,7 @@
   },
   "Gatherer:BlackTea": {
     "NAME": "홍차",
-    "DESCRIPTION": "힘 을 !M! 얻습니다. NL 민첩 을 1 잃습니다. NL 개전: 무작위 gatherer:소형포션 을 얻습니다."
+    "DESCRIPTION": "힘 을 !M! 얻습니다. NL 민첩 을 1 잃습니다. NL 전투 시작: 무작위 gatherer:소형포션 을 얻습니다."
   },
   "Gatherer:Examine": {
     "NAME": "조사",
@@ -373,24 +372,13 @@
   },
   "Gatherer:GrowBook": {
     "NAME": "그로우 북",
-    "DESCRIPTION": "방어도 를 !B! 얻습니다. 소멸 NL 3번 사용하면 이 카드가 영구적으로 <?> 로 바뀝니다.",
-    "EXTENDED_DESCRIPTION": [
-      "방어도 를 !B! 얻습니다. 소멸",
-      " NL 3번 사용하면 이 카드가 영구적으로 ",
-      " NL 2번 더 사용하면 이 카드가 영구적으로 ",
-      " NL 1번 더 사용하면 이 카드가 영구적으로 ",
-      " 아이언클래드 카드로 바꿉니다.",
-      " 사일런트 카드로 바꿉니다.",
-      " 디펙트 카드로 바꿉니다.",
-      "아클",
-      "사일",
-      "디펙"
-    ]
+    "DESCRIPTION": "방어도를 !B! 얻거나, 다른 직업의 카드 3장 중 하나로 이 카드를 영구적으로 바꿉니다. NL 소멸",
+    "UPGRADE_DESCRIPTION": "방어도를 !B! 얻거나, 다른 직업의 강화된 카드 3장 중 하나로 이 카드를 영구적으로 바꿉니다. NL 소멸"
   },
   "Gatherer:MindSearch": {
     "NAME": "마음 검색",
-    "DESCRIPTION": "현재 상황에 맞는 무작위 gatherer:소형포션 이 4개 제시됩니다. 이 중 2개를 선택하여 가집니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "현재 상황에 잘 맞는 무작위 gatherer:소형포션 이 4개 제시됩니다. 이 중 2개를 선택하여 가집니다. NL 보존. 소멸"
+    "DESCRIPTION": "현재 상황에 맞는 무작위 gatherer:소형포션 이 4개 제시됩니다. 이 중 2개를 선택하여 얻습니다. NL 소멸",
+    "UPGRADE_DESCRIPTION": "현재 상황에 잘 맞는 무작위 gatherer:소형포션 이 4개 제시됩니다. 이 중 2개를 선택하여 얻습니다. NL 보존. 소멸"
   },
   "Gatherer:Overflowing": {
     "NAME": "넘쳐흐름",
@@ -399,8 +387,8 @@
   },
   "Gatherer:ScrollOfPurity": {
     "NAME": "순수함의 스크롤",
-    "DESCRIPTION": "사용불가. 포션을 사용할 때마다 카드를 1 장 뽑고 !M! 장 까지 카드를 선택해 소멸 시킵니다.",
-    "UPGRADE_DESCRIPTION": "사용불가. 포션을 사용할 때마다 카드를 1 장 뽑고 !M! 장 까지 카드를 선택해 소멸 시킵니다.",
+    "DESCRIPTION": "사용불가. 포션을 사용할 때마다 카드를 !M! 장 뽑고 !M! 장 까지 카드를 선택해 소멸 시킵니다.",
+    "UPGRADE_DESCRIPTION": "사용불가. 포션을 사용할 때마다 카드를 !M! 장 뽑고 !M! 장 까지 카드를 선택해 소멸 시킵니다.",
     "EXTENDED_DESCRIPTION": [
       "이 카드는 사용할 수 없어."
     ]
@@ -420,8 +408,8 @@
   },
   "Gatherer:StoneFence": {
     "NAME": "돌 울타리",
-    "DESCRIPTION": "매 턴 시작 시 투척기 카드를 1장 얻습니다.",
-    "UPGRADE_DESCRIPTION": "매 턴 시작 시 강화된 투척기 카드를 1장 얻습니다."
+    "DESCRIPTION": "매 턴 시작 시 *투척기 카드를 1장 얻습니다.",
+    "UPGRADE_DESCRIPTION": "매 턴 시작 시 강화된 *투척기 카드를 1장 얻습니다."
   },
   "Gatherer:Thrower": {
     "NAME": "투척기",
@@ -433,8 +421,8 @@
   },
   "Gatherer:PoisonMastery": {
     "NAME": "독 숙련",
-    "DESCRIPTION": "gatherer:소형_중독_포션 을 얻습니다. NL 중독의 피해량이 100% 증가합니다.",
-    "UPGRADE_DESCRIPTION": "선천성 NL gatherer:소형_중독_포션 을 얻습니다. NL 중독의 피해량이 100% 증가합니다."
+    "DESCRIPTION": "gatherer:소형\u00a0중독\u00a0포션 을 얻습니다. NL 중독의 피해량이 100% 증가합니다.",
+    "UPGRADE_DESCRIPTION": "선천성 NL gatherer:소형\u00a0중독\u00a0포션 을 얻습니다. NL 중독의 피해량이 100% 증가합니다."
   },
   "Gatherer:AromaProtection": {
     "NAME": "아로마의 보호",
@@ -448,36 +436,17 @@
       " NL ( 민첩 을 !M! 얻습니다.)"
     ]
   },
-
   "Gatherer:FlowerSuffix": {
     "NAME": "FlowerSuffix",
     "DESCRIPTION": "Description suffix for Flower cards.",
     "EXTENDED_DESCRIPTION": [
-      " NL 강화 를 3번 할 수 있습니다.",
-      " NL 강화 를 2번 더 할 수 있습니다.",
-      " NL 강화 를 1번 더 할 수 있습니다."
+      " NL 3번 강화 할 수 있습니다.",
+      " NL 2번 더 강화 할 수 있습니다.",
+      " NL 1번 더 강화 할 수 있습니다."
     ]
   },
-  "Gatherer:ChargingShot": {
-    "NAME": "Charging Shot",
-    "DESCRIPTION": "피해를 !D! 줍니다. While in your hand, using a Potion increases its damage by !M! this combat.",
-    "EXTENDED_DESCRIPTION": [
-      "This card is deprecated."
-    ]
-  },
-  "Gatherer:SalvePotion": {
-    "NAME": "Salve Potion",
-    "DESCRIPTION": "Considered as using a Potion. NL 체력을 !M! 회복합니다. NL Decrease this card's healing by 1 this combat.",
-    "EXTENDED_DESCRIPTION": [
-      "This card is deprecated."
-    ]
-  },
-  "Gatherer:GrassKnot": {
-    "NAME": "풀묶기",
-    "DESCRIPTION": "매 턴 종료 시 보존 된 카드를 !M! 장 까지 버리고 버린 카드 하나 당 방어도 5와 가시 2를 얻습니다.",
-    "UPGRADE_DESCRIPTION": "매 턴 종료 시 보존 된 카드를 !M! 장 까지 버리고 버린 카드 하나 당 방어도 5와 가시 2를 얻습니다.",
-    "EXTENDED_DESCRIPTION": [
-      "This card is deprecated."
-    ]
+  "Gatherer:DoNotReplaceOption": {
+    "NAME": "바꾸지 않음",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 다른 카드로 바꾸지 않습니다."
   }
 }

@@ -3,15 +3,14 @@
     "NAME": "연금술 가방",
     "FLAVOR": "계속 생성되는 포션의 힘이 깃든 신비한 가방.",
     "DESCRIPTIONS": [
-      "전투 시작 시 무작위 #ygatherer:소형포션 을 얻습니다."
+      "전투 시작 시 무작위 #ygatherer:소형포션 [REMOVE_SPACE]을 얻습니다."
     ]
   },
   "Gatherer:MiracleBag": {
     "NAME": "미라클 가방",
     "FLAVOR": "금지된 기술로 만들어 졌습니다.",
     "DESCRIPTIONS": [
-      "( #y연금술 #y가방 과 교체되지 않음) NL 전투 시작 시 무작위 포션을 얻습니다. (일반 포션 슬롯으로)",
-      "#y연금술 #y가방 과 교체됩니다. NL 전투 시작 시 희귀 포션을 얻습니다. (일반 포션 슬롯으로)"
+      "#y연금술 #y가방 과 교체됩니다. NL 획득 시 일반 포션 슬롯을 #b1 [REMOVE_SPACE]개 얻습니다. NL 전투 시작 시 희귀 포션을 얻습니다(일반 포션 슬롯으로)."
     ]
   },
   "Gatherer:IronSlate": {
@@ -30,16 +29,17 @@
   },
   "Gatherer:FloralEgg": {
     "NAME": "꽃무늬 알",
-    "FLAVOR": "아직 부화하지 않은 알이 꽃을 좋아한다는 소문이 있습니다.",
+    "FLAVOR": "이 알에 그려진 꽃무늬는 누가 그린 것일까요?",
     "DESCRIPTIONS": [
       "획득 시 덱에 있는 모든 #ygatherer:플라워 카드를 강화합니다. #ygatherer:플라워 카드를 얻을 때마다 그 카드를 #y강화 합니다."
     ]
   },
   "Gatherer:Leftovers": {
     "NAME": "여분의 물질",
-    "FLAVOR": "연금술사들은 먹고 남은 포션에서도 재료를 만들어낼 수 있습니다.",
+    "FLAVOR": "연금술사들은 먹다 남은 포션에서도 재료를 만들어낼 수 있습니다.",
     "DESCRIPTIONS": [
-      "포션을 사용할 때마다 20%의 확률로 #ygatherer:소형포션 을 얻습니다."
+      "한 전투에서 포션을 #b",
+      " [REMOVE_SPACE]개 사용할 때마다 #ygatherer:소형포션 [REMOVE_SPACE]을 얻습니다."
     ]
   },
   "Gatherer:FlyingFruit": {
@@ -53,7 +53,7 @@
   },
   "Gatherer:ExplorersPath": {
     "NAME": "모험가의 길",
-    "FLAVOR": "나쁜 길을 모험하는 것도 의미가 있습니다.",
+    "FLAVOR": "가끔은 위험한 길을 탐험하는 것도 나쁘진 않겠죠.",
     "DESCRIPTIONS": [
       "다음 #b3 번의 전투 동안 매 턴 시작 시 [E] 를 추가로 얻습니다. NL 카드 보상 화면에서 각 카드의 선택률을 볼 수 있습니다. NL 가장 낮은 선택률을 가진 카드를 고르면 [E] 를 추가로 얻는 전투의 수가 1회 늘어납니다. NL 시너지: ",
       "시너지",
