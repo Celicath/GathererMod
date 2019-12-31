@@ -9,9 +9,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ConvertAction;
+import the_gatherer.interfaces.ColoredTextCard;
 import the_gatherer.patches.CardColorEnum;
 
-public class Convert extends CustomCard {
+public class Convert extends CustomCard implements ColoredTextCard {
 	private static final String RAW_ID = "Convert";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

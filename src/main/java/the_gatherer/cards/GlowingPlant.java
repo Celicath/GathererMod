@@ -3,8 +3,7 @@ package the_gatherer.cards;
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -15,7 +14,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.interfaces.OnObtainEffect;
 import the_gatherer.patches.CardColorEnum;
-import the_gatherer.powers.GlowPower;
 
 import java.util.ArrayList;
 
@@ -25,7 +23,7 @@ public class GlowingPlant extends CustomCard implements OnObtainEffect {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
-	private static final int COST = 1;
+	private static final int COST = 0;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final CardType TYPE = CardType.SKILL;
@@ -33,10 +31,10 @@ public class GlowingPlant extends CustomCard implements OnObtainEffect {
 	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 2;
-	private static final int UPGRADE_BONUS = 1;
+	private static final int POWER = 4;
+	private static final int UPGRADE_BONUS = 2;
 
-	private ArrayList<AbstractCard> tooltips;
+	private ArrayList<AbstractCard> previews;
 
 	public GlowingPlant() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -44,14 +42,14 @@ public class GlowingPlant extends CustomCard implements OnObtainEffect {
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
 
-		tooltips = new ArrayList<>();
-		tooltips.add(new Light());
-		tooltips.add(new Shadow());
+		previews = new ArrayList<>();
+		previews.add(new Light());
+		previews.add(new Shadow());
+		cardsToPreview = previews.get(0);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GlowPower(p, 1), 1));
+		addToBot(new ScryAction(magicNumber));
 	}
 
 	public AbstractCard makeCopy() {
@@ -62,8 +60,6 @@ public class GlowingPlant extends CustomCard implements OnObtainEffect {
 		if (!this.upgraded) {
 			this.upgradeName();
 			this.upgradeMagicNumber(UPGRADE_BONUS);
-			this.rawDescription = UPGRADE_DESCRIPTION;
-			this.initializeDescription();
 		}
 	}
 
@@ -83,7 +79,14 @@ public class GlowingPlant extends CustomCard implements OnObtainEffect {
 			if (AbstractDungeon.player != null && AbstractDungeon.player.isDraggingCard) {
 				return;
 			}
-			for (AbstractCard c : tooltips) {
+		}
+	}
+
+	@Override
+	public void renderCardPreview(SpriteBatch sb) {
+		if (AbstractDungeon.player == null || !AbstractDungeon.player.isDraggingCard) {
+			int index = 0;
+			for (AbstractCard c : previews) {
 				float dx = (AbstractCard.IMG_WIDTH * 0.9f - 5f) * drawScale;
 				float dy = (AbstractCard.IMG_HEIGHT * 0.4f - 5f) * drawScale;
 				if (current_x > Settings.WIDTH * 0.75f) {
@@ -91,15 +94,27 @@ public class GlowingPlant extends CustomCard implements OnObtainEffect {
 				} else {
 					c.current_x = current_x - dx;
 				}
-				if (count == 0) {
+				if (index == 0) {
 					c.current_y = current_y + dy;
 				} else {
 					c.current_y = current_y - dy;
 				}
 				c.drawScale = drawScale * 0.8f;
 				c.render(sb);
-				count++;
+				index++;
 			}
+		}
+	}
+
+	@Override
+	public void renderCardPreviewInSingleView(SpriteBatch sb) {
+		int index = 0;
+		for (AbstractCard c : previews) {
+			c.current_x = 485.0F * Settings.scale;
+			c.current_y = (795.0F - 510.0F * index) * Settings.scale;
+			c.drawScale = 0.8f;
+			c.render(sb);
+			index++;
 		}
 	}
 }

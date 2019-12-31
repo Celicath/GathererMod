@@ -1,7 +1,7 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
-import the_gatherer.powers.GlowPower;
+import the_gatherer.actions.LightAction;
 
 public class Light extends CustomCard {
 	private static final String RAW_ID = "Light";
@@ -25,48 +25,23 @@ public class Light extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.SPECIAL;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 7;
+	private static final int POWER = 8;
 	private static final int UPGRADE_BONUS = 3;
-	private static final int BONUS = 1;
+	private static final int DRAW = 1;
+	private static final int DAMAGE_BOOST = 6;
+	private static final int DAMAGE_UPGRADE = 2;
 
 	public Light() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
-		this.baseBlock = POWER;
-		this.magicNumber = BONUS;
-		this.baseMagicNumber = this.magicNumber;
-	}
-
-	private int applyGlowPower(int b) {
-		if (AbstractDungeon.player.hasPower(GlowPower.POWER_ID)) {
-			b += this.magicNumber * AbstractDungeon.player.getPower(GlowPower.POWER_ID).amount;
-		}
-		return b;
-	}
-
-	@Override
-	public void applyPowers() {
-		int prev = baseBlock;
-		baseBlock = applyGlowPower(baseBlock);
-		super.applyPowers();
-		this.baseBlock = prev;
-		if (this.baseBlock != this.block)
-			this.isBlockModified = true;
-	}
-
-	@Override
-	public void calculateCardDamage(final AbstractMonster mo) {
-		int prev = baseBlock;
-		baseBlock = applyGlowPower(baseBlock);
-		super.calculateCardDamage(mo);
-		this.baseBlock = prev;
-		if (this.baseBlock != this.block)
-			this.isBlockModified = true;
+		baseBlock = POWER;
+		baseMagicNumber = magicNumber = DAMAGE_BOOST;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GlowPower(p, 1), 1));
+		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, DRAW));
+		AbstractDungeon.actionManager.addToBottom(new LightAction(p, magicNumber));
 	}
 
 	public AbstractCard makeCopy() {
@@ -75,8 +50,9 @@ public class Light extends CustomCard {
 
 	public void upgrade() {
 		if (!this.upgraded) {
-			this.upgradeName();
-			this.upgradeBlock(UPGRADE_BONUS);
+			upgradeName();
+			upgradeBlock(UPGRADE_BONUS);
+			upgradeMagicNumber(DAMAGE_UPGRADE);
 		}
 	}
 }

@@ -14,8 +14,8 @@ import the_gatherer.GathererMod;
 import the_gatherer.actions.DamageRandomEnemyExceptTargetAction;
 import the_gatherer.patches.CardColorEnum;
 
-public class GrassHammer extends CustomCard {
-	private static final String RAW_ID = "GrassHammer";
+public class FragileHammer extends CustomCard {
+	private static final String RAW_ID = "FragileHammer";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -30,10 +30,10 @@ public class GrassHammer extends CustomCard {
 
 	private static final int POWER = 8;
 	private static final int UPGRADE_BONUS = 3;
-	private static final int SECONDARY_POWER = 11;
+	private static final int SECONDARY_POWER = 12;
 	private static final int SECONDARY_BONUS = 4;
 
-	public GrassHammer() {
+	public FragileHammer() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseDamage = POWER;
 		this.damage = POWER;
@@ -62,7 +62,7 @@ public class GrassHammer extends CustomCard {
 	}
 
 	public AbstractCard makeCopy() {
-		return new GrassHammer();
+		return new FragileHammer();
 	}
 
 	public void upgrade() {

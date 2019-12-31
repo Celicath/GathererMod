@@ -1,7 +1,6 @@
 package the_gatherer.modules;
 
 import basemod.interfaces.ISubscriber;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import the_gatherer.interfaces.PostObtainCardSubscriber;
 
@@ -11,7 +10,6 @@ import java.util.Iterator;
 import static basemod.BaseMod.logger;
 
 // Parody of BaseMod; implements some fixed/missing interfaces.
-@SpireInitializer
 public class CaseMod {
 	private static ArrayList<PostObtainCardSubscriber> postObtainCardSubscribers = new ArrayList();
 

@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import the_gatherer.patches.GridChooseUpToPatch;
 
 public class SaveValuablesAction extends AbstractGameAction {
 	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("Gatherer:SaveValuablesAction");
@@ -31,6 +32,7 @@ public class SaveValuablesAction extends AbstractGameAction {
 					return;
 				}
 
+				GridChooseUpToPatch.patchEnabled = true;
 				AbstractDungeon.gridSelectScreen.open(this.p.discardPile, this.amount, true, TEXT[0] + this.amount + TEXT[1]);
 			} else if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
 				for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
@@ -38,6 +40,7 @@ public class SaveValuablesAction extends AbstractGameAction {
 					this.p.hand.moveToDeck(c, true);
 				}
 				AbstractDungeon.gridSelectScreen.selectedCards.clear();
+				GridChooseUpToPatch.patchEnabled = false;
 			}
 
 			this.tickDuration();

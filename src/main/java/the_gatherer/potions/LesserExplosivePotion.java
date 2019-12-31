@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.ExplosionSmallEffect;
 import javafx.util.Pair;
 import the_gatherer.GathererMod;
@@ -19,8 +20,6 @@ import the_gatherer.actions.ChooseLesserPotionAction;
 import the_gatherer.patches.PotionRarityEnum;
 import the_gatherer.powers.BomberFormPower;
 import the_gatherer.powers.ExplodingPower;
-
-import java.util.Iterator;
 
 public class LesserExplosivePotion extends SackPotion {
 	private static final String RAW_ID = "LesserExplosivePotion";
@@ -41,16 +40,13 @@ public class LesserExplosivePotion extends SackPotion {
 	}
 
 	public void use(AbstractCreature target) {
-		Iterator var2 = AbstractDungeon.getMonsters().monsters.iterator();
-
-		while (var2.hasNext()) {
-			AbstractMonster m = (AbstractMonster) var2.next();
+		for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
 			if (!m.isDeadOrEscaped()) {
-				AbstractDungeon.actionManager.addToBottom(new VFXAction(new ExplosionSmallEffect(m.hb.cX, m.hb.cY), 0.1F));
+				AbstractDungeon.actionManager.addToBottom(new VFXAction(new ExplosionSmallEffect(m.hb.cX, m.hb.cY), 0.08F));
 			}
 		}
 
-		AbstractDungeon.actionManager.addToBottom(new WaitAction(0.5F));
+		AbstractDungeon.actionManager.addToBottom(new WaitAction(0.4F));
 		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.potency, true), DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
 
 		BomberFormPower bfp = (BomberFormPower) AbstractDungeon.player.getPower(BomberFormPower.POWER_ID);
@@ -69,20 +65,19 @@ public class LesserExplosivePotion extends SackPotion {
 	}
 
 	@Override
-	public int getBasePotency() {
-		return 6;
+	public int getModifiedBasePotency() {
+		if (AbstractDungeon.player != null) {
+			AbstractPower ep = AbstractDungeon.player.getPower(ExplodingPower.POWER_ID);
+			if (ep != null) {
+				return getBasePotency() + ep.amount;
+			}
+		}
+		return getBasePotency();
 	}
 
 	@Override
-	public int getPotency(int ascensionLevel) {
-		int base = super.getPotency(ascensionLevel);
-		if (AbstractDungeon.player != null) {
-			ExplodingPower ep = (ExplodingPower) AbstractDungeon.player.getPower(ExplodingPower.POWER_ID);
-			if (ep != null) {
-				return base + ep.amount;
-			}
-		}
-		return base;
+	public int getBasePotency() {
+		return 6;
 	}
 
 	@Override

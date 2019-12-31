@@ -9,9 +9,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.CentralizeAction;
 import the_gatherer.cards.Helper.AbstractNumberedCard;
+import the_gatherer.interfaces.ColoredTextCard;
 import the_gatherer.patches.CardColorEnum;
 
-public class Centralize extends AbstractNumberedCard {
+public class Centralize extends AbstractNumberedCard implements ColoredTextCard {
 	private static final String RAW_ID = "Centralize";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

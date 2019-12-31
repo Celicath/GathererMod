@@ -16,9 +16,10 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import the_gatherer.GathererMod;
 import the_gatherer.cards.Helper.AbstractTaggedCard;
+import the_gatherer.interfaces.ColoredTextCard;
 import the_gatherer.patches.CardColorEnum;
 
-public class RottenStipe extends AbstractTaggedCard {
+public class RottenStipe extends AbstractTaggedCard implements ColoredTextCard {
 	private static final String RAW_ID = "RottenStipe";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 
@@ -33,7 +34,7 @@ public class RottenStipe extends AbstractTaggedCard {
 	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int MIN_POWER = 4;
+	private static final int MIN_POWER = 5;
 	private static final int UPGRADE_BONUS = 2;
 	private static final int MIN_MAGIC = 1;
 	private static final int MAGIC_BONUS = 1;

@@ -26,7 +26,7 @@ public class FlowerShield extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
-	private static final int POWER = 7;
+	private static final int POWER = 8;
 	private static final int UPGRADE_BONUS = 3;
 	private static final int UPGRADE_3RD_BONUS = 0;
 

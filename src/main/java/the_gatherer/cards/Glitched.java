@@ -1,7 +1,6 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -29,7 +28,7 @@ public class Glitched extends CustomCard {
 
 		this.rawDescription = DESCRIPTION;
 		this.initializeDescription();
-		AlwaysRetainField.alwaysRetain.set(this, true);
+		selfRetain = true;
 		this.exhaust = true;
 	}
 

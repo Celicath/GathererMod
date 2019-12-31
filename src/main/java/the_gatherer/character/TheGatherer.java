@@ -4,13 +4,13 @@ import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
-import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
@@ -33,6 +33,9 @@ public class TheGatherer extends CustomPlayer {
 	public static final int ENERGY_PER_TURN = 3;
 	public static final int START_HP = 72;
 	public static final int START_GOLD = 99;
+
+	private static final float DIALOG_OFFSET_X = 0.0F * Settings.scale;
+	private static final float DIALOG_OFFSET_Y = 220.0F * Settings.scale;
 
 	public static final String[] orbTextures = {
 			"GathererMod/img/character/gatherer/orb/layer1.png",
@@ -134,6 +137,13 @@ public class TheGatherer extends CustomPlayer {
 	public void doCharSelectScreenSelectEffect() {
 		CardCrawlGame.sound.playA("POTION_1", MathUtils.random(-0.2f, 0.2f));
 		CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT, false);
+	}
+
+	@Override
+	public void movePosition(float x, float y) {
+		super.movePosition(x, y);
+		dialogX = x + DIALOG_OFFSET_X;
+		dialogY = y + DIALOG_OFFSET_Y;
 	}
 
 	@Override

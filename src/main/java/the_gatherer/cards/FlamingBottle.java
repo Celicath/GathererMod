@@ -28,7 +28,7 @@ public class FlamingBottle extends CustomCard {
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 12;
+	private static final int POWER = 14;
 	private static final int UPGRADE_BONUS = 6;
 
 	public FlamingBottle() {

@@ -32,6 +32,7 @@ public class AromaProtection extends CustomCard {
 	public AromaProtection() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseBlock = POWER;
+		cardsToPreview = new Dazed();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

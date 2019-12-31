@@ -1,7 +1,6 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -52,7 +51,7 @@ public class SmartManeuver extends CustomCard {
 			this.upgradeName();
 			this.rawDescription = UPGRADE_DESCRIPTION;
 			this.initializeDescription();
-			AlwaysRetainField.alwaysRetain.set(this, true);
+			selfRetain = true;
 		}
 	}
 }

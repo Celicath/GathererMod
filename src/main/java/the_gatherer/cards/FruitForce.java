@@ -28,7 +28,7 @@ public class FruitForce extends CustomCard implements OnObtainEffect {
 	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 10;
+	private static final int POWER = 15;
 	private static final int UPGRADE_BONUS = 5;
 	private static final int HP_GAIN = 4;
 

@@ -1,8 +1,5 @@
 package the_gatherer.cards;
 
-import basemod.ReflectionHacks;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -10,15 +7,12 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.cards.Helper.AbstractTaggedCard;
 import the_gatherer.patches.CardColorEnum;
-
-import java.util.ArrayList;
 
 public class Duality extends AbstractTaggedCard {
 	private static final String RAW_ID = "Duality";
@@ -36,10 +30,10 @@ public class Duality extends AbstractTaggedCard {
 
 	private static final int ATTACK_POWER = 18;
 	private static final int ATTACK_UPGRADE = 4;
-	private static final int BLOCK_POWER = 16;
+	private static final int BLOCK_POWER = 18;
 	private static final int BLOCK_UPGRADE = 4;
 
-	private ArrayList<AbstractCard> tooltips;
+	Duality tooltip = null;
 
 	@Override
 	public void setTag(int tagNo) {
@@ -54,12 +48,8 @@ public class Duality extends AbstractTaggedCard {
 			this.rawDescription = DESCRIPTION;
 			this.initializeDescription();
 		}
-		if (tooltips != null) {
-			for (AbstractCard tooltip : tooltips) {
-				if (tooltip instanceof Duality) {
-					((Duality) tooltip).setTag(tagNo == 1 ? 0 : 1);
-				}
-			}
+		if (tooltip != null) {
+			tooltip.setTag(tagNo == 1 ? 0 : 1);
 		}
 
 		super.setTag(tagNo);
@@ -83,11 +73,10 @@ public class Duality extends AbstractTaggedCard {
 		this.baseDamage = ATTACK_POWER;
 		this.baseBlock = BLOCK_POWER;
 
-		AlwaysRetainField.alwaysRetain.set(this, true);
+		selfRetain = true;
 
-		tooltips = new ArrayList<>();
-		Duality tooltip = new Duality(true, 1);
-		tooltips.add(tooltip);
+		tooltip = new Duality(true, 1);
+		cardsToPreview = tooltip;
 		setTag(0);
 	}
 
@@ -136,40 +125,8 @@ public class Duality extends AbstractTaggedCard {
 	public void upgradeEffect() {
 		this.upgradeDamage(ATTACK_UPGRADE);
 		this.upgradeBlock(BLOCK_UPGRADE);
-		if (tooltips != null) {
-			for (AbstractCard tooltip : tooltips) {
-				tooltip.upgrade();
-			}
-		}
-	}
-
-	@Override
-	public void renderCardTip(SpriteBatch sb) {
-		super.renderCardTip(sb);
-		boolean renderTip = (boolean) ReflectionHacks.getPrivate(this, AbstractCard.class, "renderTip");
-
-		int count = 0;
-		if (!Settings.hideCards && renderTip) {
-			if (AbstractDungeon.player != null && AbstractDungeon.player.isDraggingCard) {
-				return;
-			}
-			for (AbstractCard c : tooltips) {
-				float dx = (AbstractCard.IMG_WIDTH * 0.9f - 5f) * drawScale;
-				float dy = (AbstractCard.IMG_HEIGHT * 0.4f - 5f) * drawScale;
-				if (current_x > Settings.WIDTH * 0.75f) {
-					c.current_x = current_x + dx;
-				} else {
-					c.current_x = current_x - dx;
-				}
-				if (count == 0) {
-					c.current_y = current_y + dy;
-				} else {
-					c.current_y = current_y - dy;
-				}
-				c.drawScale = drawScale * 0.8f;
-				c.render(sb);
-				count++;
-			}
+		if (tooltip != null) {
+			tooltip.upgrade();
 		}
 	}
 }

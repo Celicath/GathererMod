@@ -1,4 +1,4 @@
-package the_gatherer.cards;
+package the_gatherer.cards.FakeCards;
 
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -7,9 +7,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
+import the_gatherer.interfaces.ColoredTextCard;
 import the_gatherer.potions.SackPotion;
 
-public class LesserPotionOption extends CustomCard {
+public class LesserPotionOption extends CustomCard implements ColoredTextCard {
 	private static final String RAW_ID = "LesserPotionOption";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 	public static final String IMG = GathererMod.GetCardPath("Blank");
@@ -35,7 +36,7 @@ public class LesserPotionOption extends CustomCard {
 						derp = "[#7fff00]" + derp.substring(2) + "[]";
 						break;
 					case 'b':
-						derp = "[#87ceeb]" + derp.substring(2) + "[]";
+						derp = "[#87ceeb]" + derp.substring(2) + "[] ";
 						break;
 					case 'y':
 						derp = "[#efc851]" + derp.substring(2) + "[]";

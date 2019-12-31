@@ -28,8 +28,8 @@ public class ScherryThrow extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 2;
-	private static final int UPGRADE_BONUS = 2;
+	private static final int POWER = 3;
+	private static final int UPGRADE_BONUS = 3;
 	private static final int GAIN_ENERGY = 1;
 
 	public ScherryThrow() {

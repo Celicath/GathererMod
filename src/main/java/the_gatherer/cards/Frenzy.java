@@ -42,6 +42,7 @@ public class Frenzy extends CustomCard {
 		this.baseDamage = POWER;
 		this.baseMagicNumber = MAGIC;
 		this.magicNumber = this.baseMagicNumber;
+		cardsToPreview = new Dazed();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

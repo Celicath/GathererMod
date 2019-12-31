@@ -43,8 +43,6 @@ public class DamageRandomEnemyExceptTargetAction extends AbstractGameAction {
 			this.isDone = true;
 		} else {
 			if (this.duration == DURATION) {
-				this.target.damageFlash = true;
-				this.target.damageFlashFrames = 4;
 				AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, this.attackEffect));
 			}
 

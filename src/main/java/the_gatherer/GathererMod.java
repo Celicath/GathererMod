@@ -18,11 +18,14 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.blue.Stack;
-import com.megacrit.cardcrawl.cards.blue.*;
-import com.megacrit.cardcrawl.cards.green.*;
-import com.megacrit.cardcrawl.cards.red.*;
+import com.megacrit.cardcrawl.cards.blue.Defend_Blue;
+import com.megacrit.cardcrawl.cards.blue.Strike_Blue;
+import com.megacrit.cardcrawl.cards.green.Defend_Green;
+import com.megacrit.cardcrawl.cards.green.Strike_Green;
+import com.megacrit.cardcrawl.cards.red.Defend_Red;
+import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -37,7 +40,6 @@ import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.ToyOrnithopter;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import org.apache.logging.log4j.LogManager;
@@ -57,6 +59,7 @@ import the_gatherer.modules.PotionSack;
 import the_gatherer.patches.AbstractPlayerEnum;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.patches.CustomTags;
+import the_gatherer.patches.GridChooseUpToPatch;
 import the_gatherer.potions.*;
 import the_gatherer.powers.PoisonMasteryPower;
 import the_gatherer.powers.StoneFencePower;
@@ -136,10 +139,6 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	// Drug Power Infinite HP Gain Prevention
 	public static int drugPowerHPGain = 0;
-
-	// GrowBook Content
-	public static ArrayList<String> growBookCharacter;
-	public static ArrayList<AbstractCard[]> growBookContent;
 
 	// Explorers Path
 	public static HashSet<AbstractCard> explorersPathBestOption = new HashSet<>();
@@ -223,7 +222,9 @@ public class GathererMod implements PostInitializeSubscriber,
 
 		ModPanel settingsPanel = new ModPanel();
 
-		ModLabeledToggleButton flipButton = new ModLabeledToggleButton("Flip Potion Sack popup orientation",
+		String[] configTexts = CardCrawlGame.languagePack.getUIString(makeID("Config")).TEXT;
+
+		ModLabeledToggleButton flipButton = new ModLabeledToggleButton(configTexts[0],
 				400.0f, 720.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
 				potionSackPopupFlipped, settingsPanel, (label) -> {
 		}, (button) -> {
@@ -234,13 +235,13 @@ public class GathererMod implements PostInitializeSubscriber,
 		ModLabeledButton[] potionSackKeysButton = new ModLabeledButton[3];
 		for (int i = 0; i < potionSackKeysButton.length; i++) {
 			int k = i;
-			potionSackKeysButton[i] = new ModLabeledButton("Key shortcut potion sack slot #" + (k + 1) + " : " + Input.Keys.toString(potionSackKeys[k]),
+			potionSackKeysButton[i] = new ModLabeledButton(configTexts[1] + (k + 1) + configTexts[2] + " : " + Input.Keys.toString(potionSackKeys[k]),
 					380.0f, 600.0f - i * 60, Settings.CREAM_COLOR, FontHelper.charDescFont,
 					settingsPanel, (label) -> {
 				if (keyToConfig == k) {
-					label.text = "Press key for slot #" + (k + 1);
+					label.text = configTexts[3] + (k + 1) + configTexts[4];
 				} else {
-					label.text = "Key shortcut potion sack slot #" + (k + 1) + " : " + Input.Keys.toString(potionSackKeys[k]);
+					label.text = configTexts[1] + (k + 1) + configTexts[2] + " : " + Input.Keys.toString(potionSackKeys[k]);
 				}
 				potionSackKeysButton[k].toggle.wrapHitboxToText(label.text, 1000.0f, 0.0f, label.font);
 			}, (button) -> {
@@ -274,28 +275,8 @@ public class GathererMod implements PostInitializeSubscriber,
 		potionSack = new PotionSack();
 		excessPotionHandleScreen = new ExcessPotionHandleScreen();
 
-		addGrowBookContent(GrowBook.EXTENDED_DESCRIPTION[7], new AbstractCard[]{
-				new Armaments(), new Havoc(), new TwinStrike(), new Feed()
-		});
-		addGrowBookContent(GrowBook.EXTENDED_DESCRIPTION[8], new AbstractCard[]{
-				new Choke(), new WellLaidPlans(), new PoisonedStab(), new Alchemize()
-		});
-		addGrowBookContent(GrowBook.EXTENDED_DESCRIPTION[9], new AbstractCard[]{
-				new Stack(), new SteamBarrier(), new AllForOne(), new Seek()
-		});
-
 		logger.debug("receivePostInitialize finished.");
 	}
-
-	private void addGrowBookContent(String name, AbstractCard[] cards) {
-		if (growBookCharacter == null || growBookContent == null) {
-			growBookCharacter = new ArrayList<>();
-			growBookContent = new ArrayList<>();
-		}
-		growBookCharacter.add(name);
-		growBookContent.add(cards);
-	}
-
 
 	@Override
 	public void receiveEditCharacters() {
@@ -366,7 +347,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new CollectorsShot());
 		cards.add(new ColorfulGarden());
 		cards.add(new Convert());
-		cards.add(new CoupDeGrace());
+		cards.add(new FinishingStrike());
 		cards.add(new CursedBlade());
 		cards.add(new DrugPower());
 		cards.add(new Duality());
@@ -386,7 +367,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new GatherMaterial());
 		cards.add(new Glitched());
 		cards.add(new GlowingPlant());
-		cards.add(new GrassHammer());
+		cards.add(new FragileHammer());
 		cards.add(new GrowBook());
 		cards.add(new HeartToFruit());
 		cards.add(new Herbalism());
@@ -418,7 +399,7 @@ public class GathererMod implements PostInitializeSubscriber,
 		cards.add(new SmartManeuver());
 		cards.add(new Snatch());
 		cards.add(new Solidify());
-		cards.add(new StarFruit());
+		cards.add(new PotentialSlash());
 		cards.add(new StoneFence());
 		cards.add(new TacticalStrike());
 		cards.add(new Thrower());
@@ -530,6 +511,7 @@ public class GathererMod implements PostInitializeSubscriber,
 				}
 			}
 		}
+		GridChooseUpToPatch.patchEnabled = false;
 
 		playedCardsCombat = new HashSet<>();
 		potionSack.removeAllPotions();

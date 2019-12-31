@@ -16,10 +16,11 @@ import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import the_gatherer.GathererMod;
 import the_gatherer.cards.Helper.AbstractNumberedCard;
+import the_gatherer.interfaces.ColoredTextCard;
 import the_gatherer.interfaces.OnObtainEffect;
 import the_gatherer.patches.CardColorEnum;
 
-public class CursedBlade extends AbstractNumberedCard implements OnObtainEffect {
+public class CursedBlade extends AbstractNumberedCard implements OnObtainEffect, ColoredTextCard {
 	private static final String RAW_ID = "CursedBlade";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

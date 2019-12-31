@@ -18,20 +18,20 @@ public class Herbalism extends CustomCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = GathererMod.GetCardPath(RAW_ID);
-	private static final int COST = 0;
+	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final CardType TYPE = CardType.SKILL;
 	private static final CardColor COLOR = CardColorEnum.GATHERER_LIME;
-	private static final CardRarity RARITY = CardRarity.COMMON;
+	private static final CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final CardTarget TARGET = CardTarget.SELF;
 
 	private static final int THRESHOLD = 2;
-	private static final int UNUPGRADE_MAX = 2;
+	private static final int NEW_COST = 0;
 
 	public Herbalism() {
-		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+		super(ID, NAME, IMG, COST, UPGRADE_DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 	}
 
 	@Override
@@ -42,12 +42,10 @@ public class Herbalism extends CustomCard {
 				this.baseMagicNumber++;
 			}
 		}
-		if (!upgraded && this.baseMagicNumber > UNUPGRADE_MAX)
-			this.baseMagicNumber = UNUPGRADE_MAX;
 		this.magicNumber = this.baseMagicNumber;
 		super.applyPowers();
 
-		this.rawDescription = (upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION) + EXTENDED_DESCRIPTION[0] + this.magicNumber + EXTENDED_DESCRIPTION[1];
+		this.rawDescription = UPGRADE_DESCRIPTION + EXTENDED_DESCRIPTION[0] + this.magicNumber + EXTENDED_DESCRIPTION[1];
 		this.initializeDescription();
 	}
 
@@ -56,7 +54,7 @@ public class Herbalism extends CustomCard {
 			AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.magicNumber));
 		}
 
-		this.rawDescription = DESCRIPTION;
+		this.rawDescription = UPGRADE_DESCRIPTION;
 		this.initializeDescription();
 	}
 
@@ -67,7 +65,7 @@ public class Herbalism extends CustomCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			this.upgradeName();
-			this.rawDescription = UPGRADE_DESCRIPTION;
+			this.upgradeBaseCost(NEW_COST);
 			this.initializeDescription();
 		}
 	}

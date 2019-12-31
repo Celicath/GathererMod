@@ -27,6 +27,7 @@ public class Liquidism extends CustomCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
 	private static final int POWER = 1;
+	private static final int NEW_COST = 1;
 
 	public Liquidism() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -45,9 +46,7 @@ public class Liquidism extends CustomCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			isInnate = true;
-			rawDescription = UPGRADE_DESCRIPTION;
-			initializeDescription();
+			upgradeBaseCost(NEW_COST);
 		}
 	}
 }

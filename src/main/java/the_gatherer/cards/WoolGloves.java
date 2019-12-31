@@ -11,9 +11,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.cards.Helper.AbstractNumberedCard;
+import the_gatherer.interfaces.ColoredTextCard;
 import the_gatherer.patches.CardColorEnum;
 
-public class WoolGloves extends AbstractNumberedCard {
+public class WoolGloves extends AbstractNumberedCard implements ColoredTextCard {
 	private static final String RAW_ID = "WoolGloves";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

@@ -40,7 +40,7 @@ public class TransmuteAction extends AbstractGameAction {
 			}
 
 			for (AbstractCard c : this.p.hand.group) {
-				if (c.cardID.equals(Necronomicurse.ID) || c.cardID.equals(AscendersBane.ID)) {
+				if (c.cardID.equals(Necronomicurse.ID)) {
 					notTransformable.add(c);
 				}
 			}

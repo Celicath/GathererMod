@@ -11,10 +11,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ObtainLesserPotionAction;
 import the_gatherer.cards.Helper.AbstractNumberedCard;
+import the_gatherer.interfaces.ColoredTextCard;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.patches.CustomTags;
 
-public class Snatch extends AbstractNumberedCard {
+public class Snatch extends AbstractNumberedCard implements ColoredTextCard {
 	private static final String RAW_ID = "Snatch";
 	public static final String ID = GathererMod.makeID(RAW_ID);
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -28,7 +29,7 @@ public class Snatch extends AbstractNumberedCard {
 	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 7;
+	private static final int POWER = 8;
 	private static final int UPGRADE_BONUS = 2;
 
 	public Snatch() {

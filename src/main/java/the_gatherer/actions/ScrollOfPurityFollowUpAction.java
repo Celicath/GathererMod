@@ -24,7 +24,7 @@ public class ScrollOfPurityFollowUpAction extends AbstractGameAction {
 		}
 		if (ScrollOfPurity.exhaustCount > 0) {
 			AbstractDungeon.actionManager.addToBottom(new ExhaustAction(
-					p, p, ScrollOfPurity.exhaustCount, false, true, true));
+					ScrollOfPurity.exhaustCount, false, true, true));
 		}
 	}
 }

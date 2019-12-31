@@ -18,11 +18,11 @@ public class FlyingFruit extends CustomRelic implements CustomSavable<HashSet<St
 	public static final String ID = GathererMod.makeID(RelicID);
 	public HashSet<String> exhaustedUniqueID = new HashSet<>();
 
-	private final int AMOUNT = 5;
+	private final int AMOUNT = 4;
 
 	public FlyingFruit() {
 		super(ID, new Texture(GathererMod.GetRelicPath(RelicID)),
-				RelicTier.RARE, LandingSound.FLAT);
+				RelicTier.UNCOMMON, LandingSound.FLAT);
 		this.counter = 0;
 	}
 

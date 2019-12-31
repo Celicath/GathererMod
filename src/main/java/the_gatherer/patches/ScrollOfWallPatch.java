@@ -1,12 +1,11 @@
 package the_gatherer.patches;
 
+import basemod.ReflectionHacks;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ExhaustCardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
@@ -48,7 +47,6 @@ public class ScrollOfWallPatch {
 						AbstractDungeon.player,
 						new PlatedArmorPower(AbstractDungeon.player, num), num));
 			}
-			// AbstractDungeon.actionManager.addToTop(new GainPlatedArmorThresholdAction(num, 5));
 		}
 
 		public static void exhaustIncomingCard(AbstractGameEffect age, AbstractCard c) {
@@ -77,7 +75,8 @@ public class ScrollOfWallPatch {
 		public static void Postfix(ShowCardAndAddToDiscardEffect __instance, AbstractCard srcCard, float x, float y) {
 			int num = ScrollOfWallUtil.needToExhaust(srcCard);
 			if (num >= 0) {
-				AbstractDungeon.player.discardPile.removeCard(srcCard);
+				AbstractCard card = (AbstractCard) (ReflectionHacks.getPrivate(__instance, ShowCardAndAddToDiscardEffect.class, "card"));
+				AbstractDungeon.player.discardPile.removeCard(card);
 				__instance.duration *= 0.5f;
 				ScrollOfWallUtil.setExhaustStatus(__instance, num);
 			}
@@ -140,7 +139,8 @@ public class ScrollOfWallPatch {
 		public static void Postfix(ShowCardAndAddToDrawPileEffect __instance, AbstractCard srcCard, float x, float y, boolean randomSpot, boolean cardOffset, boolean toBottom) {
 			int num = ScrollOfWallUtil.needToExhaust(srcCard);
 			if (num >= 0) {
-				AbstractDungeon.player.drawPile.removeCard(srcCard);
+				AbstractCard card = (AbstractCard) (ReflectionHacks.getPrivate(__instance, ShowCardAndAddToDrawPileEffect.class, "card"));
+				AbstractDungeon.player.drawPile.removeCard(card);
 				__instance.duration *= 0.5f;
 				ScrollOfWallUtil.setExhaustStatus(__instance, num);
 			}
@@ -161,7 +161,8 @@ public class ScrollOfWallPatch {
 		public static void Postfix(ShowCardAndAddToDrawPileEffect __instance, AbstractCard srcCard, boolean randomSpot, boolean toBottom) {
 			int num = ScrollOfWallUtil.needToExhaust(srcCard);
 			if (num >= 0) {
-				AbstractDungeon.player.drawPile.removeCard(srcCard);
+				AbstractCard card = (AbstractCard) (ReflectionHacks.getPrivate(__instance, ShowCardAndAddToDrawPileEffect.class, "card"));
+				AbstractDungeon.player.drawPile.removeCard(card);
 				__instance.duration *= 0.5f;
 				ScrollOfWallUtil.setExhaustStatus(__instance, num);
 			}

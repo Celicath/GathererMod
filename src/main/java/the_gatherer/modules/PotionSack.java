@@ -28,7 +28,6 @@ import the_gatherer.powers.UpgradeBagPower;
 
 import java.util.ArrayList;
 
-import static the_gatherer.GathererMod.logger;
 import static the_gatherer.GathererMod.potionSackPopupFlipped;
 
 public class PotionSack {

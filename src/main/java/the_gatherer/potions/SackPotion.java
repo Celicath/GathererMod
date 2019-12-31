@@ -101,9 +101,12 @@ public abstract class SackPotion extends CustomPotion {
 	}
 
 	public int getPotency(int ascensionLevel) {
-		return getBasePotency() * (upgrade * POTENCY_MULT + 100) / 100;
+		return getModifiedBasePotency() * (upgrade * POTENCY_MULT + 100) / 100;
 	}
 
+	public int getModifiedBasePotency() {
+		return getBasePotency();
+	}
 	public abstract int getBasePotency();
 
 	public void setTag(SackPotionTag tag) {

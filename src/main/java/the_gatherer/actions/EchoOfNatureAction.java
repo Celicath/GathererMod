@@ -45,10 +45,10 @@ public class EchoOfNatureAction extends AbstractGameAction {
 
 		if (effect > 0) {
 			for (int i = 0; i < effect; ++i) {
-				AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this.p, this.p, this.block));
+				AbstractDungeon.actionManager.addToTop(new DamageAction(this.m, new DamageInfo(this.p, this.damage, this.damageTypeForTurn), AttackEffect.BLUNT_LIGHT));
 			}
 			for (int i = 0; i < effect; ++i) {
-				AbstractDungeon.actionManager.addToBottom(new DamageAction(this.m, new DamageInfo(this.p, this.damage, this.damageTypeForTurn), AttackEffect.BLUNT_LIGHT));
+				AbstractDungeon.actionManager.addToTop(new GainBlockAction(this.p, this.p, this.block, true));
 			}
 			if (!this.freeToPlayOnce) {
 				this.p.energy.use(EnergyPanel.totalCount);
