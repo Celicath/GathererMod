@@ -11,14 +11,14 @@
     "NAMES": [
       "once"
     ],
-    "DESCRIPTION": "Only activates when you play this card first time in the combat. Displays used up after one use."
+    "DESCRIPTION": "Only activates when you play this card first time in the combat."
   },
   {
     "PROPER_NAME": "Twice",
     "NAMES": [
       "twice"
     ],
-    "DESCRIPTION": "Only activates for the first two times you play this card in combat. Displays as Once after one use."
+    "DESCRIPTION": "Only activates for the first two times you play this card in combat. Becomes Once after one use."
   },
   {
     "NAMES": [
@@ -38,68 +38,61 @@
     "PROPER_NAME": "Lesser Potion",
     "NAMES": [
       "lesser potion",
-      "lesser_potion",
+      "lesser\u00a0potion",
       "lesser",
       "potion",
       "potions"
     ],
-    "DESCRIPTION": "A \"Lesser\" version of regular potion which is always gained to your Sack."
+    "DESCRIPTION": "A \"Lesser\" version of regular potion which is gained to your Sack."
   },
   {
     "PROPER_NAME": "Lesser Fire Potion",
     "NAMES": [
-      "lesser fire potion",
-      "lesser_fire_potion"
+      "lesser\u00a0fire\u00a0potion"
     ],
     "DESCRIPTION": "A #yLesser #yPotion which deals 10 damage to an enemy."
   },
   {
     "PROPER_NAME": "Lesser Poison Potion",
     "NAMES": [
-      "lesser poison potion",
-      "lesser_poison_potion",
-      "lesser_poison_potions"
+      "lesser\u00a0poison\u00a0potion",
+      "lesser\u00a0poison\u00a0potions"
     ],
     "DESCRIPTION": "A #yLesser #yPotion which applies 4 #yPoison to an enemy."
   },
   {
     "PROPER_NAME": "Lesser Block Potion",
     "NAMES": [
-      "lesser block potion",
-      "lesser_block_potion"
+      "lesser\u00a0block\u00a0potion"
     ],
     "DESCRIPTION": "A #yLesser #yPotion which gains 8 Block when used."
   },
   {
     "PROPER_NAME": "Lesser Weak Potion",
     "NAMES": [
-      "lesser weak potion",
-      "lesser_weak_potion"
+      "lesser\u00a0weak\u00a0potion"
     ],
     "DESCRIPTION": "A #yLesser #yPotion which applies 2 Weak to an enemy."
   },
   {
     "PROPER_NAME": "Lesser Fear Potion",
     "NAMES": [
-      "lesser fear potion",
-      "lesser_fear_potion"
+      "lesser\u00a0fear\u00a0potion"
     ],
     "DESCRIPTION": "A #yLesser #yPotion which applies 2 Vulnerable to an enemy."
   },
   {
     "PROPER_NAME": "Lesser Energy Potion",
     "NAMES": [
-      "lesser energy potion",
-      "lesser_energy_potion",
-      "lesser_energy_potions"
+      "lesser\u00a0energy\u00a0potion",
+      "lesser\u00a0energy\u00a0potions"
     ],
     "DESCRIPTION": "A #yLesser #yPotion which gives you 1 energy when used."
   },
   {
     "PROPER_NAME": "Lesser Swift Potion",
     "NAMES": [
-      "lesser swift potion",
-      "lesser_swift_potion"
+      "lesser\u00a0swift\u00a0potion"
     ],
     "DESCRIPTION": "A #yLesser #yPotion which draws 2 cards when used."
   },
@@ -113,8 +106,7 @@
   {
     "PROPER_NAME": "Glow Power",
     "NAMES": [
-      "glow power",
-      "glow_power"
+      "glow\u00a0power"
     ],
     "DESCRIPTION": "Boosts the effect of #yLight! and #yShadow."
   },
@@ -151,7 +143,7 @@
     "NAMES": [
       "bomberform tooltip"
     ],
-    "DESCRIPTION": "If you play multiple #yBomber #yForms, damage boost is stacked but you only get 1 #yLEP per turn. NL Also, bonus damage from #yBomber #yForm is not doubled by #yUpgrade #yBag."
+    "DESCRIPTION": "If you play multiple #yBomber #yForms, damage boost is stacked but you only get 1 #yLEP per turn."
   },
   {
     "PROPER_NAME": "3rd Upgrade",
@@ -165,7 +157,7 @@
     "NAMES": [
       "flower falling tooltip"
     ],
-    "DESCRIPTION": "3rd #yUpgrade makes this cost 0 and heal for 3 instead of increasing damage."
+    "DESCRIPTION": "3rd #yUpgrade makes this cost 0 and heal 4 HP instead of increasing damage."
   },
   {
     "PROPER_NAME": "3rd Upgrade",
@@ -186,6 +178,6 @@
     "NAMES": [
       "flower power tooltip"
     ],
-    "DESCRIPTION": "3rd #yUpgrade makes this cost 1 in addition to removing a debuff."
+    "DESCRIPTION": "3rd #yUpgrade makes this cost 0 in addition to removing a debuff."
   }
 ]

@@ -3,15 +3,14 @@
     "NAME": "Alchemy Bag",
     "FLAVOR": "A mysterious bag with the power of recurring potions.",
     "DESCRIPTIONS": [
-      "At the start of each combat, gain a random #ygatherer:Lesser_Potion."
+      "At the start of each combat, gain a random #ygatherer:Lesser\u00a0Potion."
     ]
   },
   "Gatherer:MiracleBag": {
     "NAME": "Miracle Bag",
     "FLAVOR": "Created with forbidden technology.",
     "DESCRIPTIONS": [
-      "Not replaced #yAlchemy #yBag. NL At the start of each combat, obtain a random potion (to your regular potion slot).",
-      "Replaces #yAlchemy #yBag. NL At the start of each combat, obtain a rare potion (to your regular potion slot)."
+      "Replaces #yAlchemy #yBag. NL Upon pickup, gain #b1 regular Potion Slot. NL At the start of each combat, obtain a rare Potion to your regular Potion Slot."
     ]
   },
   "Gatherer:IronSlate": {
@@ -32,7 +31,7 @@
   },
   "Gatherer:FloralEgg": {
     "NAME": "Floral Egg",
-    "FLAVOR": "Eggs like flowers. Or they are eggs like flowers",
+    "FLAVOR": "Eggs like flowers. Or they are eggs like flowers.",
     "DESCRIPTIONS": [
       "Upon pick up, #yupgrade ALL your #ygatherer:Flower cards. Whenever you add a #ygatherer:Flower card to your deck, it is #yUpgraded."
     ]
@@ -41,7 +40,8 @@
     "NAME": "Leftovers",
     "FLAVOR": "How alchemists make new material from leftovers is a mystery.",
     "DESCRIPTIONS": [
-      "Whenever you use a Potion, gain a random #ygatherer:Lesser_Potion with #b20% chance."
+      "Every time you use #b",
+      " Potions in a combat, gain a random #ygatherer:Lesser\u00a0Potion."
     ]
   },
   "Gatherer:FlyingFruit": {

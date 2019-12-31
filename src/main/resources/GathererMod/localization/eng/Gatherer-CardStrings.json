@@ -68,8 +68,8 @@
     "NAME": "Frenzy",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Add 2 Dazed to your discard pile."
   },
-  "Gatherer:GrassHammer": {
-    "NAME": "Grass Hammer",
+  "Gatherer:FragileHammer": {
+    "NAME": "Fragile Hammer",
     "DESCRIPTION": "Deal !D! damage. Deal !M! damage to a random enemy other than the target."
   },
   "Gatherer:ScherryThrow": {
@@ -96,11 +96,11 @@
   },
   "Gatherer:Convert": {
     "NAME": "Convert",
-    "DESCRIPTION": "Exhaust a card. If it is [#60B0C0]Uncommon,[] gain !B! Block. If it is [#FFC050]Rare,[] gain !M! Block."
+    "DESCRIPTION": "Exhaust a card. NL If it is [#60B0C0]Uncommon,[] NL gain !B! Block. NL If it is [#FFC050]Rare,[] NL gain !M! Block."
   },
   "Gatherer:EnergyBasket": {
     "NAME": "Energy Basket",
-    "DESCRIPTION": "Gain !M! gatherer:Lesser_Energy_Potions. NL Retain. NL Exhaust."
+    "DESCRIPTION": "Gain !M! gatherer:Lesser\u00a0Energy\u00a0Potions. NL Retain. NL Exhaust."
   },
   "Gatherer:FlowerShield": {
     "NAME": "Flower Shield",
@@ -155,7 +155,7 @@
   },
   "Gatherer:FruitForce": {
     "NAME": "Fruit Force",
-    "DESCRIPTION": "Deal damage equal to !M! % of Max HP. When obtained, raise your Max HP by 4.",
+    "DESCRIPTION": "Deal damage equal to !M! % of Max HP. NL When obtained, raise your Max HP by 4.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -191,7 +191,7 @@
       " NL Apply !M! Weak.",
       " NL Apply !M! Vulnerable.",
       " NL Apply !M! Poison.",
-      " NL [#C0B0C0](Each [#D0C8D0]Rotten [#D0C8D0]Stipe [#D0C8D0]has [#D0C8D0]randomly [#D0C8D0]chosen [#D0C8D0]damage [#D0C8D0]and [#D0C8D0]debuff.)",
+      " NL [#C0B0C0](Each [#D0C8D0]Rotten [#D0C8D0]Stipe NL [#D0C8D0]has [#D0C8D0]randomly [#D0C8D0]chosen NL [#D0C8D0]damage [#D0C8D0]and [#D0C8D0]debuff.)",
       "T",
       ""
     ]
@@ -200,8 +200,8 @@
     "NAME": "Sealed Bomb",
     "DESCRIPTION": "Deal !D! damage. While in your hand, using a Potion decreases its cost by 1 this combat."
   },
-  "Gatherer:StarFruit": {
-    "NAME": "Star Fruit",
+  "Gatherer:PotentialSlash": {
+    "NAME": "Potential Slash",
     "DESCRIPTION": "Deal damage equal to !M! + half of your missing HP.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
@@ -222,16 +222,15 @@
   },
   "Gatherer:GlowingPlant": {
     "NAME": "Glowing Plant",
-    "DESCRIPTION": "Draw !M! cards. NL Gain 1 gatherer:Glow_Power. NL When obtained, add a Light! and a Shadow! to your deck.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Gain 1 gatherer:Glow_Power. NL When obtained, add a Light! and a Shadow! to your deck."
+    "DESCRIPTION": "Scry !M!. NL When obtained, add a *Light! and a *Shadow! to your deck."
   },
   "Gatherer:Light": {
     "NAME": "Light!",
-    "DESCRIPTION": "Gain !B! Block. NL Block is increased by !M! for each gatherer:Glow_Power. NL Gain 1 gatherer:Glow_Power."
+    "DESCRIPTION": "Gain !B! Block. NL Draw a card. NL Increase the damage of all *Shadow! in your hand by !M!."
   },
   "Gatherer:Shadow": {
     "NAME": "Shadow!",
-    "DESCRIPTION": "Deal !D! damage. NL Damage is increased by !M! for each gatherer:Glow_Power. NL Gain 1 gatherer:Glow_Power."
+    "DESCRIPTION": "Deal !D! damage. NL Draw a card. NL Increase the Block of all *Light! in your hand by !M!."
   },
   "Gatherer:Herbalism": {
     "NAME": "Herbalism",
@@ -274,17 +273,17 @@
   },
   "Gatherer:SmartManeuver": {
     "NAME": "Smart Maneuver",
-    "DESCRIPTION": "Enemy deals half damage this turn. Gain a gatherer:Lesser_Swift_Potion.",
-    "UPGRADE_DESCRIPTION": "Enemy deals half damage this turn. Gain a gatherer:Lesser_Swift_Potion. NL Retain."
+    "DESCRIPTION": "Enemy deals half damage this turn. Gain a gatherer:Lesser\u00a0Swift\u00a0Potion.",
+    "UPGRADE_DESCRIPTION": "Enemy deals half damage this turn. Gain a gatherer:Lesser\u00a0Swift\u00a0Potion. NL Retain."
   },
   "Gatherer:Solidify": {
     "NAME": "Solidify",
-    "DESCRIPTION": "Gain !B! Block. If you have !M! or more Block, reduce it by 5 and gain a gatherer:Lesser_Block_Potion."
+    "DESCRIPTION": "Repeat until your Sack is full: Spend !M! Block to gain a gatherer:Lesser\u00a0Block\u00a0Potion."
   },
   "Gatherer:Transmute": {
     "NAME": "Transmute",
     "DESCRIPTION": "Transform a card from your hand. It costs 0 this turn.",
-    "UPGRADE_DESCRIPTION": "Transform a card from your hand. It is upgraded and costs 0 this turn."
+    "UPGRADE_DESCRIPTION": "Transform a card from your hand. It is Upgraded and costs 0 this turn."
   },
   "Gatherer:VenomBarrier": {
     "NAME": "Venom Barrier",
@@ -315,8 +314,8 @@
   },
   "Gatherer:UpgradeBag": {
     "NAME": "Upgrade Bag",
-    "DESCRIPTION": "Shuffle a Glitched in your deck. Your gatherer:Lesser gatherer:Potions are 100% more potent.",
-    "UPGRADE_DESCRIPTION": "Add a Glitched+ in your discard pile. Your gatherer:Lesser gatherer:Potions are 100% more potent."
+    "DESCRIPTION": "Shuffle a *Glitched in your deck. Your gatherer:Lesser gatherer:Potions are 100% more potent.",
+    "UPGRADE_DESCRIPTION": "Add a *Glitched+ in your discard pile. Your gatherer:Lesser gatherer:Potions are 100% more potent."
   },
   "Gatherer:Glitched": {
     "NAME": "Glitched",
@@ -335,26 +334,26 @@
       " gatherer:Unique cards in discard pile.)"
     ]
   },
-  "Gatherer:CoupDeGrace": {
-    "NAME": "Coup De Grace",
-    "DESCRIPTION": "Deal !D! damage. If the enemy’s current HP was less than yours, hit twice instead."
+  "Gatherer:FinishingStrike": {
+    "NAME": "Finishing Strike",
+    "DESCRIPTION": "Deal !D! damage. If the enemy has less HP than yours, hit twice instead."
   },
   "Gatherer:CursedBlade": {
     "NAME": "Cursed Blade",
     "DESCRIPTION": "Deal !D! damage.",
     "EXTENDED_DESCRIPTION": [
-      " NL gatherer:Twice: Enemy loses !M! Strength this turn. When Obtained, become [#FF6563]Cursed [#FF6563]- [#FF6563]Normality.",
-      " NL gatherer:Once: Enemy loses !M! Strength this turn. When Obtained, become [#FF6563]Cursed [#FF6563]- [#FF6563]Normality.",
-      " NL gatherer:Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up. When Obtained, become [#FF6563]Cursed [#FF6563]- [#FF6563]Normality."
+      " NL gatherer:Twice: Enemy loses !M! Strength this turn. When Obtained, become [#FF6563]Cursed[] [#FF6563]-[] [#FF6563]Normality.[]",
+      " NL gatherer:Once: Enemy loses !M! Strength this turn. When Obtained, become [#FF6563]Cursed[] [#FF6563]-[] [#FF6563]Normality.[]",
+      " NL gatherer:Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up. When Obtained, become [#FF6563]Cursed[] [#FF6563]-[] [#FF6563]Normality.[]"
     ]
   },
   "Gatherer:FlamingBottle": {
     "NAME": "Flaming Bottle",
-    "DESCRIPTION": "Deal !D! damage. Gain a gatherer:Lesser_Fire_Potion."
+    "DESCRIPTION": "Deal !D! damage. Gain a gatherer:Lesser\u00a0Fire\u00a0Potion."
   },
   "Gatherer:HeartToFruit": {
     "NAME": "Heart to Fruit",
-    "DESCRIPTION": "Deal !D! damage. NL If this kills a non-minion enemy, raise your Max HP by !M!. Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, raise your Max HP by !M!. Exhaust."
   },
   "Gatherer:Photoscythe": {
     "NAME": "Photoscythe",
@@ -373,19 +372,8 @@
   },
   "Gatherer:GrowBook": {
     "NAME": "Grow Book",
-    "DESCRIPTION": "Gain !B! Block. Exhaust. NL After playing 3 times, permanently replace this with a <?> card.",
-    "EXTENDED_DESCRIPTION": [
-      "Gain !B! Block. Exhaust.",
-      " NL After playing 3 times, permanently replace this with",
-      " NL After playing 2 more times, permanently replace this with",
-      " NL After playing 1 more time, permanently replace this with",
-      " an Ironclad card.",
-      " a Silent card.",
-      " a Defect card.",
-      "Iron",
-      "Silent",
-      "Defect"
-    ]
+    "DESCRIPTION": "Gain !B! Block, or permanently replace this with 1 of 3 cards from other color. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block, or permanently replace this with 1 of 3 upgraded cards from other color. NL Exhaust."
   },
   "Gatherer:MindSearch": {
     "NAME": "Mind Search",
@@ -399,8 +387,8 @@
   },
   "Gatherer:ScrollOfPurity": {
     "NAME": "Scroll of Purity",
-    "DESCRIPTION": "Unplayable. NL Whenever you use a Potion, draw 1 card and Exhaust up to !M! card.",
-    "UPGRADE_DESCRIPTION": "Unplayable. NL Whenever you use a Potion, draw 1 card and Exhaust up to !M! cards.",
+    "DESCRIPTION": "Unplayable. NL Whenever you use a Potion, draw !M! card and Exhaust up to !M! card.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL Whenever you use a Potion, draw !M! cards and Exhaust up to !M! cards.",
     "EXTENDED_DESCRIPTION": [
       "I can't play this card."
     ]
@@ -425,16 +413,16 @@
   },
   "Gatherer:Thrower": {
     "NAME": "Thrower",
-    "DESCRIPTION": "Ethereal. Deal damage equal to amount of Block remained at the start of this turn. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Ethereal. Deal damage equal to amount of Block remained at the start of this turn +2. Exhaust.",
+    "DESCRIPTION": "Ethereal. Deal damage equal to the remaining Block at the start of this turn. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. Deal damage equal to the remaining Block at the start of this turn +2. Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
   },
   "Gatherer:PoisonMastery": {
     "NAME": "Poison Mastery",
-    "DESCRIPTION": "Gain a gatherer:Lesser_Poison_Potion. NL Poison damage is increased by 100%.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Gain a gatherer:Lesser_Poison_Potion. NL Poison damage is increased by 100%."
+    "DESCRIPTION": "Gain a gatherer:Lesser\u00a0Poison\u00a0Potion. NL Poison damage is increased by 100%.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Gain a gatherer:Lesser\u00a0Poison\u00a0Potion. NL Poison damage is increased by 100%."
   },
   "Gatherer:AromaProtection": {
     "NAME": "Aroma Protection",
@@ -457,26 +445,8 @@
       " NL Can be Upgraded 1 more time."
     ]
   },
-  "Gatherer:ChargingShot": {
-    "NAME": "Charging Shot",
-    "DESCRIPTION": "Deal !D! damage. While in your hand, using a Potion increases its damage by !M! this combat.",
-    "EXTENDED_DESCRIPTION": [
-      "This card is deprecated."
-    ]
-  },
-  "Gatherer:SalvePotion": {
-    "NAME": "Salve Potion",
-    "DESCRIPTION": "Considered as using a Potion. NL Heal !M! HP. NL Decrease this card's healing by 1 this combat.",
-    "EXTENDED_DESCRIPTION": [
-      "This card is deprecated."
-    ]
-  },
-  "Gatherer:GrassKnot": {
-    "NAME": "Grass Knot",
-    "DESCRIPTION": "At the end of your turn, discard up to !M! Retained card for 5 Block and 2 Thorns each.",
-    "UPGRADE_DESCRIPTION": "At the end of your turn, discard up to !M! Retained cards for 5 Block and 2 Thorns each.",
-    "EXTENDED_DESCRIPTION": [
-      "This card is deprecated."
-    ]
+  "Gatherer:DoNotReplaceOption": {
+    "NAME": "Do Not Replace",
+    "DESCRIPTION": "Gain !B! Block. NL Do not replace Grow Book."
   }
 }

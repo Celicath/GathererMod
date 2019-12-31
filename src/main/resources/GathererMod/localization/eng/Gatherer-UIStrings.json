@@ -105,5 +105,14 @@
       "My Sack is full! Let's use ",
       "."
     ]
+  },
+  "Gatherer:Config": {
+    "TEXT": [
+      "Flip Potion Sack popup orientation",
+      "Keyboard shortcut for Potion Sack slot #",
+      "",
+      "Press key for slot #",
+      ""
+    ]
   }
 }
