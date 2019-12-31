@@ -17,7 +17,7 @@
     "EXTENDED_DESCRIPTION": [
       " NL gatherer:两次 : 将手牌中的随机 !M! 张牌升级，取出优先执行。",
       " NL gatherer:一次 : 将手牌中的随机 !M! 张牌升级，取出优先执行。",
-      " NL gatherer:一次 的效果已触发。" 
+      " NL gatherer:一次 的效果已触发。"
     ]
   },
   "Gatherer:SpareBottle": {
@@ -68,7 +68,7 @@
     "NAME": "狂怒",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 易伤 。 NL 将 2 张 眩晕 加入你的弃牌堆。"
   },
-  "Gatherer:GrassHammer": {
+  "Gatherer:FragileHammer": {
     "NAME": "草锤",
     "DESCRIPTION": "造成 !D! 点伤害。 对目标以外的随机一名敌人造成 !M! 点伤害。"
   },
@@ -82,7 +82,7 @@
     "EXTENDED_DESCRIPTION": [
       " NL gatherer:两次 ： 获得随机一瓶次级药水。",
       " NL gatherer:一次 ： 获得随机一瓶次级药水",
-      " NL gatherer:一次 的效果已触发。" 
+      " NL gatherer:一次 的效果已触发。"
     ]
   },
   "Gatherer:TacticalStrike": {
@@ -133,7 +133,7 @@
     "EXTENDED_DESCRIPTION": [
       " NL gatherer:两次 ：抽 3 张牌并丢弃 3 张牌。",
       " NL gatherer:一次 ：抽 3 张牌并丢弃 3 张牌。",
-      " NL gatherer:一次 的效果已触发。" 
+      " NL gatherer:一次 的效果已触发。"
     ]
   },
   "Gatherer:Duality": {
@@ -200,7 +200,7 @@
     "NAME": "密闭炸弹",
     "DESCRIPTION": "造成 !D! 点伤害。 当它在手牌时，每使用一瓶药水，它在本场战斗的能耗减少 1 。"
   },
-  "Gatherer:StarFruit": {
+  "Gatherer:PotentialSlash": {
     "NAME": "杨桃",
     "DESCRIPTION": "造成 !M! +已失去生命一半的伤害。",
     "EXTENDED_DESCRIPTION": [
@@ -335,7 +335,7 @@
       " 张 gatherer:独一 牌。)"
     ]
   },
-  "Gatherer:CoupDeGrace": {
+  "Gatherer:FinishingStrike": {
     "NAME": "致命一击",
     "DESCRIPTION": "造成 !D! 点伤害。 如果敌人现在的生命比你少，则再次造成 !D! 点伤害。"
   },
@@ -345,7 +345,7 @@
     "EXTENDED_DESCRIPTION": [
       " NL gatherer:两次 ： 敌人本回合失去 !M! 点 力量 。 ",
       " NL gatherer:一次 ： 敌人本回合失去 !M! 点 力量 。 ",
-      " NL gatherer:一次 的效果已触发。" 
+      " NL gatherer:一次 的效果已触发。"
     ]
   },
   "Gatherer:FlamingBottle": {
