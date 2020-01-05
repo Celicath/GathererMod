@@ -408,8 +408,8 @@
   },
   "Gatherer:StoneFence": {
     "NAME": "돌 울타리",
-    "DESCRIPTION": "매 턴 시작 시 *투척기 카드를 1장 얻습니다.",
-    "UPGRADE_DESCRIPTION": "매 턴 시작 시 강화된 *투척기 카드를 1장 얻습니다."
+    "DESCRIPTION": "매 턴 시작 시 *투척기를 1장 얻습니다.",
+    "UPGRADE_DESCRIPTION": "매 턴 시작 시 *투척기+를 1장 얻습니다."
   },
   "Gatherer:Thrower": {
     "NAME": "투척기",

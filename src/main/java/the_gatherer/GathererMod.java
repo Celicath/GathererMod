@@ -59,7 +59,6 @@ import the_gatherer.modules.PotionSack;
 import the_gatherer.patches.AbstractPlayerEnum;
 import the_gatherer.patches.CardColorEnum;
 import the_gatherer.patches.CustomTags;
-import the_gatherer.patches.GridChooseUpToPatch;
 import the_gatherer.potions.*;
 import the_gatherer.powers.PoisonMasteryPower;
 import the_gatherer.powers.StoneFencePower;
@@ -511,7 +510,6 @@ public class GathererMod implements PostInitializeSubscriber,
 				}
 			}
 		}
-		GridChooseUpToPatch.patchEnabled = false;
 
 		playedCardsCombat = new HashSet<>();
 		potionSack.removeAllPotions();

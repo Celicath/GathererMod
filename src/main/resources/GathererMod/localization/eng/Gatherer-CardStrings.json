@@ -373,7 +373,7 @@
   "Gatherer:GrowBook": {
     "NAME": "Grow Book",
     "DESCRIPTION": "Gain !B! Block, or permanently replace this with 1 of 3 cards from other color. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block, or permanently replace this with 1 of 3 upgraded cards from other color. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Gain !B! Block, or permanently replace this with 1 of 3 Upgraded cards from other color. NL Exhaust."
   },
   "Gatherer:MindSearch": {
     "NAME": "Mind Search",
@@ -408,8 +408,8 @@
   },
   "Gatherer:StoneFence": {
     "NAME": "Stone Fence",
-    "DESCRIPTION": "At the start of your turn, add 1 Thrower to your hand.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, add 1 upgraded Thrower to your hand."
+    "DESCRIPTION": "At the start of your turn, add 1 *Thrower to your hand.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, add 1 *Thrower+ to your hand."
   },
   "Gatherer:Thrower": {
     "NAME": "Thrower",
