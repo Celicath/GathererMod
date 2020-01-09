@@ -10,7 +10,7 @@
     "NAME": "소형 민첩 포션",
     "DESCRIPTIONS": [
       "#y민첩 을 #b",
-      " 얻습니다.."
+      " 얻습니다."
     ]
   },
   "Gatherer:LesserEnergyPotion": {
@@ -91,7 +91,7 @@
     ]
   },
   "Gatherer:LesserSteroidPotion": {
-    "NAME": "소형 스테로이드 포션",
+    "NAME": "소형 몸풀기용 포션",
     "DESCRIPTIONS": [
       "#y힘 을 #b",
       " 얻습니다. 턴 종료 시 #y힘 을 #b",

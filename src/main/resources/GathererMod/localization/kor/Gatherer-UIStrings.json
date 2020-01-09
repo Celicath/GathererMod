@@ -29,7 +29,7 @@
   },
   "Gatherer:TransmuteAction": {
     "TEXT": [
-      "변환할 카드를 선택하십시오"
+      "변화시킬 카드를 선택하십시오"
     ]
   },
   "Gatherer:ExamineAction": {

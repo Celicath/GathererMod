@@ -1,7 +1,6 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
-import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -31,7 +30,7 @@ public class Defend_Gatherer extends CustomCard {
 	public Defend_Gatherer() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseBlock = POWER;
-		this.tags.add(BaseModCardTags.BASIC_DEFEND);
+		this.tags.add(CardTags.STARTER_DEFEND);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

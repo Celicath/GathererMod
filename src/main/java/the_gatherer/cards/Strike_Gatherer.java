@@ -1,7 +1,6 @@
 package the_gatherer.cards;
 
 import basemod.abstracts.CustomCard;
-import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -33,7 +32,7 @@ public class Strike_Gatherer extends CustomCard {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
 		this.baseDamage = POWER;
-		this.tags.add(BaseModCardTags.BASIC_STRIKE);
+		this.tags.add(CardTags.STARTER_STRIKE);
 		this.tags.add(CardTags.STRIKE);
 	}
 

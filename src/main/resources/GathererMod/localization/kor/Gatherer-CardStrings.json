@@ -100,7 +100,7 @@
   },
   "Gatherer:EnergyBasket": {
     "NAME": "에너지 상자",
-    "DESCRIPTION": "gatherer:소형\u00a0에너지\u00a0포션 !M! 개를 얻습니다. NL 보존 NL 소멸"
+    "DESCRIPTION": "gatherer:소형_에너지_포션 !M! 개를 얻습니다. NL 보존 NL 소멸"
   },
   "Gatherer:FlowerShield": {
     "NAME": "플라워 실드",
@@ -273,12 +273,12 @@
   },
   "Gatherer:SmartManeuver": {
     "NAME": "전술적 움직임",
-    "DESCRIPTION": "대상이 이번 턴에 절반의 피해를 줍니다. gatherer:소형\u00a0신속\u00a0포션 을 얻습니다.",
-    "UPGRADE_DESCRIPTION": "대상이 이번 턴에 절반의 피해를 줍니다. gatherer:소형\u00a0신속\u00a0포션 을 얻습니다. NL 보존"
+    "DESCRIPTION": "대상이 이번 턴에 절반의 피해를 줍니다. gatherer:소형_신속_포션 을 얻습니다.",
+    "UPGRADE_DESCRIPTION": "대상이 이번 턴에 절반의 피해를 줍니다. gatherer:소형_신속_포션 을 얻습니다. NL 보존"
   },
   "Gatherer:Solidify": {
     "NAME": "결정화",
-    "DESCRIPTION": "포션 주머니가 가득 찰 때 까지 반복: 방어도를 !M! 사용하여 gatherer:소형\u00a0방어도\u00a0포션 을 얻습니다."
+    "DESCRIPTION": "포션 주머니가 가득 찰 때 까지 반복: 방어도를 !M! 사용하여 gatherer:소형_방어도_포션 을 얻습니다."
   },
   "Gatherer:Transmute": {
     "NAME": "변환",
@@ -349,7 +349,7 @@
   },
   "Gatherer:FlamingBottle": {
     "NAME": "화염병",
-    "DESCRIPTION": "피해를 !D! 줍니다. gatherer:소형\u00a0화염\u00a0포션 을 얻습니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. gatherer:소형_화염_포션 을 얻습니다."
   },
   "Gatherer:HeartToFruit": {
     "NAME": "과일로 만들기",
@@ -421,8 +421,8 @@
   },
   "Gatherer:PoisonMastery": {
     "NAME": "독 숙련",
-    "DESCRIPTION": "gatherer:소형\u00a0중독\u00a0포션 을 얻습니다. NL 중독의 피해량이 100% 증가합니다.",
-    "UPGRADE_DESCRIPTION": "선천성 NL gatherer:소형\u00a0중독\u00a0포션 을 얻습니다. NL 중독의 피해량이 100% 증가합니다."
+    "DESCRIPTION": "gatherer:소형_중독_포션 을 얻습니다. NL 중독의 피해량이 100% 증가합니다.",
+    "UPGRADE_DESCRIPTION": "선천성 NL gatherer:소형_중독_포션 을 얻습니다. NL 중독의 피해량이 100% 증가합니다."
   },
   "Gatherer:AromaProtection": {
     "NAME": "아로마의 보호",

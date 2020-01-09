@@ -23,7 +23,7 @@ public class LesserPoisonPotion extends SackPotion {
 	public static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;
 
 	public LesserPoisonPotion() {
-		super(NAME, POTION_ID, PotionRarityEnum.LESSER, PotionSize.BOTTLE, PotionColor.POISON);
+		super(NAME, POTION_ID, PotionRarityEnum.LESSER, PotionSize.M, PotionColor.POISON);
 		this.isThrown = true;
 		this.targetRequired = true;
 

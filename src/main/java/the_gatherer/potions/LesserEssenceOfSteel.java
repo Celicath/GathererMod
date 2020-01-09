@@ -1,5 +1,6 @@
 package the_gatherer.potions;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -20,8 +21,9 @@ public class LesserEssenceOfSteel extends SackPotion {
 	public static final String NAME = potionStrings.NAME;
 	public static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;
 
+	// liquidColor is copied in the AbstractPotion constructor.
 	public LesserEssenceOfSteel() {
-		super(NAME, POTION_ID, PotionRarityEnum.LESSER, AbstractPotion.PotionSize.JAR, AbstractPotion.PotionColor.BLUE);
+		super(NAME, POTION_ID, PotionRarityEnum.LESSER, PotionSize.ANVIL, PotionEffect.NONE, Color.TEAL, null, null);
 		this.isThrown = false;
 
 		updateDescription();

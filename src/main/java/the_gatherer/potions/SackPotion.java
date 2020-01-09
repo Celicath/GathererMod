@@ -1,12 +1,13 @@
 package the_gatherer.potions;
 
-import basemod.abstracts.CustomPotion;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
+import com.megacrit.cardcrawl.potions.AbstractPotion;
 import javafx.util.Pair;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ChooseLesserPotionAction;
@@ -17,13 +18,13 @@ import java.util.ArrayList;
 
 import static the_gatherer.powers.UpgradeBagPower.POTENCY_MULT;
 
-public abstract class SackPotion extends CustomPotion {
+public abstract class SackPotion extends AbstractPotion {
 	private static final String BT_ID = GathererMod.makeID("BlackTeaTag");
 	private static final PotionStrings blackTeaStrings = CardCrawlGame.languagePack.getPotionString(BT_ID);
 	public static final String BT_NAME = blackTeaStrings.NAME;
 	public static final String[] BT_DESCRIPTIONS = blackTeaStrings.DESCRIPTIONS;
 
-	private String rawName;
+	protected String rawName;
 
 	public enum SackPotionTag {
 		NORMAL, BLACKTEA;
@@ -39,6 +40,11 @@ public abstract class SackPotion extends CustomPotion {
 		}
 	}
 
+	public SackPotion(String name, String id, PotionRarity rarity, PotionSize size, PotionEffect effect, Color liquidColor, Color hybridColor, Color spotsColor) {
+		super(name, id, rarity, size, effect, liquidColor, hybridColor, spotsColor);
+		this.rawName = this.name;
+	}
+
 	public SackPotion(String name, String id, PotionRarity rarity, PotionSize size, PotionColor color) {
 		super(name, id, rarity, size, color);
 		this.rawName = this.name;
@@ -47,7 +53,8 @@ public abstract class SackPotion extends CustomPotion {
 	public int upgrade = 0;
 	public SackPotionTag tag = SackPotionTag.NORMAL;
 
-	// Only called when you Use from the Potion Sack.
+	// This code is for old Black Tea, which exhausted when you used <BT> potion.
+	// This method is not called if you use Duplicator or Drug Power.
 	public void actualUseEffect() {
 		if (tag == SackPotionTag.BLACKTEA) {
 			ArrayList<AbstractCard> handCopy = new ArrayList<>();
@@ -107,6 +114,7 @@ public abstract class SackPotion extends CustomPotion {
 	public int getModifiedBasePotency() {
 		return getBasePotency();
 	}
+
 	public abstract int getBasePotency();
 
 	public void setTag(SackPotionTag tag) {

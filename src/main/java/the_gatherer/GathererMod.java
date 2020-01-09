@@ -32,8 +32,6 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
-import com.megacrit.cardcrawl.potions.BloodPotion;
-import com.megacrit.cardcrawl.potions.GhostInAJar;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.random.Random;
@@ -301,9 +299,6 @@ public class GathererMod implements PostInitializeSubscriber,
 		lesserPotionPool.add(new LesserStrengthPotion());
 		lesserPotionPool.add(new LesserSwiftPotion());
 		lesserPotionPool.add(new LesserWeakPotion());
-
-		BaseMod.addPotion(BloodPotion.class, Color.WHITE.cpy(), Color.LIGHT_GRAY.cpy(), null, BloodPotion.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
-		BaseMod.addPotion(GhostInAJar.class, Color.WHITE.cpy(), Color.LIGHT_GRAY.cpy(), null, GhostInAJar.POTION_ID, AbstractPlayerEnum.THE_GATHERER);
 
 		logger.debug("receiveEditCharacters finished.");
 	}

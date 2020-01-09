@@ -1,5 +1,6 @@
 package the_gatherer.potions;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -24,7 +25,7 @@ public class LesserLiquidBronze extends SackPotion {
 	public static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;
 
 	public LesserLiquidBronze() {
-		super(NAME, POTION_ID, PotionRarityEnum.LESSER, PotionSize.SPHERE, PotionColor.ANCIENT);
+		super(NAME, POTION_ID, PotionRarityEnum.LESSER, PotionSize.SPIKY, PotionEffect.NONE, new Color(-491249153), new Color(415023359), null);
 		this.isThrown = false;
 
 		updateDescription();
