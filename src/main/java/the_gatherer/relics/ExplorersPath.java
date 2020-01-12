@@ -19,13 +19,18 @@ public class ExplorersPath extends CustomRelic {
 	private static final String RelicID = "ExplorersPath";
 	public static final String ID = GathererMod.makeID(RelicID);
 
-	public static final JsonObject pickRatioData;
+	public static final JsonObject pickRatioDataGatherer;
+	public static final JsonObject pickRatioDataPokerPlayer;
 
 	static {
 		String jsonString = Gdx.files.internal("GathererMod/data/PickRatio-" + "Gatherer" + ".json").readString(
 				String.valueOf(StandardCharsets.UTF_8));
 		JsonParser parser = new JsonParser();
-		pickRatioData = parser.parse(jsonString).getAsJsonObject();
+		pickRatioDataGatherer = parser.parse(jsonString).getAsJsonObject();
+
+		jsonString = Gdx.files.internal("GathererMod/data/PickRatio-" + "PokerPlayer" + ".json").readString(
+				String.valueOf(StandardCharsets.UTF_8));
+		pickRatioDataPokerPlayer = parser.parse(jsonString).getAsJsonObject();
 	}
 
 	public ExplorersPath() {
@@ -76,13 +81,18 @@ public class ExplorersPath extends CustomRelic {
 
 	// returns ratio gets used by Explorers Path.
 	public static double getRatio(String cardID) {
-		JsonElement element = pickRatioData.get(cardID);
+		JsonElement element;
+		if (AbstractDungeon.player != null && AbstractDungeon.player.chosenClass.toString().equals("THE_POKER_PLAYER")) {
+			element = pickRatioDataPokerPlayer.get(cardID);
+		} else {
+			element = pickRatioDataGatherer.get(cardID);
+		}
 		if (element == null) return 100;
 		try {
 			double r = element.getAsFloat();
 			if (r <= 0.01f) {
 				// if ratio is too low, treat it as ??. ?? has lower priority over cards with actual values.
-				r = r + 99.99 + r * 0.4;
+				r = 99.99 + r * 0.4;
 			} else if (r >= 99.99f) {
 				// make it so r <= 0.01f is always lower than r >= 99.99f
 				r = r * 0.4 + 60.0;
