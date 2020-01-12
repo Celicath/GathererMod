@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.relics.SacredBark;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.PotionUsedAction;
 import the_gatherer.actions.RecoveryHerbAction;
@@ -45,6 +46,9 @@ public class RecoveryHerb extends CustomCard {
 	public void applyPowers() {
 		super.applyPowers();
 
+		if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(SacredBark.ID)) {
+			magicNumber = baseMagicNumber * 2;
+		}
 		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + RecoveryHerbAction.CalcAmount(AbstractDungeon.player, this.magicNumber) + EXTENDED_DESCRIPTION[1];
 		this.initializeDescription();
 	}
