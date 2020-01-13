@@ -433,7 +433,8 @@
   },
   "Gatherer:PoisonMastery": {
     "NAME": "Мастерство яда",
-    "DESCRIPTION": "Даёт gatherer:Малое_Зелье_Отравления. NL Урон от Яда повышен на 100%."
+    "DESCRIPTION": "Даёт gatherer:Малое_Зелье_Отравления. NL Урон от Яда повышен на 100%.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Даёт gatherer:Малое_Зелье_Отравления. NL Урон от Яда повышен на 100%."
   },
   "Gatherer:AromaProtection": {
     "NAME": "Ароматный Барьер",

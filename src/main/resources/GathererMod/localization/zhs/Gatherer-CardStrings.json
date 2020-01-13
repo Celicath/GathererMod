@@ -433,7 +433,8 @@
   },
   "Gatherer:PoisonMastery": {
     "NAME": "毒药专精",
-    "DESCRIPTION": "获得一瓶 gatherer:次级毒药水 。 NL 中毒伤害提高 100% 。"
+    "DESCRIPTION": "获得一瓶 gatherer:次级毒药水 。 NL 中毒伤害提高 100% 。",
+    "UPGRADE_DESCRIPTION": "固有 。获得一瓶 gatherer:次级毒药水 。 NL 中毒伤害提高 100% 。"
   },
   "Gatherer:AromaProtection": {
     "NAME": "芳香保护",
