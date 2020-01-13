@@ -46,7 +46,7 @@ public class RecoveryHerb extends CustomCard {
 	public void applyPowers() {
 		super.applyPowers();
 
-		if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(SacredBark.ID)) {
+		if (AbstractDungeon.player.hasRelic(SacredBark.ID)) {
 			magicNumber = baseMagicNumber * 2;
 		}
 		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + RecoveryHerbAction.CalcAmount(AbstractDungeon.player, this.magicNumber) + EXTENDED_DESCRIPTION[1];
