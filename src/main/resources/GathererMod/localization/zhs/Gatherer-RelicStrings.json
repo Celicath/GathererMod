@@ -41,7 +41,8 @@
     "NAME": "回收药瓶",
     "FLAVOR": "炼金术士如何用剩余药水制作全新一瓶的这个问题，一直是个迷。",
     "DESCRIPTIONS": [
-      "每当你使用一瓶药水时，有 #b20% 概率获得一瓶 #ygatherer:次级药水 。"
+      "每当你使用一瓶药水时，有 #b20% 概率获得一瓶 #ygatherer:次级药水 。",
+      ""
     ]
   },
   "Gatherer:FlyingFruit": {
