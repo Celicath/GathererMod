@@ -30,7 +30,7 @@ public class FlowerFalling extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 16;
+	private static final int POWER = 14;
 	private static final int UPGRADE_BONUS = 4;
 	private static final int MAGIC_POWER = 0;
 	private static final int MAGIC_3RD_BONUS = 4;

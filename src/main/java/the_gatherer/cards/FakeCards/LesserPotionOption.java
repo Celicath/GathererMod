@@ -19,8 +19,8 @@ public class LesserPotionOption extends CustomCard implements ColoredTextCard {
 
 	public LesserPotionOption(SackPotion p, String description) {
 		super(ID, p.name, IMG, -2, description, CardType.SKILL, CardColor.COLORLESS, CardRarity.SPECIAL, CardTarget.NONE);
-		this.potion = p;
-		this.potion.scale = Settings.scale * this.drawScale * 1.6f;
+		potion = p;
+		potion.scale = Settings.scale * drawScale * 1.6f;
 
 		StringBuilder newText = new StringBuilder();
 		boolean first = true;
@@ -30,31 +30,29 @@ public class LesserPotionOption extends CustomCard implements ColoredTextCard {
 			if ((derp.length() > 0) && (derp.charAt(0) == '#')) {
 				switch (derp.charAt(1)) {
 					case 'r':
-						derp = "[#ff6563]" + derp.substring(2) + "[]";
+						derp = "[#ff6563]" + derp.substring(2) + "[]]";
 						break;
 					case 'g':
 						derp = "[#7fff00]" + derp.substring(2) + "[]";
 						break;
 					case 'b':
-						derp = "[#87ceeb]" + derp.substring(2) + "[] ";
+						derp = "[#87ceeb]" + derp.substring(2) + "[]";
 						break;
 					case 'y':
 						derp = "[#efc851]" + derp.substring(2) + "[]";
 						break;
 				}
-				newText.append(derp);
-			} else {
-				newText.append(derp);
 			}
+			newText.append(derp);
 		}
 		rawDescription = newText.toString();
-		this.initializeDescription();
+		initializeDescription();
 	}
 
 	@Override
 	public void update() {
 		super.update();
-		this.potion.scale = Settings.scale * this.drawScale * 1.6f;
+		potion.scale = Settings.scale * this.drawScale * 1.6f;
 		potion.posX = this.current_x;
 		potion.posY = this.current_y + Settings.scale * this.drawScale * 80;
 	}

@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.localization.LocalizedStrings;
-import the_gatherer.interfaces.ColoredTextCard;
 
 import static com.megacrit.cardcrawl.cards.AbstractCard.IMG_WIDTH;
 
@@ -22,7 +21,7 @@ public class ColoredTextCardPatch {
 
 		@SpirePrefixPatch
 		public static SpireReturn Prefix(AbstractCard __instance) {
-			if (__instance instanceof ColoredTextCard) {
+			if (/*__instance instanceof ColoredTextCard*/false) {
 				ShrinkLongDescription.ShrinkInitializeDescription.Prefix(__instance);
 				__instance.keywords.clear();
 				if (Settings.lineBreakViaCharacter) {
@@ -72,7 +71,6 @@ public class ColoredTextCardPatch {
 							gl.setText(FontHelper.cardDescFont_N, sbuilder2);
 							gl.width += CARD_ENERGY_IMG_WIDTH;
 							__instance.keywords.add("[E]");
-							FixColoredTextOffset.Insert(__instance, gl, word);
 						} else if (!word.equals("!D") && !word.equals("!B") && !word.equals("!M")) {
 							if (word.equals("NL")) {
 								gl.width = 0.0F;

@@ -27,11 +27,11 @@ public class Shadow extends CustomCard {
 	private static final CardRarity RARITY = CardRarity.SPECIAL;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int POWER = 9;
+	private static final int POWER = 8;
 	private static final int UPGRADE_BONUS = 3;
 	private static final int DRAW = 1;
-	private static final int BLOCK_BOOST = 5;
-	private static final int BLOCK_UPGRADE = 2;
+	private static final int BLOCK_BOOST = 7;
+	private static final int BLOCK_UPGRADE = 3;
 
 	public Shadow() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
