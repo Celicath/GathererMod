@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.helpers.PotionHelper;
 import com.megacrit.cardcrawl.potions.BloodPotion;
 import com.megacrit.cardcrawl.potions.BottledMiracle;
 import com.megacrit.cardcrawl.potions.GhostInAJar;
+import com.megacrit.cardcrawl.potions.PoisonPotion;
 
 import static the_gatherer.patches.AbstractPlayerEnum.THE_GATHERER;
 
@@ -19,6 +20,7 @@ public class PotionPatch {
 				PotionHelper.potions.add(BloodPotion.POTION_ID);
 				PotionHelper.potions.add(GhostInAJar.POTION_ID);
 				PotionHelper.potions.add(BottledMiracle.POTION_ID);
+				PotionHelper.potions.add(PoisonPotion.POTION_ID);
 			}
 		}
 	}

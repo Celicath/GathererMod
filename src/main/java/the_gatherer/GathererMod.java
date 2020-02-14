@@ -676,8 +676,8 @@ public class GathererMod implements PostInitializeSubscriber,
 	}
 
 	public static boolean isBasic(AbstractCard c) {
-		return c.hasTag(BaseModCardTags.BASIC_DEFEND) || c.getClass() == Defend_Red.class || c.getClass() == Defend_Green.class || c.getClass() == Defend_Blue.class ||
-				c.hasTag(BaseModCardTags.BASIC_STRIKE) || c.getClass() == Strike_Red.class || c.getClass() == Strike_Green.class || c.getClass() == Strike_Blue.class;
+		return c.hasTag(AbstractCard.CardTags.STARTER_STRIKE) || c.getClass() == Defend_Red.class || c.getClass() == Defend_Green.class || c.getClass() == Defend_Blue.class ||
+				c.hasTag(AbstractCard.CardTags.STARTER_DEFEND) || c.getClass() == Strike_Red.class || c.getClass() == Strike_Green.class || c.getClass() == Strike_Blue.class;
 	}
 
 	public static SackPotion returnRandomLesserPotion() {

@@ -5,7 +5,7 @@
   },
   "Gatherer:Defend_Gatherer": {
     "NAME": "방어",
-    "DESCRIPTION": "방어도 를 !B! 얻습니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다."
   },
   "Gatherer:FlowerWhip": {
     "NAME": "플라워 채찍",
@@ -22,7 +22,7 @@
   },
   "Gatherer:SpareBottle": {
     "NAME": "여분의 병",
-    "DESCRIPTION": "포션을 사용할 때마다 방어도 를 !M! 얻고 무작위 적에게 피해를 !M! 줍니다.",
+    "DESCRIPTION": "포션을 사용할 때마다 방어도를 !M! 얻고 무작위 적에게 피해를 !M! 줍니다.",
     "EXTENDED_DESCRIPTION": [
       "일반",
       "은",
@@ -61,12 +61,12 @@
   },
   "Gatherer:FlowerFalling": {
     "NAME": "플라워 낙하",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 체력을 !M! 회복합니다. NL 소멸"
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 체력을 !M! 회복합니다. NL 소멸."
   },
   "Gatherer:Frenzy": {
     "NAME": "광포",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 취약 을 !M! 부여합니다. NL 버린 카드 더미에 어지러움 카드를 2장 추가합니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 취약 을 !M! 부여합니다. NL 버린 카드 더미에 *어지러움 카드를 2장 추가합니다."
   },
   "Gatherer:FragileHammer": {
     "NAME": "유리 망치",
@@ -92,19 +92,19 @@
   },
   "Gatherer:BigPouch": {
     "NAME": "큰 주머니",
-    "DESCRIPTION": "카드를 !M! 장 뽑습니다. 손에 있는 카드의 비용의 합만큼 방어도 를 얻습니다."
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. 손에 있는 카드의 비용의 합만큼 방어도를 얻습니다."
   },
   "Gatherer:Convert": {
     "NAME": "바꾸기",
-    "DESCRIPTION": "카드 1장을 소멸 시킵니다. 그 카드가 [#60B0C0]특별[] 등급이면 !B!, [#FFC050]희귀[] 등급이면 !M! 의 방어도 를 얻습니다."
+    "DESCRIPTION": "카드 1장을 소멸 시킵니다. 그 카드가 [#60B0C0]특별[] 등급이면 !B!, [#FFC050]희귀[] 등급이면 !M! 의 방어도를 얻습니다."
   },
   "Gatherer:EnergyBasket": {
     "NAME": "에너지 상자",
-    "DESCRIPTION": "gatherer:소형_에너지_포션 !M! 개를 얻습니다. NL 보존 NL 소멸"
+    "DESCRIPTION": "gatherer:소형_에너지_포션 !M! 개를 얻습니다. NL 보존. NL 소멸."
   },
   "Gatherer:FlowerShield": {
     "NAME": "플라워 실드",
-    "DESCRIPTION": "방어도 를 !B! 얻습니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다."
   },
   "Gatherer:GatherMaterial": {
     "NAME": "재료 모으기",
@@ -116,8 +116,8 @@
   },
   "Gatherer:QuickSynthesis": {
     "NAME": "재빠른 합성",
-    "DESCRIPTION": "무작위 gatherer:소형포션 을 얻습니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "카드를 1 장 뽑습니다. NL 무작위 gatherer:소형포션 을 얻습니다. NL 소멸"
+    "DESCRIPTION": "무작위 gatherer:소형포션 을 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "카드를 1 장 뽑습니다. NL 무작위 gatherer:소형포션 을 얻습니다. NL 소멸."
   },
   "Gatherer:SaveValuables": {
     "NAME": "귀중품 보관",
@@ -125,11 +125,11 @@
   },
   "Gatherer:TreeGrowth": {
     "NAME": "나무 키우기",
-    "DESCRIPTION": "다음 턴에 방어도 를 !B! 얻습니다. NL 2턴 후에 방어도 를 !M! 얻습니다."
+    "DESCRIPTION": "다음 턴에 방어도를 !B! 얻습니다. NL 2턴 후에 방어도를 !M! 얻습니다."
   },
   "Gatherer:WoolGloves": {
     "NAME": "양모 장갑",
-    "DESCRIPTION": "방어도 를 !B! 얻습니다.",
+    "DESCRIPTION": "방어도를 !B! 얻습니다.",
     "EXTENDED_DESCRIPTION": [
       " NL gatherer:2회용: 카드를 3장 뽑고 3장 버립니다.",
       " NL gatherer:1회용: 카드를 3장 뽑고 3장 버립니다.",
@@ -140,7 +140,7 @@
     "NAME": "이중성",
     "DESCRIPTION": "피해를 !D! 줍니다. 보존. 보존될 때 태그가 <ATK>와 <DEF> 사이에서 바뀝니다.",
     "EXTENDED_DESCRIPTION": [
-      "방어도 를 !B! 얻습니다. 보존. 보존될 때 태그가 <ATK>와 <DEF> 사이에서 바뀝니다.",
+      "방어도를 !B! 얻습니다. 보존. 보존될 때 태그가 <ATK>와 <DEF> 사이에서 바뀝니다.",
       "ATK",
       "DEF"
     ]
@@ -213,7 +213,7 @@
   },
   "Gatherer:Duplicator": {
     "NAME": "복제기",
-    "DESCRIPTION": "내가 가진 gatherer:소형포션 들의 효과를 모두 받습니다. NL 소멸",
+    "DESCRIPTION": "내가 가진 gatherer:소형포션 들의 효과를 모두 받습니다. NL 소멸.",
     "UPGRADE_DESCRIPTION": "내가 가진 gatherer:소형포션 들의 효과를 모두 받습니다."
   },
   "Gatherer:Enchant": {
@@ -222,11 +222,11 @@
   },
   "Gatherer:GlowingPlant": {
     "NAME": "빛나는 식물",
-    "DESCRIPTION": "예측 !M! NL 이 카드를 얻을 때 *빛! 과 *그림자! 를 같이 얻습니다."
+    "DESCRIPTION": "예지 !M! NL 이 카드를 얻을 때 *빛! 과 *그림자! 를 같이 얻습니다."
   },
   "Gatherer:Light": {
     "NAME": "빛!",
-    "DESCRIPTION": "방어도 를 !B! 얻습니다. NL 카드를 1장 뽑습니다. NL 손에 있는 모든 *그림자! 의 피해량이 !M! 증가합니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 1장 뽑습니다. NL 손에 있는 모든 *그림자! 의 피해량이 !M! 증가합니다."
   },
   "Gatherer:Shadow": {
     "NAME": "그림자!",
@@ -243,15 +243,15 @@
   },
   "Gatherer:Nutrients": {
     "NAME": "영양분",
-    "DESCRIPTION": "방어도 를 !B! 얻습니다. NL 이 카드를 얻을 때 덱에 있는 모든 gatherer:플라워 카드를 강화 합니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 이 카드를 얻을 때 덱에 있는 모든 gatherer:플라워 카드를 강화 합니다."
   },
   "Gatherer:RecipeChange": {
     "NAME": "재료 변경",
-    "DESCRIPTION": "모든 gatherer:소형포션 중 하나를 선택합니다. 가지고 있는 모든 gatherer:소형포션 을 선택한 것으로 바꿉니다. 소멸"
+    "DESCRIPTION": "모든 gatherer:소형포션 중 하나를 선택합니다. 가지고 있는 모든 gatherer:소형포션 을 선택한 것으로 바꿉니다. 소멸."
   },
   "Gatherer:RecoveryHerb": {
     "NAME": "회복초",
-    "DESCRIPTION": "포션을 사용하는 것으로 간주합니다. 잃은 체력의 !M! % 만큼 회복합니다. NL 소멸",
+    "DESCRIPTION": "포션을 사용하는 것으로 간주합니다. 잃은 체력의 !M! % 만큼 회복합니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
       " NL (체력을 ",
       " 회복합니다.)"
@@ -259,7 +259,7 @@
   },
   "Gatherer:ScentOfRosmari": {
     "NAME": "로즈마리의 향",
-    "DESCRIPTION": "방어도 를 !B! 얻습니다. NL 보존 할 카드를 !M! 장 선택합니다. 이들 중 버려진 카드는 다음 턴 시작 시 손으로 가져옵니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 보존 할 카드를 !M! 장 선택합니다. 이들 중 버려진 카드는 다음 턴 시작 시 손으로 가져옵니다."
   },
   "Gatherer:ScrollOfWall": {
     "NAME": "벽의 스크롤",
@@ -287,7 +287,7 @@
   },
   "Gatherer:VenomBarrier": {
     "NAME": "맹독 장벽",
-    "DESCRIPTION": "방어도 를 !B! 얻습니다. 이번 턴에 공격을 받을 때마다 공격한 대상에게 중독 을 !M! 부여합니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. 이번 턴에 공격을 받을 때마다 공격한 대상에게 중독 을 !M! 부여합니다."
   },
   "Gatherer:AlchemyTrial": {
     "NAME": "연금술 시험",
@@ -299,8 +299,8 @@
   },
   "Gatherer:ColorfulGarden": {
     "NAME": "다채로운 정원",
-    "DESCRIPTION": "턴 종료 시 이번 턴에 사용한 서로 다른 카드 수만큼 방어도 를 얻습니다.",
-    "UPGRADE_DESCRIPTION": "선천성 NL 턴 종료 시 이번 턴에 사용한 서로 다른 카드 수만큼 방어도 를 얻습니다."
+    "DESCRIPTION": "턴 종료 시 이번 턴에 사용한 서로 다른 카드 수만큼 방어도를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "선천성 NL 턴 종료 시 이번 턴에 사용한 서로 다른 카드 수만큼 방어도를 얻습니다."
   },
   "Gatherer:FeelingFine": {
     "NAME": "상쾌한 기분",
@@ -319,7 +319,7 @@
   },
   "Gatherer:Glitched": {
     "NAME": "결함",
-    "DESCRIPTION": "보존 NL 소멸 NL 내 손에 있는 동안 가방 업그레이드의 효과가 사라집니다."
+    "DESCRIPTION": "보존. NL 소멸.NL 내 손에 있는 동안 가방 업그레이드의 효과가 사라집니다."
   },
   "Gatherer:Uplift": {
     "NAME": "고양",
@@ -349,15 +349,15 @@
   },
   "Gatherer:FlamingBottle": {
     "NAME": "화염병",
-    "DESCRIPTION": "피해를 !D! 줍니다. gatherer:소형_화염_포션 을 얻습니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. gatherer:소형_화염_포션을 얻습니다."
   },
   "Gatherer:HeartToFruit": {
     "NAME": "과일로 만들기",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 치명타라면, 최대 체력이 !M! 증가합니다. 소멸"
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 치명타라면, 최대 체력이 !M! 증가합니다. 소멸."
   },
   "Gatherer:Photoscythe": {
     "NAME": "빛의 낫",
-    "DESCRIPTION": "선천성. 모든 gatherer:플라워 카드들을 전투가 끝날 때까지 강화합니다. gatherer:플라워 카드 수의 !M! 배 만큼 피해를 줍니다. 소멸",
+    "DESCRIPTION": "선천성. 모든 gatherer:플라워 카드들을 전투가 끝날 때까지 강화합니다. gatherer:플라워 카드 수의 !M! 배 만큼 피해를 줍니다. 소멸.",
     "EXTENDED_DESCRIPTION": [
       " NL (피해를 !D! 줍니다.)"
     ]
@@ -372,18 +372,18 @@
   },
   "Gatherer:GrowBook": {
     "NAME": "그로우 북",
-    "DESCRIPTION": "방어도를 !B! 얻거나, 다른 직업의 카드 3장 중 하나로 이 카드를 영구적으로 바꿉니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "방어도를 !B! 얻거나, 다른 직업의 강화된 카드 3장 중 하나로 이 카드를 영구적으로 바꿉니다. NL 소멸"
+    "DESCRIPTION": "방어도를 !B! 얻거나, 다른 직업의 카드 3장 중 하나로 이 카드를 영구적으로 바꿉니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "방어도를 !B! 얻거나, 다른 직업의 강화된 카드 3장 중 하나로 이 카드를 영구적으로 바꿉니다. NL 소멸."
   },
   "Gatherer:MindSearch": {
     "NAME": "마음 검색",
-    "DESCRIPTION": "현재 상황에 맞는 무작위 gatherer:소형포션 이 4개 제시됩니다. 이 중 2개를 선택하여 얻습니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "현재 상황에 잘 맞는 무작위 gatherer:소형포션 이 4개 제시됩니다. 이 중 2개를 선택하여 얻습니다. NL 보존. 소멸"
+    "DESCRIPTION": "현재 상황에 맞는 무작위 gatherer:소형포션 이 4개 제시됩니다. 이 중 2개를 선택하여 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "현재 상황에 잘 맞는 무작위 gatherer:소형포션 이 4개 제시됩니다. 이 중 2개를 선택하여 얻습니다. NL 보존. 소멸."
   },
   "Gatherer:Overflowing": {
     "NAME": "넘쳐흐름",
-    "DESCRIPTION": " [E] [E] [E] 를 얻습니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": " [E] [E] [E] 를 얻습니다. 이번 턴 종료시 에너지가 사라지지 않습니다. NL 소멸"
+    "DESCRIPTION": " [E] [E] [E] 를 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": " [E] [E] [E] 를 얻습니다. 이번 턴 종료시 에너지가 사라지지 않습니다. NL 소멸."
   },
   "Gatherer:ScrollOfPurity": {
     "NAME": "순수함의 스크롤",
@@ -413,8 +413,8 @@
   },
   "Gatherer:Thrower": {
     "NAME": "투척기",
-    "DESCRIPTION": "휘발성 NL 이 턴 시작 시 남아있던 방어도 만큼 피해를 줍니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "휘발성 NL 이 턴 시작 시 남아있던 방어도 +2 만큼 피해를 줍니다. NL 소멸",
+    "DESCRIPTION": "휘발성 NL 이 턴 시작 시 남아있던 방어도 만큼 피해를 줍니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "휘발성 NL 이 턴 시작 시 남아있던 방어도 +2 만큼 피해를 줍니다. NL 소멸.",
     "EXTENDED_DESCRIPTION": [
       " NL (피해를 !D! 줍니다.)"
     ]
@@ -426,7 +426,7 @@
   },
   "Gatherer:AromaProtection": {
     "NAME": "아로마의 보호",
-    "DESCRIPTION": "방어도 를 !B! 얻습니다. NL 버린 카드 더미에 어지러움 카드를 1장 추가합니다."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 버린 카드 더미에 *어지러움 카드를 1장 추가합니다."
   },
   "Gatherer:LuckyClover": {
     "NAME": "행운의 클로버",

@@ -5,9 +5,9 @@
     "Celicath"
   ],
   "credits": "Rita-Bernstein - Character art, ZHS translation\nMappyTheKat - Old character splash art\nJedi - RUS translation",
-  "description": "Adds The Gatherer as a new playable character with 75 cards, 7 relics.\n\nv1.0.0 (2020-01-15)\n- Art update: Removed all BETA watermarks and unmodified base game art.\n- Updated for 2.0 release (Watcher release).\n- Rework: 3 cards and 1 Relic.\n- Many balance changes.\n\nVisit https://steamcommunity.com/sharedfiles/filedetails/changelog/1611788501 for full change notes.",
-  "version": "1.0.0",
-  "sts_version": "12-21-2019",
+  "description": "Adds The Gatherer as a new playable character with 75 cards, 7 relics.\n\nv1.0.0 (2020-01-15)\n- Art update: Removed all BETA watermarks and unmodified base game art.\n- Updated for 2.0 release (Watcher release).\n- Rework: 3 cards and 1 Relic.\n- Many balance changes.\n\nv1.0.1 (2020-02-14)\n- Poison Potion is once again available when you play as the Gatherer.\n- KOR localization update.\n\nVisit https://steamcommunity.com/sharedfiles/filedetails/changelog/1611788501 for full change notes.",
+  "version": "1.0.1",
+  "sts_version": "01-27-2020",
   "mts_version": "3.7.0",
   "dependencies": [
     "basemod",
