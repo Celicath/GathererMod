@@ -135,7 +135,7 @@
     "NAMES": [
       "bomberform tooltip"
     ],
-    "DESCRIPTION": "如果你打出了多张 #y轰炸形态 ，增加的伤害叠加。但你每回合只能获得 1 瓶 #y次级爆炸药水 。 NL 同时，增加的伤害不会被 #y升级背包 加倍。"
+    "DESCRIPTION": "如果你打出了多张 #y轰炸形态 ，增加的伤害叠加。但你每回合只能获得 1 瓶 #y次级爆炸药水 。"
   },
   {
     "PROPER_NAME": "三次升级",
@@ -149,7 +149,7 @@
     "NAMES": [
       "flower falling tooltip"
     ],
-    "DESCRIPTION": "第三次 #y升级 让这张牌能耗变为 0 并回复 3 生命而不是增加伤害。"
+    "DESCRIPTION": "第三次 #y升级 让这张牌能耗变为 0 并回复 4 生命而不是增加伤害。"
   },
   {
     "PROPER_NAME": "三次升级",
@@ -170,6 +170,6 @@
     "NAMES": [
       "flower power tooltip"
     ],
-    "DESCRIPTION": "第三次 #y升级 让这张牌能耗变为 1 以移除一个负面效果。"
+    "DESCRIPTION": "第三次 #y升级 让这张牌能耗变为 0 并能移除一个负面效果。"
   }
 ]

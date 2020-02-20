@@ -53,7 +53,7 @@
     "NAME": "药力",
     "DESCRIPTION": "造成 !D! 点伤害。如果你在本回合使用了一瓶药水，获得上一个使用过的药水的效果。",
     "EXTENDED_DESCRIPTION": [
-      " NL （No 没有使用过药水。）",
+      " NL （没有使用过药水。）",
       " NL （使用过药水： NL ",
       "）",
       "嗯？ 水果汁不好喝了！"
@@ -69,7 +69,7 @@
     "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 易伤 。 NL 将 2 张 眩晕 加入你的弃牌堆。"
   },
   "Gatherer:FragileHammer": {
-    "NAME": "草锤",
+    "NAME": "易碎草锤",
     "DESCRIPTION": "造成 !D! 点伤害。 对目标以外的随机一名敌人造成 !M! 点伤害。"
   },
   "Gatherer:ScherryThrow": {
@@ -201,7 +201,7 @@
     "DESCRIPTION": "造成 !D! 点伤害。 当它在手牌时，每使用一瓶药水，它在本场战斗的能耗减少 1 。"
   },
   "Gatherer:PotentialSlash": {
-    "NAME": "杨桃",
+    "NAME": "潜能斩击",
     "DESCRIPTION": "造成 !M! +已失去生命一半的伤害。",
     "EXTENDED_DESCRIPTION": [
       " NL （造成 !D! 点伤害）"
@@ -222,16 +222,15 @@
   },
   "Gatherer:GlowingPlant": {
     "NAME": "发光植物",
-    "DESCRIPTION": "抽 !M! 张牌。 NL 获得 1 层 gatherer:生长能力 。 NL 获得本牌时，将一张 光照！和 阴影！ 加入你的牌组。",
-    "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 获得 1 层 gatherer:生长能力 。 NL 获得本牌时，将一张 光照！和 阴影！ 加入你的牌组。"
+    "DESCRIPTION": "预见 !M! 。 NL 获得本牌时，将一张 *光明！和 *暗影！ 加入你的牌组。"
   },
   "Gatherer:Light": {
-    "NAME": "光照！",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 每有一层 gatherer:生长能力 ，增加 !M! 点 格挡 。 NL 获得 1 层 gatherer:生长能力 。"
+    "NAME": "光明！",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 抽一张牌。 NL 将手牌中所有 *暗影！ 的伤害提高 !M! 。"
   },
   "Gatherer:Shadow": {
-    "NAME": "阴影！",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 每有一层 gatherer:生长能力 ，提高 !M! 点伤害。 NL 获得 1 层 gatherer:生长能力 。"
+    "NAME": "暗影！",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 抽一张牌。 NL 将手牌中所有 *光明！ 的 格挡 提高 !M! 。"
   },
   "Gatherer:Herbalism": {
     "NAME": "草药学",
@@ -279,7 +278,7 @@
   },
   "Gatherer:Solidify": {
     "NAME": "凝固",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 如果你拥有或超过 !M! 点 格挡  ，降低 5 点并获得一瓶 gatherer:次级格挡药水 。"
+    "DESCRIPTION": "失去 !M! 点 格挡 并获得一瓶 gatherer:次级格挡药水。 NL 重复直到充满腰包。"
   },
   "Gatherer:Transmute": {
     "NAME": "蜕变",
@@ -315,8 +314,8 @@
   },
   "Gatherer:UpgradeBag": {
     "NAME": "升级腰包",
-    "DESCRIPTION": "将一张 差错 加入你的 牌组。 你的 gatherer:次级药水 效果提升 100% 。",
-    "UPGRADE_DESCRIPTION": "将一张 差错+ 加入你的弃牌堆。 你的 gatherer:次级药水 效果提升 100% 。"
+    "DESCRIPTION": "将一张 *差错 加入你的 牌组。 你的 gatherer:次级药水 效果提升 100% 。",
+    "UPGRADE_DESCRIPTION": "将一张 *差错+ 加入你的弃牌堆。 你的 gatherer:次级药水 效果提升 100% 。"
   },
   "Gatherer:Glitched": {
     "NAME": "差错",
@@ -336,12 +335,12 @@
     ]
   },
   "Gatherer:FinishingStrike": {
-    "NAME": "致命一击",
-    "DESCRIPTION": "造成 !D! 点伤害。 如果敌人现在的生命比你少，则再次造成 !D! 点伤害。"
+    "NAME": "终结一击",
+    "DESCRIPTION": "造成 !D! 点伤害。 如果敌人现在的生命比你少，则再造成 !D! 点伤害。"
   },
   "Gatherer:CursedBlade": {
     "NAME": "诅咒之剑",
-    "DESCRIPTION": "造成 !D! 点伤害。获得本牌时，被诅咒 - 凡庸 。",
+    "DESCRIPTION": "造成 !D! 点伤害。获得本牌时，被诅咒 - *凡庸 。",
     "EXTENDED_DESCRIPTION": [
       " NL gatherer:两次 ： 敌人本回合失去 !M! 点 力量 。 ",
       " NL gatherer:一次 ： 敌人本回合失去 !M! 点 力量 。 ",
@@ -354,7 +353,7 @@
   },
   "Gatherer:HeartToFruit": {
     "NAME": "水果之心",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果这张牌杀死一名不是“爪牙”的敌人，则永久获得 !M! 点最大生命。 消耗 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 斩杀 时，则永久获得 !M! 点最大生命。 消耗 。"
   },
   "Gatherer:Photoscythe": {
     "NAME": "光细胞",
@@ -373,19 +372,8 @@
   },
   "Gatherer:GrowBook": {
     "NAME": "成长之书",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 打出 3 次后，永久替换为一张 <?> 牌。 NL  消耗 。",
-    "EXTENDED_DESCRIPTION": [
-      "获得 !B! 点 格挡 。消耗 。",
-      " NL 打出 3 次后，永久替换为 ",
-      " NL 打出 2 次后，永久替换为 ",
-      " NL 打出 1 次后，永久替换为 ",
-      " 一张 铁甲战士 牌 。",
-      " 一张 静默猎手 牌 。",
-      " 一张 故障机器人 牌 。",
-      "战士",
-      "猎手",
-      "机器人"
-    ]
+    "DESCRIPTION": "获得 !B! 点 格挡 或将这张牌本局替换为三张任意颜色的牌中的一张。 NL 消耗 。",
+	"UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 或将这张牌本局替换为三张已 升级 的任意颜色的牌中的一张。 NL 消耗 。"
   },
   "Gatherer:MindSearch": {
     "NAME": "思考搜索",
@@ -399,8 +387,8 @@
   },
   "Gatherer:ScrollOfPurity": {
     "NAME": "净化卷轴",
-    "DESCRIPTION": " 不能被打出 。 NL 每当你使用了一瓶药水，抽 1 张牌并最多 消耗 !M! 张牌。",
-    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 每当你使用了一瓶药水，抽 1 张牌并最多 消耗 !M! 张牌。",
+    "DESCRIPTION": " 不能被打出 。 NL 每当你使用了一瓶药水，抽 !M! 张牌并最多 消耗 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 每当你使用了一瓶药水，抽 !M! 张牌并最多 消耗 !M! 张牌。",
     "EXTENDED_DESCRIPTION": [
       "我不能打出这张牌。"
     ]
@@ -457,26 +445,8 @@
       " NL 还能被 升级 1 次。"
     ]
   },
-  "Gatherer:ChargingShot": {
-    "NAME": "蓄力射击",
-    "DESCRIPTION": "造成 !D! 点伤害。当它在手牌时，每使用一瓶药水，它在本场战斗的伤害增加 !M! 。",
-    "EXTENDED_DESCRIPTION": [
-      "此卡已弃用。"
-    ]
-  },
-  "Gatherer:SalvePotion": {
-    "NAME": "药膏",
-    "DESCRIPTION": "被视为一瓶药水。 NL 回复 !M! 生命。 NL 在本场战斗中降低治疗效果 1 点。",
-    "EXTENDED_DESCRIPTION": [
-      "此卡已弃用。"
-    ]
-  },
-  "Gatherer:GrassKnot": {
-    "NAME": "草绳结",
-    "DESCRIPTION": "你的回合结束时，最多丢弃 !M! 张被 保留 的牌，每张牌获得 5 点 格挡 和 2 层 荆棘 。",
-    "UPGRADE_DESCRIPTION": "你的回合结束时，最多丢弃 !M! 张被 保留 的牌，每张牌获得 5 点 格挡 和 2 层 荆棘 。",
-    "EXTENDED_DESCRIPTION": [
-      "此卡已弃用。"
-    ]
+  "Gatherer:DoNotReplaceOption": {
+    "NAME": "策略",
+    "DESCRIPTION": "获得 !B! 点 格挡 。NL 不变更成长书。"
   }
 }
