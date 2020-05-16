@@ -1,15 +1,19 @@
 package the_gatherer.patches;
 
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.metrics.Metrics;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.screens.DeathScreen;
+import the_gatherer.character.TheGatherer;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 
 public class GathererMetricsPatch {
 
@@ -46,6 +50,16 @@ public class GathererMetricsPatch {
 				} catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
 					e.printStackTrace();
 				}
+			}
+		}
+	}
+
+	@SpirePatch(clz = Metrics.class, method = "gatherAllData")
+	public static class BuildJsonPatch {
+		@SpirePostfixPatch
+		public static void Postfix(Metrics __instance, boolean death, boolean trueVictor, MonsterGroup monsters, HashMap<Object, Object> ___params) {
+			if (AbstractDungeon.player instanceof TheGatherer) {
+				___params.put("metric_token", Loader.MODINFOS.length * 64 + Settings.language.ordinal() + 17);
 			}
 		}
 	}

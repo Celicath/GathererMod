@@ -28,19 +28,20 @@ public class FinishingStrike extends CustomCard {
 
 	private static final int POWER = 12;
 	private static final int UPGRADE_BONUS = 4;
+	private static final int HIT = 2;
 
 	public FinishingStrike() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseDamage = POWER;
+		this.baseMagicNumber = this.magicNumber = HIT;
 		this.tags.add(CardTags.STRIKE);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		int times = 1;
-		if (m.currentHealth < p.currentHealth)
-			times = 2;
-		for (int i = 0; i < times; i++)
+		int times = m.currentHealth < p.currentHealth ? magicNumber : 1;
+		for (int i = 0; i < times; i++) {
 			AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+		}
 	}
 
 	public AbstractCard makeCopy() {

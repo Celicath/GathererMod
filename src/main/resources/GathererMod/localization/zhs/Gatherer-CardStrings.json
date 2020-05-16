@@ -66,7 +66,7 @@
   },
   "Gatherer:Frenzy": {
     "NAME": "狂怒",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 易伤 。 NL 将 2 张 眩晕 加入你的弃牌堆。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 易伤 。 NL 将一张 *晕眩 加入你的弃牌堆。"
   },
   "Gatherer:FragileHammer": {
     "NAME": "易碎草锤",
@@ -336,7 +336,7 @@
   },
   "Gatherer:FinishingStrike": {
     "NAME": "终结一击",
-    "DESCRIPTION": "造成 !D! 点伤害。 如果敌人现在的生命比你少，则再造成 !D! 点伤害。"
+    "DESCRIPTION": "造成 !D! 点伤害。如果敌人的生命比你少，变为造成 !M! 次伤害。"
   },
   "Gatherer:CursedBlade": {
     "NAME": "诅咒之剑",
@@ -373,7 +373,7 @@
   "Gatherer:GrowBook": {
     "NAME": "成长之书",
     "DESCRIPTION": "获得 !B! 点 格挡 或将这张牌本局替换为三张任意颜色的牌中的一张。 NL 消耗 。",
-	"UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 或将这张牌本局替换为三张已 升级 的任意颜色的牌中的一张。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 或将这张牌本局替换为三张已 升级 的任意颜色的牌中的一张。 NL 消耗 。"
   },
   "Gatherer:MindSearch": {
     "NAME": "思考搜索",

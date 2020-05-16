@@ -66,7 +66,7 @@
   },
   "Gatherer:Frenzy": {
     "NAME": "광포",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 취약 을 !M! 부여합니다. NL 버린 카드 더미에 *어지러움 카드를 2장 추가합니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 취약 을 !M! 부여합니다. NL 버린 카드 더미에 *어지러움 을 1장 추가합니다."
   },
   "Gatherer:FragileHammer": {
     "NAME": "유리 망치",
@@ -336,7 +336,7 @@
   },
   "Gatherer:FinishingStrike": {
     "NAME": "마무리 타격",
-    "DESCRIPTION": "피해를 !D! 줍니다. 대상의 체력이 나보다 적다면 1번이 아니라 2번 공격합니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. 대상의 체력이 나보다 적다면 1번이 아니라 !M! 번 공격합니다."
   },
   "Gatherer:CursedBlade": {
     "NAME": "저주받은 검",
