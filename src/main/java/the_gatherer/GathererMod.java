@@ -731,6 +731,9 @@ public class GathererMod implements PostInitializeSubscriber,
 	}
 
 	public static int calcPoisonDamageWithPower(int poisonAmount) {
+		if (AbstractDungeon.player == null) {
+			return poisonAmount;
+		}
 		PoisonMasteryPower pmp = (PoisonMasteryPower) AbstractDungeon.player.getPower(PoisonMasteryPower.POWER_ID);
 		if (pmp != null) {
 			return calcPoisonDamage(poisonAmount, pmp.amount);

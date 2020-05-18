@@ -68,6 +68,9 @@ public class PoisonDamagePatch {
 	public static class PoisonDescription {
 		@SpirePostfixPatch
 		public static void PostFix(PoisonPower __instance) {
+			if (AbstractDungeon.player == null) {
+				return;
+			}
 			PoisonMasteryPower pmp = (PoisonMasteryPower) AbstractDungeon.player.getPower(PoisonMasteryPower.POWER_ID);
 			if (pmp != null) {
 				int newAmount = GathererMod.calcPoisonDamage(__instance.amount, pmp.amount);
