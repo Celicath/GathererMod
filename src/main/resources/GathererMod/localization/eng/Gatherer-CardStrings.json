@@ -35,7 +35,7 @@
   },
   "Gatherer:BambuSword": {
     "NAME": "Bambu Sword",
-    "DESCRIPTION": "Deal !D! damage. Play a basic Strike or Defend from your hand with no cost."
+    "DESCRIPTION": "Deal !D! damage. Play a []Strike or Defend from your hand with no cost."
   },
   "Gatherer:CarefulStrike": {
     "NAME": "Careful Strike",
@@ -323,8 +323,8 @@
   },
   "Gatherer:Uplift": {
     "NAME": "Uplift",
-    "DESCRIPTION": "Each turn, !M! card you play that costs 2 or more has Refund 1.",
-    "UPGRADE_DESCRIPTION": "Each turn, !M! cards you play that costs 2 or more has Refund 1."
+    "DESCRIPTION": "Each turn, the first card you play that costs 2 or more has Refund 1.",
+    "UPGRADE_DESCRIPTION": "Each turn, the first !M! cards you play that cost 2 or more have Refund 1."
   },
   "Gatherer:Bulldoze": {
     "NAME": "Bulldoze",
@@ -353,6 +353,7 @@
   },
   "Gatherer:HeartToFruit": {
     "NAME": "Heart to Fruit",
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, raise your Max HP by !M!. Exhaust.",
     "DESCRIPTION": "Deal !D! damage. NL If Fatal, raise your Max HP by !M!. Exhaust."
   },
   "Gatherer:Photoscythe": {

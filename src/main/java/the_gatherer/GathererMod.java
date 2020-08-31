@@ -547,10 +547,12 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	@Override
 	public void receivePowersModified() {
-		for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
-			PoisonPower pp = (PoisonPower) monster.getPower(PoisonPower.POWER_ID);
-			if (pp != null) {
-				pp.updateDescription();
+		if (AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().monsters != null && AbstractDungeon.getCurrRoom().monsters.monsters != null) {
+			for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
+				PoisonPower pp = (PoisonPower) monster.getPower(PoisonPower.POWER_ID);
+				if (pp != null) {
+					pp.updateDescription();
+				}
 			}
 		}
 
