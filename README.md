@@ -11,11 +11,17 @@ Other themes: Cards care about 2+ Cost cards, Unique cards, on-obtain effect car
 * Also you need StSLib(https://github.com/kiooeht/StSLib/releases) to play this mod!
 
 ## Gameplay
-Will add later with screens shots.
+### Potion Sack
+The character's main mechanic, Potion Sack, can hold 3 Lesser Potions. Lesser Potions are weaker version of regular Potions, and you can use them just like normal potions, or keyboard shortcut. Lesser Potions are gone at the end of the combat, so don't hesitate to use them!
+
+### Others
+- Cards care about Unique cards in your deck.
+- Once/Twice effect on some cards only activate once/twice in a combat.
+- Flower cards which can be upgraded 3 times, and their 3rd upgrade is special.
+- There are few subthemes like doing things when you obtain cards, cards caring about your HP, or cards caring about expensive cards in your hand.
 
 ## Current State and Goal
-GathererMod is currently at beta. All cards are implemented.
-Now I'm wishing for a few more balance pass and most importantly, custom in-game animation before going version 1.0.
+GathererMod is released v1.0. All cards are implemented. All arts are "final", although I'm not 100% satisfied with them.
 
 - Cards: 75
 - Relics: 8
@@ -23,9 +29,7 @@ Now I'm wishing for a few more balance pass and most importantly, custom in-game
 
 Everything is Gatherer-exclusive.
 
-All arts are not final, except for the character select screen art drawn by MappyTheKat.
-
-As a goal, The Gatherer will have similar quality as official characters. The power level of cards is going to be similar, though I can accept if she is a little bit weaker than other characters.
+As a goal, I want the Gatherer to have similar power level with base game characters or slightly weaker. I also what the Gatherer to have many different types of strategies. I don't care about having all of them same power level though, I just want them to be fun enough and unique from each other.
 
 ## Card List
 [Card List](https://docs.google.com/spreadsheets/d/1lqM3_SZPbZmpRcrl7bdWGwzwWkMaDh5uXqxn00kuqPg/edit?usp=sharing)
@@ -36,11 +40,11 @@ As a goal, The Gatherer will have similar quality as official characters. The po
 
 ## Special Thanks To
 - Devs of Slay The Spire, BaseMod and ModTheSpire
-- #unsupported-modding in Slay the Spire discord is fun.
+- #modding-technical in Slay the Spire discord was fun.
 
 ## License
 - All code is in MIT license.
-- Arts are complicated. The character select screen art is drawn by MappyTheKat, so you need to ask him before using it(or, if you ask me, I'll forward to him). Some arts are from Slay the Spire base game or slightly altered of it, which feels strange for me to license. Similar for googled images. Arts made by me, usually with simple shapes, are free to use. If you're unsure about where art was from, feel free to contact me.
+- Arts are complicated. The character select screen art is drawn by Rita-B, who also did the ZHS translation. Other arts are mixed of base game art, googled images, drawn by me (mostly with simple shapes), or modified version of Rita-B's prototype art. I don't mind if someone uses art drawn by me, but I can't say anything to other types of art.
 
 ## Contacts
 - Celicath@gmail.com
