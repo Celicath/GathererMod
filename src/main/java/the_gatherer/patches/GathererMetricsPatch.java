@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.metrics.Metrics;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.screens.DeathScreen;
+import com.megacrit.cardcrawl.screens.GameOverScreen;
 import the_gatherer.character.TheGatherer;
 
 import java.lang.reflect.InvocationTargetException;
@@ -27,7 +28,7 @@ public class GathererMetricsPatch {
 		}
 	}
 
-	@SpirePatch(clz = DeathScreen.class, method = "shouldUploadMetricData")
+	@SpirePatch(clz = GameOverScreen.class, method = "shouldUploadMetricData")
 	public static class shouldUploadMetricData {
 
 		public static boolean Postfix(boolean __retVal) {

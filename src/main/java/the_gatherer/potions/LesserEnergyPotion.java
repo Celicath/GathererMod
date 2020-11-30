@@ -3,9 +3,11 @@ package the_gatherer.potions;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import javafx.util.Pair;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ChooseLesserPotionAction;
@@ -50,8 +52,9 @@ public class LesserEnergyPotion extends SackPotion {
 		int weight = 1;
 		String thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[0];
 
-		weight += ChooseLesserPotionAction.totalCost * 2;
-		if (ChooseLesserPotionAction.totalCost >= 4) {
+		int missing = ChooseLesserPotionAction.totalCost - EnergyPanel.totalCount;
+		if (missing > 0) {
+			weight += missing * (AbstractDungeon.player.energy.energyMaster <= 3 ? 6 : 4);
 			thought = ChooseLesserPotionAction.MIND_SEARCH_TEXT[5];
 		}
 

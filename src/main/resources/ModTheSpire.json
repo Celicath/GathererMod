@@ -5,9 +5,9 @@
     "Celicath"
   ],
   "credits": "Rita-Bernstein - Character art, ZHS translation\nJedi - RUS translation\nMappyTheKat - Old character splash art",
-  "description": "Adds The Gatherer as a new playable character with 75 cards, 7 relics.\n\nv1.0.0 - v1.0.2 (2020-01-15 - 2020-02-20)\n- Art update: Removed all BETA watermarks and unmodified base game art.\n- Updated for 2.0 release (Watcher release).\n- Balance changes and reworks\n\nv1.0.3 (2020-05-16)\n- RUS localization update (thanks to Jedi)\n- Frenzy now adds 1 Dazed into your discard pile. (was 2)\n- Frenzy damage: 10(13) -> 9(12)\n- Now you can increase the number of hits of Finishing Strike using Enchant.\n\nv1.0.4 (2020-05-18)\n- Fix Poison patch incompatibility\n\nv1.0.5 (2020-09-01)\n- Fix incompatibility with GhostXmas.\n\nVisit https://steamcommunity.com/sharedfiles/filedetails/changelog/1611788501 for full change notes.",
-  "version": "1.0.5",
-  "sts_version": "01-27-2020",
+  "description": "Adds The Gatherer as a new playable character with 75 cards, 7 relics.\n\nv1.0.6 (2020-11-30)\n- Update for Slay the Spire v2.2\n- Mind Search now considers your current energy while determining Lesser Energy Potion probability.\n\nVisit https://steamcommunity.com/sharedfiles/filedetails/changelog/1611788501 for full change notes.",
+  "version": "1.0.6",
+  "sts_version": "11-29-2020",
   "mts_version": "3.7.0",
   "dependencies": [
     "basemod",

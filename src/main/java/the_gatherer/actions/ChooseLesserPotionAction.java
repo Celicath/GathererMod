@@ -49,8 +49,8 @@ public class ChooseLesserPotionAction extends AbstractGameAction {
 
 	public static ArrayList<SackPotion> potionList;
 
-	// These values can used in getMindSearchResult() of SackPotion.
-	// You don't NEED to use these; feel free to use your own calculations.
+	// These values can be used in getMindSearchResult() of SackPotion.
+	// You don't need to use these; feel free to use your own calculations.
 	public static int enemyCount;
 	public static int enemyAttackCount;
 	public static int unweakenedDamage;
