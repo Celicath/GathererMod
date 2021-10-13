@@ -7,8 +7,7 @@ The main focus of The Gatherer is the Potion. She has a potion Sack which can ho
 
 Other themes: Cards care about 2+ Cost cards, Unique cards, on-obtain effect card, relatively large deck with some control.
 
-* Requires ModTheSpire and BaseMod.
-* Also you need StSLib(https://github.com/kiooeht/StSLib/releases) to play this mod!
+* Requires ModTheSpire, BaseMod, and StSLib
 
 ## Gameplay
 ### Potion Sack
@@ -21,10 +20,10 @@ The character's main mechanic, Potion Sack, can hold 3 Lesser Potions. Lesser Po
 - There are few subthemes like doing things when you obtain cards, cards caring about your HP, or cards caring about expensive cards in your hand.
 
 ## Current State and Goal
-GathererMod is released v1.0. All cards are implemented. All arts are "final", although I'm not 100% satisfied with them.
+GathererMod is released v1.0. All cards are implemented. All arts are "final", although I'm not satisfied with all of them.
 
 - Cards: 75
-- Relics: 8
+- Relics: 7
 - Events: 1
 
 Everything is Gatherer-exclusive.
@@ -36,15 +35,16 @@ As a goal, I want the Gatherer to have similar power level with base game charac
 
 ## Credits
 - Celicath (https://github.com/Celicath) - Overall design, programming, "art" and maintainer
-- MappyTheKat (https://mappythekat.blog.me/) - Character select screen art
+- Rita-B - Art for the character, a few cards and relics
 
 ## Special Thanks To
 - Devs of Slay The Spire, BaseMod and ModTheSpire
 - #modding-technical in Slay the Spire discord was fun.
+- MappyTheKat for the previous character art
 
 ## License
 - All code is in MIT license.
-- Arts are complicated. The character select screen art is drawn by Rita-B, who also did the ZHS translation. Other arts are mixed of base game art, googled images, drawn by me (mostly with simple shapes), or modified version of Rita-B's prototype art. I don't mind if someone uses art drawn by me, but I can't say anything to other types of art.
+- License for Art is complicated. The character select screen art is drawn by Rita-B. Other arts are mixed of base game art, googled images, drawn by me (mostly with simple shapes), or modified version of Rita-B's prototype art. I don't mind if someone uses art drawn by me, but I can't say anything to other types of art.
 
 ## Contacts
 - Celicath@gmail.com
