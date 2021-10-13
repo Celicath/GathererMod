@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.ExplosionSmallEffect;
-import javafx.util.Pair;
+import basemod.Pair;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ChooseLesserPotionAction;
 import the_gatherer.patches.PotionRarityEnum;

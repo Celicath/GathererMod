@@ -155,7 +155,7 @@
   },
   "Gatherer:FruitForce": {
     "NAME": "Fruit Force",
-    "DESCRIPTION": "Deal damage equal to !M! % of Max HP. NL When obtained, raise your Max HP by 4.",
+    "DESCRIPTION": "Deal damage equal to !M! % of your Max HP. NL When obtained, raise your Max HP by 4.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -314,12 +314,12 @@
   },
   "Gatherer:UpgradeBag": {
     "NAME": "Upgrade Bag",
-    "DESCRIPTION": "Shuffle a *Glitched in your deck. Your gatherer:Lesser gatherer:Potions are 100% more potent.",
+    "DESCRIPTION": "Shuffle a *Glitched in your draw pile. Your gatherer:Lesser gatherer:Potions are 100% more potent.",
     "UPGRADE_DESCRIPTION": "Add a *Glitched+ in your discard pile. Your gatherer:Lesser gatherer:Potions are 100% more potent."
   },
   "Gatherer:Glitched": {
     "NAME": "Glitched",
-    "DESCRIPTION": "Retain. NL Exhaust. NL While in your hand, Upgrade Bag power is disabled."
+    "DESCRIPTION": "Retain. NL Exhaust. NL While in your hand, []Upgrade Bag's power is disabled."
   },
   "Gatherer:Uplift": {
     "NAME": "Uplift",
@@ -342,9 +342,9 @@
     "NAME": "Cursed Blade",
     "DESCRIPTION": "Deal !D! damage.",
     "EXTENDED_DESCRIPTION": [
-      " NL gatherer:Twice: Enemy loses !M! Strength this turn. When Obtained, become [#FF6563]Cursed[] [#FF6563]-[] [#FF6563]Normality.[]",
-      " NL gatherer:Once: Enemy loses !M! Strength this turn. When Obtained, become [#FF6563]Cursed[] [#FF6563]-[] [#FF6563]Normality.[]",
-      " NL gatherer:Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up. When Obtained, become [#FF6563]Cursed[] [#FF6563]-[] [#FF6563]Normality.[]"
+      " NL gatherer:Twice: Enemy loses !M! Strength this turn. When obtained, become [#FF6563]Cursed[] [#FF6563]-[] [#FF6563]Normality.[]",
+      " NL gatherer:Once: Enemy loses !M! Strength this turn. When obtained, become [#FF6563]Cursed[] [#FF6563]-[] [#FF6563]Normality.[]",
+      " NL gatherer:Once [#D0C8D0]effect [#D0C8D0]used [#D0C8D0]up. When obtained, become [#FF6563]Cursed[] [#FF6563]-[] [#FF6563]Normality.[]"
     ]
   },
   "Gatherer:FlamingBottle": {
@@ -353,7 +353,6 @@
   },
   "Gatherer:HeartToFruit": {
     "NAME": "Heart to Fruit",
-    "DESCRIPTION": "Deal !D! damage. NL If Fatal, raise your Max HP by !M!. Exhaust.",
     "DESCRIPTION": "Deal !D! damage. NL If Fatal, raise your Max HP by !M!. Exhaust."
   },
   "Gatherer:Photoscythe": {

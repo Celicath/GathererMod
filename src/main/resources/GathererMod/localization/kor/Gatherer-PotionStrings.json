@@ -65,7 +65,8 @@
   "Gatherer:LesserPowerPotion": {
     "NAME": "소형 파워 포션",
     "DESCRIPTIONS": [
-      "무작위 #y파워 카드 #b1 장을 손으로 가져오고, 이번 턴 동안 해당 카드의 비용이 #b0 이 됩니다."
+      "무작위 #y파워 카드 #b",
+      " 장을 손으로 가져오고, 이번 턴 동안 해당 카드의 비용이 #b0 이 됩니다."
     ]
   },
   "Gatherer:LesserRegenPotion": {

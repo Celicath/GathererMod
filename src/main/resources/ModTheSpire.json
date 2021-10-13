@@ -5,13 +5,13 @@
     "Celicath"
   ],
   "credits": "Rita-Bernstein - Character art, ZHS translation\nJedi - RUS translation\nMappyTheKat - Old character splash art",
-  "description": "Adds The Gatherer as a new playable character with 75 cards, 7 relics.\n\nv1.0.6 (2020-11-30)\n- Update for Slay the Spire v2.2\n- Mind Search now considers your current energy while determining Lesser Energy Potion probability.\n\nVisit https://steamcommunity.com/sharedfiles/filedetails/changelog/1611788501 for full change notes.",
-  "version": "1.0.6",
-  "sts_version": "11-29-2020",
+  "description": "Adds The Gatherer as a new playable character with 75 cards, 7 relics.\n\nv1.0.6 (2020-11-30)\n- Update for Slay the Spire v2.2\n- Mind Search now considers your current energy while determining Lesser Energy Potion probability.\n\nv1.0.7 (2021-10-13)\n- Fixed crash on MacOS\n- Localization updated for ENG, KOR, RUS.\n\nVisit https://steamcommunity.com/sharedfiles/filedetails/changelog/1611788501 for full change notes.",
+  "version": "1.0.7",
+  "sts_version": "12-22-2020",
   "mts_version": "3.7.0",
   "dependencies": [
     "basemod",
     "stslib"
   ],
-  "update_json": "https://api.github.com/repos/Celicath/GathererMod/releases/latest"
+  "update_json": ""
 }

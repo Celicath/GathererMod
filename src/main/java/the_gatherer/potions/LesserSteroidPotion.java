@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import javafx.util.Pair;
+import basemod.Pair;
 import the_gatherer.GathererMod;
 import the_gatherer.actions.ChooseLesserPotionAction;
 import the_gatherer.patches.PotionRarityEnum;

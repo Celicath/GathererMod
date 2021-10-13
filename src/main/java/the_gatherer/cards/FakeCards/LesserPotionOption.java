@@ -30,7 +30,7 @@ public class LesserPotionOption extends CustomCard implements ColoredTextCard {
 			if ((derp.length() > 0) && (derp.charAt(0) == '#')) {
 				switch (derp.charAt(1)) {
 					case 'r':
-						derp = "[#ff6563]" + derp.substring(2) + "[]]";
+						derp = "[#ff6563]" + derp.substring(2) + "[]";
 						break;
 					case 'g':
 						derp = "[#7fff00]" + derp.substring(2) + "[]";

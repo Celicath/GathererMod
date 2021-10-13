@@ -466,7 +466,9 @@
     "EXTENDED_DESCRIPTION": [
       "This card is deprecated."
     ]
+  },
+  "Gatherer:DoNotReplaceOption": {
+    "NAME": "Оставить книгу",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Не заменяет Книгу роста."
   }
 }
-
-

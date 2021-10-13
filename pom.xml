@@ -3,7 +3,7 @@
 
     <groupId>gatherermod</groupId>
     <artifactId>gatherermod</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
     <packaging>jar</packaging>
 
     <name>GathererMod</name>
@@ -61,7 +61,7 @@
                         <phase>package</phase>
                         <configuration>
                             <target>
-                                <copy file="target/GathererMod.jar" tofile="D:\Steam\steamapps\common\SlayTheSpire\mods\GathererMod.jar"/>
+                                <copy file="target/GathererMod.jar" tofile="C:\Program Files (x86)\Steam\steamapps\common\SlayTheSpire\mods\GathererMod.jar"/>
                             </target>
                         </configuration>
                         <goals>
