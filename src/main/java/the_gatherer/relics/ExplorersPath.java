@@ -21,6 +21,7 @@ public class ExplorersPath extends CustomRelic {
 
 	public static final JsonObject pickRatioDataGatherer;
 	public static final JsonObject pickRatioDataPokerPlayer;
+	public static final JsonObject pickRatioDragonTamer;
 
 	static {
 		String jsonString = Gdx.files.internal("GathererMod/data/PickRatio-" + "Gatherer" + ".json").readString(
@@ -31,6 +32,10 @@ public class ExplorersPath extends CustomRelic {
 		jsonString = Gdx.files.internal("GathererMod/data/PickRatio-" + "PokerPlayer" + ".json").readString(
 				String.valueOf(StandardCharsets.UTF_8));
 		pickRatioDataPokerPlayer = parser.parse(jsonString).getAsJsonObject();
+
+		jsonString = Gdx.files.internal("GathererMod/data/PickRatio-" + "DragonTamer" + ".json").readString(
+			String.valueOf(StandardCharsets.UTF_8));
+		pickRatioDragonTamer = parser.parse(jsonString).getAsJsonObject();
 	}
 
 	public ExplorersPath() {
@@ -84,6 +89,8 @@ public class ExplorersPath extends CustomRelic {
 		JsonElement element;
 		if (AbstractDungeon.player != null && AbstractDungeon.player.chosenClass.toString().equals("THE_POKER_PLAYER")) {
 			element = pickRatioDataPokerPlayer.get(cardID);
+		} else if (AbstractDungeon.player != null && AbstractDungeon.player.chosenClass.toString().equals("THE_DT")) {
+			element = pickRatioDragonTamer.get(cardID);
 		} else {
 			element = pickRatioDataGatherer.get(cardID);
 		}

@@ -53,6 +53,14 @@ public class DrugPower extends CustomCard {
 		this.initializeDescription();
 	}
 
+	public void triggerOnGlowCheck() {
+		if (GathererMod.lastPotionUsedThisTurn != null) {
+			glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+		} else {
+			glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+		}
+	}
+
 	public void use(AbstractPlayer p, AbstractMonster m) {
 
 		boolean useLater = false;

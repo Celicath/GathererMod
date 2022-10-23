@@ -76,6 +76,14 @@ public class Polymorphism extends CustomCard {
 		this.isDamageModified = true;
 	}
 
+	public void triggerOnGlowCheck() {
+		if (isActivated()) {
+			glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+		} else {
+			glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+		}
+	}
+
 	private boolean isActivated() {
 		int count = 0;
 		HashSet<String> ids = new HashSet<>();

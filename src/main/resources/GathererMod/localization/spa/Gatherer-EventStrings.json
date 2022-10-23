@@ -1,0 +1,32 @@
+{
+  "Gatherer:SpireHeart": {
+    "NAME": "El Corazón de la Aguja",
+    "DESCRIPTIONS": [
+      "NL Te concentras en el olor de las Pociones..."
+    ],
+    "OPTIONS": [
+    ]
+  },
+  "Gatherer:Vampires": {
+    "NAME": "(¿)Vampiros(?)",
+    "DESCRIPTIONS": [
+      "Vagando por una calle sombría, te cruzas con varias figuras encapuchadas en medio de un ritual oscuro. Según te acercas, se giran hacia ti en inquietante unísono. La más alta de ellas muestra sus colmillos afilados y extiende una mano larga y pálida hacia ti. NL ~\"Únete~ ~a~ ~nosotros~ ~vagabunda,~ ~y~ ~siente~ ~la~ ~calidez~ ~de~ ~la~ ~Aguja.\"~"
+    ],
+    "OPTIONS": [
+    ]
+  },
+  "Gatherer:BottleCollector": {
+    "NAME": "Coleccionista de Botellas",
+    "DESCRIPTIONS": [
+      "\"¡Mira mis colecciones, extraña!\" NL Un maníaco de aspecto extraño grita tras cientos de botellas. NL NL \"Si me enseñas una @Carta de poción,@ te daré una.\" NL NL Añade con cierta sospecha. NL \"Cuanto más #yRara la carda que escojas, más #yrara la botella que te dé.\"",
+      "\"Gracias gracias!\" NL El coleccionista parece demasiado emocionado. NL NL \"Ahora, quiero #rexperimentar ¿quieres participar?\" NL NL Te marchas sin responder.",
+      "No te preocupas, y sales corriendo sin mirar atrás."
+    ],
+    "OPTIONS": [
+      "[Da una Carta] Pierde una carta que genere Pociones. #gRecibe una #gBotella #gde #gSobra.",
+      "[Bloqueada] Requiere: carta que genere Poción.",
+      "[Marcharte]",
+      "Escoge una carta que Intercambiar."
+    ]
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "Gatherer:SpareBottle": {
+    "NAME": "Botella de Sobre",
+    "DESCRIPTIONS": [
+      "Cuando usas una #yPoción, gana #b",
+      " de #yBlqueo y haz #b",
+      " de daño a un enemigo aleatorio."
+    ]
+  },
+  "Gatherer:DrawHalf": {
+    "NAME": "Roba a Medias",
+    "DESCRIPTIONS": [
+      "Al principio de cada turno, roba 1 carta adicional con un 50% de probabilidades."
+    ]
+  },
+  "Gatherer:NextNextTurnBlock": {
+    "NAME": "Crecimiento Madurado",
+    "DESCRIPTIONS": [
+      "Gana #b",
+      " de #yBloque en 2 turnos."
+    ]
+  },
+  "Gatherer:PoisonMastery": {
+    "NAME": "Maestría en Veneno",
+    "DESCRIPTIONS": [
+      "El daño de #yVeneno se incrementa en un #b",
+      "%."
+    ]
+  },
+  "Gatherer:Pollute": {
+    "NAME": "Polucionar",
+    "DESCRIPTIONS": [
+      "El próximo turno, aplica ",
+      " #yVeneno, #yDébil y #yVulnerable a TODOS los enemigos."
+    ]
+  },
+  "Gatherer:ScentOfRosmari": {
+    "NAME": "Aroma de Romero",
+    "DESCRIPTIONS": [
+      "Al principio de tu próximo turno, devuelve ",
+      " de tu mano desde la pila de descarte o extracción.",
+      " y ",
+      " otras carta(s) a tu mano desde la pila de descarte o extracción."
+    ]
+  },
+  "Gatherer:GlowPower": {
+    "NAME": "Poder Brillante",
+    "DESCRIPTIONS": [
+      "Potencia los efectos de #y¡Luz! y #y¡Sombra!."
+    ]
+  },
+  "Gatherer:ShadowPower": {
+    "NAME": "Poder de Sombra",
+    "DESCRIPTIONS": [
+      "Si tu próxima carta es ¡Luz!, ganas el doble de Bloqueo."
+    ]
+  },
+  "Gatherer:VenomBarrier": {
+    "NAME": "Barrera Venenosa",
+    "DESCRIPTIONS": [
+      "Cuando recibas un ataque, aplica #b",
+      " Veneno al atacante."
+    ]
+  },
+  "Gatherer:BalancedGrowth": {
+    "NAME": "Crecimiento Equilibrado",
+    "DESCRIPTIONS": [
+      "Al principio de tu turno, gana hasta #b",
+      " de Fuerza o de Destreza hasta que sean iguales."
+    ]
+  },
+  "Gatherer:Liquidism": {
+    "NAME": "Liquidismo",
+    "DESCRIPTIONS": [
+      "Cuando usas una Poción, gana #b",
+      " de Fuerza o Destreza aleatoriamente."
+    ]
+  },
+  "Gatherer:BomberForm": {
+    "NAME": "Forma Bombardero",
+    "DESCRIPTIONS": [
+      "Al principio de tu turno, obtén una PEM. Todas las Pociones Menores se convierten en PEM. Utilizar una PEM incrementa el daño de las demás PEM en #b",
+      "."
+    ]
+  },
+  "Gatherer:Exploding": {
+    "NAME": "Explotando",
+    "DESCRIPTIONS": [
+      "Tus Pociones Explosivas Menores hace #b",
+      " de daño más."
+    ]
+  },
+  "Gatherer:FeelingFine": {
+    "NAME": "Me Siento Bien",
+    "DESCRIPTIONS": [
+      "Si utilizas #b",
+      " Poción menor este turno, pierde todas tus penalizaciones.",
+      " Pociones menores este turno, pierde todas tus penalizaciones."
+    ]
+  },
+  "Gatherer:Uplift": {
+    "NAME": "Alzar",
+    "DESCRIPTIONS": [
+      "Las primeras #b",
+      " cartas que se jueguen cada turno que cuesten 2 o más tienen Reembolso 1."
+    ]
+  },
+  "Gatherer:DamageHalf": {
+    "NAME": "Mitad de Daño",
+    "DESCRIPTIONS": [
+      "El daño de los #yAtaques se divide por #b",
+      " este turno.",
+      "El daño de los #yAtaques se convierte en casi 0 este turno."
+    ]
+  },
+  "Gatherer:StoneFence": {
+    "NAME": "Valla de Piedra",
+    "DESCRIPTIONS": [
+      "Al principio de tu turno, añade #b",
+      " #yLanzador(es) mejorados",
+      "y #b",
+      " #yLanzador(es) ",
+      "a tu mano."
+    ]
+  },
+  "Gatherer:ColorfulGarden": {
+    "NAME": "Jardín Colorido",
+    "DESCRIPTIONS": [
+      "Al final de tu turno, gana #b",
+      " de Bloqueo por cada carta única que hayas jugado este turno.",
+      " NL (Actualmente #b",
+      " de Bloqueo.)"
+    ]
+  },
+  "Gatherer:AlchemyTrial": {
+    "NAME": "Prueba Alquímica",
+    "DESCRIPTIONS": [
+      "Si juegas #b",
+      " carta más, gana #b",
+      " cartas más, gana #b",
+      " #yPoción(es) #yMenor(es). NL #rAtaque - Poción Menor de Fuego o Explosiva NL #gHabilidad - Poción Menor de Bloqueo o Energía NL #bPoder - Poción Menor de Fuerza o Destreza NL Otra - Poción Menor de Debilidad o Miedo"
+    ]
+  },
+  "Gatherer:UpgradeBag": {
+    "NAME": "Bolsa Mejorada",
+    "DESCRIPTIONS": [
+      "Las Pociones en tu Bolsa son un #b",
+      "% más Potentes.",
+      " NL #r(¡Desactivada!)"
+    ]
+  },
+  "Gatherer:GrassKnot": {
+    "NAME": "Lazo de Hierba",
+    "DESCRIPTIONS": [
+      "Al final de tu turno, descarta hasta #b",
+      " cartas #yRetenidas por #b",
+      " de Bloqueo y #b",
+      " Espinas cada una."
+    ]
+  },
+  "Gatherer:RecipeChange": {
+    "NAME": "Receta Cambiada",
+    "DESCRIPTIONS": [
+      "Cuando ganas una #yPoción #yMenor, cámbiala a una",
+      " con un #b",
+      "% de probabilidad."
+    ]
+  },
+  "Gatherer:Dummy": {}
+}

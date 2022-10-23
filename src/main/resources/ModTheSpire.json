@@ -4,10 +4,10 @@
   "author_list": [
     "Celicath"
   ],
-  "credits": "Rita-Bernstein - Character art, ZHS translation\nJedi - RUS translation\nMappyTheKat - Old character splash art",
-  "description": "Adds The Gatherer as a new playable character with 75 cards, 7 relics.\n\nv1.0.6 (2020-11-30)\n- Update for Slay the Spire v2.2\n- Mind Search now considers your current energy while determining Lesser Energy Potion probability.\n\nv1.0.7 (2021-10-13)\n- Fixed crash on MacOS\n- Localization updated for ENG, KOR, RUS.\n\nVisit https://steamcommunity.com/sharedfiles/filedetails/changelog/1611788501 for full change notes.",
-  "version": "1.0.7",
-  "sts_version": "12-22-2020",
+  "credits": "Rita-Bernstein - Character art, ZHS translation\nJedi - RUS translation\nHuginRonin - SPA translation\nMappyTheKat - Old character splash art",
+  "description": "Adds The Gatherer as a new playable character with 75 cards, 7 relics.\n\nv1.0.8 (2022-10-23)\n- New localization: Spanish(Thanks to HuginRonin)\n- Now the border of following cards will glow if their additional effect will be activated: Drug Power, Finishing Strike, Polymorphism\n- Explorer's Path pick ratio data was updated for the Gatherer and the Poker Player. Added pick ratio data for the Dragon Tamer.\n\nVisit https://steamcommunity.com/sharedfiles/filedetails/changelog/1611788501 for full change notes.",
+  "version": "1.0.8",
+  "sts_version": "10-04-2022",
   "mts_version": "3.7.0",
   "dependencies": [
     "basemod",

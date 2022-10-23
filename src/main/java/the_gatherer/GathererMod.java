@@ -262,8 +262,8 @@ public class GathererMod implements PostInitializeSubscriber,
 		}
 
 		settingsPanel.addUIElement(flipButton);
-		for (int i = 0; i < potionSackKeysButton.length; i++) {
-			settingsPanel.addUIElement(potionSackKeysButton[i]);
+		for (ModLabeledButton modLabeledButton : potionSackKeysButton) {
+			settingsPanel.addUIElement(modLabeledButton);
 		}
 
 		BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
@@ -416,50 +416,42 @@ public class GathererMod implements PostInitializeSubscriber,
 
 	}
 
-	public static String getLocCode() {
-		if (Settings.language == Settings.GameLanguage.KOR) {
-			return "kor";
-		} else if (Settings.language == Settings.GameLanguage.RUS) {
-			return "rus";
-		} else if (Settings.language == Settings.GameLanguage.ZHS) {
-			return "zhs";
-		} else {
-			return "eng";
-		}
-	}
-
 	@Override
 	public void receiveEditStrings() {
 		logger.info("Begin editing strings");
 
 		loadLocStrings("eng");
-		loadLocStrings(getLocCode());
+		if (Settings.language != Settings.GameLanguage.ENG) {
+			loadLocStrings(Settings.language.toString().toLowerCase());
+		}
 
 		logger.info("Done editing strings");
 	}
 
-	private void loadLocStrings(String lang) {
-		// RelicStrings
-		String relicStrings = GetLocString(lang, "Gatherer-RelicStrings");
-		BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
-		// CardStrings
-		String cardStrings = GetLocString(lang, "Gatherer-CardStrings");
-		BaseMod.loadCustomStrings(CardStrings.class, cardStrings);
-		// PotionStrings
-		String potionStrings = GetLocString(lang, "Gatherer-PotionStrings");
-		BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
-		// PowerStrings
-		String powerStrings = GetLocString(lang, "Gatherer-PowerStrings");
-		BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
-		// UIStrings
-		String uiStrings = GetLocString(lang, "Gatherer-UIStrings");
-		BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
-		// EventStrings
-		String eventStrings = GetLocString(lang, "Gatherer-EventStrings");
-		BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
-		// CharacterStrings
-		String characterStrings = GetLocString(lang, "Gatherer-CharacterStrings");
-		BaseMod.loadCustomStrings(CharacterStrings.class, characterStrings);
+	private void loadLocStrings(String loc) {
+		if (Gdx.files.internal("GathererMod/localization/" + loc).exists()) {
+			// RelicStrings
+			String relicStrings = GetLocString(loc, "Gatherer-RelicStrings");
+			BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
+			// CardStrings
+			String cardStrings = GetLocString(loc, "Gatherer-CardStrings");
+			BaseMod.loadCustomStrings(CardStrings.class, cardStrings);
+			// PotionStrings
+			String potionStrings = GetLocString(loc, "Gatherer-PotionStrings");
+			BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
+			// PowerStrings
+			String powerStrings = GetLocString(loc, "Gatherer-PowerStrings");
+			BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
+			// UIStrings
+			String uiStrings = GetLocString(loc, "Gatherer-UIStrings");
+			BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
+			// EventStrings
+			String eventStrings = GetLocString(loc, "Gatherer-EventStrings");
+			BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
+			// CharacterStrings
+			String characterStrings = GetLocString(loc, "Gatherer-CharacterStrings");
+			BaseMod.loadCustomStrings(CharacterStrings.class, characterStrings);
+		}
 	}
 
 	@Override
@@ -467,7 +459,9 @@ public class GathererMod implements PostInitializeSubscriber,
 		logger.debug("receiveEditKeywords started.");
 
 		loadLocKeywords("eng");
-		loadLocKeywords(getLocCode());
+		if (Settings.language != Settings.GameLanguage.ENG) {
+			loadLocKeywords(Settings.language.toString().toLowerCase());
+		}
 	}
 
 	void loadLocKeywords(String lang) {

@@ -1,0 +1,185 @@
+[
+  {
+    "NAMES": [
+      "única",
+      "únicas"
+    ],
+    "DESCRIPTION": "Las cartas con nombres distintos (menos las Mejoradas) se consideran únicas."
+  },
+  {
+    "PROPER_NAME": "Una Vez",
+    "NAMES": [
+      "una vez"
+    ],
+    "DESCRIPTION": "Solo se activa la primera vez cada combate que juegas esta carta."
+  },
+  {
+    "PROPER_NAME": "Dos Veces",
+    "NAMES": [
+      "dos veces"
+    ],
+    "DESCRIPTION": "Solo se activa las primeras dos veces que juegas esta carta. Se convierte en Una Vez después de utilizarla una vez."
+  },
+  {
+    "NAMES": [
+      "floral",
+      "florales"
+    ],
+    "DESCRIPTION": "Carta que contenga #yFloral en su nombre. Se puede mejorar 3 veces, y la 3ª mejora es especial."
+  },
+  {
+    "PROPER_NAME": "PEM",
+    "NAMES": [
+      "pem",
+      "pems"
+    ],
+    "DESCRIPTION": "Significa Poción Explosiva Menor, que normalmente hace 6 de daño a TODOS los enemigos."
+  },
+  {
+    "PROPER_NAME": "Poción Menor",
+    "NAMES": [
+      "poción menor",
+      "poción\u00a0menor",
+      "menor",
+      "poción",
+      "pociones",
+      "menores"
+    ],
+    "DESCRIPTION": "Una version \"Menor\" de una poción menor que se añade a tu Bolsa."
+  },
+  {
+    "PROPER_NAME": "Poción de Fuego Menor",
+    "NAMES": [
+      "poción\u00a0de\u00a0fuego\u00a0menor"
+    ],
+    "DESCRIPTION": "Una #yPoción #yMenor que hace 10 de daño a un enemigo."
+  },
+  {
+    "PROPER_NAME": "Poción de Venenor Menor",
+    "NAMES": [
+      "poción\u00a0de\u00a0veneno\u00a0menor",
+      "pociones\u00a0de\u00a0veneno\u00a0menor"
+    ],
+    "DESCRIPTION": "Una #yPoción #yMenor que aplica 4 #yVeneno a un enemigo."
+  },
+  {
+    "PROPER_NAME": "Poción de Bloqueo Menor",
+    "NAMES": [
+      "poción\u00a0de\u00a0bloqueo\u00a0menor"
+    ],
+    "DESCRIPTION": "Una #yPoción #yMenor que gana 8 de Bloqueo al ser utilizada."
+  },
+  {
+    "PROPER_NAME": "Poción de Debilidad Menor",
+    "NAMES": [
+      "poción\u00a0de\u00a0debilidad\u00a0menor"
+    ],
+    "DESCRIPTION": "Una #yPocion #yMenor que aplica 2 Débil a un enemigo."
+  },
+  {
+    "PROPER_NAME": "Poción de Miedo Menor",
+    "NAMES": [
+      "poción\u00a0de\u00a0miedo\u00a0menor"
+    ],
+    "DESCRIPTION": "Una #yPoción #yMenor que aplica 2 Vulnerable a un enemigo."
+  },
+  {
+    "PROPER_NAME": "Poción de Energía Menor",
+    "NAMES": [
+      "poción\u00a0de\u00a0energía\u00a0menor",
+      "pociones\u00a0de\u00a0energía\u00a0menor"
+    ],
+    "DESCRIPTION": "Una #yPoción #yMenor que dan 1 energía al utilizarlas."
+  },
+  {
+    "PROPER_NAME": "Poción de Rapidez Menor",
+    "NAMES": [
+      "poción\u00a0de\u00a0rapidez\u00a0menor"
+    ],
+    "DESCRIPTION": "Una #yPoción #yMenor que roba 2 cartas."
+  },
+  {
+    "PROPER_NAME": "Rareza de Carta",
+    "NAMES": [
+      "descripción de convertir"
+    ],
+    "DESCRIPTION": "Poco Común = Borde Azul NL Rara = Borde Dorado"
+  },
+  {
+    "PROPER_NAME": "Poder Brillante",
+    "NAMES": [
+      "poder\u00a0brillante"
+    ],
+    "DESCRIPTION": "Potencia los efectos de #y¡Luz! y #y¡Sombra!."
+  },
+  {
+    "PROPER_NAME": "Prueba Alquímica",
+    "NAMES": [
+      "descripción de prueba alquímica"
+    ],
+    "DESCRIPTION": "#rAtaque - Poción Menor de Fuego o Explosiva NL #gHabilidad - Poción Menor de Bloqueo o Energía NL #bPoder - Poción Menor de Fuerza o Destreza NL Otras - Poción Menor de Debilidad o Miedo"
+  },
+  {
+    "PROPER_NAME": "Cartas Blindado",
+    "NAMES": [
+      "descripción cultivar libro 0"
+    ],
+    "DESCRIPTION": "Escoge 1 entre Armamentos, Confusión o Golpe Gemelo. Alimentar se añade a la lista si está mejorado."
+  },
+  {
+    "PROPER_NAME": "Cartas Silenciosa",
+    "NAMES": [
+      "descripción cultivar libro 1"
+    ],
+    "DESCRIPTION": "Escoge 1 entre Estrangular, Planes Bien Preparados o Puñalada Venenosa. Alquemizar se añade a la lista si está mejorado."
+  },
+  {
+    "PROPER_NAME": "Cartas Defecto",
+    "NAMES": [
+      "descripción cultivar libro 2"
+    ],
+    "DESCRIPTION": "Escoge 1 entre Apilar, Barrera de Vapor o Todos Para Uno. Búsqueda se añade a la lista si está mejorado."
+  },
+  {
+    "PROPER_NAME": "Cuando Acumulado",
+    "NAMES": [
+      "bomberform tooltip"
+    ],
+    "DESCRIPTION": "Si juegas múltiples #yFormas #yBombardero, el bonificador de daño se acumula pero solo consigues 1 #yPEM cada turno."
+  },
+  {
+    "PROPER_NAME": "3ª Mejora",
+    "NAMES": [
+      "flower whip tooltip"
+    ],
+    "DESCRIPTION": "La 3ª #yMejora hace que ataque 3 veces además de incrementar el daño."
+  },
+  {
+    "PROPER_NAME": "3ª Mejora",
+    "NAMES": [
+      "flower falling tooltip"
+    ],
+    "DESCRIPTION": "La 3ª #yMejora hace que cueste 0 y cure 4 PV en vez de incrementar el daño."
+  },
+  {
+    "PROPER_NAME": "3ª Mejora",
+    "NAMES": [
+      "flower shield tooltip"
+    ],
+    "DESCRIPTION": "La 3ª Mejora hace que cueste 0 en vez de incrementar el #yBloqueo."
+  },
+  {
+    "PROPER_NAME": "3ª Mejora",
+    "NAMES": [
+      "flower beam tooltip"
+    ],
+    "DESCRIPTION": "La 3ª #yMejora hace que cueste 1 en vez de incrementar el daño."
+  },
+  {
+    "PROPER_NAME": "3ª Mejora",
+    "NAMES": [
+      "flower power tooltip"
+    ],
+    "DESCRIPTION": "La 3ª #yMejora hace que cueste 0 además de eliminar una penalización."
+  }
+]

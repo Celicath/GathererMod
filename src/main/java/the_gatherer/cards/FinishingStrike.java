@@ -37,6 +37,16 @@ public class FinishingStrike extends CustomCard {
 		this.tags.add(CardTags.STRIKE);
 	}
 
+	public void triggerOnGlowCheck() {
+		for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+			if (m.currentHealth < AbstractDungeon.player.currentHealth) {
+				glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+				return;
+			}
+		}
+		glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+	}
+
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		int times = m.currentHealth < p.currentHealth ? magicNumber : 1;
 		for (int i = 0; i < times; i++) {

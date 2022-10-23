@@ -1,0 +1,118 @@
+{
+  "Gatherer:CentralizeAction": {
+    "TEXT": [
+      "Elige una Carta; mejórala y añádela a tu mano.",
+      "Elige dos Cartas; mejórala y añádela a tu mano."
+    ]
+  },
+  "Gatherer:PotionSack": {
+    "TEXT": [
+      "Tu Bolsa puede contener 3 Pociones Menores, que solo están disponibles durantes este combate. #yOrnitóptero #yde #yJuguete no se activa durante este turno. NL #bArrastrar: Cambia la posición NL #bClick derecho: Gira menú",
+      "de la Bolsa"
+    ]
+  },
+  "Gatherer:SaveValuablesAction": {
+    "TEXT": [
+      "Elige ",
+      " cartas que barajar en tu pila de extracción."
+    ]
+  },
+  "Gatherer:DiscardPileToTopOfDeckAction": {
+    "TEXT": [
+      "Elige una carta que colocar al tope de tu pila de extracción."
+    ]
+  },
+  "Gatherer:BambuSwordAction": {
+    "TEXT": [
+      "Juega"
+    ]
+  },
+  "Gatherer:TransmuteAction": {
+    "TEXT": [
+      "Transforma"
+    ]
+  },
+  "Gatherer:ExamineAction": {
+    "TEXT": [
+      "Juega"
+    ]
+  },
+  "Gatherer:ScrollOfPurityAction": {
+    "TEXT": [
+      "Agota",
+      "Agota y Roba "
+    ]
+  },
+  "Gatherer:ScentOfRosmariAction": {
+    "TEXT": [
+      "Super Retener"
+    ]
+  },
+  "Gatherer:EnchantAction": {
+    "TEXT": [
+      "Encantar"
+    ]
+  },
+  "Gatherer:ChooseLesserPotionAction": {
+    "TEXT": [
+      "Elige a qué Poción Cambiar Receta",
+      "Elige 2 Pociones que Ganar"
+    ]
+  },
+  "Gatherer:ReplaceGrowBookAction": {
+    "TEXT": [
+      "Elige una Carta con la que reemplazar Cultivar Libro"
+    ]
+  },
+  "Gatherer:MindSearchAction": {
+    "TEXT": [
+      "(Esta poción quizá me ayude.)",
+      "(Quiero bloquear daño.)",
+      "(Mi salud es baja.)",
+      "(Quiero defensa a largo plazo.)",
+      "(Tengo Crecimiento Equilibrado)",
+      "(Tengo muchas cartas.)",
+      "(Es mejor cuando se acumula.)",
+      "(Hay múltiples enemigos.)",
+      "(Puedo matar al enemigo con esto.)",
+      "(Matemos al enemigo rápidamente.)",
+      "(Esto es súper efectivo.)",
+      "(¡Hay POLLOS!)",
+      "(Tengo maestría de veneno.)",
+      "(Quiero algo de PODER.)",
+      "(Quiero daño a largo plazo.)",
+      "(Tengo suficiente energía.)",
+      "(El enemigo es demasiado fuerte)",
+      "(Tengo demasiadas cartas de habilidad.)",
+      "(Tengo muchas cartas de ataque.)",
+      "(Tengo Me Siento Bien.)",
+      "(¡Soy la BOMBA!)",
+      "(¡Estoy en Forma Bombardero!)",
+      "(¡Explosivo!)",
+      "(¡Sintamos el poder del color Naranja!)",
+      "(¡Solo puedo ver esto!)"
+    ]
+  },
+  "Gatherer:ExcessPotionHandleAction": {
+    "TEXT": [
+      "Utiliza o Descarta esta Poción Sobrante.",
+      "Utiliza o Descarta estas Pociones Sobrantes.",
+      " El objetivo se escoge aleatoriamente."
+    ]
+  },
+  "Gatherer:ObtainLesserPotionAction": {
+    "TEXT": [
+      "¡Mi Bolsa está llena! Utilicemos ",
+      "."
+    ]
+  },
+  "Gatherer:Config": {
+    "TEXT": [
+      "Girar la orientación de la Bolsa de Pociones",
+      "Atajo de teclado para espacio de Bolsa de Pociones #",
+      "",
+      "Pulsar tecla para espacio #",
+      ""
+    ]
+  }
+}

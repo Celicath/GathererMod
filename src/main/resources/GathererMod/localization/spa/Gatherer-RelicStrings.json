@@ -1,0 +1,75 @@
+{
+  "Gatherer:AlchemyBag": {
+    "NAME": "Bolsa Alquímica",
+    "FLAVOR": "Una bolsa misteriosa con el poder de pociones recurrentes.",
+    "DESCRIPTIONS": [
+      "Al principio de cada combate, gana una #ygatherer:Poción\u00a0Menor aleatoria."
+    ]
+  },
+  "Gatherer:MiracleBag": {
+    "NAME": "Bolsa Milagrosa",
+    "FLAVOR": "Creada con tecnología prohibida.",
+    "DESCRIPTIONS": [
+      "Reemplaza #yBolsa #yAlquímica. NL Al recogerla, gana #b1 espacio para Pociones. NL Al principio de cada combate, obtén una Poción rara a un espacio de Poción normal."
+    ]
+  },
+  "Gatherer:IronSlate": {
+    "NAME": "Pizarra de Hierro",
+    "FLAVOR": "Un mapa para seguir el camino del Blindado.",
+    "DESCRIPTIONS": [
+      "Al recogerla, #b2 de tus Golpes cambian de color a rojo y ganan #b2 de daño.",
+      "Esta reliquia está obsoleta."
+    ]
+  },
+  "Gatherer:SilentSlate": {
+    "NAME": "Piezarra Silenciosa",
+    "FLAVOR": "Un mapa para seguir el camino de la Silenciosa.",
+    "DESCRIPTIONS": [
+      "Al recogerla, #b2 de tus Defensas cambian de color a verde y ganan #b2 de #yBloqueo.",
+      "Esta reliquia está obsoleta."
+    ]
+  },
+  "Gatherer:FloralEgg": {
+    "NAME": "Huevo Floral",
+    "FLAVOR": "Huevos como flores. O son flores como huevos.",
+    "DESCRIPTIONS": [
+      "Al recogerla, #ymejora TODAS tus cartas #ygatherer:Florales. Cuando añades una carta #ygatherer:Floral a tu baraja, se #yMejora."
+    ]
+  },
+  "Gatherer:Leftovers": {
+    "NAME": "Sobras",
+    "FLAVOR": "Cómo los alquimistas hacen nuevos materiales con sobras es un misterio.",
+    "DESCRIPTIONS": [
+      "Cada vez que uses #b",
+      " Pociones en un combate, gana una #ygatherer:Poción\u00a0Menor aleatoria."
+    ]
+  },
+  "Gatherer:FlyingFruit": {
+    "NAME": "Fruta Voladora",
+    "FLAVOR": "Esta fruta vuela como un plátano.",
+    "DESCRIPTIONS": [
+      "Cuando #yAgotas #b1/3/6/10 carts #ygatherer:Únicas después de recoger esto, incrementa tus PV Máximos en #b",
+      ".",
+      " NL NL cartas #yAgotadas: NL "
+    ]
+  },
+  "Gatherer:ExplorersPath": {
+    "NAME": "Camino del Explorador",
+    "FLAVOR": "A veces vale la pena explorar el peor camino.",
+    "DESCRIPTIONS": [
+      "Gana [E] al principio de tu turno durante los próximos #b3 combates. NL Puedes ver los ratios de elección de las cartas en la pantalla de recompensa. NL Escoge la carta con el menor ratio para ganar [E] durante #b1 combate más. NL Sinergia: ",
+      "Sinergia",
+      "Si tienes el ",
+      ", puedes escoger una de las 2 cartas menos escogidas a cambio de una carga."
+    ]
+  },
+  "Gatherer:MistGenerator": {
+    "NAME": "Generador de Niebla",
+    "FLAVOR": "La niebla puede ser letal para algunas criaturas.",
+    "DESCRIPTIONS": [
+      "La cantidad de #yVeneno de los enemigos no se reduce cada turno si es #b",
+      " o menos."
+    ]
+  },
+  "Gatherer:Dummy": {}
+}

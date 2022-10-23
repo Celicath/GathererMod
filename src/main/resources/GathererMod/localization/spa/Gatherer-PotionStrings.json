@@ -1,0 +1,162 @@
+{
+  "Gatherer:LesserBlockPotion": {
+    "NAME": "Poción de Bloqueo Menor",
+    "DESCRIPTIONS": [
+      "Gana #b",
+      " de #yBloqueo."
+    ]
+  },
+  "Gatherer:LesserDexterityPotion": {
+    "NAME": "Poción de Destreza Menor",
+    "DESCRIPTIONS": [
+      "Gana #b",
+      " de #yDestreza."
+    ]
+  },
+  "Gatherer:LesserEnergyPotion": {
+    "NAME": "Poción de Energía Menor",
+    "DESCRIPTIONS": [
+      "Gana #b",
+      " Energía."
+    ]
+  },
+  "Gatherer:LesserEssenceOfSteel": {
+    "NAME": "Esencia de Metal Menor",
+    "DESCRIPTIONS": [
+      "Gana #b",
+      " de #yarmadura #yde #placas."
+    ]
+  },
+  "Gatherer:LesserExplosivePotion": {
+    "NAME": "Poción Explosiva Menor",
+    "DESCRIPTIONS": [
+      "Hace #b",
+      " de daño a TODOS los enemigos."
+    ]
+  },
+  "Gatherer:LesserFearPotion": {
+    "NAME": "Poción de Miedo Menor",
+    "DESCRIPTIONS": [
+      "Aplica #b",
+      " #yVulnerable."
+    ]
+  },
+  "Gatherer:LesserFirePotion": {
+    "NAME": "Poción de Fuego Menor",
+    "DESCRIPTIONS": [
+      "Haz #b",
+      " de daño."
+    ]
+  },
+  "Gatherer:LesserLiquidBronze": {
+    "NAME": "Bronce Líquido Menor",
+    "DESCRIPTIONS": [
+      "Gana #b",
+      " #yEspinas."
+    ]
+  },
+  "Gatherer:LesserPoisonPotion": {
+    "NAME": "Poción de Veneno Menor",
+    "DESCRIPTIONS": [
+      "Aplica #b",
+      " #yVeneno."
+    ]
+  },
+  "Gatherer:LesserPowerPotion": {
+    "NAME": "Poción de Poder Menor",
+    "DESCRIPTIONS": [
+      "Añade #b",
+      " carta de #yPoder aleatoria a tu mano, cuesta #b0 este turno."
+    ]
+  },
+  "Gatherer:LesserRegenPotion": {
+    "NAME": "Poción de Regeneración Menor",
+    "DESCRIPTIONS": [
+      "Gana #b",
+      " #yRegeneración."
+    ]
+  },
+  "Gatherer:LesserStrengthPotion": {
+    "NAME": "Poción de Fuerza Menor",
+    "DESCRIPTIONS": [
+      "Gana #b",
+      " de #yFuerza."
+    ]
+  },
+  "Gatherer:LesserSpeedPotion": {
+    "NAME": "Poción de Velocidad Menor",
+    "DESCRIPTIONS": [
+      "Gana #b",
+      " de #yDestreza. Al final de tu turno, pierde #b",
+      " de #yDestreza."
+    ]
+  },
+  "Gatherer:LesserSteroidPotion": {
+    "NAME": "Poción de Flexión Menor",
+    "DESCRIPTIONS": [
+      "Gana #b",
+      " de #yFuerza. Al final de tu turno, pierde #b",
+      " de #yFuerza."
+    ]
+  },
+  "Gatherer:LesserSwiftPotion": {
+    "NAME": "Poción de Rapidez Menor",
+    "DESCRIPTIONS": [
+      "Roba #b",
+      " cartas."
+    ]
+  },
+  "Gatherer:LesserWeakPotion": {
+    "NAME": "Poción de Debilidad Menor",
+    "DESCRIPTIONS": [
+      "Aplica #b",
+      " #yDébil."
+    ]
+  },
+  "Gatherer:RecoveryPotion": {
+    "NAME": "Poción de Recuperación",
+    "DESCRIPTIONS": [
+      "Cura #b",
+      "% de la salud faltante."
+    ]
+  },
+  "Gatherer:RecoveryPotionPlus": {
+    "NAME": "Poción de Recuperacion+",
+    "DESCRIPTIONS": [
+      "Cura #b",
+      "% de la salud faltante."
+    ]
+  },
+  "Gatherer:RetainPotion": {
+    "NAME": "Poción de Retener",
+    "DESCRIPTIONS": [
+      "Retén tu mano este turno."
+    ]
+  },
+  "Gatherer:BlackTeaTag": {
+    "NAME": "<Té Negro> Tagged",
+    "DESCRIPTIONS": [
+      "Agota TODOS los Té Negro al usarse."
+    ]
+  },
+  "Gatherer:PlaceHolderPotion": {
+    "NAME": "PlaceHolder",
+    "DESCRIPTIONS": [
+      "Solo un texto temporal para implementar cosas de pociones."
+    ]
+  },
+  "Gatherer:LesserAttackPotion": {
+    "NAME": "Poción de Ataque Menor",
+    "DESCRIPTIONS": [
+      "Añade #b",
+      " carta de #yAtaque aleatoria a tu mano, cuesta #b0 este turno."
+    ]
+  },
+  "Gatherer:LesserSkillPotion": {
+    "NAME": "Poción de Habilidad Menor",
+    "DESCRIPTIONS": [
+      "Añade #b",
+      " carta de #yHabilidad aleatoria a tu mano, cuesta #b0 este turno."
+    ]
+  }
+}

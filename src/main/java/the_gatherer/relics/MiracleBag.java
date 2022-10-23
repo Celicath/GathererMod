@@ -14,21 +14,18 @@ public class MiracleBag extends CustomRelic {
 
 	public MiracleBag() {
 		super(ID, new Texture(GathererMod.GetRelicPath(RelicID)),
-				RelicTier.BOSS, LandingSound.FLAT);
+			RelicTier.BOSS, LandingSound.FLAT);
 	}
 
 	@Override
 	public void obtain() {
-		if (AbstractDungeon.player.hasRelic(AlchemyBag.ID)) {
-			for (int i = 0; i < AbstractDungeon.player.relics.size(); ++i) {
-				if (AbstractDungeon.player.relics.get(i).relicId.equals(AlchemyBag.ID)) {
-					instantObtain(AbstractDungeon.player, i, true);
-					break;
-				}
+		for (int i = 0; i < AbstractDungeon.player.relics.size(); ++i) {
+			if (AbstractDungeon.player.relics.get(i).relicId.equals(AlchemyBag.ID)) {
+				instantObtain(AbstractDungeon.player, i, true);
+				return;
 			}
-		} else {
-			super.obtain();
 		}
+		super.obtain();
 	}
 
 	@Override

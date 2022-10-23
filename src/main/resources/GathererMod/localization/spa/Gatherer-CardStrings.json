@@ -1,0 +1,452 @@
+{
+  "Gatherer:Strike_Gatherer": {
+    "NAME": "Golpe",
+    "DESCRIPTION": "Haz !D! de daño."
+  },
+  "Gatherer:Defend_Gatherer": {
+    "NAME": "Defender",
+    "DESCRIPTION": "Gana !B! de Bloqueo."
+  },
+  "Gatherer:FlowerWhip": {
+    "NAME": "Látigo Floral",
+    "DESCRIPTION": "Haz !D! de daño !M! veces."
+  },
+  "Gatherer:Centralize": {
+    "NAME": "Centralizar",
+    "DESCRIPTION": "Busca !M! cartas de tu pila de extracción.",
+    "EXTENDED_DESCRIPTION": [
+      " NL gatherer:Dos\u00a0Veces: Mejora !M! cartas aleatorias en tu mano. Las cartas Buscadas tienen prioridad.",
+      " NL gatherer:Una\u00a0Vez: Mejora !M! cartas aleatorias en tu mano. Las cartas Buscadas tienen prioridad.",
+      " NL gatherer:Una\u00a0Vez [#D0C8D0]effecto [#D0C8D0]utilizado."
+    ]
+  },
+  "Gatherer:SpareBottle": {
+    "NAME": "Botella Sobrante",
+    "DESCRIPTION": "Cuando usas una Poción, gana !M! de Bloqueo y haz !M! de daño a un enemigo aleatorio.",
+    "EXTENDED_DESCRIPTION": [
+      "Norm",
+      "Plat",
+      "Oro"
+    ]
+  },
+  "Gatherer:AcidicSpray": {
+    "NAME": "Espray Acídico",
+    "DESCRIPTION": "Haz !D! de daño. Haz !D! de daño por cada debilitador del objetivo. Aplica !M! Débil."
+  },
+  "Gatherer:BambuSword": {
+    "NAME": "Espada de Bambú",
+    "DESCRIPTION": "Haz !D! de daño. Juega un []Golpe o Defender de tu mano gratis."
+  },
+  "Gatherer:CarefulStrike": {
+    "NAME": "Golpe Cuidadoso",
+    "DESCRIPTION": "Haz !D! de daño. Pon hasta !M! carta al tope de tu pila de extracción."
+  },
+  "Gatherer:CollectorsShot": {
+    "NAME": "Tiro del Coleccionista",
+    "DESCRIPTION": "Haz daño igual a 1.5 veces la cantidad de cartas gatherer:Únicas sin duplicados en tu baraja.",
+    "UPGRADE_DESCRIPTION": "Haz daño igual a 2 veces la cantidad de cartas gatherer:Únicas sin duplicados en tu baraja.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hace !D! de daño.)"
+    ]
+  },
+  "Gatherer:DrugPower": {
+    "NAME": "Poder de la Droga",
+    "DESCRIPTION": "Haz !D! de daño. Si utilizaste una Poción este turno, gana el efecto de la última Poción utilizada.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (No has jugado una Poción.)",
+      " NL (Poción jugada: NL ",
+      ")",
+      "¿Cómo? ¡El Zumo de Fruta ya no está delicioso!"
+    ]
+  },
+  "Gatherer:FlowerFalling": {
+    "NAME": "Caída Floral",
+    "DESCRIPTION": "Haz !D! de daño. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Haz !D! de daño. NL Cura !M! PV. NL Agota."
+  },
+  "Gatherer:Frenzy": {
+    "NAME": "Frenesí",
+    "DESCRIPTION": "Haz !D! de daño. NL Aplica !M! Vulnerable. NL Añade un Confuso a tu pila de descartes."
+  },
+  "Gatherer:FragileHammer": {
+    "NAME": "Martillo Frágil",
+    "DESCRIPTION": "Haz !D! de daño. Haz !M! de daño a un enemigo aleatorio que no sea el objetivo."
+  },
+  "Gatherer:ScherryThrow": {
+    "NAME": "Lanza Cereza",
+    "DESCRIPTION": "Haz !D! de daño. NL El próximo turno, gana [E]."
+  },
+  "Gatherer:Snatch": {
+    "NAME": "Tirón",
+    "DESCRIPTION": "Haz !D! de Daño.",
+    "EXTENDED_DESCRIPTION": [
+      " NL gatherer:Dos\u00a0Veces: Gana una gatherer:Poción gatherer:Menor aleatoria.",
+      " NL gatherer:Una\u00a0Vez: Gana una gatherer:Poción gatherer:Menor aleatoria.",
+      " NL gatherer:Una\u00a0Vez [#D0C8D0]efecto [#D0C8D0]utilizado."
+    ]
+  },
+  "Gatherer:TacticalStrike": {
+    "NAME": "Golpe Táctico",
+    "DESCRIPTION": "Haz !D! de daño. NL Roba !M! cartas.",
+    "UPGRADE_DESCRIPTION": "Haz !D! de daño. NL Roba !M! cartas. NL Gana !M! de Fuerza hasta final de turno."
+  },
+  "Gatherer:BigPouch": {
+    "NAME": "Gran Morral",
+    "DESCRIPTION": "Roba !M! cartas. Gana Bloqueo igual al coste total de las cartas en tu mano."
+  },
+  "Gatherer:Convert": {
+    "NAME": "Convertir",
+    "DESCRIPTION": "Agota una carta. NL Si es [#60B0C0]Poco [#60B0C0]Común,[] NL gana !B! de Bloqueo. NL Si es [#FFC050]Rara,[] NL gana !M! de Bloqueo."
+  },
+  "Gatherer:EnergyBasket": {
+    "NAME": "Cesta Energética",
+   "DESCRIPTION": "Gana !M! gatherer:Pociones\u00a0de\u00a0Energía\u00a0Menor. NL Retiene. NL Agota."
+  },
+  "Gatherer:FlowerShield": {
+    "NAME": "Escudo Floral",
+    "DESCRIPTION": "Gana !B! de Bloqueo."
+  },
+  "Gatherer:GatherMaterial": {
+    "NAME": "Recolectar Material",
+    "DESCRIPTION": "Pon !M! cartas aleatorias de tu pila de extracción en tu mano. Prioriza cartas que no estén ya en tu mano."
+  },
+  "Gatherer:Pollute": {
+    "NAME": "Polucionar",
+    "DESCRIPTION": "El próximo turno, aplica !M! Veneno, Débil y Vulnerable a TODOS los enemigos."
+  },
+  "Gatherer:QuickSynthesis": {
+    "NAME": "Síntesis Rápida",
+    "DESCRIPTION": "Gana !M! gatherer:Poción gatherer:Menor aleatorias. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Roba 1 carta. NL Gana !M! gatherer:Poción gatherer:Menor aleatorias. NL Agota."
+  },
+  "Gatherer:SaveValuables": {
+    "NAME": "Guardar lo de Valor",
+    "DESCRIPTION": "Elige hasta !M! cartas de tu pila de descarte. Barájalas en tu pila de extracción."
+  },
+  "Gatherer:TreeGrowth": {
+    "NAME": "Crecimiento Arbóreo",
+    "DESCRIPTION": "El próximo turno, gana !B! de Bloqueo. NL Gana !M! de Bloqueo en 2 turnos."
+  },
+  "Gatherer:WoolGloves": {
+    "NAME": "Guantes de Lana",
+    "DESCRIPTION": "Gana !B! de Bloqueo.",
+    "EXTENDED_DESCRIPTION": [
+      " NL gatherer:Dos\u00a0Veces: Roba 3 cartas, luego descarta 3 cartas.",
+      " NL gatherer:Una\u00a0Vez: Roba 3 cartas, luego descarta 3 cartas.",
+      " NL gatherer:Una\u00a0Vez [#D0C8D0]efecto [#D0C8D0]utilizado."
+    ]
+  },
+  "Gatherer:Duality": {
+    "NAME": "Dualidad",
+    "DESCRIPTION": "Hace !D! de daño. Retiene. Cuando se Retiene, su categoría cambia entre <ATQ> y <DEF>.",
+    "EXTENDED_DESCRIPTION": [
+      "Gana !B! de Bloqueo Block. Retiene. Cuando se Retiene, su categoría cambia entre <ATQ> y <DEF>.",
+      "ATQ",
+      "DEF"
+    ]
+  },
+  "Gatherer:EchoOfNature": {
+    "NAME": "Eco de la Naturaleza",
+    "DESCRIPTION": "Gana !B! de Bloqueo X veces. Haz !D! de daño X veces."
+  },
+  "Gatherer:FlowerBeam": {
+    "NAME": "Rayo Floral",
+    "DESCRIPTION": "Haz !D! de daño al objetivo, luego haz !D! de daño a TODOS los enemigos."
+  },
+  "Gatherer:FruitForce": {
+    "NAME": "Fuerza Frutal",
+    "DESCRIPTION": "Haz daño igual al !M! % de tus PV Máximos. NL Cuando se obtiene, incrementa tus PV Máximos en 4.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hace !D! de daño.)"
+    ]
+  },
+  "Gatherer:MiningStrike": {
+    "NAME": "Golpe Minero",
+    "DESCRIPTION": "Haz !D! de daño. Por cada !M! de daño sin bloquear, gana 1 armadura de placas."
+  },
+  "Gatherer:Misfortune": {
+    "NAME": "Mala Suerte",
+    "DESCRIPTION": "Haz !D! de daño. Gana hasta !M! gatherer:Poción gatherer:Menor con efectos debilitadores que el enemigo ya tenga.",
+    "UPGRADE_DESCRIPTION": "Haz !D! de daño. Gana hasta !M! gatherer:Pociones gatherer:Menores con efectos debilitadores que el enemigo ya tenga."
+  },
+  "Gatherer:OddSpoils": {
+    "NAME": "Extraño Botín",
+    "DESCRIPTION": "Haz !D! de daño. Añade !M! carta aleatoria que no esté en tu baraja a tu pila de descarte. Su coste es 0 hasta ser jugada.",
+    "UPGRADE_DESCRIPTION": "Haz !D! de daño. Añade !M! cartas aleatorias que no estén en tu baraja a tu pila de descarte. Su coste es 0 hasta ser jugadas."
+  },
+  "Gatherer:Polymorphism": {
+    "NAME": "Polimorfismo",
+    "DESCRIPTION": "Haz daño igual a la cantidad de otras cartas en tu mano. Si todas son gatherer:Únicas, gana [E] y roba !M! carta.",
+    "UPGRADE_DESCRIPTION": "Haz daño igual a la cantidad de otras cartas en tu mano. Si todas son gatherer:Únicas, gana [E] y roba !M! cartas.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hace !D! de daño.)",
+      " NL (Roba y !D! de daño!)"
+    ]
+  },
+  "Gatherer:RottenStipe": {
+    "NAME": "Estipe Podrida",
+    "DESCRIPTION": "Hace ? de daño. NL Aplica ?.",
+    "EXTENDED_DESCRIPTION": [
+      "Haz !D! de daño.",
+      " NL Aplica !M! Débil.",
+      " NL Aplica !M! Vulnerable.",
+      " NL Aplica !M! Veneno.",
+      " NL [#C0B0C0](Cada [#D0C8D0]Estipe [#D0C8D0]Podrida NL [#D0C8D0]tiene [#D0C8D0]daño [#D0C8D0]y NL [#D0C8D0]penalizadores [#D0C8D0]escogidos [#D0C8D0]aleatoriamente.)",
+      "T",
+      ""
+    ]
+  },
+  "Gatherer:SealedBomb": {
+    "NAME": "Bomba Sellada",
+    "DESCRIPTION": "Haz !D! de daño. Mientras está en tu mano, su coste se reduce en 1 este combate cuando usas una Poción."
+  },
+  "Gatherer:PotentialSlash": {
+    "NAME": "Corte Potencial",
+    "DESCRIPTION": "Haz daño igual a !M! + la mitad de tus PV faltantes.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hace !D! de daño.)"
+    ]
+  },
+  "Gatherer:WitheringStrike": {
+    "NAME": "Golpe Marchitante",
+    "DESCRIPTION": "Haz !D! de daño. El enemigo pierde !M! de Fuerza."
+  },
+  "Gatherer:Duplicator": {
+    "NAME": "Duplicador",
+    "DESCRIPTION": "Gana los efectos de todas tus gatherer:Pociones gatherer:Menores. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Gana los efectos de todas tus gatherer:Pociones gatherer:Menores."
+  },
+  "Gatherer:Enchant": {
+    "NAME": "Encantar",
+    "DESCRIPTION": "Elige un Golpe de tu mano para darle Coste + 1, daño + !M! y potenciar su efecto especial si lo tiene."
+  },
+  "Gatherer:GlowingPlant": {
+    "NAME": "Planta Brillante",
+    "DESCRIPTION": "Adivina !M!. NL Cuando se obtiene, añade una *¡Luz! y una *¡Sombra! a tu baraja."
+  },
+  "Gatherer:Light": {
+    "NAME": "¡Luz!",
+    "DESCRIPTION": "Gana !B! de Bloqueo. NL Roba una carta. NL Incrementa el daño de todas las *¡Sombra! en tu mano en !M!."
+  },
+  "Gatherer:Shadow": {
+    "NAME": "¡Sombra!",
+    "DESCRIPTION": "Haz !D! de daño. NL Roba una carta. NL Incrementa el Bloqueo de todas las *¡Luz! de tu mano en !M!."
+  },
+  "Gatherer:Herbalism": {
+    "NAME": "Herbalismo",
+    "DESCRIPTION": "Gana [E] por cada carta en tu mano que cueste 2 o más, hasta un máximo de 2.",
+    "UPGRADE_DESCRIPTION": "Gana [E] por cada carta en tu mano que cueste 2 o más",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gana ",
+      " energía.)"
+    ]
+  },
+  "Gatherer:Nutrients": {
+    "NAME": "Nutrientes",
+    "DESCRIPTION": "Gana !B! de Bloqueo. NL Cuando se obtiene, Mejora TODAS tus cartas gatherer:Florales."
+  },
+  "Gatherer:RecipeChange": {
+    "NAME": "Cambio de Receta",
+    "DESCRIPTION": "Elige 1 de TODAS las gatherer:Pociones gatherer:Menores. Reemplaza todas tus gatherer:Pociones gatherer:Menores con esa. Agota."
+  },
+  "Gatherer:RecoveryHerb": {
+    "NAME": "Hierba de Recuperación",
+    "DESCRIPTION": "Se considera como utilizar una Poción. Cura un !M! % de tus PV faltantes. NL Agota.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Cura ",
+      " PV.)"
+    ]
+  },
+  "Gatherer:ScentOfRosmari": {
+    "NAME": "Aroma de Romero",
+    "DESCRIPTION": "Gana !B! de Bloqueo. Elige !M! cartas que Retener. Si fueran a ser descartadas, devuélvelas a tu mano el próximo turno."
+  },
+  "Gatherer:ScrollOfWall": {
+    "NAME": "Pergamino de Pared",
+    "DESCRIPTION": "Injugable. Utiliza una Poción para Retener este turno. TODOS los Status entrantes se Agotan.",
+    "UPGRADE_DESCRIPTION": "Injugable. Utiliza una Poción para Retener este turno. TODOS los Status entrantes se Agotan y dan 1 armadura de placas.",
+    "EXTENDED_DESCRIPTION": [
+      "No puedo jugar esta carta.",
+      "Injugable. Retener este turno. TODOS los Status entrantes se Agotan.",
+      "Injugable. Retener este turno. TODOS los Status entrantes se Agotan y dan 1 armadura de placas."
+    ]
+  },
+  "Gatherer:SmartManeuver": {
+    "NAME": "Maniobra Inteligente",
+    "DESCRIPTION": "El enemigo hace la mitad de daño este turno. Gana una gatherer:Poción\u00a0de\u00a0Rapidez\u00a0Menor.",
+    "UPGRADE_DESCRIPTION": "El enemigo hace la mitad de daño este turno. Gana una gatherer:Poción\u00a0de\u00a0Rapidez\u00a0Menor. NL Retiene."
+  },
+  "Gatherer:Solidify": {
+    "NAME": "Solidificar",
+    "DESCRIPTION": "Repite hasta que tu Bolsa esté llena: Gasta !M! de Bloqueo para ganar una gatherer:Poción\u00a0de\u00a0Bloqueo\u00a0Menor."
+  },
+  "Gatherer:Transmute": {
+    "NAME": "Transmutar",
+    "DESCRIPTION": "Transforma una carta de tu mano. Cuesta 0 este turno.",
+    "UPGRADE_DESCRIPTION": "Transforma una carta de tu mano. Está Mejorada y cuesta 0 este turno."
+  },
+  "Gatherer:VenomBarrier": {
+    "NAME": "Barrera Venenosa",
+    "DESCRIPTION": "Gana de !B! Bloqueo. Cuando recibas un ataque este turno, aplica !M! Veneno al ataque."
+  },
+  "Gatherer:AlchemyTrial": {
+    "NAME": "Prueba Alquímica",
+    "DESCRIPTION": "Cunado juegas 10 cartas, gana una gatherer:Poción gatherer:Menor dependiendo de la 10ª carta jugada."
+  },
+  "Gatherer:BalancedGrowth": {
+    "NAME": "Crecimiento Equilibrado",
+    "DESCRIPTION": "Al principio de tu turno, gana hasta !M! de Fuerza o de Destreza hasta que sean iguales."
+  },
+  "Gatherer:ColorfulGarden": {
+    "NAME": "Jardín Colorido",
+    "DESCRIPTION": "Al final de tu turno, gana !M! de Bloqueo por cada carta gatherer:Única que hayas jugado este turno.",
+    "UPGRADE_DESCRIPTION": "Innata. NL Al final de tu turno, gana !M! de Bloqueo por cada carta gatherer:Única que hayas jugado este turno."
+  },
+  "Gatherer:FeelingFine": {
+    "NAME": "Me Siento Bien",
+    "DESCRIPTION": "Cuando usas 3 Pociones en un turno, pierdes todos tus penalizadores.",
+    "UPGRADE_DESCRIPTION": "Innata. NL Cuando usas 3 Pociones en un turno, pierdes todos tus penalizadores."
+  },
+  "Gatherer:Liquidism": {
+    "NAME": "Liquidismo",
+    "DESCRIPTION": "Cuando usas una Poción, gana 1 de Fuerza o de Destreza aleatoriamente.",
+    "UPGRADE_DESCRIPTION": "Innata. NL Cuando usas una Poción, gana 1 de Fuerza o de Destreza aleatoriamente."
+  },
+  "Gatherer:UpgradeBag": {
+    "NAME": "Mejorar Bolsa",
+    "DESCRIPTION": "Añade un *Fallo en tu baraja. Tus gatherer:Pociones gatherer:Menores son un 100% más potentes.",
+    "UPGRADE_DESCRIPTION": "Añade un *Fallo+ a tu pila de descarte. Tus gatherer:Pociones gatherer:Menores son un 100% más potentes."
+  },
+  "Gatherer:Glitched": {
+    "NAME": "Fallo",
+    "DESCRIPTION": "Retiene. NL Agota. NL Mientras esté en tu mano, el poder de []Mejorar Bolsa está desactivado."
+  },
+  "Gatherer:Uplift": {
+    "NAME": "Alzar",
+    "DESCRIPTION": "Cada tuno, la primera carta que juegues que cueste 2 o más tiene Reembolso 1.",
+    "UPGRADE_DESCRIPTION": "Cada turno, las primeras !M! cartas que juegues que cuesten 2 o más tienen Reembolso 1."
+  },
+  "Gatherer:Bulldoze": {
+    "NAME": "Demoler",
+    "DESCRIPTION": "Haz !D! de daño a TODOS los enemigos por cada !M! cartas gatherer:Únicas en tu pila de descarte.",
+    "EXTENDED_DESCRIPTION": [
+      " NL ( ",
+      " cartas gatherer:Únicas en la pila de descarte.)"
+    ]
+  },
+  "Gatherer:FinishingStrike": {
+    "NAME": "Golpe Final",
+    "DESCRIPTION": "Haz !D! de daño. Si el enemigo tiene menos PV que tú, en vez de eso, golpea !M! veces."
+  },
+  "Gatherer:CursedBlade": {
+    "NAME": "Espada Maldita",
+    "DESCRIPTION": "Haz !D! de daño.",
+    "EXTENDED_DESCRIPTION": [
+      " NL gatherer:Dos\u00a0Veces: El enemigo pierde !M! de Fuerza este turno. Cuando se obtiene, estás [#FF6563]Maldito[] [#FF6563]-[] [#FF6563]Normalidad.[]",
+      " NL gatherer:Una\u00a0Vez: El enemigo pierde !M! de Fuerza este turno. Cuando se obtiene, estás [#FF6563]Maldito[] [#FF6563]-[] [#FF6563]Normalidad.[]",
+      " NL gatherer:Una\u00a0Vez [#D0C8D0]efecto [#D0C8D0]utilizado. Cuando se obtiene, estás [#FF6563]Maldito[] [#FF6563]-[] [#FF6563]Normalidad.[]"
+    ]
+  },
+  "Gatherer:FlamingBottle": {
+    "NAME": "Botella Flamígera",
+    "DESCRIPTION": "Hace !D! de daño. Gana una gatherer:Poción\u00a0de\u00a0Fuego\u00a0Menor."
+  },
+  "Gatherer:HeartToFruit": {
+    "NAME": "Fruta de Corazón",
+    "DESCRIPTION": "Haz !D! de daño. NL Si es Letal, incrementa tus PV Máximos en !M!. Agota."
+  },
+  "Gatherer:Photoscythe": {
+    "NAME": "Fotoségasis",
+    "DESCRIPTION": "Innata. Mejora TODAS las cartas gatherer:Florales durante este combate. Haz daño igual a !M! X veces su cantidad. Agota.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hace !D! de daño.)"
+    ]
+  },
+  "Gatherer:BlackTea": {
+    "NAME": "Té Negro",
+    "DESCRIPTION": "Gana !M! de Fuerza. NL Pierde 1 de Destreza. NL Arranque: Gana una gatherer:Poción gatherer:Menor aleatoria."
+  },
+  "Gatherer:Examine": {
+    "NAME": "Examinar",
+    "DESCRIPTION": "Mira las primeras !M! cartas al tope de tu pila de extracción. Juega una y descarta las otras."
+  },
+  "Gatherer:GrowBook": {
+    "NAME": "Cultivar Libro",
+    "DESCRIPTION": "Gana !B! de Bloqueo, o reemplaza esta carta permanentemente con 1 de hasta 3 cartas de otro color. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Gana !B! de Bloqueo, o reemplaza esta carta permanentemente con 1 de hasta 3 cartas Mejoradas de otro color. NL Agota."
+  },
+  "Gatherer:MindSearch": {
+    "NAME": "Búsqueda Mental",
+    "DESCRIPTION": "Elige 2 de entre 4 gatherer:Pociones gatherer:Menores que obtener con la ayuda del razonamiento de la Recolectora. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Elige 2 de entre 4 gatherer:Pociones gatherer:Menores que obtener con la ayuda del razonamiento de la Recolectora. NL Retiene. Agota."
+  },
+  "Gatherer:Overflowing": {
+    "NAME": "Derramar",
+    "DESCRIPTION": " Gana [E] [E] [E]. NL Agota.",
+    "UPGRADE_DESCRIPTION": "  Gana [E] [E] [E]. NL La Energía se conserva hasta el próximo turno. NL Agota."
+  },
+  "Gatherer:ScrollOfPurity": {
+    "NAME": "Pergamino de Pureza",
+    "DESCRIPTION": "Injugable. NL Cuando utilices una Poción, roba !M! carta y Agota hasta una !M! carta.",
+    "UPGRADE_DESCRIPTION": "Injugable. NL Cuando utilices una Poción, roba !M! cartas y Agota hasta !M! cartas.",
+    "EXTENDED_DESCRIPTION": [
+      "No puedo jugar esta carta."
+    ]
+  },
+  "Gatherer:BomberForm": {
+    "NAME": "Forma Bombardera",
+    "DESCRIPTION": "Al principio de tu turno, gana una gain a gatherer:PEM. Todas las gatherer:Pociones gatherer:Menores futuras se convierten en gatherer:PEM e incrementan el daño de TODAS las all gatherer:PEM en !M! al usarlas."
+  },
+  "Gatherer:FlowerPower": {
+    "NAME": "Poder Floral",
+    "DESCRIPTION": "Gana !M! Débil, Frágil y Vulnerable. Al principio del turno, roba !M! cartas.",
+    "EXTENDED_DESCRIPTION": [
+      "Gana !M! Débil y Frágil. Al principio del turno, roba !M! cartas.",
+      "Gana !M! Debil. Al principio del turno, roba !M! cartas.",
+      "Al principio de tu turno, roba !M! cartas."
+    ]
+  },
+  "Gatherer:StoneFence": {
+    "NAME": "Valla de Piedra",
+    "DESCRIPTION": "Al principio de tu turno, añade un *Lanzador a tu mano.",
+    "UPGRADE_DESCRIPTION": "Al principio de tu turno, añade un *Lanzador+ a tu mano.."
+  },
+  "Gatherer:Thrower": {
+    "NAME": "Lanzador",
+    "DESCRIPTION": "Etérea. Haz daño igual al Bloqueo restante al principio de tu turno. Agota.",
+    "UPGRADE_DESCRIPTION": "Etérea. Haz daño igual al Bloqueo restante al principio de tu turno + 2. Agota.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Haz !D! de daño.)"
+    ]
+  },
+  "Gatherer:PoisonMastery": {
+    "NAME": "Maestría en Veneno",
+    "DESCRIPTION": "Gana una gatherer:Poción\u00a0de\u00a0Veneno\u00a0Menor. NL El daño de Veneno se incrementa en 100%.",
+    "UPGRADE_DESCRIPTION": "Innata. NL Gana una gatherer:Poción\u00a0de\u00a0Veneno\u00a0Menor. NL El daño de Veneno se incrementa en 100%."
+  },
+  "Gatherer:AromaProtection": {
+    "NAME": "Protección Aromática",
+    "DESCRIPTION": "Gana !B! de Bloqueo. NL Añade un Confuso a tu pila de descarte."
+  },
+  "Gatherer:LuckyClover": {
+    "NAME": "Trébol de la Suerte",
+    "DESCRIPTION": "Gana 1 de Destreza por cada carta gatherer:Floral en tu baraja.",
+    "UPGRADE_DESCRIPTION": "Gana 1 de Destreza por cada carta gatherer:Floral en tu baraja.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gana !M! de Destreza.)"
+    ]
+  },
+  "Gatherer:FlowerSuffix": {
+    "NAME": "SufijoFloral",
+    "DESCRIPTION": "Sufijo descriptivo para las cartas Florales.",
+    "EXTENDED_DESCRIPTION": [
+      " NL Se puede Mejorar 3 veces más.",
+      " NL Se puede Mejorar 2 veces más.",
+      " NL Se puede Mejorar 1 vez más."
+    ]
+  },
+  "Gatherer:DoNotReplaceOption": {
+    "NAME": "No Reemplazar",
+    "DESCRIPTION": "Gana !B! de Bloqueo. NL No reemplaces Cultivar Libro."
+  }
+}
