@@ -39,24 +39,11 @@ public class CursedBlade extends AbstractNumberedCard implements OnObtainEffect,
 	private static final int MAGIC = 15;
 
 	public CursedBlade() {
-		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+		super(ID, NAME, IMG, COST, DESCRIPTION, EXTENDED_DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseDamage = POWER;
 		this.baseMagicNumber = MAGIC;
 		this.magicNumber = this.baseMagicNumber;
 		updateDescription();
-	}
-
-	@Override
-	public void updateDescription() {
-		if (upgraded && playCount == 0) {
-			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
-		} else if (upgraded && playCount == 1 || playCount == 0) {
-			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
-		} else {
-			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[2];
-		}
-
-		this.initializeDescription();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

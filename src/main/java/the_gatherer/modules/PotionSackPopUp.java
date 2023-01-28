@@ -24,7 +24,7 @@ import the_gatherer.GathererMod;
 import the_gatherer.potions.SackPotion;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.stream.Collectors;
 
 import static the_gatherer.GathererMod.potionSackPopupFlipped;
 
@@ -63,8 +63,8 @@ public class PotionSackPopUp {
 	private boolean autoTargetFirst = false;
 	private boolean highlightTop = false;
 
-	private Color topHoverColor = new Color(0.5F, 0.9F, 1.0F, 0.0F);
-	private Color botHoverColor = new Color(1.0F, 0.4F, 0.3F, 0.0F);
+	private final Color topHoverColor = new Color(0.5F, 0.9F, 1.0F, 0.0F);
+	private final Color botHoverColor = new Color(1.0F, 0.4F, 0.3F, 0.0F);
 
 	public PotionSackPopUp() {
 		for (int i = 0; i < this.points.length; ++i) {
@@ -128,10 +128,9 @@ public class PotionSackPopUp {
 	private void updateControllerTargetInput() {
 		if (Settings.isControllerMode) {
 			int offsetEnemyIndex = 0;
-			if (this.autoTargetFirst) {
-				this.autoTargetFirst = false;
-				++offsetEnemyIndex;
-			}
+
+			boolean autoTarget = this.autoTargetFirst;
+			this.autoTargetFirst = false;
 
 			if (CInputActionSet.left.isJustPressed() || CInputActionSet.altLeft.isJustPressed()) {
 				--offsetEnemyIndex;
@@ -141,28 +140,14 @@ public class PotionSackPopUp {
 				++offsetEnemyIndex;
 			}
 
-			if (offsetEnemyIndex != 0) {
-				ArrayList<AbstractMonster> prefiltered = AbstractDungeon.getCurrRoom().monsters.monsters;
-				ArrayList<AbstractMonster> sortedMonsters = new ArrayList<>(AbstractDungeon.getCurrRoom().monsters.monsters);
-				Iterator var4 = prefiltered.iterator();
+			if (offsetEnemyIndex != 0 || autoTarget) {
+				ArrayList<AbstractMonster> sortedMonsters = AbstractDungeon.getCurrRoom().monsters.monsters.stream().filter(m -> !m.isDying).sorted(AbstractMonster.sortByHitbox).collect(Collectors.toCollection(ArrayList::new));
 
-				AbstractMonster m;
-				while (var4.hasNext()) {
-					m = (AbstractMonster) var4.next();
-					if (m.isDying) {
-						sortedMonsters.remove(m);
-					}
-				}
-
-				sortedMonsters.sort(AbstractMonster.sortByHitbox);
 				if (sortedMonsters.isEmpty()) {
 					return;
 				}
 
-				var4 = sortedMonsters.iterator();
-
-				while (var4.hasNext()) {
-					m = (AbstractMonster) var4.next();
+				for (AbstractMonster m : sortedMonsters) {
 					if (m.hb.hovered) {
 						this.hoveredMonster = m;
 						break;
@@ -171,7 +156,7 @@ public class PotionSackPopUp {
 
 				AbstractMonster newTarget;
 				if (this.hoveredMonster == null) {
-					if (offsetEnemyIndex == 1) {
+					if (offsetEnemyIndex == 1 || autoTarget) {
 						newTarget = sortedMonsters.get(0);
 					} else {
 						newTarget = sortedMonsters.get(sortedMonsters.size() - 1);
@@ -193,7 +178,6 @@ public class PotionSackPopUp {
 					this.hoveredMonster = null;
 				}
 			}
-
 		}
 	}
 
@@ -216,7 +200,6 @@ public class PotionSackPopUp {
 				} else if (this.hbBot.hovered && this.potion.canUse() && (CInputActionSet.up.isJustPressed() || CInputActionSet.down.isJustPressed() || CInputActionSet.altUp.isJustPressed() || CInputActionSet.altDown.isJustPressed())) {
 					Gdx.input.setCursorPosition((int) this.hbTop.cX, Settings.HEIGHT - (int) this.hbTop.cY);
 				}
-
 			}
 		}
 	}
@@ -228,10 +211,7 @@ public class PotionSackPopUp {
 		}
 
 		this.hoveredMonster = null;
-		Iterator var1 = AbstractDungeon.getMonsters().monsters.iterator();
-
-		while (var1.hasNext()) {
-			AbstractMonster m = (AbstractMonster) var1.next();
+		for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
 			if (m.hb.hovered && !m.isDying) {
 				this.hoveredMonster = m;
 				break;
@@ -276,7 +256,7 @@ public class PotionSackPopUp {
 		}
 
 		if (!(PotionSack.selectPotionActions[slot].isJustPressed() && (this.highlightTop || this.hbTop.hovered)) &&
-				!this.hbTop.clicked && (!this.hbTop.hovered || !CInputActionSet.select.isJustPressed()) || AbstractDungeon.isScreenUp && !(this.potion instanceof FruitJuice)) {
+			!this.hbTop.clicked && (!this.hbTop.hovered || !CInputActionSet.select.isJustPressed()) || AbstractDungeon.isScreenUp && !(this.potion instanceof FruitJuice)) {
 			if ((this.hbBot.clicked || this.hbBot.hovered && CInputActionSet.select.isJustPressed()) && this.potion.canDiscard()) {
 				CInputActionSet.select.unpress();
 				this.hbBot.clicked = false;
@@ -306,6 +286,9 @@ public class PotionSackPopUp {
 	}
 
 	private void startTargeting() {
+		AbstractDungeon.player.releaseCard();
+		AbstractDungeon.player.inspectMode = false;
+		AbstractDungeon.topPanel.potionUi.targetMode = false;
 		this.targetMode = true;
 		GameCursor.hidden = true;
 		this.autoTargetFirst = true;
@@ -318,7 +301,6 @@ public class PotionSackPopUp {
 
 	public void render(SpriteBatch sb) {
 		if (!this.isHidden) {
-			// I copied this from PotionPopup in the base game. If you bitch about not doing .cpy() here then just go fuck yourself.
 			sb.setColor(Color.WHITE);
 			sb.draw(OLD_POTION_BG, this.x - RAW_W / 2.0F, this.y - RAW_H / 2.0F, RAW_W / 2.0F, RAW_H / 2.0F, RAW_W, RAW_H, Settings.scale, Settings.scale, 0.0F, 0, 0, RAW_W, RAW_H, false, potionSackPopupFlipped);
 
@@ -372,7 +354,6 @@ public class PotionSackPopUp {
 
 			this.renderTargetingUi(sb);
 		}
-
 	}
 
 	private void renderTargetingUi(SpriteBatch sb) {
@@ -403,7 +384,7 @@ public class PotionSackPopUp {
 		float radius = 7.0F * Settings.scale;
 
 		for (int i = 0; i < this.points.length - 1; ++i) {
-			this.points[i] = (Vector2) Bezier.quadratic(this.points[i], (float) i / 20.0F, start, control, end, new Vector2());
+			this.points[i] = Bezier.quadratic(this.points[i], (float) i / 20.0F, start, control, end, new Vector2());
 			radius += 0.4F * Settings.scale;
 			Vector2 tmp;
 			float angle;
@@ -417,6 +398,5 @@ public class PotionSackPopUp {
 
 			sb.draw(ImageMaster.TARGET_UI_CIRCLE, this.points[i].x - 64.0F, this.points[i].y - 64.0F, 64.0F, 64.0F, 128.0F, 128.0F, radius / 18.0F, radius / 18.0F, angle, 0, 0, 128, 128, false, false);
 		}
-
 	}
 }

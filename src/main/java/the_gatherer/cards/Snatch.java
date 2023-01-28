@@ -33,23 +33,11 @@ public class Snatch extends AbstractNumberedCard implements ColoredTextCard {
 	private static final int UPGRADE_BONUS = 2;
 
 	public Snatch() {
-		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+		super(ID, NAME, IMG, COST, DESCRIPTION, EXTENDED_DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 		this.baseDamage = POWER;
 		updateDescription();
 
 		this.tags.add(CustomTags.POTION_GEN);
-	}
-
-	public void updateDescription() {
-		if (upgraded && playCount == 0) {
-			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
-		} else if (upgraded && playCount == 1 || playCount == 0) {
-			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
-		} else {
-			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[2];
-		}
-
-		this.initializeDescription();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

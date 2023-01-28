@@ -223,7 +223,7 @@ public class PotionSack {
 			r += this.flashRedTimer / 2.0f;
 		}
 		if (this.hb.hovered) {
-			sb.setColor(new Color(1.0F, 1.0F * (1 - 0.4F * r), 1.0F * (1 - 0.4F * r), 1.0F));
+			sb.setColor(new Color(1.0F, 1 - 0.4F * r, 1 - 0.4F * r, 1.0F));
 		} else {
 			sb.setColor(new Color(0.6F + 0.4f * r, 0.6F, 0.6F, 0.8F + 0.2F * r));
 		}

@@ -5,9 +5,9 @@
     "Celicath"
   ],
   "credits": "Rita-Bernstein - Character art, ZHS translation\nJedi - RUS translation\nHuginRonin - SPA translation\nMappyTheKat - Old character splash art",
-  "description": "Adds The Gatherer as a new playable character with 75 cards, 7 relics.\n\nv1.0.8 (2022-10-23)\n- New localization: Spanish(Thanks to HuginRonin)\n- Now the border of following cards will glow if their additional effect will be activated: Drug Power, Finishing Strike, Polymorphism\n- Explorer's Path pick ratio data was updated for the Gatherer and the Poker Player. Added pick ratio data for the Dragon Tamer.\n\nVisit https://steamcommunity.com/sharedfiles/filedetails/changelog/1611788501 for full change notes.",
-  "version": "1.0.8",
-  "sts_version": "10-04-2022",
+  "description": "Adds The Gatherer as a new playable character with 75 cards, 7 relics.\n\nv1.0.8 (2022-10-23)\n- New localization: Spanish(Thanks to HuginRonin)\n- Now the border of the following cards will glow if their additional effect will be activated: Drug Power, Finishing Strike, Polymorphism\n- Explorer's Path pick ratio data was updated for the Gatherer and the Poker Player. Added pick ratio data for the Dragon Tamer.\n\nv1.0.9 (2023-01-29)\n- Fixed a few bugs of the Potion Sack\n  - When you use the controller with I, O, P keys mapped, pressing I, O, P keys will now properly change the targeting mode.\n  - Pressing I, O, P keys will now make you release holding card and cancel regular potion targeting.\n- Added glow to Once/Twice cards: Centralize, Cursed Blade, Snatch, Wool Gloves.\n\n\nVisit https://steamcommunity.com/sharedfiles/filedetails/changelog/1611788501 for full change notes.",
+  "version": "1.0.9",
+  "sts_version": "12-18-2022",
   "mts_version": "3.7.0",
   "dependencies": [
     "basemod",

@@ -32,22 +32,10 @@ public class WoolGloves extends AbstractNumberedCard implements ColoredTextCard 
 	private static final int UPGRADE_BONUS = 3;
 
 	public WoolGloves() {
-		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+		super(ID, NAME, IMG, COST, DESCRIPTION, EXTENDED_DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
 		this.baseBlock = POWER;
 		updateDescription();
-	}
-
-	public void updateDescription() {
-		if (upgraded && playCount == 0) {
-			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
-		} else if (upgraded && playCount == 1 || playCount == 0) {
-			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[1];
-		} else {
-			this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[2];
-		}
-
-		this.initializeDescription();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
